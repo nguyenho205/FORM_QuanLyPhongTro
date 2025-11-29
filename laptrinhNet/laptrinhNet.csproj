@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3433C044-F2E4-4FE7-A584-90EBF548FA54}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>laptrinhNet</RootNamespace>
+    <AssemblyName>laptrinhNet</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.3.5, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.5\lib\net40\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAdmin\hdon-ttoanAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAdmin\hdon-ttoanAdmin.Designer.cs">
+      <DependentUpon>hdon-ttoanAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAdmin\hdongAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAdmin\hdongAdmin.Designer.cs">
+      <DependentUpon>hdongAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAdmin\khangAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAdmin\khangAdmin.Designer.cs">
+      <DependentUpon>khangAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAdmin\nvienAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAdmin\nvienAdmin.Designer.cs">
+      <DependentUpon>nvienAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAdmin\phoi-htroAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAdmin\phoi-htroAdmin.Designer.cs">
+      <DependentUpon>phoi-htroAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAdmin\ptroAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAdmin\ptroAdmin.Designer.cs">
+      <DependentUpon>ptroAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAdmin\tbao-nnhoAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAdmin\tbao-nnhoAdmin.Designer.cs">
+      <DependentUpon>tbao-nnhoAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAdmin\tke-bcaoAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlAdmin\tke-bcaoAdmin.Designer.cs">
+      <DependentUpon>tke-bcaoAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlKhachhang\hdon-ttoanKhachhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKhachhang\hdon-ttoanKhachhang.Designer.cs">
+      <DependentUpon>hdon-ttoanKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlKhachhang\hdongKhachhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKhachhang\hdongKhachhang.Designer.cs">
+      <DependentUpon>hdongKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlKhachhang\khangKhachhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKhachhang\khangKhachhang.Designer.cs">
+      <DependentUpon>khangKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlKhachhang\phoi-htroKhachhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKhachhang\phoi-htroKhachhang.Designer.cs">
+      <DependentUpon>phoi-htroKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlKhachhang\ptroKhachhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKhachhang\ptroKhachhang.Designer.cs">
+      <DependentUpon>ptroKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlKhachhang\tbao-nnhoKhachhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKhachhang\tbao-nnhoKhachhang.Designer.cs">
+      <DependentUpon>tbao-nnhoKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlNhanvien\hdon-ttoanNhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlNhanvien\hdon-ttoanNhanvien.Designer.cs">
+      <DependentUpon>hdon-ttoanNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlNhanvien\hdongNhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlNhanvien\hdongNhanvien.Designer.cs">
+      <DependentUpon>hdongNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlNhanvien\khangNhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlNhanvien\khangNhanvien.Designer.cs">
+      <DependentUpon>khangNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlNhanvien\nvienNhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlNhanvien\nvienNhanvien.Designer.cs">
+      <DependentUpon>nvienNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlNhanvien\phoi-htroNhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlNhanvien\phoi-htroNhanvien.Designer.cs">
+      <DependentUpon>phoi-htroNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlNhanvien\ptroNhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlNhanvien\ptroNhanvien.Designer.cs">
+      <DependentUpon>ptroNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlNhanvien\tbao-nnhoNhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlNhanvien\tbao-nnhoNhanvien.Designer.cs">
+      <DependentUpon>tbao-nnhoNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlNhanvien\tke-bcaoNhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlNhanvien\tke-bcaoNhanvien.Designer.cs">
+      <DependentUpon>tke-bcaoNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DTOs\DichVuDTO.cs" />
+    <Compile Include="Database\DTOs\HoaDonDTO.cs" />
+    <Compile Include="Database\DTOs\HopDongDTO.cs" />
+    <Compile Include="Database\DTOs\KhachHangDTO.cs" />
+    <Compile Include="Database\DTOs\NhanVienDTO.cs" />
+    <Compile Include="Database\DTOs\PhongTroDTO.cs" />
+    <Compile Include="Database\DTOs\TaiKhoanDTO.cs" />
+    <Compile Include="Database\Entities\CONGVIEC.cs" />
+    <Compile Include="Database\Entities\CT_DICHVU.cs" />
+    <Compile Include="Database\Entities\CT_HOADON.cs" />
+    <Compile Include="Database\Entities\DICHVU.cs" />
+    <Compile Include="Database\Entities\HOADON.cs" />
+    <Compile Include="Database\Entities\HOPDONG.cs" />
+    <Compile Include="Database\Entities\KHACHHANG.cs" />
+    <Compile Include="Database\Entities\LOAI_PHONGTRO.cs" />
+    <Compile Include="Database\Entities\NHANVIEN.cs" />
+    <Compile Include="Database\Entities\PHANCONG.cs" />
+    <Compile Include="Database\Entities\PHONGTRO.cs" />
+    <Compile Include="Database\Entities\TAIKHOAN.cs" />
+    <Compile Include="Database\Entities\THANNHAN_THUETRO.cs" />
+    <Compile Include="Database\Entities\YEUCAUHOTRO.cs" />
+    <Compile Include="Database\QLPhongTroDataContext.cs" />
+    <Compile Include="KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang.Designer.cs">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien.Designer.cs">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAdmin\hdon-ttoanAdmin.resx">
+      <DependentUpon>hdon-ttoanAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAdmin\hdongAdmin.resx">
+      <DependentUpon>hdongAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAdmin\khangAdmin.resx">
+      <DependentUpon>khangAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAdmin\nvienAdmin.resx">
+      <DependentUpon>nvienAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAdmin\phoi-htroAdmin.resx">
+      <DependentUpon>phoi-htroAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAdmin\ptroAdmin.resx">
+      <DependentUpon>ptroAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAdmin\tbao-nnhoAdmin.resx">
+      <DependentUpon>tbao-nnhoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlAdmin\tke-bcaoAdmin.resx">
+      <DependentUpon>tke-bcaoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKhachhang\hdon-ttoanKhachhang.resx">
+      <DependentUpon>hdon-ttoanKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKhachhang\hdongKhachhang.resx">
+      <DependentUpon>hdongKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKhachhang\khangKhachhang.resx">
+      <DependentUpon>khangKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKhachhang\phoi-htroKhachhang.resx">
+      <DependentUpon>phoi-htroKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKhachhang\ptroKhachhang.resx">
+      <DependentUpon>ptroKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKhachhang\tbao-nnhoKhachhang.resx">
+      <DependentUpon>tbao-nnhoKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlNhanvien\hdon-ttoanNhanvien.resx">
+      <DependentUpon>hdon-ttoanNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlNhanvien\hdongNhanvien.resx">
+      <DependentUpon>hdongNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlNhanvien\khangNhanvien.resx">
+      <DependentUpon>khangNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlNhanvien\nvienNhanvien.resx">
+      <DependentUpon>nvienNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlNhanvien\phoi-htroNhanvien.resx">
+      <DependentUpon>phoi-htroNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlNhanvien\ptroNhanvien.resx">
+      <DependentUpon>ptroNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlNhanvien\tbao-nnhoNhanvien.resx">
+      <DependentUpon>tbao-nnhoNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlNhanvien\tke-bcaoNhanvien.resx">
+      <DependentUpon>tke-bcaoNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang.resx">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>

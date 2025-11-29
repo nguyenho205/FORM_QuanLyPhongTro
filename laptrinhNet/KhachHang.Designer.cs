@@ -1,0 +1,291 @@
+﻿namespace laptrinhNet
+{
+    partial class KhachHang
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhachHang));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.hdon_ttoanKhachhang1 = new laptrinhNet.ControlKhachhang.hdon_ttoanKhachhang();
+            this.hdongKhachhang1 = new laptrinhNet.ControlKhachhang.hdongKhachhang();
+            this.khangKhachhang1 = new laptrinhNet.ControlKhachhang.khangKhachhang();
+            this.phoi_htroKhachhang1 = new laptrinhNet.ControlKhachhang.phoi_htroKhachhang();
+            this.ptroKhachhang1 = new laptrinhNet.ControlKhachHang.ptroKhachhang();
+            this.tbao_nnhoKhachhang1 = new laptrinhNet.ControlKhachhang.tbao_nnhoKhachhang();
+            this.btnPhanHoi = new Guna.UI2.WinForms.Guna2Button();
+            this.btnKhachHang = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHopDong = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHoaDon = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThongBao = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPhongTro = new Guna.UI2.WinForms.Guna2Button();
+            this.panel1.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.tbao_nnhoKhachhang1);
+            this.panel1.Controls.Add(this.ptroKhachhang1);
+            this.panel1.Controls.Add(this.phoi_htroKhachhang1);
+            this.panel1.Controls.Add(this.khangKhachhang1);
+            this.panel1.Controls.Add(this.hdongKhachhang1);
+            this.panel1.Controls.Add(this.hdon_ttoanKhachhang1);
+            this.panel1.Location = new System.Drawing.Point(16, 49);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1001, 419);
+            this.panel1.TabIndex = 24;
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BorderRadius = 10;
+            this.btnDangXuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangXuat.FillColor = System.Drawing.Color.Brown;
+            this.btnDangXuat.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
+            this.btnDangXuat.Location = new System.Drawing.Point(966, 494);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(95, 26);
+            this.btnDangXuat.TabIndex = 27;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.guna2Panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("guna2Panel1.BackgroundImage")));
+            this.guna2Panel1.Controls.Add(this.btnPhanHoi);
+            this.guna2Panel1.Controls.Add(this.btnKhachHang);
+            this.guna2Panel1.Controls.Add(this.btnHopDong);
+            this.guna2Panel1.Controls.Add(this.btnHoaDon);
+            this.guna2Panel1.Controls.Add(this.btnThongBao);
+            this.guna2Panel1.Controls.Add(this.btnPhongTro);
+            this.guna2Panel1.Controls.Add(this.panel1);
+            this.guna2Panel1.Location = new System.Drawing.Point(29, 9);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(1034, 477);
+            this.guna2Panel1.TabIndex = 26;
+            // 
+            // hdon_ttoanKhachhang1
+            // 
+            this.hdon_ttoanKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.hdon_ttoanKhachhang1.Location = new System.Drawing.Point(-2, -2);
+            this.hdon_ttoanKhachhang1.Name = "hdon_ttoanKhachhang1";
+            this.hdon_ttoanKhachhang1.Size = new System.Drawing.Size(1001, 419);
+            this.hdon_ttoanKhachhang1.TabIndex = 0;
+            // 
+            // hdongKhachhang1
+            // 
+            this.hdongKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.hdongKhachhang1.Location = new System.Drawing.Point(-2, -2);
+            this.hdongKhachhang1.Name = "hdongKhachhang1";
+            this.hdongKhachhang1.Size = new System.Drawing.Size(1001, 419);
+            this.hdongKhachhang1.TabIndex = 1;
+            // 
+            // khangKhachhang1
+            // 
+            this.khangKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.khangKhachhang1.Location = new System.Drawing.Point(-2, -2);
+            this.khangKhachhang1.Name = "khangKhachhang1";
+            this.khangKhachhang1.Size = new System.Drawing.Size(1001, 419);
+            this.khangKhachhang1.TabIndex = 2;
+            // 
+            // phoi_htroKhachhang1
+            // 
+            this.phoi_htroKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.phoi_htroKhachhang1.Location = new System.Drawing.Point(-2, -2);
+            this.phoi_htroKhachhang1.Name = "phoi_htroKhachhang1";
+            this.phoi_htroKhachhang1.Size = new System.Drawing.Size(1001, 419);
+            this.phoi_htroKhachhang1.TabIndex = 3;
+            // 
+            // ptroKhachhang1
+            // 
+            this.ptroKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.ptroKhachhang1.Location = new System.Drawing.Point(-2, -2);
+            this.ptroKhachhang1.Name = "ptroKhachhang1";
+            this.ptroKhachhang1.Size = new System.Drawing.Size(1001, 419);
+            this.ptroKhachhang1.TabIndex = 4;
+            // 
+            // tbao_nnhoKhachhang1
+            // 
+            this.tbao_nnhoKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.tbao_nnhoKhachhang1.Location = new System.Drawing.Point(-2, -2);
+            this.tbao_nnhoKhachhang1.Name = "tbao_nnhoKhachhang1";
+            this.tbao_nnhoKhachhang1.Size = new System.Drawing.Size(1001, 419);
+            this.tbao_nnhoKhachhang1.TabIndex = 5;
+            // 
+            // btnPhanHoi
+            // 
+            this.btnPhanHoi.BackColor = System.Drawing.Color.Transparent;
+            this.btnPhanHoi.BorderRadius = 10;
+            this.btnPhanHoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPhanHoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPhanHoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPhanHoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPhanHoi.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPhanHoi.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhanHoi.ForeColor = System.Drawing.Color.White;
+            this.btnPhanHoi.Location = new System.Drawing.Point(747, 13);
+            this.btnPhanHoi.Name = "btnPhanHoi";
+            this.btnPhanHoi.Size = new System.Drawing.Size(145, 26);
+            this.btnPhanHoi.TabIndex = 30;
+            this.btnPhanHoi.Text = "Phản hồi - Hỗ trợ";
+            this.btnPhanHoi.Click += new System.EventHandler(this.btnPhanHoi_Click);
+            // 
+            // btnKhachHang
+            // 
+            this.btnKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.btnKhachHang.BorderRadius = 10;
+            this.btnKhachHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKhachHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKhachHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKhachHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKhachHang.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnKhachHang.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhachHang.ForeColor = System.Drawing.Color.White;
+            this.btnKhachHang.Location = new System.Drawing.Point(244, 13);
+            this.btnKhachHang.Name = "btnKhachHang";
+            this.btnKhachHang.Size = new System.Drawing.Size(95, 26);
+            this.btnKhachHang.TabIndex = 26;
+            this.btnKhachHang.Text = "Khách hàng";
+            this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
+            // 
+            // btnHopDong
+            // 
+            this.btnHopDong.BackColor = System.Drawing.Color.Transparent;
+            this.btnHopDong.BorderRadius = 10;
+            this.btnHopDong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHopDong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHopDong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHopDong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHopDong.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnHopDong.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHopDong.ForeColor = System.Drawing.Color.White;
+            this.btnHopDong.Location = new System.Drawing.Point(345, 13);
+            this.btnHopDong.Name = "btnHopDong";
+            this.btnHopDong.Size = new System.Drawing.Size(95, 26);
+            this.btnHopDong.TabIndex = 27;
+            this.btnHopDong.Text = "Hợp đồng";
+            this.btnHopDong.Click += new System.EventHandler(this.btnHopDong_Click);
+            // 
+            // btnHoaDon
+            // 
+            this.btnHoaDon.BackColor = System.Drawing.Color.Transparent;
+            this.btnHoaDon.BorderRadius = 10;
+            this.btnHoaDon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHoaDon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHoaDon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHoaDon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHoaDon.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnHoaDon.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoaDon.ForeColor = System.Drawing.Color.White;
+            this.btnHoaDon.Location = new System.Drawing.Point(446, 14);
+            this.btnHoaDon.Name = "btnHoaDon";
+            this.btnHoaDon.Size = new System.Drawing.Size(145, 26);
+            this.btnHoaDon.TabIndex = 28;
+            this.btnHoaDon.Text = "Hóa đơn - Thanh toán";
+            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
+            // 
+            // btnThongBao
+            // 
+            this.btnThongBao.BackColor = System.Drawing.Color.Transparent;
+            this.btnThongBao.BorderRadius = 10;
+            this.btnThongBao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThongBao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThongBao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThongBao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThongBao.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnThongBao.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongBao.ForeColor = System.Drawing.Color.White;
+            this.btnThongBao.Location = new System.Drawing.Point(597, 14);
+            this.btnThongBao.Name = "btnThongBao";
+            this.btnThongBao.Size = new System.Drawing.Size(145, 26);
+            this.btnThongBao.TabIndex = 29;
+            this.btnThongBao.Text = "Thông báo - Nhắc nhở";
+            this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
+            // 
+            // btnPhongTro
+            // 
+            this.btnPhongTro.BackColor = System.Drawing.Color.Transparent;
+            this.btnPhongTro.BorderRadius = 10;
+            this.btnPhongTro.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPhongTro.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPhongTro.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPhongTro.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPhongTro.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPhongTro.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhongTro.ForeColor = System.Drawing.Color.White;
+            this.btnPhongTro.Location = new System.Drawing.Point(143, 13);
+            this.btnPhongTro.Name = "btnPhongTro";
+            this.btnPhongTro.Size = new System.Drawing.Size(95, 26);
+            this.btnPhongTro.TabIndex = 25;
+            this.btnPhongTro.Text = "Phòng trọ";
+            this.btnPhongTro.Click += new System.EventHandler(this.btnPhongTro_Click);
+            // 
+            // KhachHang
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1092, 529);
+            this.Controls.Add(this.btnDangXuat);
+            this.Controls.Add(this.guna2Panel1);
+            this.Name = "KhachHang";
+            this.Text = "KhachHang";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KhachHang_FormClosing);
+            this.Load += new System.EventHandler(this.KhachHang_Load);
+            this.panel1.ResumeLayout(false);
+            this.guna2Panel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button btnDangXuat;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private ControlKhachhang.tbao_nnhoKhachhang tbao_nnhoKhachhang1;
+        private ControlKhachHang.ptroKhachhang ptroKhachhang1;
+        private ControlKhachhang.phoi_htroKhachhang phoi_htroKhachhang1;
+        private ControlKhachhang.khangKhachhang khangKhachhang1;
+        private ControlKhachhang.hdongKhachhang hdongKhachhang1;
+        private ControlKhachhang.hdon_ttoanKhachhang hdon_ttoanKhachhang1;
+        private Guna.UI2.WinForms.Guna2Button btnPhanHoi;
+        private Guna.UI2.WinForms.Guna2Button btnKhachHang;
+        private Guna.UI2.WinForms.Guna2Button btnHopDong;
+        private Guna.UI2.WinForms.Guna2Button btnHoaDon;
+        private Guna.UI2.WinForms.Guna2Button btnThongBao;
+        private Guna.UI2.WinForms.Guna2Button btnPhongTro;
+    }
+}
