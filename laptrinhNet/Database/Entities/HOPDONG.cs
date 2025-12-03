@@ -9,26 +9,27 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("HOPDONG")]
-    public class HOPDONG
+    public class HopDong
     {
-        [Key]
-        [Column(TypeName = "CHAR(5)")]
-        public string MAHOPDONG { get; set; }
-        public DateTime? NGAYBD { get; set; }
-        public DateTime? NGAYKT { get; set; }
-        public decimal? TIENCOC { get; set; } // MONEY
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string TRANGTHAI { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MAKH { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MAPHONG { get; set; }
+        [Column("MAHOPDONG"), Key]
+        public string MaHopDong { get; set; }
 
-        [ForeignKey("MAKH")]
-        public virtual KHACHHANG KhachHang { get; set; }
-        [ForeignKey("MAPHONG")]
-        public virtual PHONGTRO PhongTro { get; set; }
-        public virtual ICollection<CT_DICHVU> ChiTietDichVus { get; set; }
-        public virtual ICollection<HOADON> HoaDons { get; set; }
+        [Column("NGAYBD")]
+        public DateTime? NgayBD { get; set; }
+
+        [Column("NGAYKT")]
+        public DateTime? NgayKT { get; set; }
+
+        [Column("TIENCOC")]
+        public decimal? TienCoc { get; set; }
+
+        [Column("TRANGTHAI")]
+        public string TrangThai { get; set; }
+
+        [Column("MAKH")]
+        public string MaKH { get; set; }
+
+        [Column("MAPHONG")]
+        public string MaPhong { get; set; }
     }
 }

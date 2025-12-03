@@ -9,20 +9,18 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("PHANCONG")]
-    public class PHANCONG
+    public class PhanCong
     {
-        [Key]
-        [Column(TypeName = "CHAR(5)")]
-        public string MAPHANCONG { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MANV { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MACV { get; set; }
-        public DateTime? NGAYPHANCONG { get; set; }
+        [Column("MAPHANCONG"), Key]
+        public string MaPhanCong { get; set; }
 
-        [ForeignKey("MANV")]
-        public virtual NHANVIEN NhanVien { get; set; }
-        [ForeignKey("MACV")]
-        public virtual CONGVIEC CongViec { get; set; }
+        [Column("MANV")]
+        public string MaNV { get; set; }
+
+        [Column("MACV")]
+        public string MaCV { get; set; }
+
+        [Column("NGAYPHANCONG")]
+        public DateTime? NgayPhanCong { get; set; }
     }
 }

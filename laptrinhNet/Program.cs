@@ -1,4 +1,5 @@
-﻿using System;
+﻿using laptrinhNet.ControlAdmin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace laptrinhNet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
+            Application.Run(new Form1());
         }
     }
 }

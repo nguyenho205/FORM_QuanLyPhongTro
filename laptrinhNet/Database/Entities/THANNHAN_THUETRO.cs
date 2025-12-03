@@ -8,26 +8,29 @@ using System.Threading.Tasks;
 
 namespace laptrinhNet.Database.Entities
 {
+    // 12. BẢNG THÂN NHÂN THUÊ TRỌ
     [Table("THANNHAN_THUETRO")]
-    public class THANNHAN_THUETRO
+    public class ThanNhan
     {
-        [Key]
-        [Column(TypeName = "CHAR(5)")]
-        public string MATN { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MAKH { get; set; }
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string TENTHANNHAN { get; set; }
-        [Column(TypeName = "NVARCHAR(10)")]
-        public string GIOITINH { get; set; }
-        [Column(TypeName = "CHAR(12)")]
-        public string SOCMND { get; set; }
-        [Column(TypeName = "CHAR(10)")]
-        public string SODT_TN { get; set; }
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string DIACHI { get; set; }
+        [Column("MATN"), Key]
+        public string MaTN { get; set; }
 
-        [ForeignKey("MAKH")]
-        public virtual KHACHHANG KhachHang { get; set; }
+        [Column("MAKH")]
+        public string MaKH { get; set; }
+
+        [Column("TENTHANNHAN")]
+        public string TenThanNhan { get; set; }
+
+        [Column("GIOITINH")]
+        public string GioiTinh { get; set; }
+
+        [Column("SOCMND")]
+        public string SoCMND { get; set; }
+
+        [Column("SODT_TN")]
+        public string SoDT_TN { get; set; }
+
+        [Column("DIACHI")]
+        public string DiaChi { get; set; }
     }
 }

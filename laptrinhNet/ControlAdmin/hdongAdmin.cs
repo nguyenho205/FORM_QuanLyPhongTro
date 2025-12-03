@@ -21,5 +21,10 @@ namespace laptrinhNet.ControlAdmin
         {
 
         }
+
+        private void hdongAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

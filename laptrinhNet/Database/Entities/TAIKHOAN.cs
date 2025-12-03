@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("TAIKHOAN")]
-    public class TAIKHOAN
+    public class TaiKhoan
     {
-        [Key]
-        [Column(TypeName = "CHAR(15)")]
-        public string MATK { get; set; }
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string TENDANGNHAP { get; set; }
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string MATKHAU { get; set; }
-        public int? MALIENKET { get; set; }
+        [Column("MATK"), Key]
+        public string MaTK { get; set; }
+
+        [Column("TENDANGNHAP")]
+        public string TenDangNhap { get; set; }
+
+        [Column("MATKHAU")]
+        public string MatKhau { get; set; }
+
+        [Column("MALIENKET")]
+        public string MaLienKet { get; set; }
+
+        [Column("LOAITAIKHOAN")]
+        public string LoaiTaiKhoan { get; set; }
     }
 }

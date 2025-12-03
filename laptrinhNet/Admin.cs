@@ -92,5 +92,15 @@ namespace laptrinhNet
             phoi_htroAdmin1.Visible = true;
             phoi_htroAdmin1.BringToFront();
         }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void phoi_htroAdmin1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

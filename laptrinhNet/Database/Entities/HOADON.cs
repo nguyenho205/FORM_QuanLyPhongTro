@@ -9,26 +9,33 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("HOADON")]
-    public class HOADON
+    public class HoaDon
     {
-        [Key]
-        [Column(TypeName = "CHAR(5)")]
-        public string MAHD { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MAHOPDONG { get; set; }
-        public DateTime? THANGNAM { get; set; }
-        public DateTime? NGAYLAP { get; set; }
-        public decimal? TONGTIEN { get; set; } // MONEY
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string TRANGTHAITHANHTOAN { get; set; }
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string PHUONGTHUCTT { get; set; }
-        public DateTime? NGAYTHANHTOAN { get; set; }
-        [Column(TypeName = "NVARCHAR(256)")]
-        public string GHICHU { get; set; }
+        [Column("MAHD"), Key]
+        public string MaHD { get; set; }
 
-        [ForeignKey("MAHOPDONG")]
-        public virtual HOPDONG HopDong { get; set; }
-        public virtual ICollection<CT_HOADON> ChiTietHoaDons { get; set; }
+        [Column("MAHOPDONG")]
+        public string MaHopDong { get; set; }
+
+        [Column("THANGNAM")]
+        public DateTime? ThangNam { get; set; }
+
+        [Column("NGAYLAP")]
+        public DateTime? NgayLap { get; set; }
+
+        [Column("TONGTIEN")]
+        public decimal? TongTien { get; set; }
+
+        [Column("TRANGTHAITHANHTOAN")]
+        public string TrangThaiThanhToan { get; set; }
+
+        [Column("PHUONGTHUCTT")]
+        public string PhuongThucTT { get; set; }
+
+        [Column("NGAYTHANHTOAN")]
+        public DateTime? NgayThanhToan { get; set; }
+
+        [Column("GHICHU")]
+        public string GhiChu { get; set; }
     }
 }

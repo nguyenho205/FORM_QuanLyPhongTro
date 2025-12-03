@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -8,22 +9,23 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("CT_DICHVU")]
-    public class CT_DICHVU
+    public class CT_DichVu
     {
-        
-        [Column(TypeName = "CHAR(5)")]
-        public string MACTDV { get; set; } 
-        [Column(TypeName = "CHAR(5)")]
-        public string MAHOPDONG { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MADV { get; set; }
-        public DateTime? NGAYBD { get; set; }
-        [Column(TypeName = "NVARCHAR(256)")]
-        public string GHICHU { get; set; }
 
-        [ForeignKey("MAHOPDONG")]
-        public virtual HOPDONG HopDong { get; set; }
-        [ForeignKey("MADV")]
-        public virtual DICHVU DichVu { get; set; }
+
+        [Column("MAHOPDONG", Order = 1), Key]
+        public string MaHopDong { get; set; }
+
+        [Column("MADV", Order = 2), Key]
+        public string MaDV { get; set; }
+
+        [Column("MACTDV")]
+        public string MaCTDV { get; set; }
+
+        [Column("NGAYBD")]
+        public DateTime? NgayBD { get; set; }
+
+        [Column("GHICHU")]
+        public string GhiChu { get; set; }
     }
 }

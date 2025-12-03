@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace laptrinhNet.Database.DTOs
 {
     public class KhachHangDTO
     {
+        [Key]
         public string MAKH { get; set; }
         public string TENKH { get; set; }
         public string SOCMND { get; set; }

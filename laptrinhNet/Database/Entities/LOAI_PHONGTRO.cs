@@ -9,19 +9,24 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("LOAI_PHONGTRO")]
-    public class LOAI_PHONGTRO
+    public class LoaiPhongTro
     {
-        [Key]
-        [Column(TypeName = "CHAR(10)")]
-        public string MALOAI { get; set; }
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string TENLOAI { get; set; }
-        public decimal? GIAPHONG { get; set; } // MONEY
-        public int? SONGUOITOIDA { get; set; }
-        [Column(TypeName = "NVARCHAR(200)")]
-        public string TIENICH { get; set; }
-        [Column(TypeName = "NVARCHAR(100)")]
-        public string GHICHU { get; set; }
-        public virtual ICollection<PHONGTRO> PhongTroes { get; set; }
+        [Column("MALOAI"), Key]
+        public string MaLoai { get; set; }
+
+        [Column("TENLOAI")]
+        public string TenLoai { get; set; }
+
+        [Column("GIAPHONG")]
+        public decimal? GiaPhong { get; set; }
+
+        [Column("SONGUOITOIDA")]
+        public int? SoNguoiToiDa { get; set; }
+
+        [Column("TIENICH")]
+        public string TienIch { get; set; }
+
+        [Column("GHICHU")]
+        public string GhiChu { get; set; }
     }
 }

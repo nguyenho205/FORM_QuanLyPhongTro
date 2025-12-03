@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("CONGVIEC")]
-    public class CONGVIEC
+    public class CongViec
     {
-        [Key]
-        [Column(TypeName = "CHAR(5)")]
-        public string MACV { get; set; }
-        [Column(TypeName = "NVARCHAR(50)")]
-        public string TENCV { get; set; }
-        [Column(TypeName = "NVARCHAR(256)")]
-        public string MOTACONGVIEC { get; set; }
-        public virtual ICollection<PHANCONG> PhanCongs { get; set; }
+        [Column("MACV"), Key]
+        public string MaCV { get; set; }
+
+        [Column("TENCV")]
+        public string TenCV { get; set; }
+
+        [Column("MOTACONGVIEC")]
+        public string MoTaCongViec { get; set; }
     }
 }

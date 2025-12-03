@@ -9,24 +9,30 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("CT_HOADON")]
-    public class CT_HOADON
+    public class CT_HoaDon
     {
-        [Column(TypeName = "CHAR(5)")]
-        public string MAHD { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MADV { get; set; }
-        public int? CHISO_CU { get; set; }
-        public int? CHISO_MOI { get; set; }
-        public int? SOLUONG { get; set; }
-        [Required]
-        public decimal DONGIA { get; set; } // MONEY, NOT NULL
-        public decimal? THANHTIEN { get; set; } // MONEY
-        [Column(TypeName = "NVARCHAR(100)")]
-        public string GHICHU { get; set; }
+        [Column("MAHD", Order = 1), Key]
+        public string MaHD { get; set; }
 
-        [ForeignKey("MAHD")]
-        public virtual HOADON HoaDon { get; set; }
-        [ForeignKey("MADV")]
-        public virtual DICHVU DichVu { get; set; }
+        [Column("MADV", Order = 2), Key]
+        public string MaDV { get; set; }
+
+        [Column("CHISO_CU")]
+        public int? ChiSoCu { get; set; }
+
+        [Column("CHISO_MOI")]
+        public int? ChiSoMoi { get; set; }
+
+        [Column("SOLUONG")]
+        public int? SoLuong { get; set; }
+
+        [Column("DONGIA")]
+        public decimal DonGia { get; set; }
+
+        [Column("THANHTIEN")]
+        public decimal? ThanhTien { get; set; }
+
+        [Column("GHICHU")]
+        public string GhiChu { get; set; }
     }
 }

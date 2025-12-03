@@ -9,27 +9,30 @@ using System.Threading.Tasks;
 namespace laptrinhNet.Database.Entities
 {
     [Table("YEUCAUHOTRO")]
-    public class YEUCAUHOTRO
+    public class YeuCauHoTro
     {
-        [Key]
-        [Column(TypeName = "CHAR(5)")]
-        public string MAYEUCAU { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MAKH { get; set; }
-        public DateTime? NGAYGUI { get; set; }
-        [Column(TypeName = "NVARCHAR(200)")]
-        public string NOIDUNG { get; set; }
-        [Column(TypeName = "NVARCHAR(20)")]
-        public string TRANGTHAI { get; set; }
-        [Column(TypeName = "CHAR(5)")]
-        public string MANV_XULY { get; set; }
-        public DateTime? NGAYXULY { get; set; }
-        [Column(TypeName = "NVARCHAR(200)")]
-        public string PHANHOI { get; set; }
+        [Column("MAYEUCAU"), Key]
+        public string MaYeuCau { get; set; }
 
-        [ForeignKey("MAKH")]
-        public virtual KHACHHANG KhachHang { get; set; }
-        [ForeignKey("MANV_XULY")]
-        public virtual NHANVIEN NhanVienXuLy { get; set; }
+        [Column("MAKH")]
+        public string MaKH { get; set; }
+
+        [Column("NGAYGUI")]
+        public DateTime? NgayGui { get; set; }
+
+        [Column("NOIDUNG")]
+        public string NoiDung { get; set; }
+
+        [Column("TRANGTHAI")]
+        public string TrangThai { get; set; }
+
+        [Column("MANV_XULY")]
+        public string MaNV_XuLy { get; set; }
+
+        [Column("NGAYXULY")]
+        public DateTime? NgayXuLy { get; set; }
+
+        [Column("PHANHOI")]
+        public string PhanHoi { get; set; }
     }
 }
