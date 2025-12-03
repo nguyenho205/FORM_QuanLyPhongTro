@@ -17,8 +17,11 @@ namespace laptrinhNet.Database.Entities
         [Column("TENPHONG")]
         public string TenPhong { get; set; }
 
-        [Column("MALOAI")]
+        [Column("MALOAI"), ForeignKey("LoaiPTDaTa")]
         public string MaLoai { get; set; }
+        public virtual LoaiPhongTro LoaiPTDaTa { get; set; }
+        [Column("TENLOAI")]
+        public string TenLoai { get; set; }
 
         [Column("TRANGTHAI")]
         public string TrangThai { get; set; }

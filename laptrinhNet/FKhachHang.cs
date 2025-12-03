@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -11,9 +12,10 @@ using System.Windows.Forms;
 
 namespace laptrinhNet
 {
-    public partial class KhachHang : Form
+    [NotMapped]
+    public partial class FKhachHang : Form
     {
-        public KhachHang()
+        public FKhachHang()
         {
             InitializeComponent();
         }
@@ -80,6 +82,11 @@ namespace laptrinhNet
         {
             phoi_htroKhachhang1.Visible = true;
             phoi_htroKhachhang1.BringToFront();
+        }
+
+        private void tbao_nnhoKhachhang1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

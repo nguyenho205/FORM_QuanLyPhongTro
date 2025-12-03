@@ -15,8 +15,9 @@ namespace laptrinhNet.Database.Entities
         [Column("MATN"), Key]
         public string MaTN { get; set; }
 
-        [Column("MAKH")]
+        [Column("MAKH"), ForeignKey("KhachHangDaTa")]
         public string MaKH { get; set; }
+        public virtual KhachHang KhachHangDaTa { get; set; }
 
         [Column("TENTHANNHAN")]
         public string TenThanNhan { get; set; }

@@ -33,8 +33,6 @@
             this.chk_ChuaThue = new System.Windows.Forms.CheckBox();
             this.chk_DaThue = new System.Windows.Forms.CheckBox();
             this.grid_PhongTro = new System.Windows.Forms.DataGridView();
-            this.soPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,10 +45,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cbo_TenLoai_PT = new System.Windows.Forms.ComboBox();
-            this.txt_MaPhong_PT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_SoNGHienTai = new System.Windows.Forms.TextBox();
             this.cbo_TenKH_PT = new System.Windows.Forms.ComboBox();
+            this.cbo_MaPhong = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_PhongTro)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +80,6 @@
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Trạng thái phòng trọ";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // chk_ChuaThue
             // 
@@ -113,34 +110,12 @@
             // grid_PhongTro
             // 
             this.grid_PhongTro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_PhongTro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.soPhong,
-            this.trangThai});
             this.grid_PhongTro.Location = new System.Drawing.Point(7, 88);
             this.grid_PhongTro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grid_PhongTro.Name = "grid_PhongTro";
             this.grid_PhongTro.RowHeadersWidth = 62;
             this.grid_PhongTro.Size = new System.Drawing.Size(600, 529);
             this.grid_PhongTro.TabIndex = 0;
-            this.grid_PhongTro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_PhongTro_CellContentClick);
-            // 
-            // soPhong
-            // 
-            this.soPhong.HeaderText = "Số phòng";
-            this.soPhong.MinimumWidth = 8;
-            this.soPhong.Name = "soPhong";
-            this.soPhong.ReadOnly = true;
-            this.soPhong.Visible = false;
-            this.soPhong.Width = 150;
-            // 
-            // trangThai
-            // 
-            this.trangThai.HeaderText = "Trạng thái";
-            this.trangThai.MinimumWidth = 8;
-            this.trangThai.Name = "trangThai";
-            this.trangThai.ReadOnly = true;
-            this.trangThai.Visible = false;
-            this.trangThai.Width = 150;
             // 
             // label4
             // 
@@ -275,14 +250,6 @@
             this.cbo_TenLoai_PT.Size = new System.Drawing.Size(255, 28);
             this.cbo_TenLoai_PT.TabIndex = 101;
             // 
-            // txt_MaPhong_PT
-            // 
-            this.txt_MaPhong_PT.Location = new System.Drawing.Point(835, 128);
-            this.txt_MaPhong_PT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_MaPhong_PT.Name = "txt_MaPhong_PT";
-            this.txt_MaPhong_PT.Size = new System.Drawing.Size(201, 26);
-            this.txt_MaPhong_PT.TabIndex = 102;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -313,14 +280,23 @@
             this.cbo_TenKH_PT.Size = new System.Drawing.Size(623, 28);
             this.cbo_TenKH_PT.TabIndex = 105;
             // 
+            // cbo_MaPhong
+            // 
+            this.cbo_MaPhong.FormattingEnabled = true;
+            this.cbo_MaPhong.Location = new System.Drawing.Point(835, 125);
+            this.cbo_MaPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbo_MaPhong.Name = "cbo_MaPhong";
+            this.cbo_MaPhong.Size = new System.Drawing.Size(201, 28);
+            this.cbo_MaPhong.TabIndex = 106;
+            // 
             // ptroAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbo_MaPhong);
             this.Controls.Add(this.cbo_TenKH_PT);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_SoNGHienTai);
-            this.Controls.Add(this.txt_MaPhong_PT);
             this.Controls.Add(this.cbo_TenLoai_PT);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cbo_MaLoai_PT);
@@ -353,8 +329,6 @@
         private System.Windows.Forms.CheckBox chk_ChuaThue;
         private System.Windows.Forms.CheckBox chk_DaThue;
         private System.Windows.Forms.DataGridView grid_PhongTro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soPhong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -367,9 +341,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbo_TenLoai_PT;
-        private System.Windows.Forms.TextBox txt_MaPhong_PT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_SoNGHienTai;
         private System.Windows.Forms.ComboBox cbo_TenKH_PT;
+        private System.Windows.Forms.ComboBox cbo_MaPhong;
     }
 }

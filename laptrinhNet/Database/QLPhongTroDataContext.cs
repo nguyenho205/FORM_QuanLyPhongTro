@@ -14,25 +14,25 @@ namespace laptrinhNet.Database // <-- SỬA: Namespace của bạn
         }
 
         // 2. Khai báo danh sách các bảng (DbSet)
-        public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<CongViec> CongViecs { get; set; }
-        public virtual DbSet<PhanCong> PhanCongs { get; set; }
+        public DbSet<NhanVien> NhanViens { get; set; }
+        public DbSet<CongViec> CongViecs { get; set; }
+        public DbSet<PhanCong> PhanCongs { get; set; }
 
-        public virtual DbSet<LoaiPhongTro> LoaiPhongTros { get; set; }
-        public virtual DbSet<PhongTro> PhongTros { get; set; }
+        public DbSet<LoaiPhongTro> LoaiPhongTros { get; set; }
+        public DbSet<PhongTro> PhongTros { get; set; }
 
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<HopDong> HopDongs { get; set; }
+        public DbSet<KhachHang> KhachHangs { get; set; }
+        public DbSet<HopDong> HopDongs { get; set; }
 
-        public virtual DbSet<DichVu> DichVus { get; set; }
-        public virtual DbSet<CT_DichVu> CT_DichVus { get; set; }
+        public DbSet<DichVu> DichVus { get; set; }
+        public DbSet<CT_DichVu> CT_DichVus { get; set; }
 
-        public virtual DbSet<HoaDon> HoaDons { get; set; }
-        public virtual DbSet<CT_HoaDon> CT_HoaDons { get; set; }
+        public DbSet<HoaDon> HoaDons { get; set; }
+        public DbSet<CT_HoaDon> CT_HoaDons { get; set; }
 
-        public virtual DbSet<ThanNhan> ThanNhans { get; set; }
-        public virtual DbSet<YeuCauHoTro> YeuCauHoTros { get; set; }
-        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public DbSet<ThanNhan> ThanNhans { get; set; }
+        public DbSet<YeuCauHoTro> YeuCauHoTros { get; set; }
+        public DbSet<TaiKhoan> TaiKhoans { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

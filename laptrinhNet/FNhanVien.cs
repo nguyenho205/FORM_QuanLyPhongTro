@@ -3,6 +3,7 @@ using laptrinhNet.ControlNhanvien;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,9 +13,10 @@ using System.Windows.Forms;
 
 namespace laptrinhNet
 {
-    public partial class NhanVien : Form
+    [NotMapped]
+    public partial class FNhanVien : Form
     {
-        public NhanVien()
+        public FNhanVien()
         {
             InitializeComponent();
         }
@@ -93,6 +95,11 @@ namespace laptrinhNet
         {
             phoi_htroNhanvien1.Visible = true;
             phoi_htroNhanvien1.BringToFront();
+        }
+
+        private void khangNhanvien1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

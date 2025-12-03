@@ -65,7 +65,7 @@ namespace laptrinhNet
                 labelError.Visible = false;
                 //Hien trang menu khi bam dang nhap
                 //BamDang nhap hien menu thi dang nhap bien mat
-                NhanVien menuNhanvien = new NhanVien();
+                FNhanVien menuNhanvien = new FNhanVien();
                 this.Hide();
                 menuNhanvien.ShowDialog();
                 this.Show();
@@ -76,7 +76,7 @@ namespace laptrinhNet
                 labelError.Visible = false;
                 //Hien trang menu khi bam dang nhap
                 //BamDang nhap hien menu thi dang nhap bien mat
-                KhachHang menuKhachhang = new KhachHang();
+                FKhachHang menuKhachhang = new FKhachHang();
                 this.Hide();
                 menuKhachhang.ShowDialog();
                 this.Show();

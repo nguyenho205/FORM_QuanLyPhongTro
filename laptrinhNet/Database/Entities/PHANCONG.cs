@@ -14,8 +14,9 @@ namespace laptrinhNet.Database.Entities
         [Column("MAPHANCONG"), Key]
         public string MaPhanCong { get; set; }
 
-        [Column("MANV")]
+        [Column("MANV"), ForeignKey("NhanVienDaTa")]
         public string MaNV { get; set; }
+        public virtual NhanVien NhanVienDaTa { get; set; }
 
         [Column("MACV")]
         public string MaCV { get; set; }
