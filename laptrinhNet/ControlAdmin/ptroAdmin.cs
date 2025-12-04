@@ -63,13 +63,13 @@ namespace laptrinhNet.ControlAdmin
                     {
                        MAPHONG = sv.MaPhong,
                         TENPHONG = sv.TenPhong,
+                        MALOAI = sv.MaLoai,
                         TENLOAI = sv.LoaiPTDaTa.TenLoai,
                         TRANGTHAI = sv.TrangThai,
                         SONGUOIHIENTAI = sv.SoNguoiHienTai,
                         GHICHU = sv.GhiChu,
                     })
                     .ToList();
-
                 grid_PhongTro.DataSource = list;
             }
         }
@@ -164,132 +164,71 @@ namespace laptrinhNet.ControlAdmin
                 txt_SoPhong.Text = row.Cells["TENPHONG"].Value.ToString();
                 txt_SoNGHienTai.Text = Convert.ToString(row.Cells["SONGUOIHIENTAI"].Value);
                 // Xử lý ComboBox (Cần gán đúng Text hoặc Value)
-                cbo_TenLoai_PT.Text = row.Cells["MALOAI"].Value.ToString();
-                cbo_TrangThai_PT.Text = row.Cells["TRANGTHAI"].Value.ToString();
+                cbo_TenLoai_PT.Text = Convert.ToString(row.Cells["MALOAI"].Value);
+
+                // Sửa luôn dòng bên dưới (để tránh lỗi tương tự nếu Trạng thái bị null)
+                cbo_TrangThai_PT.Text = Convert.ToString(row.Cells["TRANGTHAI"].Value);
+                txt_GhiChu_PT.Text = row.Cells["GHICHU"].Value.ToString();
 
                 // Mẹo: Nên khóa txtMaPhong lại để người dùng không sửa Khóa Chính (Primary Key)
                 txt_MaPhong_PT.Enabled = false;
+                cbo_TenLoai_PT.Enabled = false;
             }
         }
 
+        private void btn_XoaPhong_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra xem người dùng có đang chọn dòng nào trên Grid không
+            if (grid_PhongTro.CurrentRow == null || grid_PhongTro.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Vui lòng click chọn phòng cần xóa trên bảng!", "Thông báo");
+                return;
+            }
 
+            // 2. Lấy Mã phòng trực tiếp từ dòng đang chọn
+            // Lưu ý: "MAPHONG" phải trùng với DataPropertyName hoặc Name của cột trên Grid
+            string maPhongCanXoa = grid_PhongTro.CurrentRow.Cells["MAPHONG"].Value.ToString();
 
-        //// ============================================
-        //// 3) SỬA
-        //// ============================================
-        //private void btn_Sua_Click(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txt_MaPhong_PT.Text))
-        //    {
-        //        MessageBox.Show("Chưa chọn phòng để sửa!");
-        //        return;
-        //    }
+            // 3. Hỏi xác nhận trước khi xóa
+            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phòng có mã: {maPhongCanXoa}?",
+                                                  "Xác nhận xóa",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Warning);
 
-        //    using (var db = new QLPhongTroDataContext())
-        //    {
-        //        var pt = db.PhongTros.FirstOrDefault(p => p.MaPhong == txt_MaPhong_PT.Text);
+            if (result == DialogResult.Yes)
+            {
+                using (var db = new QLPhongTroDataContext())
+                {
+                    // Tìm phòng trong CSDL dựa theo mã vừa lấy từ Grid
+                    var pt = db.PhongTros.FirstOrDefault(p => p.MaPhong == maPhongCanXoa);
 
-        //        if (pt == null)
-        //        {
-        //            MessageBox.Show("Không tìm thấy phòng!");
-        //            return;
-        //        }
+                    if (pt != null)
+                    {
+                        // Thực hiện xóa
+                        // Nếu bạn dùng Entity Framework:
+                        db.PhongTros.Remove(pt);
+                        db.SaveChanges();
 
-        //        pt.TenPhong = txt_SoPhong.Text;
-        //        pt.MaLoai = cbo_TenLoai_PT.SelectedValue.ToString();
-        //        pt.TrangThai = cbo_TrangThai_PT.Text;
+                        /* * LƯU Ý: Nếu bạn dùng LINQ to SQL (đuôi file .dbml) thì dùng lệnh này:
+                         * db.PhongTros.DeleteOnSubmit(pt);
+                         * db.SubmitChanges();
+                         */
 
-        //        if (int.TryParse(txt_SoNGHienTai.Text, out int soNg))
-        //            pt.SoNguoiHienTai = soNg;
+                        MessageBox.Show("Xóa thành công!");
 
-        //        db.SubmitChanges();
+                        // Load lại dữ liệu lên Grid
+                        LoadData();
 
-        //        MessageBox.Show("Cập nhật thành công!");
-        //        LoadData();
-        //    }
-        //}
-
-        //// ============================================
-        //// 4) XÓA
-        //// ============================================
-        //private void btn_Xoa_Click(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txt_MaPhong_PT.Text))
-        //    {
-        //        MessageBox.Show("Chưa chọn phòng để xóa!");
-        //        return;
-        //    }
-
-        //    if (MessageBox.Show("Bạn có chắc muốn xóa phòng này?",
-        //        "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.No)
-        //        return;
-
-        //    using (var db = new QLPhongTroDataContext())
-        //    {
-        //        var pt = db.PhongTros.FirstOrDefault(p => p.MaPhong == txt_MaPhong_PT.Text);
-
-        //        if (pt == null)
-        //        {
-        //            MessageBox.Show("Không tìm thấy phòng!");
-        //            return;
-        //        }
-
-        //        db.PhongTros.DeleteOnSubmit(pt);
-        //        db.SubmitChanges();
-
-        //        MessageBox.Show("Xóa thành công!");
-        //        LoadData();
-        //    }
-        //}
-
-        // ============================================
-        // 5) CLICK GRIDVIEW
-        // ============================================
-
-        //private void btn_ThemPhong_Click(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txt_MaPhong_PT.Text))
-        //    {
-        //        MessageBox.Show("Vui lòng nhập mã phòng!");
-        //        return;
-        //    }
-
-        //    using (var db = new QLPhongTroDataContext())
-        //    {
-        //        if (db.PhongTros.Any(p => p.MaPhong == txt_MaPhong_PT.Text))
-        //        {
-        //            MessageBox.Show("Mã phòng đã tồn tại!");
-        //            return;
-        //        }
-
-        //        var pt = new PhongTro
-        //        {
-        //            MaPhong = txt_MaPhong_PT.Text,
-        //            TenPhong = txt_SoPhong.Text,
-        //            MaLoai = cbo_TenLoai_PT.SelectedValue.ToString(),
-        //            TrangThai = cbo_TrangThai_PT.Text,
-        //            SoNguoiHienTai = int.Parse(txt_SoNGHienTai.Text)
-        //        };
-
-        //        db.PhongTros.Add(pt);
-        //        db.SaveChanges();
-
-        //        MessageBox.Show("Thêm thành công!");
-        //        LoadData();
-        //    }
-        //}
-
-        //private void grid_PhongTro_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex < 0) return;
-
-        //    var row = grid_PhongTro.Rows[e.RowIndex];
-
-        //    txt_MaPhong_PT.Text = row.Cells["MaPhong"].Value?.ToString();
-        //    txt_SoPhong.Text = row.Cells["TenPhong"].Value?.ToString();
-        //    cbo_TrangThai_PT.Text = row.Cells["TrangThai"].Value?.ToString();
-        //    cbo_TenLoai_PT.SelectedValue = row.Cells["MaLoai"].Value?.ToString();
-        //    txt_SoNGHienTai.Text = row.Cells["SoNguoiHienTai"].Value?.ToString();
-        //}
+                        // (Tùy chọn) Xóa trắng các ô nhập liệu sau khi xóa
+                        // txt_MaPhong_PT.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy phòng này trong CSDL (có thể đã bị xóa bởi người khác).");
+                        LoadData(); // Load lại để cập nhật danh sách mới nhất
+                    }
+                }
+            }
+        }
     }
 }
