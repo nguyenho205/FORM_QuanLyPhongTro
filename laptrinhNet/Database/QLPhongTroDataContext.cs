@@ -9,7 +9,7 @@ namespace laptrinhNet.Database // <-- SỬA: Namespace của bạn
     {
         // 1. Constructor: Cấu hình chuỗi kết nối
         public QLPhongTroDataContext()
-            : base("Data Source=LAPTOP-1NE8K1LH\\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
+            : base("Data Source=WIN-LML4B3VMKIT;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
         {
         }
 

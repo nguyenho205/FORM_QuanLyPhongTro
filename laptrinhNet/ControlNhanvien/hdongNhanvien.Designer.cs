@@ -55,9 +55,9 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 68);
+            this.comboBox1.Location = new System.Drawing.Point(139, 68);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(275, 21);
+            this.comboBox1.Size = new System.Drawing.Size(261, 21);
             this.comboBox1.TabIndex = 189;
             // 
             // label2
@@ -68,15 +68,15 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(42, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 19);
+            this.label2.Size = new System.Drawing.Size(79, 19);
             this.label2.TabIndex = 183;
             this.label2.Text = "Mã hợp đồng";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(85, 159);
+            this.textBox5.Location = new System.Drawing.Point(139, 159);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(315, 20);
+            this.textBox5.Size = new System.Drawing.Size(261, 20);
             this.textBox5.TabIndex = 195;
             // 
             // label8
@@ -93,9 +93,9 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(129, 128);
+            this.textBox4.Location = new System.Drawing.Point(139, 128);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(271, 20);
+            this.textBox4.Size = new System.Drawing.Size(261, 20);
             this.textBox4.TabIndex = 193;
             // 
             // label7
@@ -106,7 +106,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.Location = new System.Drawing.Point(42, 129);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 19);
+            this.label7.Size = new System.Drawing.Size(80, 19);
             this.label7.TabIndex = 192;
             this.label7.Text = "Số điện thoại";
             // 
@@ -125,7 +125,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(42, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 19);
+            this.label1.Size = new System.Drawing.Size(91, 19);
             this.label1.TabIndex = 190;
             this.label1.Text = "Tên khách hàng";
             // 
@@ -137,7 +137,7 @@
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.Location = new System.Drawing.Point(541, 100);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 19);
+            this.label10.Size = new System.Drawing.Size(23, 19);
             this.label10.TabIndex = 200;
             this.label10.Text = "Từ";
             // 
@@ -159,7 +159,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(661, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 19);
+            this.label5.Size = new System.Drawing.Size(30, 19);
             this.label5.TabIndex = 198;
             this.label5.Text = "đến";
             // 
@@ -209,7 +209,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(733, 129);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 19);
+            this.label4.Size = new System.Drawing.Size(63, 19);
             this.label4.TabIndex = 202;
             this.label4.Text = "Tình trạng";
             // 
@@ -221,7 +221,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.Location = new System.Drawing.Point(539, 129);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 19);
+            this.label6.Size = new System.Drawing.Size(59, 19);
             this.label6.TabIndex = 201;
             this.label6.Text = "Mã phòng";
             // 
@@ -233,7 +233,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.Location = new System.Drawing.Point(539, 156);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 19);
+            this.label9.Size = new System.Drawing.Size(58, 19);
             this.label9.TabIndex = 206;
             this.label9.Text = "Lý do hủy";
             // 
@@ -250,7 +250,7 @@
             this.checkBox3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.Location = new System.Drawing.Point(632, 187);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(48, 23);
+            this.checkBox3.Size = new System.Drawing.Size(49, 23);
             this.checkBox3.TabIndex = 208;
             this.checkBox3.Text = "Hủy";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -261,7 +261,7 @@
             this.checkBox2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Location = new System.Drawing.Point(543, 187);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(70, 23);
+            this.checkBox2.Size = new System.Drawing.Size(69, 23);
             this.checkBox2.TabIndex = 207;
             this.checkBox2.Text = "Đăng ký";
             this.checkBox2.UseVisualStyleBackColor = true;
