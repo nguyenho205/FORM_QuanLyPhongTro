@@ -1,4 +1,5 @@
 ﻿using laptrinhNet.Database;
+using laptrinhNet.Database.DTOs;
 using laptrinhNet.Database.Entities;
 using System;
 using System.Drawing;
@@ -16,57 +17,62 @@ namespace laptrinhNet.ControlAdmin
 
         private void ptroAdmin_Load(object sender, EventArgs e)
         {
-            using (var db = new QLPhongTroDataContext())
-            {
-                var ds = db.LoaiPhongTros.Select(t => t.MaLoai).ToList();
-                cbo_MaLoai_PT.DataSource = ds;
-                var data = db.PhongTros.ToList()
-                    .Select(sv => new PhongTro
-                    {
-                        MaPhong = sv.MaPhong,
-                        TenPhong = sv.TenPhong,
-                        TenLoai = sv.TenLoai,
-                        TrangThai = sv.TrangThai,
-                        SoNguoiHienTai = sv.SoNguoiHienTai,
-                        GhiChu = sv.GhiChu,
+            //using (var db = new QLPhongTroDataContext())
+            //{
+            //    var ds = db.LoaiPhongTros.Select(t => t.MaLoai).ToList();
+            //    cbo_MaLoai_PT.DataSource = ds;
+            //    var data = db.PhongTros.ToList()
+            //        .Select(sv => new PhongTro
+            //        {
+            //            MaPhong = sv.MaPhong,
+            //            TenPhong = sv.TenPhong,
+            //            TenLoai = sv.TenLoai,
+            //            TrangThai = sv.TrangThai,
+            //            SoNguoiHienTai = sv.SoNguoiHienTai,
+            //            GhiChu = sv.GhiChu,
 
 
-                    })
-                    .ToList();
-                grid_PhongTro.DataSource = data;
+            //        })
+            //        .ToList();
+            //    grid_PhongTro.DataSource = data;
 
-            }
+            //}
+            LoadData();
+
         }
 
         // ============================================
         // 1) LOAD DỮ LIỆU
         // ============================================
-        //private void LoadData()
-        //{
-        //    using (var db = new QLPhongTroDataContext())
-        //    {
-        //        // Load combobox
-        //        //cbo_TenLoai_PT.DataSource = db.LoaiPhongTros.ToList();
-        //        //cbo_TenLoai_PT.DisplayMember = "TenLoai";
-        //        //cbo_TenLoai_PT.ValueMember = "MaLoai";
+        private void LoadData()
+        {
+            using (var db = new QLPhongTroDataContext())
+            {
+                // Load combobox
+                cbo_TenLoai_PT.DataSource = db.LoaiPhongTros.ToList();
 
-        //        // Lọc dữ liệu
-        //        var dsTrangThai = new string[] { };
+                cbo_TenLoai_PT.ValueMember = "MALOAI";
 
-        //        if (chk_DaThue.Checked && chk_ChuaThue.Checked)
-        //            dsTrangThai = new[] { "Đã Thuê", "Chưa Thuê" };
-        //        else if (chk_DaThue.Checked)
-        //            dsTrangThai = new[] { "Đã Thuê" };
-        //        else if (chk_ChuaThue.Checked)
-        //            dsTrangThai = new[] { "Chưa Thuê" };
+                cbo_TrangThai_PT.DataSource = new string[] { "ĐANG THUÊ", "TRỐNG" };
 
-        //        var list = db.PhongTros
-        //            .Where(p => dsTrangThai.Contains(p.TrangThai))
-        //            .ToList();
+                // Lọc dữ liệu
 
-        //        grid_PhongTro.DataSource = list;
-        //    }
-        //}
+                var list = db.PhongTros
+                    .ToList()
+                    .Select(sv => new PhongTroDTO
+                    {
+                       MAPHONG = sv.MaPhong,
+                        TENPHONG = sv.TenPhong,
+                        TENLOAI = sv.LoaiPTDaTa.TenLoai,
+                        TRANGTHAI = sv.TrangThai,
+                        SONGUOIHIENTAI = sv.SoNguoiHienTai,
+                        GHICHU = sv.GhiChu,
+                    })
+                    .ToList();
+
+                grid_PhongTro.DataSource = list;
+            }
+        }
 
         private void chk_DaThue_CheckedChanged(object sender, EventArgs e)
         {
@@ -77,41 +83,96 @@ namespace laptrinhNet.ControlAdmin
 
         }
 
-        // ============================================
-        // 2) THÊM
-        // ============================================
-        //private void btn_Them_Click(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txt_MaPhong_PT.Text))
-        //    {
-        //        MessageBox.Show("Vui lòng nhập mã phòng!");
-        //        return;
-        //    }
+        private void btn_ThemPhong_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_MaPhong_PT.Text))
+            {
+                MessageBox.Show("Vui lòng nhập mã phòng!");
+                return;
+            }
 
-        //    using (var db = new QLPhongTroDataContext())
-        //    {
-        //        if (db.PhongTros.Any(p => p.MaPhong == txt_MaPhong_PT.Text))
-        //        {
-        //            MessageBox.Show("Mã phòng đã tồn tại!");
-        //            return;
-        //        }
+            using (var db = new QLPhongTroDataContext())
+            {
+                if (db.PhongTros.Any(p => p.MaPhong == txt_MaPhong_PT.Text))
+                {
+                    MessageBox.Show("Mã phòng đã tồn tại!");
+                    return;
+                }
 
-        //        var pt = new PhongTro
-        //        {
-        //            MaPhong = txt_MaPhong_PT.Text,
-        //            TenPhong = txt_SoPhong.Text,
-        //            MaLoai = cbo_TenLoai_PT.SelectedValue.ToString(),
-        //            TrangThai = cbo_TrangThai_PT.Text,
-        //            SoNguoiHienTai = int.Parse(txt_SoNGHienTai.Text)
-        //        };
+                var pt = new PhongTro
+                {
+                    MaPhong = txt_MaPhong_PT.Text,
+                    TenPhong = txt_SoPhong.Text,
+                    MaLoai = cbo_TenLoai_PT.SelectedValue.ToString(),
+                    TrangThai = cbo_TrangThai_PT.SelectedValue.ToString(),
+                    SoNguoiHienTai = int.Parse(txt_SoNGHienTai.Text),
+                    GhiChu = txt_GhiChu_PT.Text
+                };
 
-        //        db.PhongTros.InsertOnSubmit(pt);
-        //        db.SubmitChanges();
+                db.PhongTros.Add(pt);
 
-        //        MessageBox.Show("Thêm thành công!");
-        //        LoadData();
-        //    }
-        //}
+                db.SaveChanges();
+
+                MessageBox.Show("Thêm phòng thành công!");
+                LoadData();
+            }
+        }
+
+        private void btn_SuaPhong_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_MaPhong_PT.Text))
+            {
+                MessageBox.Show("Chưa chọn phòng để sửa!");
+                return;
+            }
+
+            using (var db = new QLPhongTroDataContext())
+            {
+                var pt = db.PhongTros.FirstOrDefault(p => p.MaPhong == txt_MaPhong_PT.Text);
+
+                if (pt == null)
+                {
+                    MessageBox.Show("Không tìm thấy phòng!");
+                    return;
+                }
+
+                pt.TenPhong = txt_SoPhong.Text;
+                pt.MaLoai = cbo_TenLoai_PT.SelectedValue.ToString();
+                pt.TrangThai = cbo_TrangThai_PT.Text;
+
+                if (int.TryParse(txt_SoNGHienTai.Text, out int soNg))
+                    pt.SoNguoiHienTai = soNg;
+
+                db.SaveChanges();
+
+                MessageBox.Show("Cập nhật thành công!");
+                LoadData();
+            }
+        }
+
+        private void grid_PhongTro_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Lấy dòng hiện tại
+                DataGridViewRow row = grid_PhongTro.Rows[e.RowIndex];
+
+                // Gán giá trị từ Grid lên các điều khiển (Controls)
+                // Lưu ý: Thay tên biến (txt..., cbo...) đúng với tên trong project của bạn
+
+                txt_MaPhong_PT.Text = row.Cells["MAPHONG"].Value.ToString(); // Khóa chính
+                txt_SoPhong.Text = row.Cells["TENPHONG"].Value.ToString();
+                txt_SoNGHienTai.Text = Convert.ToString(row.Cells["SONGUOIHIENTAI"].Value);
+                // Xử lý ComboBox (Cần gán đúng Text hoặc Value)
+                cbo_TenLoai_PT.Text = row.Cells["MALOAI"].Value.ToString();
+                cbo_TrangThai_PT.Text = row.Cells["TRANGTHAI"].Value.ToString();
+
+                // Mẹo: Nên khóa txtMaPhong lại để người dùng không sửa Khóa Chính (Primary Key)
+                txt_MaPhong_PT.Enabled = false;
+            }
+        }
+
+
 
         //// ============================================
         //// 3) SỬA

@@ -14,5 +14,6 @@ namespace laptrinhNet.Database.DTOs
         public string TRANGTHAI { get; set; }
         public int? SONGUOIHIENTAI { get; set; }
         public string GHICHU { get; set; }
+        public string TENLOAI { get; set; } // Tên loại phòng từ bảng LoaiPhongTro  
     }
 }

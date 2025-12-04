@@ -50,6 +50,7 @@
             // 
             // labelRadio
             // 
+            this.labelRadio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelRadio.AutoSize = true;
             this.labelRadio.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelRadio.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -63,6 +64,7 @@
             // 
             // rdAdmin
             // 
+            this.rdAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdAdmin.AutoSize = true;
             this.rdAdmin.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.rdAdmin.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F);
@@ -78,6 +80,7 @@
             // 
             // rdNhanVien
             // 
+            this.rdNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdNhanVien.AutoSize = true;
             this.rdNhanVien.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.rdNhanVien.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F);
@@ -93,6 +96,7 @@
             // 
             // rdNguoiThue
             // 
+            this.rdNguoiThue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdNguoiThue.AutoSize = true;
             this.rdNguoiThue.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.rdNguoiThue.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F);
@@ -108,6 +112,7 @@
             // 
             // labelError
             // 
+            this.labelError.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelError.AutoSize = true;
             this.labelError.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelError.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -121,6 +126,7 @@
             // 
             // guna2CirclePictureBox1
             // 
+            this.guna2CirclePictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
@@ -136,6 +142,7 @@
             // 
             // btnThoat
             // 
+            this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThoat.BackColor = System.Drawing.SystemColors.GrayText;
             this.btnThoat.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -150,6 +157,7 @@
             // 
             // btnDangNhap
             // 
+            this.btnDangNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDangNhap.BackColor = System.Drawing.SystemColors.GrayText;
             this.btnDangNhap.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -158,12 +166,13 @@
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(174, 57);
             this.btnDangNhap.TabIndex = 72;
-            this.btnDangNhap.Text = "`";
+            this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // txtMatKhau
             // 
+            this.txtMatKhau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMatKhau.Location = new System.Drawing.Point(747, 332);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMatKhau.Name = "txtMatKhau";
@@ -174,6 +183,7 @@
             // 
             // txtDangNhap
             // 
+            this.txtDangNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDangNhap.Location = new System.Drawing.Point(747, 266);
             this.txtDangNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDangNhap.Name = "txtDangNhap";
@@ -182,6 +192,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -195,6 +206,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -208,6 +220,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -221,6 +234,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -237,6 +251,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(536, 222);
@@ -251,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1194, 658);
+            this.ClientSize = new System.Drawing.Size(1351, 730);
             this.Controls.Add(this.labelRadio);
             this.Controls.Add(this.rdAdmin);
             this.Controls.Add(this.rdNhanVien);
@@ -271,6 +286,7 @@
             this.Name = "DangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DangNhap_FormClosing);
             this.Load += new System.EventHandler(this.DangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();

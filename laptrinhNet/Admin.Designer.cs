@@ -54,6 +54,9 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.guna2Panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("guna2Panel1.BackgroundImage")));
             this.guna2Panel1.Controls.Add(this.panel1);
@@ -74,6 +77,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.phoi_htroAdmin1);
@@ -92,8 +98,11 @@
             // 
             // phoi_htroAdmin1
             // 
+            this.phoi_htroAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.phoi_htroAdmin1.BackColor = System.Drawing.SystemColors.Control;
-            this.phoi_htroAdmin1.Location = new System.Drawing.Point(-3, -3);
+            this.phoi_htroAdmin1.Location = new System.Drawing.Point(-2, -2);
             this.phoi_htroAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.phoi_htroAdmin1.Name = "phoi_htroAdmin1";
             this.phoi_htroAdmin1.Size = new System.Drawing.Size(1502, 645);
@@ -156,6 +165,9 @@
             // 
             // ptroAdmin1
             // 
+            this.ptroAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ptroAdmin1.BackColor = System.Drawing.SystemColors.Control;
             this.ptroAdmin1.Location = new System.Drawing.Point(-3, -3);
             this.ptroAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);

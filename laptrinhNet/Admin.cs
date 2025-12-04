@@ -95,7 +95,7 @@ namespace laptrinhNet
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
         private void phoi_htroAdmin1_Load(object sender, EventArgs e)
