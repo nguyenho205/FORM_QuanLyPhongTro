@@ -60,7 +60,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(42, 64);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 19);
+            this.label4.Size = new System.Drawing.Size(117, 19);
             this.label4.TabIndex = 166;
             this.label4.Text = "Danh sách công việc";
             // 
@@ -70,7 +70,7 @@
             this.label10.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(470, 4);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 23);
+            this.label10.Size = new System.Drawing.Size(69, 23);
             this.label10.TabIndex = 168;
             this.label10.Text = "Nhiệm vụ";
             // 
@@ -82,16 +82,16 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(364, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 19);
+            this.label3.Size = new System.Drawing.Size(56, 19);
             this.label3.TabIndex = 177;
             this.label3.Text = "Nội dung";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(420, 96);
+            this.textBox1.Location = new System.Drawing.Point(426, 96);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(528, 59);
+            this.textBox1.Size = new System.Drawing.Size(522, 59);
             this.textBox1.TabIndex = 178;
             // 
             // comboBox1
@@ -118,7 +118,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(618, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 19);
+            this.label1.Size = new System.Drawing.Size(125, 19);
             this.label1.TabIndex = 174;
             this.label1.Text = "Trạng thái hoàn thành";
             // 
@@ -130,7 +130,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(364, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 19);
+            this.label2.Size = new System.Drawing.Size(59, 19);
             this.label2.TabIndex = 173;
             this.label2.Text = "Mã phòng";
             // 
@@ -142,16 +142,16 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(364, 166);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 19);
+            this.label5.Size = new System.Drawing.Size(50, 19);
             this.label5.TabIndex = 179;
             this.label5.Text = "Báo cáo";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(420, 166);
+            this.textBox2.Location = new System.Drawing.Point(426, 166);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(528, 106);
+            this.textBox2.Size = new System.Drawing.Size(522, 106);
             this.textBox2.TabIndex = 180;
             // 
             // button2
