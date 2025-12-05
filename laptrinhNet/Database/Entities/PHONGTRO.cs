@@ -12,7 +12,7 @@ namespace laptrinhNet.Database.Entities
     public class PhongTro
     {
         [Column("MAPHONG"), Key]
-        public string MaPhong { get; set; }
+        public string MaPhong  { get; set; }
 
         [Column("TENPHONG")]
         public string TenPhong { get; set; }
@@ -20,8 +20,8 @@ namespace laptrinhNet.Database.Entities
         [Column("MALOAI"), ForeignKey("LoaiPTDaTa")]
         public string MaLoai { get; set; }
         public virtual LoaiPhongTro LoaiPTDaTa { get; set; }
-        [Column("TENLOAI")]
-        public string TenLoai { get; set; }
+        //[Column("TENLOAI")]
+        //public string TenLoai { get; set; }
 
         [Column("TRANGTHAI")]
         public string TrangThai { get; set; }

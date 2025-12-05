@@ -11,10 +11,10 @@ namespace laptrinhNet.Database.Entities
     [Table("CT_HOADON")]
     public class CT_HoaDon
     {
-        [Column("MAHD", Order = 1), Key]
+        [Key, Column("MAHD", Order = 1)]
         public string MaHD { get; set; }
 
-        [Column("MADV", Order = 2), Key]
+        [Key, Column("MADV", Order = 2)]
         public string MaDV { get; set; }
 
         [Column("CHISO_CU")]

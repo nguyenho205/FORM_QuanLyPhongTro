@@ -11,14 +11,14 @@ namespace laptrinhNet.Database.Entities
     [Table("CT_DICHVU")]
     public class CT_DichVu
     {
-
-
-        [Column("MAHOPDONG", Order = 1), Key]
+        // ====== KHÓA CHÍNH KÉP ======
+        [Key, Column("MAHOPDONG", Order = 1)]
         public string MaHopDong { get; set; }
 
-        [Column("MADV", Order = 2), Key]
+        [Key, Column("MADV", Order = 2)]
         public string MaDV { get; set; }
 
+        // ====== CỘT PHỤ (KHÔNG PHẢI KHÓA CHÍNH) ======
         [Column("MACTDV")]
         public string MaCTDV { get; set; }
 

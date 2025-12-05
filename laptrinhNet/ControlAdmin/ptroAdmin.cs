@@ -25,7 +25,7 @@ namespace laptrinhNet.ControlAdmin
                     {
                         MaPhong = sv.MaPhong,
                         TenPhong = sv.TenPhong,
-                        TenLoai = sv.TenLoai,
+                        //TenLoai = sv.TenLoai,
                         TrangThai = sv.TrangThai,
                         SoNguoiHienTai = sv.SoNguoiHienTai,
                         GhiChu = sv.GhiChu,

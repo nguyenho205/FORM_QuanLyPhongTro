@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNhacnho = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtThongbao = new System.Windows.Forms.TextBox();
+            this.txtLoainhacnho = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label4
@@ -50,13 +50,13 @@
             this.label4.TabIndex = 252;
             this.label4.Text = "Nội dung";
             // 
-            // textBox2
+            // txtNhacnho
             // 
-            this.textBox2.Location = new System.Drawing.Point(534, 125);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(427, 205);
-            this.textBox2.TabIndex = 251;
+            this.txtNhacnho.Location = new System.Drawing.Point(534, 125);
+            this.txtNhacnho.Multiline = true;
+            this.txtNhacnho.Name = "txtNhacnho";
+            this.txtNhacnho.Size = new System.Drawing.Size(427, 205);
+            this.txtNhacnho.TabIndex = 251;
             // 
             // label2
             // 
@@ -69,14 +69,6 @@
             this.label2.Size = new System.Drawing.Size(54, 19);
             this.label2.TabIndex = 250;
             this.label2.Text = "Nội dung";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(620, 73);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(341, 21);
-            this.comboBox1.TabIndex = 249;
             // 
             // label3
             // 
@@ -110,26 +102,33 @@
             this.label9.TabIndex = 246;
             this.label9.Text = "Thông báo";
             // 
-            // textBox1
+            // txtThongbao
             // 
-            this.textBox1.Location = new System.Drawing.Point(43, 100);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(423, 230);
-            this.textBox1.TabIndex = 245;
+            this.txtThongbao.Location = new System.Drawing.Point(43, 100);
+            this.txtThongbao.Multiline = true;
+            this.txtThongbao.Name = "txtThongbao";
+            this.txtThongbao.Size = new System.Drawing.Size(423, 230);
+            this.txtThongbao.TabIndex = 245;
+            // 
+            // txtLoainhacnho
+            // 
+            this.txtLoainhacnho.Location = new System.Drawing.Point(620, 74);
+            this.txtLoainhacnho.Name = "txtLoainhacnho";
+            this.txtLoainhacnho.Size = new System.Drawing.Size(341, 20);
+            this.txtLoainhacnho.TabIndex = 253;
             // 
             // tbao_nnhoKhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtLoainhacnho);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNhacnho);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtThongbao);
             this.Name = "tbao_nnhoKhachhang";
             this.Size = new System.Drawing.Size(1001, 419);
             this.ResumeLayout(false);
@@ -140,12 +139,12 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNhacnho;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtThongbao;
+        private System.Windows.Forms.TextBox txtLoainhacnho;
     }
 }
