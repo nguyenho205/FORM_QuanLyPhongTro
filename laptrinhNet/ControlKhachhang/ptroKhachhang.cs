@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,8 +107,9 @@ namespace laptrinhNet.ControlKhachHang
                 {
                     txtSophong.Text = phong.TenPhong;
                     txtGhiChu.Text = phong.GhiChu;
-                    txtTenLoai.Text = phong.LoaiPTDaTa?.TenLoai ?? ""; // hiện tên loại phòng
-                    txtGiaPhong.Text = phong.LoaiPTDaTa != null? phong.LoaiPTDaTa.GiaPhong?.ToString("N0") : "";
+                    txtTenLoai.Text = phong.LoaiPTDaTa?.TenLoai ?? "";
+                    var culture = new CultureInfo("vi-VN");
+                    txtGiaPhong.Text = phong.LoaiPTDaTa != null && phong.LoaiPTDaTa.GiaPhong.HasValue? phong.LoaiPTDaTa.GiaPhong.Value.ToString("N0", culture): "";
                 }
             }
         }
@@ -145,6 +147,7 @@ namespace laptrinhNet.ControlKhachHang
             string sdt = txtSdt.Text.Trim();
             string cccd = txtCCCD.Text.Trim();
             string email = txtEmail.Text.Trim();
+
             if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(sdt))
             {
                 MessageBox.Show("Vui lòng nhập Tên và Số điện thoại!", "Lỗi");
@@ -163,10 +166,9 @@ namespace laptrinhNet.ControlKhachHang
                 return;
             }
 
-
+            // Xác thực OTP
             OTP maxacthuc = new OTP();
             maxacthuc.EmailKhachHang = txtEmail.Text.Trim();
-
             this.Hide();
             var result = maxacthuc.ShowDialog();
             this.Show();
@@ -181,8 +183,18 @@ namespace laptrinhNet.ControlKhachHang
             {
                 using (var db = new QLPhongTroDataContext())
                 {
-                    string newMaKH = TaoMaKH(db);
+                    // 1. Lấy phòng và loại phòng
+                    var phong = db.PhongTros.Include("LoaiPTDaTa")
+                                             .FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
+                    if (phong == null)
+                    {
+                        MessageBox.Show("Không tìm thấy phòng đã chọn!", "Lỗi");
+                        return;
+                    }
+                    var loaiPhong = phong.LoaiPTDaTa;
 
+                    // 2. Tạo khách hàng mới
+                    string newMaKH = TaoMaKH(db);
                     KhachHang kh = new KhachHang
                     {
                         MaKH = newMaKH,
@@ -192,32 +204,34 @@ namespace laptrinhNet.ControlKhachHang
                         EmailKhachHang = email,
                         DiaChiThuongTru = "Chưa cập nhật"
                     };
-
                     db.KhachHangs.Add(kh);
+
+                    // **Bắt buộc save khách hàng trước để tránh lỗi FK**
                     db.SaveChanges();
 
+                    // 3. Tạo hợp đồng mới
                     string newMaHD = TaoMaHD(db);
-
                     HopDong hd = new HopDong
                     {
                         MaHopDong = newMaHD,
                         NgayBD = Tungay.Value.Date,
                         NgayKT = Denngay.Value.Date,
                         TrangThai = "ĐANG THUÊ",
-                        MaKH = newMaKH,
+                        MaKH = kh.MaKH, // chắc chắn khách hàng đã có trong DB
                         MaPhong = cbMaphong.Text,
-                        TienCoc = 1
+                        TienCoc = loaiPhong?.GiaPhong ?? 0
                     };
-
                     db.HopDongs.Add(hd);
 
-                    var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
-                    if (phong != null)
-                        phong.TrangThai = "ĐANG THUÊ";
+                    // 4. Cập nhật trạng thái phòng
+                    phong.TrangThai = "ĐANG THUÊ";
 
+                    // Lưu tất cả thay đổi
                     db.SaveChanges();
                 }
 
+                // Refresh GridView
+                Load_GirdView();
                 MessageBox.Show("Đăng ký thuê thành công!", "Thành công");
             }
             catch (Exception ex)
@@ -227,67 +241,66 @@ namespace laptrinhNet.ControlKhachHang
 
                 MessageBox.Show("Lỗi thực tế:\n" + ex.Message);
             }
-
-
-            //try
-            //{
-            //    using (var db = new QLPhongTroDataContext())
-            //    {
-            //        //tạo kh mới dky
-            //        string newMaKH = TaoMaKH(db);
-
-            //        KhachHang kh = new KhachHang
-            //        {
-            //            MaKH = newMaKH,
-            //            TenKH = ten,
-            //            SoDienThoai = sdt,
-            //            SoCMND = cccd,
-            //            EmailKhachHang = email,
-            //            DiaChiThuongTru = "Chưa cập nhật"
-            //        };
-
-            //        db.KhachHangs.Add(kh);
-            //        db.SaveChanges();
-
-
-            //        //tao5hop75 đồng
-            //        string newMaHD = TaoMaHD(db);
-
-            //        HopDong hd = new HopDong
-            //        {
-            //            MaHopDong = newMaHD,
-            //            NgayBD = Tungay.Value.Date,
-            //            NgayKT = Denngay.Value.Date,
-            //            TrangThai = "ĐANG THUÊ",
-            //            MaKH = newMaKH,
-            //            MaPhong = cbMaphong.Text,
-            //            TienCoc = 1
-            //        };
-
-            //        db.HopDongs.Add(hd);
-
-            //        //update trạng thái phòng
-            //        var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
-            //        if (phong != null)
-            //            phong.TrangThai = "ĐANG THUÊ";
-
-            //        db.SaveChanges();
-            //    }
-
-            //    MessageBox.Show("Đăng ký thuê thành công", "Thành công");
-            //}
-
-            ////báo lỗi
-            //catch (Exception ex)
-            //{
-            //    Exception realError = ex;
-            //    while (realError.InnerException != null)
-            //        realError = realError.InnerException;
-
-            //    MessageBox.Show("Lỗi thực tế:\n" + realError.Message);
-            //}
         }
 
+
+
+        //try
+        //{
+        //    using (var db = new QLPhongTroDataContext())
+        //    {
+        //        //tạo kh mới dky
+        //        string newMaKH = TaoMaKH(db);
+
+        //        KhachHang kh = new KhachHang
+        //        {
+        //            MaKH = newMaKH,
+        //            TenKH = ten,
+        //            SoDienThoai = sdt,
+        //            SoCMND = cccd,
+        //            EmailKhachHang = email,
+        //            DiaChiThuongTru = "Chưa cập nhật"
+        //        };
+
+        //        db.KhachHangs.Add(kh);
+        //        db.SaveChanges();
+
+
+        //        //tao5hop75 đồng
+        //        string newMaHD = TaoMaHD(db);
+
+        //        HopDong hd = new HopDong
+        //        {
+        //            MaHopDong = newMaHD,
+        //            NgayBD = Tungay.Value.Date,
+        //            NgayKT = Denngay.Value.Date,
+        //            TrangThai = "ĐANG THUÊ",
+        //            MaKH = newMaKH,
+        //            MaPhong = cbMaphong.Text,
+        //            TienCoc = 1
+        //        };
+
+        //        db.HopDongs.Add(hd);
+
+        //        //update trạng thái phòng
+        //        var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
+        //        if (phong != null)
+        //            phong.TrangThai = "ĐANG THUÊ";
+
+        //        db.SaveChanges();
+        //    }
+
+        //    MessageBox.Show("Đăng ký thuê thành công", "Thành công");
+        //}
+
+        ////báo lỗi
+        //catch (Exception ex)
+        //{
+        //    Exception realError = ex;
+        //    while (realError.InnerException != null)
+        //        realError = realError.InnerException;
+
+        //    MessageBox.Show("Lỗi thực tế:\n" + realError.Message);
 
         //ẩn cột gridview
         private void SetupGridColumns()

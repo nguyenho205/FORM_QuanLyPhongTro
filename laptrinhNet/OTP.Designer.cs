@@ -99,8 +99,8 @@
             this.Controls.Add(this.btnGuiOTP);
             this.Controls.Add(this.txtOTP);
             this.Controls.Add(this.label1);
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "OTP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xác thực tài khoản";
             this.ResumeLayout(false);
             this.PerformLayout();

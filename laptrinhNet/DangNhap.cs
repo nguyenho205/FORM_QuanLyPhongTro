@@ -1,4 +1,5 @@
-﻿using System;
+﻿using laptrinhNet.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,7 @@ namespace laptrinhNet
 
         private void DangNhap_Load(object sender, EventArgs e)
         {
+            txtMatKhau.UseSystemPasswordChar = true;
             resetForm();
         }
 
@@ -98,19 +100,43 @@ namespace laptrinhNet
                 resetForm();
                 return;
             }
-            else if (txtDangNhap.Text == "sa" && txtMatKhau.Text == "123" && rdNguoiThue.Checked)
+            //else if (txtDangNhap.Text == "sa" && txtMatKhau.Text == "123" && rdNguoiThue.Checked)
+            //{
+            //    FKhachHang menuKhachhang = new FKhachHang();
+            //    this.Hide();
+            //    menuKhachhang.ShowDialog();
+            //    this.Show();
+            //    resetForm();
+            //    return;
+            //}
+            else if (rdNguoiThue.Checked)
             {
-                FKhachHang menuKhachhang = new FKhachHang();
-                this.Hide();
-                menuKhachhang.ShowDialog();
-                this.Show();
-                resetForm();
-                return;
-            }
+                using (var db = new QLPhongTroDataContext())
+                {
+                    // Tìm khách hàng theo MaKH và MatKhau sql
+                    var kh = db.KhachHangs.FirstOrDefault(k =>
+                                k.MaKH == txtDangNhap.Text &&
+                                k.MatKhau == txtMatKhau.Text);
 
-            labelError.Visible = true;
-            labelDangky.Visible = false;
-            labelError.BringToFront();
+                    if (kh != null)
+                    {
+                        FKhachHang menuKhachhang = new FKhachHang(kh.MaKH);
+                        this.Hide();
+                        menuKhachhang.ShowDialog();
+                        this.Show();
+                        resetForm();
+                        return;
+                    }
+                    else
+                    {
+                       
+                        labelError.Visible = true;
+                        labelDangky.Visible = false;
+                        labelDangky.Visible = false;
+                        labelError.BringToFront();
+                    }
+                }
+            }
         }
 
 

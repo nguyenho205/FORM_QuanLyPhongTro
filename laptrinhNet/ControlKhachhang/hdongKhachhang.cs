@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,9 +56,9 @@ namespace laptrinhNet.ControlKhachhang
                         txtMaHD.Text = hopDong.MaHopDong;
                         txtSophong.Text = hopDong.TenPhong;
                         txtTenKH.Text = hopDong.TenKH;
-                        txtCoc.Text = hopDong.TienCoc?.ToString("N0") ?? "0";
 
-                        txtTienphong.Text = hopDong.TienPhong?.ToString("N0") ?? "0";
+                        txtCoc.Text = hopDong.TienCoc?.ToString("N0", new CultureInfo("vi-VN")) ?? "0";
+                        txtTienphong.Text = hopDong.TienPhong?.ToString("N0", new CultureInfo("vi-VN")) ?? "0";
 
                         Tungay.Value = hopDong.NgayBD ?? DateTime.Now;
                         Denngay.Value = hopDong.NgayKT ?? DateTime.Now;

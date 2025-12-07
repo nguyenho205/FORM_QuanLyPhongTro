@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,15 +116,15 @@ namespace laptrinhNet.ControlKhachhang
                     }
                 }
 
-
+                var culture = new CultureInfo("vi-VN");
 
                 txtDiendadung.Text = dienDaDung.ToString();
                 txtNuocdadung.Text = nuocDaDung.ToString();
-                txtTongDien.Text = tongTienDien.ToString("N0");
-                txtTongNuoc.Text = tongTienNuoc.ToString("N0");
-                txtDichvu.Text = phiDVKhac.ToString("N0");
+                txtTongDien.Text = tongTienDien.ToString("N0", culture);
+                txtTongNuoc.Text = tongTienNuoc.ToString("N0", culture);
+                txtDichvu.Text = phiDVKhac.ToString("N0", culture);
                 decimal tongTatCa = tongTienDien + tongTienNuoc + phiDVKhac;
-                txtTongtien.Text = tongTatCa.ToString("N0");
+                txtTongtien.Text = tongTatCa.ToString("N0", culture);
 
             }
         }

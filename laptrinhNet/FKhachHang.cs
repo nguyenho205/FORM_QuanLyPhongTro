@@ -15,9 +15,12 @@ namespace laptrinhNet
     [NotMapped]
     public partial class FKhachHang : Form
     {
-        public FKhachHang()
+        private string MaKH; // Biến lưu MaKH người dùng
+
+        public FKhachHang(string maKH)
         {
             InitializeComponent();
+            MaKH = maKH;
         }
 
         //private void btnPhongTro_Click(object sender, EventArgs e)
@@ -68,7 +71,10 @@ namespace laptrinhNet
             //Lay rd
             //khangKhachhang1.Load_RandomIn4();
             // Lấy kháchmacdinh
-            khangKhachhang1.Load_KhachHang("KH03");
+            //khangKhachhang1.Load_KhachHang("KH03");
+
+            //;ay thong tin dua tren makh dang nhap
+            khangKhachhang1.Load_KhachHang(MaKH);
 
 
             //Khách htai

@@ -46,6 +46,7 @@
             this.ClientSize = new System.Drawing.Size(1018, 438);
             this.Controls.Add(this.ptroKhachhang1);
             this.Name = "DangKyKH";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DangKyKH";
             this.ResumeLayout(false);
 
