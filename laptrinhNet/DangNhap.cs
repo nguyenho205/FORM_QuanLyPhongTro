@@ -38,14 +38,14 @@ namespace laptrinhNet
 
         public void btnDangNhap_Click(object sender, EventArgs e)
         {
-
+            //nếu txt trống và không chọn radio
             if ((string.IsNullOrWhiteSpace(txtDangNhap.Text) || string.IsNullOrWhiteSpace(txtMatKhau.Text)) && !rdAdmin.Checked && !rdNhanVien.Checked && !rdNguoiThue.Checked)
             {
                 labelErrorNull.Visible = true;
+                labelRadio.Visible = true;
                 labelErrorNull.BringToFront();
 
-                // Ẩn labelRadio và labelError
-                labelRadio.Visible = true;
+                // Ẩn labelDangky và labelError
                 labelError.Visible = false;
                 labelDangky.Visible = false;
                 return; // dừng đăng nhập
@@ -53,6 +53,7 @@ namespace laptrinhNet
             else
             {
                 labelRadio.Visible = false;
+                labelError.Visible = false;
                 labelErrorNull.Visible = false;
                 labelDangky.Visible = true;
             }
@@ -74,9 +75,11 @@ namespace laptrinhNet
                 labelRadio.Visible = true;
                 labelError.Visible = false;
                 labelErrorNull.Visible = false;
+                labelDangky.Visible = false;
                 return;
             }
 
+            //check sai ten va mat khau
             if (txtDangNhap.Text == "sa" && txtMatKhau.Text == "123" && rdAdmin.Checked)
             {
                 Admin menuAdmin = new Admin();
@@ -106,6 +109,8 @@ namespace laptrinhNet
             }
 
             labelError.Visible = true;
+            labelDangky.Visible = false;
+            labelError.BringToFront();
         }
 
 
