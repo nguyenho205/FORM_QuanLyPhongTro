@@ -120,6 +120,9 @@
             // 
             // tke_bcaoAdmin1
             // 
+            this.tke_bcaoAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tke_bcaoAdmin1.BackColor = System.Drawing.SystemColors.Control;
             this.tke_bcaoAdmin1.Location = new System.Drawing.Point(-3, -3);
             this.tke_bcaoAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
@@ -129,6 +132,9 @@
             // 
             // hdon_ttoanAdmin1
             // 
+            this.hdon_ttoanAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.hdon_ttoanAdmin1.BackColor = System.Drawing.SystemColors.Control;
             this.hdon_ttoanAdmin1.Location = new System.Drawing.Point(-3, -3);
             this.hdon_ttoanAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
@@ -138,6 +144,9 @@
             // 
             // hdongAdmin1
             // 
+            this.hdongAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.hdongAdmin1.BackColor = System.Drawing.SystemColors.Control;
             this.hdongAdmin1.Location = new System.Drawing.Point(-3, -3);
             this.hdongAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
@@ -147,6 +156,9 @@
             // 
             // khangAdmin1
             // 
+            this.khangAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.khangAdmin1.BackColor = System.Drawing.SystemColors.Control;
             this.khangAdmin1.Location = new System.Drawing.Point(-3, -3);
             this.khangAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);

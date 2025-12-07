@@ -8,10 +8,10 @@ namespace laptrinhNet.Database.DTOs
 {
     public class DichVuDTO
     {
-        public string MADV { get; set; }
-        public string TENDV { get; set; }
-        public decimal? DONGIA { get; set; }
-        public string LOAIDICHVU { get; set; }
-        public string GHICHU { get; set; }
+        public string MaDV { get; set; }
+        public string TenDV { get; set; }
+        public decimal DonGia { get; set; }
+        public string LoaiDV { get; set; }
+        public string GhiChu { get; set; }
     }
 }

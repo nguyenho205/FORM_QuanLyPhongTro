@@ -26,10 +26,12 @@ namespace laptrinhNet.Database.Entities
         [Column("TRANGTHAI")]
         public string TrangThai { get; set; }
 
-        [Column("MAKH")]
+        [Column("MAKH"), ForeignKey("KhachHangData")]
         public string MaKH { get; set; }
+        public virtual KhachHang KhachHangData { get; set; }
 
-        [Column("MAPHONG")]
+        [Column("MAPHONG"), ForeignKey("PhongTroData")]
         public string MaPhong { get; set; }
+        public virtual PhongTro PhongTroData { get; set; }
     }
 }

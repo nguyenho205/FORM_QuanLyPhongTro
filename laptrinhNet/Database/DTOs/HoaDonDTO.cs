@@ -18,4 +18,5 @@ namespace laptrinhNet.Database.DTOs
         public DateTime? NGAYTHANHTOAN { get; set; }
         public string GHICHU { get; set; }
     }
+
 }

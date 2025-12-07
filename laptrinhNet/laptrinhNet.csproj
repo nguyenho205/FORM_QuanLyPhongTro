@@ -203,11 +203,13 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\DTOs\CTHoaDonDTO.cs" />
     <Compile Include="Database\DTOs\DichVuDTO.cs" />
     <Compile Include="Database\DTOs\HoaDonDTO.cs" />
     <Compile Include="Database\DTOs\HopDongDTO.cs" />
     <Compile Include="Database\DTOs\KhachHangDTO.cs" />
     <Compile Include="Database\DTOs\NhanVienDTO.cs" />
+    <Compile Include="Database\DTOs\PhanCongDTO.cs" />
     <Compile Include="Database\DTOs\PhongTroDTO.cs" />
     <Compile Include="Database\DTOs\TaiKhoanDTO.cs" />
     <Compile Include="Database\Entities\CONGVIEC.cs" />
