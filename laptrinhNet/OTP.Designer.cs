@@ -50,7 +50,7 @@
             this.txtOTP.Location = new System.Drawing.Point(78, 83);
             this.txtOTP.Name = "txtOTP";
             this.txtOTP.Size = new System.Drawing.Size(182, 20);
-            this.txtOTP.TabIndex = 1;
+            this.txtOTP.TabIndex = 3;
             // 
             // btnGuiOTP
             // 
@@ -67,7 +67,7 @@
             this.btnXacthuc.Location = new System.Drawing.Point(161, 124);
             this.btnXacthuc.Name = "btnXacthuc";
             this.btnXacthuc.Size = new System.Drawing.Size(75, 23);
-            this.btnXacthuc.TabIndex = 3;
+            this.btnXacthuc.TabIndex = 4;
             this.btnXacthuc.Text = "Xác thực";
             this.btnXacthuc.UseVisualStyleBackColor = true;
             this.btnXacthuc.Click += new System.EventHandler(this.btnXacthuc_Click);
@@ -77,7 +77,7 @@
             this.txtEmail.Location = new System.Drawing.Point(78, 57);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(263, 20);
-            this.txtEmail.TabIndex = 5;
+            this.txtEmail.TabIndex = 1;
             // 
             // label2
             // 
