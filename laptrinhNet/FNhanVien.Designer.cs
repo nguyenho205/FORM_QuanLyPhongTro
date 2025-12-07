@@ -33,7 +33,7 @@
             this.khangNhanvien1 = new laptrinhNet.ControlNhanvien.khangNhanvien();
             this.tke_bcaoNhanvien1 = new laptrinhNet.ControlNhanvien.tke_bcaoNhanvien();
             this.tbao_nnhoNhanVien1 = new laptrinhNet.ControlNhanvien.tbao_nnhoNhanVien();
-            this.ptroNhanvien1 = new laptrinhNet.ControlNhanvien.ptroNhanvien();
+            this.ptroNhanvien1 = new laptrinhNet.ControlNhanvien.btnBaoCaoSuCo();
             this.nvienNhanvien1 = new laptrinhNet.ControlNhanvien.nvienNhanvien();
             this.hdongNhanvien1 = new laptrinhNet.ControlNhanvien.hdongNhanvien();
             this.hdon_ttoanNhanvien1 = new laptrinhNet.ControlNhanvien.hdon_ttoanNhanvien();
@@ -366,7 +366,7 @@
         private ControlNhanvien.phoi_htroNhanvien phoi_htroNhanvien1;
         private ControlNhanvien.tke_bcaoNhanvien tke_bcaoNhanvien1;
         private ControlNhanvien.tbao_nnhoNhanVien tbao_nnhoNhanVien1;
-        private ControlNhanvien.ptroNhanvien ptroNhanvien1;
+        private ControlNhanvien.btnBaoCaoSuCo ptroNhanvien1;
         private ControlNhanvien.nvienNhanvien nvienNhanvien1;
         private ControlNhanvien.hdongNhanvien hdongNhanvien1;
         private ControlNhanvien.hdon_ttoanNhanvien hdon_ttoanNhanvien1;

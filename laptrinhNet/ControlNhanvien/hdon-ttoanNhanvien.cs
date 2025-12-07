@@ -15,7 +15,7 @@ namespace laptrinhNet.ControlNhanvien
 {
     public partial class hdon_ttoanNhanvien : UserControl
     {
-        QLPhongTroDataContext db = new QLPhongTroDataContext();
+        QLPhongTroDataContext db;
         // Biến lưu giá dịch vụ lấy từ DB
         private decimal Gia_Dien = 0;
         private decimal Gia_Nuoc = 0;
@@ -28,7 +28,23 @@ namespace laptrinhNet.ControlNhanvien
         public hdon_ttoanNhanvien()
         {
             InitializeComponent();
+            try
+            {
+                if (!string.IsNullOrEmpty(Session.ConnectionString))
+                {
+                    db = new QLPhongTroDataContext(Session.ConnectionString);
+                }
+                else
+                {
+                    db = new QLPhongTroDataContext();
+                }
+            }
+            catch
+            {
+                db = new QLPhongTroDataContext();
+            }
         }
+
 
         private void hdon_ttoanNhanvien_Load(object sender, EventArgs e)
         {

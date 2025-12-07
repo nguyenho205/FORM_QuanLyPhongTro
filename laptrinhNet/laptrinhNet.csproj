@@ -225,6 +225,7 @@
     <Compile Include="Database\Entities\THANNHAN_THUETRO.cs" />
     <Compile Include="Database\Entities\YEUCAUHOTRO.cs" />
     <Compile Include="Database\QLPhongTroDataContext.cs" />
+    <Compile Include="Database\Session.cs" />
     <Compile Include="FKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
