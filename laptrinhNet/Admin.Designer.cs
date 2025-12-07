@@ -156,6 +156,9 @@
             // 
             // nvienAdmin1
             // 
+            this.nvienAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nvienAdmin1.BackColor = System.Drawing.SystemColors.Control;
             this.nvienAdmin1.Location = new System.Drawing.Point(-3, -3);
             this.nvienAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);

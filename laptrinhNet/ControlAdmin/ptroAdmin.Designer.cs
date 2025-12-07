@@ -178,6 +178,7 @@
             this.btn_XoaPhong.TabIndex = 85;
             this.btn_XoaPhong.Text = "Xóa";
             this.btn_XoaPhong.UseVisualStyleBackColor = true;
+            this.btn_XoaPhong.Click += new System.EventHandler(this.btn_XoaPhong_Click);
             // 
             // btn_SuaPhong
             // 
