@@ -29,7 +29,7 @@ namespace laptrinhNet.ControlKhachhang
                 khachHTai = kh;
                 txtTen.Text = khachHTai.TenKH;
 
-                // Lấy số phòng từ HOPDONG
+
                 using (var db = new QLPhongTroDataContext())
                 {
                     var hopdong = db.HopDongs
@@ -105,8 +105,8 @@ namespace laptrinhNet.ControlKhachhang
             MessageBox.Show("Gửi yêu cầu thành công!");
             txtNoidung.Clear();
 
-            LoadMaPh();             // Chuẩn bị mã mới
-            LoadDanhSachPhanHoi();  // **Refresh DataGridView ngay lập tức**
+            LoadMaPh();            
+            LoadDanhSachPhanHoi(); //load lập tức
         }
 
 
@@ -119,7 +119,7 @@ namespace laptrinhNet.ControlKhachhang
                 var query = db.YeuCauHoTros.Where(y => y.MaKH == khachHTai.MaKH);
 
                 // Lọc theo checkbox
-                if (!checkAll.Checked) // nếu không check Tất cả
+                if (!checkAll.Checked)
                 {
                     List<string> trangThaiLoc = new List<string>();
                     if (checkChuaXL.Checked) trangThaiLoc.Add("Chưa xử lý");
@@ -132,7 +132,7 @@ namespace laptrinhNet.ControlKhachhang
                     }
                     else
                     {
-                        // không check trạng thái nào → hiển thị rỗng
+
                         query = query.Where(y => false);
                     }
                 }

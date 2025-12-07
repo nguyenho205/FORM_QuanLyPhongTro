@@ -44,7 +44,7 @@ namespace laptrinhNet.ControlKhachhang
                                          h.TienCoc,
                                          TenPhong = p.TenPhong,
                                          TenKH = k.TenKH,
-                                         TienPhong = l.GiaPhong       // <<=== LẤY GIÁ PHÒNG TỪ LOAI PHÒNG
+                                         TienPhong = l.GiaPhong      
                                      }).ToList();
 
                     if (dsHopDong.Count > 0)
@@ -57,7 +57,6 @@ namespace laptrinhNet.ControlKhachhang
                         txtTenKH.Text = hopDong.TenKH;
                         txtCoc.Text = hopDong.TienCoc?.ToString("N0") ?? "0";
 
-                        // Hiển thị giá phòng
                         txtTienphong.Text = hopDong.TienPhong?.ToString("N0") ?? "0";
 
                         Tungay.Value = hopDong.NgayBD ?? DateTime.Now;
@@ -102,13 +101,12 @@ namespace laptrinhNet.ControlKhachhang
                 if (decimal.TryParse(txtCoc.Text.Replace(".", "").Replace(",", ""), out decimal tienCoc))
                     hd.TienCoc = tienCoc;
 
-                // Nếu HopDong có cột GiaPhong thì gán
+
                 if (decimal.TryParse(txtTienphong.Text.Replace(".", "").Replace(",", ""), out decimal tienPhong))
                 {
-                    // hd.GiaPhong = tienPhong; // nếu bảng có cột này thì mở ra
                 }
 
-                // LƯU = SaveChanges()
+
                 db.SaveChanges();
 
                 MessageBox.Show("Gia hạn hợp đồng thành công!", "Thành công");

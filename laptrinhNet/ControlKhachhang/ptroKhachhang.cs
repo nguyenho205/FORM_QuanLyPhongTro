@@ -93,10 +93,10 @@ namespace laptrinhNet.ControlKhachHang
 
             DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-            string maPhong = row.Cells["maPhong"].Value.ToString();
+            string maPhong = row.Cells["MaPhong"].Value.ToString();
             cbMaphong.SelectedValue = maPhong;
 
-            txtSophong.Text = row.Cells["tenPhong"].Value.ToString();
+            txtSophong.Text = row.Cells["TenPhong"].Value.ToString();
 
             using (var db = new QLPhongTroDataContext())
             {
@@ -163,11 +163,24 @@ namespace laptrinhNet.ControlKhachHang
                 return;
             }
 
+
+            OTP maxacthuc = new OTP();
+            maxacthuc.EmailKhachHang = txtEmail.Text.Trim();
+
+            this.Hide();
+            var result = maxacthuc.ShowDialog();
+            this.Show();
+
+            if (result != DialogResult.OK)
+            {
+                MessageBox.Show("Bạn chưa xác thực OTP!");
+                return;
+            }
+
             try
             {
                 using (var db = new QLPhongTroDataContext())
                 {
-                    //tạo kh mới dky
                     string newMaKH = TaoMaKH(db);
 
                     KhachHang kh = new KhachHang
@@ -183,8 +196,6 @@ namespace laptrinhNet.ControlKhachHang
                     db.KhachHangs.Add(kh);
                     db.SaveChanges();
 
-
-                    //tao5hop75 đồng
                     string newMaHD = TaoMaHD(db);
 
                     HopDong hd = new HopDong
@@ -200,7 +211,6 @@ namespace laptrinhNet.ControlKhachHang
 
                     db.HopDongs.Add(hd);
 
-                    //update trạng thái phòng
                     var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
                     if (phong != null)
                         phong.TrangThai = "ĐANG THUÊ";
@@ -208,18 +218,74 @@ namespace laptrinhNet.ControlKhachHang
                     db.SaveChanges();
                 }
 
-                MessageBox.Show("Đăng ký thuê thành công", "Thành công");
+                MessageBox.Show("Đăng ký thuê thành công!", "Thành công");
             }
-
-            //báo lỗi
             catch (Exception ex)
             {
-                Exception realError = ex;
-                while (realError.InnerException != null)
-                    realError = realError.InnerException;
+                while (ex.InnerException != null)
+                    ex = ex.InnerException;
 
-                MessageBox.Show("Lỗi thực tế:\n" + realError.Message);
+                MessageBox.Show("Lỗi thực tế:\n" + ex.Message);
             }
+
+
+            //try
+            //{
+            //    using (var db = new QLPhongTroDataContext())
+            //    {
+            //        //tạo kh mới dky
+            //        string newMaKH = TaoMaKH(db);
+
+            //        KhachHang kh = new KhachHang
+            //        {
+            //            MaKH = newMaKH,
+            //            TenKH = ten,
+            //            SoDienThoai = sdt,
+            //            SoCMND = cccd,
+            //            EmailKhachHang = email,
+            //            DiaChiThuongTru = "Chưa cập nhật"
+            //        };
+
+            //        db.KhachHangs.Add(kh);
+            //        db.SaveChanges();
+
+
+            //        //tao5hop75 đồng
+            //        string newMaHD = TaoMaHD(db);
+
+            //        HopDong hd = new HopDong
+            //        {
+            //            MaHopDong = newMaHD,
+            //            NgayBD = Tungay.Value.Date,
+            //            NgayKT = Denngay.Value.Date,
+            //            TrangThai = "ĐANG THUÊ",
+            //            MaKH = newMaKH,
+            //            MaPhong = cbMaphong.Text,
+            //            TienCoc = 1
+            //        };
+
+            //        db.HopDongs.Add(hd);
+
+            //        //update trạng thái phòng
+            //        var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
+            //        if (phong != null)
+            //            phong.TrangThai = "ĐANG THUÊ";
+
+            //        db.SaveChanges();
+            //    }
+
+            //    MessageBox.Show("Đăng ký thuê thành công", "Thành công");
+            //}
+
+            ////báo lỗi
+            //catch (Exception ex)
+            //{
+            //    Exception realError = ex;
+            //    while (realError.InnerException != null)
+            //        realError = realError.InnerException;
+
+            //    MessageBox.Show("Lỗi thực tế:\n" + realError.Message);
+            //}
         }
 
 

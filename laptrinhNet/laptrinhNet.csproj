@@ -151,12 +151,6 @@
     <Compile Include="ControlKhachhang\ptroKhachhang.Designer.cs">
       <DependentUpon>ptroKhachhang.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlKhachhang\tbao-nnhoKhachhang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlKhachhang\tbao-nnhoKhachhang.Designer.cs">
-      <DependentUpon>tbao-nnhoKhachhang.cs</DependentUpon>
-    </Compile>
     <Compile Include="ControlNhanvien\hdon-ttoanNhanvien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -258,11 +252,11 @@
     <Compile Include="FNhanVien.Designer.cs">
       <DependentUpon>FNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="OTP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="OTP.Designer.cs">
+      <DependentUpon>OTP.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,9 +302,6 @@
     <EmbeddedResource Include="ControlKhachhang\ptroKhachhang.resx">
       <DependentUpon>ptroKhachhang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlKhachhang\tbao-nnhoKhachhang.resx">
-      <DependentUpon>tbao-nnhoKhachhang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ControlNhanvien\hdon-ttoanNhanvien.resx">
       <DependentUpon>hdon-ttoanNhanvien.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,8 +342,8 @@
     <EmbeddedResource Include="FNhanVien.resx">
       <DependentUpon>FNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="OTP.resx">
+      <DependentUpon>OTP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

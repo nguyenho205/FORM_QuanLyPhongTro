@@ -45,7 +45,6 @@ namespace laptrinhNet
             // Ẩn tất cả UserControl
             hdongKhachhang1.Visible = false;
             hdon_ttoanKhachhang1.Visible = false;
-            tbao_nnhoKhachhang1.Visible = false;
             phoi_htroKhachhang1.Visible = false;
 
             khangKhachhang1.Visible = true;
@@ -106,12 +105,6 @@ namespace laptrinhNet
         {
             hdon_ttoanKhachhang1.Visible = true;
             hdon_ttoanKhachhang1.BringToFront();
-        }
-
-        private void btnThongBao_Click(object sender, EventArgs e)
-        {
-            tbao_nnhoKhachhang1.Visible = true;
-            tbao_nnhoKhachhang1.BringToFront();
         }
 
         private void btnPhanHoi_Click(object sender, EventArgs e)

@@ -58,7 +58,7 @@ namespace laptrinhNet.ControlKhachhang
                 if (dsHoaDon.Count > 0)
                 {
                     cbMaHD.SelectedIndex = 0;
-                    cbMaHD_SelectedIndexChanged(cbMaHD, EventArgs.Empty); // Cập nhật nội dung ngay
+                    cbMaHD_SelectedIndexChanged(cbMaHD, EventArgs.Empty); 
                 }
 
             }
@@ -71,7 +71,7 @@ namespace laptrinhNet.ControlKhachhang
             var hd = cbMaHD.SelectedItem as HoaDon;
             if (hd == null) return;
 
-            // Cập nhật trạng thái và ngày
+
             cbTrangthai.Text = hd.TrangThaiThanhToan;
             NgayLap.Value = hd.NgayLap ?? DateTime.Now;
             Han.Value = (hd.NgayLap ?? DateTime.Now).AddDays(15);
@@ -116,7 +116,7 @@ namespace laptrinhNet.ControlKhachhang
                 }
 
 
-                // Cập nhật TextBox
+
                 txtDiendadung.Text = dienDaDung.ToString();
                 txtNuocdadung.Text = nuocDaDung.ToString();
                 txtTongDien.Text = tongTienDien.ToString("N0");

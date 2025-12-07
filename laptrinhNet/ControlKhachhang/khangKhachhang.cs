@@ -22,7 +22,6 @@ namespace laptrinhNet.ControlKhachhang
 
         public KhachHang KhachDaChon { get; private set; }
 
-        // Sự kiện để thông báo Form khi chọn khách hàng
         public event Action<KhachHang> KhachHangChanged;
 
         public void Load_RandomIn4()
@@ -41,7 +40,6 @@ namespace laptrinhNet.ControlKhachhang
                     txtSdt.Text = KhachDaChon.SoDienThoai;
                     txtCCCD.Text = KhachDaChon.SoCMND;
 
-                    // Đây là bước quan trọng
                     KhachHangChanged?.Invoke(KhachDaChon);
                 }
             }
@@ -78,7 +76,6 @@ namespace laptrinhNet.ControlKhachhang
         private void tbnSua_Click(object sender, EventArgs e)
         {
 
-            // Lấy dữ liệu từ textbox
             string tenMoi = txtTen.Text.Trim();
             string diaChiMoi = txtDiachi.Text.Trim();
             string sdtMoi = txtSdt.Text.Trim();
@@ -94,7 +91,7 @@ namespace laptrinhNet.ControlKhachhang
             {
                 using (var db = new QLPhongTroDataContext())
                 {
-                    // Lấy lại khách hàng từ database
+
                     var kh = db.KhachHangs.FirstOrDefault(k => k.MaKH == KhachDaChon.MaKH);
                     if (kh != null)
                     {
@@ -115,7 +112,6 @@ namespace laptrinhNet.ControlKhachhang
                 KhachDaChon.SoDienThoai = sdtMoi;
                 KhachDaChon.SoCMND = cccdMoi;
 
-                // Thông báo cho form cha nếu cần
                 KhachHangChanged?.Invoke(KhachDaChon);
             }
             catch (Exception ex)
