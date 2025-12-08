@@ -167,80 +167,80 @@ namespace laptrinhNet.ControlKhachHang
             }
 
             // Xác thực OTP
-            OTP maxacthuc = new OTP();
-            maxacthuc.EmailKhachHang = txtEmail.Text.Trim();
-            this.Hide();
-            var result = maxacthuc.ShowDialog();
-            this.Show();
+        //    OTP maxacthuc = new OTP();
+        //    maxacthuc.EmailKhachHang = txtEmail.Text.Trim();
+        //    this.Hide();
+        //    var result = maxacthuc.ShowDialog();
+        //    this.Show();
 
-            if (result != DialogResult.OK)
-            {
-                MessageBox.Show("Bạn chưa xác thực OTP!");
-                return;
-            }
+        //    if (result != DialogResult.OK)
+        //    {
+        //        MessageBox.Show("Bạn chưa xác thực OTP!");
+        //        return;
+        //    }
 
-            try
-            {
-                using (var db = new QLPhongTroDataContext())
-                {
-                    // 1. Lấy phòng và loại phòng
-                    var phong = db.PhongTros.Include("LoaiPTDaTa")
-                                             .FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
-                    if (phong == null)
-                    {
-                        MessageBox.Show("Không tìm thấy phòng đã chọn!", "Lỗi");
-                        return;
-                    }
-                    var loaiPhong = phong.LoaiPTDaTa;
+        //    try
+        //    {
+        //        using (var db = new QLPhongTroDataContext())
+        //        {
+        //            // 1. Lấy phòng và loại phòng
+        //            var phong = db.PhongTros.Include("LoaiPTDaTa")
+        //                                     .FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
+        //            if (phong == null)
+        //            {
+        //                MessageBox.Show("Không tìm thấy phòng đã chọn!", "Lỗi");
+        //                return;
+        //            }
+        //            var loaiPhong = phong.LoaiPTDaTa;
 
-                    // 2. Tạo khách hàng mới
-                    string newMaKH = TaoMaKH(db);
-                    KhachHang kh = new KhachHang
-                    {
-                        MaKH = newMaKH,
-                        TenKH = ten,
-                        SoDienThoai = sdt,
-                        SoCMND = cccd,
-                        EmailKhachHang = email,
-                        DiaChiThuongTru = "Chưa cập nhật"
-                    };
-                    db.KhachHangs.Add(kh);
+        //            // 2. Tạo khách hàng mới
+        //            string newMaKH = TaoMaKH(db);
+        //            KhachHang kh = new KhachHang
+        //            {
+        //                MaKH = newMaKH,
+        //                TenKH = ten,
+        //                SoDienThoai = sdt,
+        //                SoCMND = cccd,
+        //                EmailKhachHang = email,
+        //                DiaChiThuongTru = "Chưa cập nhật"
+        //            };
+        //            db.KhachHangs.Add(kh);
 
-                    // **Bắt buộc save khách hàng trước để tránh lỗi FK**
-                    db.SaveChanges();
+        //            // **Bắt buộc save khách hàng trước để tránh lỗi FK**
+        //            db.SaveChanges();
 
-                    // 3. Tạo hợp đồng mới
-                    string newMaHD = TaoMaHD(db);
-                    HopDong hd = new HopDong
-                    {
-                        MaHopDong = newMaHD,
-                        NgayBD = Tungay.Value.Date,
-                        NgayKT = Denngay.Value.Date,
-                        TrangThai = "ĐANG THUÊ",
-                        MaKH = kh.MaKH, // chắc chắn khách hàng đã có trong DB
-                        MaPhong = cbMaphong.Text,
-                        TienCoc = loaiPhong?.GiaPhong ?? 0
-                    };
-                    db.HopDongs.Add(hd);
+        //            // 3. Tạo hợp đồng mới
+        //            string newMaHD = TaoMaHD(db);
+        //            HopDong hd = new HopDong
+        //            {
+        //                MaHopDong = newMaHD,
+        //                NgayBD = Tungay.Value.Date,
+        //                NgayKT = Denngay.Value.Date,
+        //                TrangThai = "ĐANG THUÊ",
+        //                MaKH = kh.MaKH, // chắc chắn khách hàng đã có trong DB
+        //                MaPhong = cbMaphong.Text,
+        //                TienCoc = loaiPhong?.GiaPhong ?? 0
+        //            };
+        //            db.HopDongs.Add(hd);
 
-                    // 4. Cập nhật trạng thái phòng
-                    phong.TrangThai = "ĐANG THUÊ";
+        //            // 4. Cập nhật trạng thái phòng
+        //            phong.TrangThai = "ĐANG THUÊ";
 
-                    // Lưu tất cả thay đổi
-                    db.SaveChanges();
-                }
+        //            // Lưu tất cả thay đổi
+        //            db.SaveChanges();
+        //        }
 
-                // Refresh GridView
-                Load_GirdView();
-                MessageBox.Show("Đăng ký thuê thành công!", "Thành công");
-            }
-            catch (Exception ex)
-            {
-                while (ex.InnerException != null)
-                    ex = ex.InnerException;
+        //        // Refresh GridView
+        //        Load_GirdView();
+        //        MessageBox.Show("Đăng ký thuê thành công!", "Thành công");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        while (ex.InnerException != null)
+        //            ex = ex.InnerException;
 
-                MessageBox.Show("Lỗi thực tế:\n" + ex.Message);
-            }
+        //        MessageBox.Show("Lỗi thực tế:\n" + ex.Message);
+        //    }
         }
 
 

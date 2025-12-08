@@ -1,5 +1,4 @@
-﻿using laptrinhNet.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,10 +27,8 @@ namespace laptrinhNet
 
         private void DangNhap_Load(object sender, EventArgs e)
         {
-
-            txtDangNhap.Clear();
-            txtMatKhau.Clear();
-
+            //labelError.Visible = false;
+            //labelRadio.Visible = false;
         }
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
@@ -43,57 +40,9 @@ namespace laptrinhNet
             }
         }
 
-        public void btnDangNhap_Click(object sender, EventArgs e)
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
-
-
-            //checkRadio();
-
-            //// Nếu chưa chọn radio thì không tiếp tục xử lý đăng nhập
-            //if (!rdNhanVien.Checked && !rdNguoiThue.Checked && !rdAdmin.Checked)
-            //{
-            //    // Không đăng nhập được nếu chưa chọn chức vụ
-            //    return;
-            //}
-
-            //if (txtDangNhap.Text == "sa" && txtMatKhau.Text == "123" && rdAdmin.Checked)
-            //{
-            //    labelError.Visible = false;
-            //    //Hien trang menu khi bam dang nhap
-            //    //BamDang nhap hien menu thi dang nhap bien mat
-            //    Admin menuAdmin = new Admin();
-            //    this.Hide();
-            //    menuAdmin.ShowDialog();
-            //    this.Show();
-            //    resetForm();
-
-            //}
-            //if (txtDangNhap.Text=="sa" && txtMatKhau.Text=="123" && rdNhanVien.Checked)
-            //{
-            //    labelError.Visible = false;
-            //    //Hien trang menu khi bam dang nhap
-            //    //BamDang nhap hien menu thi dang nhap bien mat
-            //    FNhanVien menuNhanvien = new FNhanVien();
-            //    this.Hide();
-            //    menuNhanvien.ShowDialog();
-            //    this.Show();
-            //    resetForm();
-            //}
-            //if (txtDangNhap.Text == "sa" && txtMatKhau.Text == "123" && rdNguoiThue.Checked)
-            //{
-            //    labelError.Visible = false;
-            //    //Hien trang menu khi bam dang nhap
-            //    //BamDang nhap hien menu thi dang nhap bien mat
-            //    FKhachHang menuKhachhang = new FKhachHang();
-            //    this.Hide();
-            //    menuKhachhang.ShowDialog();
-            //    this.Show();
-            //    resetForm();
-            //}
-
-            //labelError.Visible = true;
-
-
+            
             string tenDangNhap = txtDangNhap.Text.Trim(); // Tên TextBox nhập user
             string matKhau = txtMatKhau.Text.Trim();         // Tên TextBox nhập pass
 
@@ -106,7 +55,7 @@ namespace laptrinhNet
 
             // 1. Tạo chuỗi kết nối động dựa trên User nhập vào
             // Thay "TEN_MAY_TINH" bằng tên Server của bạn (ví dụ: .\SQLEXPRESS hoặc tên máy)
-            string serverName = @"DESKTOP-IQCO6JU\SQLEXPRESS"; // <--- SỬA TÊN SERVER CỦA BẠN Ở ĐÂY
+            string serverName = @"LAPTOP-1NE8K1LH\SQLEXPRESS"; // <--- SỬA TÊN SERVER CỦA BẠN Ở ĐÂY
             string databaseName = "QUANLY_PHONGTRO";
 
             string connectionString = $"Data Source={serverName};Initial Catalog={databaseName};User ID={tenDangNhap};Password={matKhau};TrustServerCertificate=True;";
@@ -172,78 +121,30 @@ namespace laptrinhNet
                 this.Show(); // Hiện lại form đăng nhập khi form con tắt
                 txtMatKhau.Clear(); // Xóa mật khẩu cũ cho an toàn
             }
-
         }
-        public void checkRadio()
-        {
-            //if (!rdNhanVien.Checked && !rdNguoiThue.Checked && !rdAdmin.Checked)
-            //{
-            //    labelRadio.Visible = true;
-            //}
-            //else
-            //{ labelRadio.Visible = false; }
-
-        }
-
-
+        //public void checkRadio()
+        //{
+        //    if (!rdNhanVien.Checked && !rdNguoiThue.Checked && !rdAdmin.Checked)
+        //    {
+        //        labelRadio.Visible = true;
+        //    }
+        //    else
+        //    { labelRadio.Visible = false; }
+        //}
 
         public void resetForm()
         {
-
             //labelError.Visible = false;
-            //txtDangNhap.Clear();
-            //txtMatKhau.Clear();
-            //rdAdmin.Checked = false;
-            //rdNhanVien.Checked = false;
-            //rdNguoiThue.Checked = false;
-
+            txtDangNhap.Clear();
+            txtMatKhau.Clear();
+            rdAdmin.Checked = false;
+            rdNhanVien.Checked = false;
+            rdNguoiThue.Checked = false;
         }
 
         private void txtMatKhau_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtMatKhau.Text))
-            {
-                labelError.Visible = false;
-                labelErrorNull.Visible = false;
-                labelDangky.Visible = true;
-            }
-        }
 
-        private void rdNguoiThue_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdNguoiThue.Checked)
-            {
-                labelRadio.Visible = false;
-                labelDangky.Visible = true;
-            }
-        }
-
-        private void rdNhanVien_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdNhanVien.Checked)
-            {
-                labelRadio.Visible = false;
-                labelDangky.Visible = true;
-            }
-        }
-
-        private void rdAdmin_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdAdmin.Checked)
-            {
-                labelRadio.Visible = false;
-                labelDangky.Visible = true;
-            }
-        }
-
-        private void tbnDangKy_Click(object sender, EventArgs e)
-        {
-            DangKyKH dangky = new DangKyKH();
-            this.Hide();
-            dangky.ShowDialog();
-            this.Show();
-            resetForm();
-            return;
         }
     }
 }

@@ -38,9 +38,9 @@ namespace laptrinhNet.ControlNhanvien
         {
             try
             {
-                using (var db = new QLPhongTroDataContext(Session.ConnectionString))
+                using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
-                    string currentMaNV = Session.Username;
+                    string currentMaNV = DangNhap.NguoiDungHienTai;
 
                     var listViec = from pc in db.PhanCongs
                                    join cv in db.CongViecs on pc.MaCV equals cv.MaCV

@@ -29,7 +29,7 @@ namespace laptrinhNet.Database.Entities
         [Column("DIACHITHUONGTRU")]
         public string DiaChiThuongTru { get; set; }
 
-        [Column("MATKHAU")]
-        public string MatKhau { get; set; }
+        //[Column("MATKHAU")]
+        //public string MatKhau { get; set; }
     }
 }

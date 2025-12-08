@@ -37,7 +37,7 @@ namespace laptrinhNet.ControlNhanvien
         {
             try
             {
-                using (var db = new QLPhongTroDataContext(Session.ConnectionString))
+                using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
                     // Lấy danh sách phòng
                     var listPhong = from p in db.PhongTros
@@ -69,7 +69,7 @@ namespace laptrinhNet.ControlNhanvien
         {
             try
             {
-                using (var db = new QLPhongTroDataContext(Session.ConnectionString))
+                using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
                     // Tìm hợp đồng còn hạn của phòng này
                     var hopDong = db.HopDongs.FirstOrDefault(hd => hd.MaPhong == maPhong && hd.TrangThai == "Còn hạn");
@@ -103,7 +103,7 @@ namespace laptrinhNet.ControlNhanvien
 
             try
             {
-                using (var db = new QLPhongTroDataContext(Session.ConnectionString))
+                using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
                     // Tìm phòng cần sửa
                     var phong = db.PhongTros.SingleOrDefault(p => p.MaPhong == txtMaPhong.Text);

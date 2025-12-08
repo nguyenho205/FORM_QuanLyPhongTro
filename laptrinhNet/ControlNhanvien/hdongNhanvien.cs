@@ -55,7 +55,7 @@ namespace laptrinhNet.ControlNhanvien
             try
             {
                 // QUAN TRỌNG: Truyền Session.ConnectionString vào đây
-                using (var db = new QLPhongTroDataContext(Session.ConnectionString))
+                using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
                     var listHD = from hd in db.HopDongs
                                  join kh in db.KhachHangs on hd.MaKH equals kh.MaKH

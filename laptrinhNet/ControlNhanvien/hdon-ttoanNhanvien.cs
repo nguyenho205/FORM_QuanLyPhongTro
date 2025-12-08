@@ -11,6 +11,7 @@ using laptrinhNet.Database;
 using laptrinhNet.Database.Entities;
 using Excel = Microsoft.Office.Interop.Excel;
 
+
 namespace laptrinhNet.ControlNhanvien
 {
     public partial class hdon_ttoanNhanvien : UserControl
@@ -30,9 +31,9 @@ namespace laptrinhNet.ControlNhanvien
             InitializeComponent();
             try
             {
-                if (!string.IsNullOrEmpty(Session.ConnectionString))
+                if (!string.IsNullOrEmpty(DangNhap.ConnectionStringHienTai))
                 {
-                    db = new QLPhongTroDataContext(Session.ConnectionString);
+                    db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai);
                 }
                 else
                 {

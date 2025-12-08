@@ -9,7 +9,7 @@ namespace laptrinhNet.Database // <-- SỬA: Namespace của bạn
     {
         public QLPhongTroDataContext()
 
-            : base("Data Source=DESKTOP-IQCO6JU\\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
+            : base("Data Source=LAPTOP-1NE8K1LH\\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
 
         {
         }

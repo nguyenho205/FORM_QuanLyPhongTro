@@ -67,7 +67,6 @@
             this.rdAdmin.TabStop = true;
             this.rdAdmin.Text = "Admin";
             this.rdAdmin.UseVisualStyleBackColor = false;
-            this.rdAdmin.CheckedChanged += new System.EventHandler(this.rdAdmin_CheckedChanged);
             // 
             // rdNhanVien
             // 
@@ -84,7 +83,6 @@
             this.rdNhanVien.TabStop = true;
             this.rdNhanVien.Text = "Nhân viên";
             this.rdNhanVien.UseVisualStyleBackColor = false;
-            this.rdNhanVien.CheckedChanged += new System.EventHandler(this.rdNhanVien_CheckedChanged);
             // 
             // rdNguoiThue
             // 
@@ -102,7 +100,6 @@
             this.rdNguoiThue.TabStop = true;
             this.rdNguoiThue.Text = "Người thuê";
             this.rdNguoiThue.UseVisualStyleBackColor = false;
-            this.rdNguoiThue.CheckedChanged += new System.EventHandler(this.rdNguoiThue_CheckedChanged);
             // 
 
             // guna2CirclePictureBox1
@@ -175,7 +172,6 @@
             this.txtDangNhap.Name = "txtDangNhap";
             this.txtDangNhap.Size = new System.Drawing.Size(197, 20);
             this.txtDangNhap.TabIndex = 67;
-            this.txtDangNhap.TextChanged += new System.EventHandler(this.txtDangNhap_TextChanged);
             // 
             // label4
             // 
@@ -276,7 +272,6 @@
             this.tbnDangKy.TabIndex = 81;
             this.tbnDangKy.Text = "Đăng ký";
             this.tbnDangKy.UseVisualStyleBackColor = false;
-            this.tbnDangKy.Click += new System.EventHandler(this.tbnDangKy_Click);
             // 
             // labelDangky
             // 
