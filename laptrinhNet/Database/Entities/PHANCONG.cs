@@ -18,8 +18,9 @@ namespace laptrinhNet.Database.Entities
         public string MaNV { get; set; }
         public virtual NhanVien NhanVienDaTa { get; set; }
 
-        [Column("MACV")]
+        [Column("MACV"), ForeignKey("CongViecDaTa")]
         public string MaCV { get; set; }
+        public virtual CongViec CongViecDaTa { get; set; }
 
         [Column("NGAYPHANCONG")]
         public DateTime? NgayPhanCong { get; set; }

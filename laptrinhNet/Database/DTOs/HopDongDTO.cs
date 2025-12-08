@@ -13,7 +13,7 @@ namespace laptrinhNet.Database.DTOs
         public DateTime? NGAYKT { get; set; }
         public decimal? TIENCOC { get; set; }
         public string TRANGTHAI { get; set; }
-        public string MAKH { get; set; } // FK
-        public string MAPHONG { get; set; } // FK
+        public string TENKH { get; set; } // FK
+        public string TENPHONG { get; set; } // FK
     }
 }

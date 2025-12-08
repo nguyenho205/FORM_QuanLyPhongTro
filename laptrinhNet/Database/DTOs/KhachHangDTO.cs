@@ -9,7 +9,6 @@ namespace laptrinhNet.Database.DTOs
 {
     public class KhachHangDTO
     {
-        [Key]
         public string MAKH { get; set; }
         public string TENKH { get; set; }
         public string SOCMND { get; set; }

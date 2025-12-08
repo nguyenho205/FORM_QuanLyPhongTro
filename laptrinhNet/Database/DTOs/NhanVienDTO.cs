@@ -9,7 +9,6 @@ namespace laptrinhNet.Database.DTOs
 {
     public class NhanVienDTO
     {
-        [Key]
         public string MANV { get; set; }
         public string TENNHANVIEN { get; set; }
         public DateTime? NGAYSINH { get; set; }

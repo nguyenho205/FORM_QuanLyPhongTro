@@ -30,6 +30,7 @@
         {
             this.tbnSua = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+
             this.checkHienMK = new System.Windows.Forms.CheckBox();
             this.txtMatkhau = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.txtTen = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+
             this.SuspendLayout();
             // 
             // tbnSua
@@ -62,6 +64,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label9.Location = new System.Drawing.Point(426, 30);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(148, 23);
@@ -149,6 +152,7 @@
             this.txtCCCD.Name = "txtCCCD";
             this.txtCCCD.Size = new System.Drawing.Size(143, 20);
             this.txtCCCD.TabIndex = 8;
+
             // 
             // label8
             // 
@@ -156,6 +160,7 @@
             this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+
             this.label8.Location = new System.Drawing.Point(542, 203);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 19);
@@ -168,6 +173,7 @@
             this.txtSdt.Name = "txtSdt";
             this.txtSdt.Size = new System.Drawing.Size(176, 20);
             this.txtSdt.TabIndex = 7;
+
             // 
             // label7
             // 
@@ -175,18 +181,22 @@
             this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+
             this.label7.Location = new System.Drawing.Point(273, 203);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 19);
             this.label7.TabIndex = 227;
+r
             this.label7.Text = "Số điện thoại";
             // 
+
             // txtTen
             // 
             this.txtTen.Location = new System.Drawing.Point(557, 84);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(171, 20);
             this.txtTen.TabIndex = 2;
+
             // 
             // label6
             // 
@@ -194,28 +204,33 @@
             this.label6.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+
             this.label6.Location = new System.Drawing.Point(460, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 19);
             this.label6.TabIndex = 226;
             this.label6.Text = "Tên khách hàng";
             // 
+
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+
             this.label2.Location = new System.Drawing.Point(273, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 19);
             this.label2.TabIndex = 225;
             this.label2.Text = "Mã khách hàng";
             // 
+
             // khangKhachhang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.Controls.Add(this.checkHienMK);
             this.Controls.Add(this.txtMatkhau);
             this.Controls.Add(this.label1);
@@ -236,6 +251,7 @@
             this.Name = "khangKhachhang";
             this.Size = new System.Drawing.Size(1001, 419);
             this.Load += new System.EventHandler(this.khangKhachhang_Load);
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +260,7 @@
         #endregion
         private System.Windows.Forms.Button tbnSua;
         private System.Windows.Forms.Label label9;
+
         private System.Windows.Forms.CheckBox checkHienMK;
         private System.Windows.Forms.TextBox txtMatkhau;
         private System.Windows.Forms.Label label1;
@@ -259,5 +276,6 @@
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
+
     }
 }
