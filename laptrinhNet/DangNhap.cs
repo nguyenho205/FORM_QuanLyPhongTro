@@ -1,4 +1,5 @@
-﻿using System;
+﻿using laptrinhNet.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,8 +28,8 @@ namespace laptrinhNet
 
         private void DangNhap_Load(object sender, EventArgs e)
         {
-            labelError.Visible = false;
-            labelRadio.Visible = false;
+            txtDangNhap.Clear();
+            txtMatKhau.Clear();
         }
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
@@ -42,6 +43,7 @@ namespace laptrinhNet
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+
             //checkRadio();
 
             //// Nếu chưa chọn radio thì không tiếp tục xử lý đăng nhập
@@ -167,25 +169,26 @@ namespace laptrinhNet
                 this.Show(); // Hiện lại form đăng nhập khi form con tắt
                 txtMatKhau.Clear(); // Xóa mật khẩu cũ cho an toàn
             }
+
         }
         public void checkRadio()
         {
-            if (!rdNhanVien.Checked && !rdNguoiThue.Checked && !rdAdmin.Checked)
-            {
-                labelRadio.Visible = true;
-            }
-            else
-            { labelRadio.Visible = false; }
+            //if (!rdNhanVien.Checked && !rdNguoiThue.Checked && !rdAdmin.Checked)
+            //{
+            //    labelRadio.Visible = true;
+            //}
+            //else
+            //{ labelRadio.Visible = false; }
         }
 
         public void resetForm()
         {
-            labelError.Visible = false;
-            txtDangNhap.Clear();
-            txtMatKhau.Clear();
-            rdAdmin.Checked = false;
-            rdNhanVien.Checked = false;
-            rdNguoiThue.Checked = false;
+            //labelError.Visible = false;
+            //txtDangNhap.Clear();
+            //txtMatKhau.Clear();
+            //rdAdmin.Checked = false;
+            //rdNhanVien.Checked = false;
+            //rdNguoiThue.Checked = false;
         }
 
         private void txtMatKhau_TextChanged(object sender, EventArgs e)

@@ -7,10 +7,18 @@ namespace laptrinhNet.Database // <-- SỬA: Namespace của bạn
 {
     public class QLPhongTroDataContext : DbContext
     {
-        // 1. Constructor: Cấu hình chuỗi kết nối
         public QLPhongTroDataContext()
             : base("Data Source=DESKTOP-IQCO6JU\\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
+
         {
+        }
+
+        //  Constructor QUAN TRỌNG: Nhận chuỗi kết nối động từ Session
+        // Entity Framework sẽ dùng đúng tài khoản NV01/KH01 để truy vấn
+        public QLPhongTroDataContext(string connectionString) : base(connectionString)
+        {
+            // Tùy chọn: Tắt LazyLoading nếu muốn code chạy nhanh hơn
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         // 2. Khai báo danh sách các bảng (DbSet)
