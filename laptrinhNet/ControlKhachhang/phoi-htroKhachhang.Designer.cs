@@ -28,45 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnGui = new System.Windows.Forms.Button();
+            this.txtNoidung = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSophong = new System.Windows.Forms.TextBox();
             this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkDaXL = new System.Windows.Forms.CheckBox();
+            this.checkDangXL = new System.Windows.Forms.CheckBox();
+            this.checkChuaXL = new System.Windows.Forms.CheckBox();
+            this.checkAll = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbMaPH = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // btnGui
             // 
-            this.button3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(722, 349);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 48);
-            this.button3.TabIndex = 257;
-            this.button3.Text = "Gửi ";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnGui.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGui.Location = new System.Drawing.Point(722, 349);
+            this.btnGui.Name = "btnGui";
+            this.btnGui.Size = new System.Drawing.Size(97, 48);
+            this.btnGui.TabIndex = 257;
+            this.btnGui.Text = "Gửi ";
+            this.btnGui.UseVisualStyleBackColor = true;
+            this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
             // 
-            // textBox3
+            // txtNoidung
             // 
-            this.textBox3.Location = new System.Drawing.Point(559, 126);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(399, 198);
-            this.textBox3.TabIndex = 249;
+            this.txtNoidung.Location = new System.Drawing.Point(559, 126);
+            this.txtNoidung.Multiline = true;
+            this.txtNoidung.Name = "txtNoidung";
+            this.txtNoidung.Size = new System.Drawing.Size(399, 198);
+            this.txtNoidung.TabIndex = 249;
             // 
             // label4
             // 
@@ -80,12 +79,12 @@
             this.label4.TabIndex = 248;
             this.label4.Text = "Nội dung";
             // 
-            // textBox2
+            // txtTen
             // 
-            this.textBox2.Location = new System.Drawing.Point(584, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 20);
-            this.textBox2.TabIndex = 247;
+            this.txtTen.Location = new System.Drawing.Point(584, 99);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(160, 20);
+            this.txtTen.TabIndex = 247;
             // 
             // label3
             // 
@@ -98,15 +97,13 @@
             this.label3.Size = new System.Drawing.Size(57, 19);
             this.label3.TabIndex = 245;
             this.label3.Text = "Số phòng";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox1
+            // txtSophong
             // 
-            this.textBox1.Location = new System.Drawing.Point(822, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 20);
-            this.textBox1.TabIndex = 246;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtSophong.Location = new System.Drawing.Point(822, 96);
+            this.txtSophong.Name = "txtSophong";
+            this.txtSophong.Size = new System.Drawing.Size(136, 20);
+            this.txtSophong.TabIndex = 246;
             // 
             // trangThai
             // 
@@ -133,7 +130,6 @@
             this.label1.Size = new System.Drawing.Size(79, 19);
             this.label1.TabIndex = 244;
             this.label1.Text = "Tên người gửi";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridView1
             // 
@@ -146,49 +142,53 @@
             this.dataGridView1.Size = new System.Drawing.Size(388, 298);
             this.dataGridView1.TabIndex = 241;
             // 
-            // checkBox4
+            // checkDaXL
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(302, 70);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(71, 23);
-            this.checkBox4.TabIndex = 240;
-            this.checkBox4.Text = "Đã xử lý";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkDaXL.AutoSize = true;
+            this.checkDaXL.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkDaXL.Location = new System.Drawing.Point(302, 70);
+            this.checkDaXL.Name = "checkDaXL";
+            this.checkDaXL.Size = new System.Drawing.Size(71, 23);
+            this.checkDaXL.TabIndex = 240;
+            this.checkDaXL.Text = "Đã xử lý";
+            this.checkDaXL.UseVisualStyleBackColor = true;
+            this.checkDaXL.CheckedChanged += new System.EventHandler(this.checkDaXL_CheckedChanged);
             // 
-            // checkBox3
+            // checkDangXL
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(206, 70);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(84, 23);
-            this.checkBox3.TabIndex = 239;
-            this.checkBox3.Text = "Đang xử lý";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkDangXL.AutoSize = true;
+            this.checkDangXL.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkDangXL.Location = new System.Drawing.Point(206, 70);
+            this.checkDangXL.Name = "checkDangXL";
+            this.checkDangXL.Size = new System.Drawing.Size(84, 23);
+            this.checkDangXL.TabIndex = 239;
+            this.checkDangXL.Text = "Đang xử lý";
+            this.checkDangXL.UseVisualStyleBackColor = true;
+            this.checkDangXL.CheckedChanged += new System.EventHandler(this.checkDangXL_CheckedChanged);
             // 
-            // checkBox2
+            // checkChuaXL
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(111, 70);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(85, 23);
-            this.checkBox2.TabIndex = 238;
-            this.checkBox2.Text = "Chưa xử lý";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkChuaXL.AutoSize = true;
+            this.checkChuaXL.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkChuaXL.Location = new System.Drawing.Point(111, 70);
+            this.checkChuaXL.Name = "checkChuaXL";
+            this.checkChuaXL.Size = new System.Drawing.Size(85, 23);
+            this.checkChuaXL.TabIndex = 238;
+            this.checkChuaXL.Text = "Chưa xử lý";
+            this.checkChuaXL.UseVisualStyleBackColor = true;
+            this.checkChuaXL.CheckedChanged += new System.EventHandler(this.checkChuaXL_CheckedChanged);
             // 
-            // checkBox1
+            // checkAll
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(43, 70);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 23);
-            this.checkBox1.TabIndex = 237;
-            this.checkBox1.Text = "Tất cả";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkAll.AutoSize = true;
+            this.checkAll.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkAll.Location = new System.Drawing.Point(43, 70);
+            this.checkAll.Name = "checkAll";
+            this.checkAll.Size = new System.Drawing.Size(60, 23);
+            this.checkAll.TabIndex = 237;
+            this.checkAll.Text = "Tất cả";
+            this.checkAll.UseVisualStyleBackColor = true;
+            this.checkAll.CheckedChanged += new System.EventHandler(this.checkAll_CheckedChanged);
             // 
             // label9
             // 
@@ -199,26 +199,6 @@
             this.label9.Size = new System.Drawing.Size(135, 23);
             this.label9.TabIndex = 236;
             this.label9.Text = "Danh sách phản hồi";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(794, 71);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(164, 21);
-            this.comboBox1.TabIndex = 259;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(712, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 19);
-            this.label5.TabIndex = 258;
-            this.label5.Text = "Loại phản hồi";
             // 
             // label2
             // 
@@ -232,37 +212,36 @@
             this.label2.TabIndex = 242;
             this.label2.Text = "Mã phản hồi";
             // 
-            // comboBox2
+            // cbMaPH
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(576, 71);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(120, 21);
-            this.comboBox2.TabIndex = 243;
+            this.cbMaPH.FormattingEnabled = true;
+            this.cbMaPH.Location = new System.Drawing.Point(576, 71);
+            this.cbMaPH.Name = "cbMaPH";
+            this.cbMaPH.Size = new System.Drawing.Size(140, 21);
+            this.cbMaPH.TabIndex = 243;
             // 
             // phoi_htroKhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.btnGui);
+            this.Controls.Add(this.txtNoidung);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtTen);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.txtSophong);
+            this.Controls.Add(this.cbMaPH);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkDaXL);
+            this.Controls.Add(this.checkDangXL);
+            this.Controls.Add(this.checkChuaXL);
+            this.Controls.Add(this.checkAll);
             this.Controls.Add(this.label9);
             this.Name = "phoi_htroKhachhang";
             this.Size = new System.Drawing.Size(1001, 419);
+            this.Load += new System.EventHandler(this.phoi_htroKhachhang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -271,24 +250,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnGui;
+        private System.Windows.Forms.TextBox txtNoidung;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSophong;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn soPhong;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkDaXL;
+        private System.Windows.Forms.CheckBox checkDangXL;
+        private System.Windows.Forms.CheckBox checkChuaXL;
+        private System.Windows.Forms.CheckBox checkAll;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbMaPH;
     }
 }

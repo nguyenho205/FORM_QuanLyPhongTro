@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace laptrinhNet.ControlKhachhang
+namespace laptrinhNet
 {
-    public partial class tbao_nnhoKhachhang : UserControl
+    public partial class DangKyKH : Form
     {
-        public tbao_nnhoKhachhang()
+        public DangKyKH()
         {
             InitializeComponent();
+        }
+
+        private void ptroKhachhang1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

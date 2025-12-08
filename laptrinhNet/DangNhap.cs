@@ -28,8 +28,10 @@ namespace laptrinhNet
 
         private void DangNhap_Load(object sender, EventArgs e)
         {
+
             txtDangNhap.Clear();
             txtMatKhau.Clear();
+
         }
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
@@ -41,8 +43,9 @@ namespace laptrinhNet
             }
         }
 
-        private void btnDangNhap_Click(object sender, EventArgs e)
+        public void btnDangNhap_Click(object sender, EventArgs e)
         {
+
 
             //checkRadio();
 
@@ -179,21 +182,68 @@ namespace laptrinhNet
             //}
             //else
             //{ labelRadio.Visible = false; }
+
         }
+
+
 
         public void resetForm()
         {
+
             //labelError.Visible = false;
             //txtDangNhap.Clear();
             //txtMatKhau.Clear();
             //rdAdmin.Checked = false;
             //rdNhanVien.Checked = false;
             //rdNguoiThue.Checked = false;
+
         }
 
         private void txtMatKhau_TextChanged(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(txtMatKhau.Text))
+            {
+                labelError.Visible = false;
+                labelErrorNull.Visible = false;
+                labelDangky.Visible = true;
+            }
+        }
 
+        private void rdNguoiThue_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdNguoiThue.Checked)
+            {
+                labelRadio.Visible = false;
+                labelDangky.Visible = true;
+            }
+        }
+
+        private void rdNhanVien_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdNhanVien.Checked)
+            {
+                labelRadio.Visible = false;
+                labelDangky.Visible = true;
+            }
+        }
+
+        private void rdAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdAdmin.Checked)
+            {
+                labelRadio.Visible = false;
+                labelDangky.Visible = true;
+            }
+        }
+
+        private void tbnDangKy_Click(object sender, EventArgs e)
+        {
+            DangKyKH dangky = new DangKyKH();
+            this.Hide();
+            dangky.ShowDialog();
+            this.Show();
+            resetForm();
+            return;
         }
     }
 }

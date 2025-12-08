@@ -15,16 +15,19 @@ namespace laptrinhNet
     [NotMapped]
     public partial class FKhachHang : Form
     {
-        public FKhachHang()
+        private string MaKH; // Biến lưu MaKH người dùng
+
+        public FKhachHang(string maKH)
         {
             InitializeComponent();
+            MaKH = maKH;
         }
 
-        private void btnPhongTro_Click(object sender, EventArgs e)
-        {
-            ptroKhachhang1.Visible = true;
-            ptroKhachhang1.BringToFront();
-        }
+        //private void btnPhongTro_Click(object sender, EventArgs e)
+        //{
+        //    ptroKhachhang1.Visible = true;
+        //    ptroKhachhang1.BringToFront();
+        //}
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
@@ -42,17 +45,55 @@ namespace laptrinhNet
 
         private void KhachHang_Load(object sender, EventArgs e)
         {
-            {
-                ptroKhachhang1.Visible = false;
-                khangKhachhang1.Visible = false;
-                hdongKhachhang1.Visible = false;
-                hdon_ttoanKhachhang1.Visible = false;
-                tbao_nnhoKhachhang1.Visible = false;
-                phoi_htroKhachhang1.Visible = false;
+            // Ẩn tất cả UserControl
+            hdongKhachhang1.Visible = false;
+            hdon_ttoanKhachhang1.Visible = false;
+            phoi_htroKhachhang1.Visible = false;
 
-                btnPhongTro.PerformClick();
+            khangKhachhang1.Visible = true;
+            khangKhachhang1.BringToFront();
+
+            khangKhachhang1.KhachHangChanged += (khach) =>
+            {
+                if (khach != null)
+                {
+
+                    hdongKhachhang1.SetKhachHang(khach);
+
+
+                    hdon_ttoanKhachhang1.SetKhachHang(khach);
+                }
+            };
+
+
+
+
+            //Lay rd
+            //khangKhachhang1.Load_RandomIn4();
+            // Lấy kháchmacdinh
+            //khangKhachhang1.Load_KhachHang("KH03");
+
+            //;ay thong tin dua tren makh dang nhap
+            khangKhachhang1.Load_KhachHang(MaKH);
+
+
+            //Khách htai
+            var kh = khangKhachhang1.KhachDaChon;
+            if (kh != null)
+            {
+                hdongKhachhang1.SetKhachHang(kh);
+                hdongKhachhang1.Visible = true;
+
+                hdon_ttoanKhachhang1.SetKhachHang(kh);
+                hdon_ttoanKhachhang1.Visible = true;
+
+                phoi_htroKhachhang1.SetKhachHang(kh);
+                phoi_htroKhachhang1.Visible = true;
             }
+
         }
+
+
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
@@ -72,21 +113,10 @@ namespace laptrinhNet
             hdon_ttoanKhachhang1.BringToFront();
         }
 
-        private void btnThongBao_Click(object sender, EventArgs e)
-        {
-            tbao_nnhoKhachhang1.Visible = true;
-            tbao_nnhoKhachhang1.BringToFront();
-        }
-
         private void btnPhanHoi_Click(object sender, EventArgs e)
         {
             phoi_htroKhachhang1.Visible = true;
             phoi_htroKhachhang1.BringToFront();
-        }
-
-        private void tbao_nnhoKhachhang1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

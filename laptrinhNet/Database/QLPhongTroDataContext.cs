@@ -8,6 +8,7 @@ namespace laptrinhNet.Database // <-- SỬA: Namespace của bạn
     public class QLPhongTroDataContext : DbContext
     {
         public QLPhongTroDataContext()
+
             : base("Data Source=DESKTOP-IQCO6JU\\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
 
         {
@@ -16,6 +17,7 @@ namespace laptrinhNet.Database // <-- SỬA: Namespace của bạn
         //  Constructor QUAN TRỌNG: Nhận chuỗi kết nối động từ Session
         // Entity Framework sẽ dùng đúng tài khoản NV01/KH01 để truy vấn
         public QLPhongTroDataContext(string connectionString) : base(connectionString)
+
         {
             // Tùy chọn: Tắt LazyLoading nếu muốn code chạy nhanh hơn
             this.Configuration.LazyLoadingEnabled = false;
@@ -44,25 +46,49 @@ namespace laptrinhNet.Database // <-- SỬA: Namespace của bạn
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Cần đảm bảo rằng các lớp này đã được bỏ qua (Ignore)
-            modelBuilder.Ignore<Control>(); // Lỗi cũ (tốt nhất là giữ lại)
-            modelBuilder.Ignore<Image>();
-            modelBuilder.Ignore<ImageList>(); // Lỗi cũ (tốt nhất là giữ lại)
-            modelBuilder.Ignore<ToolStripItem>(); // Lỗi cũ (tốt nhất là giữ lại)
+            
+            modelBuilder.Ignore<System.Windows.Forms.Control>();
+            modelBuilder.Ignore<System.Drawing.Image>();
+            modelBuilder.Ignore<System.Windows.Forms.ImageList>();
+            modelBuilder.Ignore<System.Windows.Forms.ToolStripItem>();
+            modelBuilder.Ignore<System.Windows.Forms.ToolStripMenuItem>();
+            modelBuilder.Ignore<System.Windows.Forms.ToolStrip>();
+            modelBuilder.Ignore<System.Windows.Forms.Form>();
+            modelBuilder.Ignore<System.Windows.Forms.ContextMenuStrip>();
+            modelBuilder.Ignore<System.Windows.Forms.MenuStrip>();
 
-            // Các lỗi mới nhất:
-            modelBuilder.Ignore<ToolStripMenuItem>();
-            modelBuilder.Ignore<ToolStrip>();
-            modelBuilder.Ignore<Form>();
-            modelBuilder.Ignore<ContextMenuStrip>();
-            modelBuilder.Ignore<MenuStrip>();
+            //khao kép
+            modelBuilder.Entity<CT_HoaDon>()
+                .HasKey(c => new { c.MaHD, c.MaDV });
 
-            // Nếu bạn gặp lại các lỗi cũ, hãy thêm lại:
-            // modelBuilder.Ignore<PrintDocument>(); 
-            // modelBuilder.Ignore<PageSettings>();
-            // modelBuilder.Ignore<NumericUpDownAcceleration>();
+            modelBuilder.Entity<CT_DichVu>()
+                .HasKey(c => new { c.MaHopDong, c.MaDV });
 
             base.OnModelCreating(modelBuilder);
         }
+
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    // Cần đảm bảo rằng các lớp này đã được bỏ qua (Ignore)
+        //    modelBuilder.Ignore<Control>(); // Lỗi cũ (tốt nhất là giữ lại)
+        //    modelBuilder.Ignore<Image>();
+        //    modelBuilder.Ignore<ImageList>(); // Lỗi cũ (tốt nhất là giữ lại)
+        //    modelBuilder.Ignore<ToolStripItem>(); // Lỗi cũ (tốt nhất là giữ lại)
+
+        //    // Các lỗi mới nhất:
+        //    modelBuilder.Ignore<ToolStripMenuItem>();
+        //    modelBuilder.Ignore<ToolStrip>();
+        //    modelBuilder.Ignore<Form>();
+        //    modelBuilder.Ignore<ContextMenuStrip>();
+        //    modelBuilder.Ignore<MenuStrip>();
+
+        //    // Nếu bạn gặp lại các lỗi cũ, hãy thêm lại:
+        //    // modelBuilder.Ignore<PrintDocument>(); 
+        //    // modelBuilder.Ignore<PageSettings>();
+        //    // modelBuilder.Ignore<NumericUpDownAcceleration>();
+
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }

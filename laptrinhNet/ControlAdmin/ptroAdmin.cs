@@ -48,10 +48,6 @@ namespace laptrinhNet.ControlAdmin
         {
             using (var db = new QLPhongTroDataContext())
             {
-                // Load combobox
-                cbo_TenLoai_PT.DataSource = db.LoaiPhongTros.ToList();
-
-                cbo_TenLoai_PT.ValueMember = "MALOAI";
 
                 cbo_TrangThai_PT.DataSource = new string[] { "ĐANG THUÊ", "TRỐNG" };
 
