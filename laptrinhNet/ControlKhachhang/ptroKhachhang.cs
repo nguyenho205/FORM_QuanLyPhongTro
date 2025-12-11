@@ -44,7 +44,7 @@ namespace laptrinhNet.ControlKhachHang
 
 
                 SetupGridColumns();
-                dataGridView1.DataSource = data;
+                dgvDanhSachPhong.DataSource = data;
             }
         }
 
@@ -57,20 +57,20 @@ namespace laptrinhNet.ControlKhachHang
             LoadComboBoxPhong();
 
 
-            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 12);///dulieu
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);//tên cột
+            dgvDanhSachPhong.DefaultCellStyle.Font = new Font("Segoe UI", 12);///dulieu
+            dgvDanhSachPhong.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);//tên cột
 
-            dataGridView1.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns["TrangThai"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvDanhSachPhong.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDanhSachPhong.Columns["TrangThai"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvDanhSachPhong.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            dgvDanhSachPhong.CellClick += dataGridView1_CellClick;
 
-            cbMaphong.SelectedIndexChanged += cbMaphong_SelectedIndexChanged;
+            cboMaPhong.SelectedIndexChanged += cbMaphong_SelectedIndexChanged;
 
-            checkChuathue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
-            checkDathue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
-            checkBaotri.CheckedChanged += FilterCheckBoxes_CheckedChanged;
+            chkChuaThue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
+            chkDaThue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
+            chkBaoTri.CheckedChanged += FilterCheckBoxes_CheckedChanged;
 
         }
 
@@ -92,12 +92,12 @@ namespace laptrinhNet.ControlKhachHang
         {
             if (e.RowIndex < 0) return;
 
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+            DataGridViewRow row = dgvDanhSachPhong.Rows[e.RowIndex];
 
             string maPhong = row.Cells["MaPhong"].Value.ToString();
-            cbMaphong.SelectedValue = maPhong;
+            cboMaPhong.SelectedValue = maPhong;
 
-            txtSophong.Text = row.Cells["TenPhong"].Value.ToString();
+            txtTenPhong.Text = row.Cells["TenPhong"].Value.ToString();
 
             using (var db = new QLPhongTroDataContext())
             {
@@ -105,9 +105,9 @@ namespace laptrinhNet.ControlKhachHang
 
                 if (phong != null)
                 {
-                    txtSophong.Text = phong.TenPhong;
-                    txtGhiChu.Text = phong.GhiChu;
-                    txtTenLoai.Text = phong.LoaiPTDaTa?.TenLoai ?? "";
+                    txtTenPhong.Text = phong.TenPhong;
+                    txtMoTa.Text = phong.GhiChu;
+                    txtLoaiPhong.Text = phong.LoaiPTDaTa?.TenLoai ?? "";
                     var culture = new CultureInfo("vi-VN");
                     txtGiaPhong.Text = phong.LoaiPTDaTa != null && phong.LoaiPTDaTa.GiaPhong.HasValue? phong.LoaiPTDaTa.GiaPhong.Value.ToString("N0", culture): "";
                 }
@@ -123,11 +123,11 @@ namespace laptrinhNet.ControlKhachHang
             {
                 var listPhong = db.PhongTros.Select(p => new { p.MaPhong, p.TenPhong }).ToList();
 
-                cbMaphong.DataSource = listPhong;
-                cbMaphong.DisplayMember = "MaPhong";
-                cbMaphong.ValueMember = "MaPhong";
+                cboMaPhong.DataSource = listPhong;
+                cboMaPhong.DisplayMember = "MaPhong";
+                cboMaPhong.ValueMember = "MaPhong";
 
-                cbMaphong.SelectedIndex = -1;
+                cboMaPhong.SelectedIndex = -1;
             }
         }
 
@@ -135,16 +135,16 @@ namespace laptrinhNet.ControlKhachHang
         {
             List<string> ckbox = new List<string>();
 
-            if (checkChuathue.Checked) ckbox.Add("TRỐNG");
-            if (checkDathue.Checked) ckbox.Add("ĐANG THUÊ");
-            if (checkBaotri.Checked) ckbox.Add("Bảo trì");
+            if (chkChuaThue.Checked) ckbox.Add("TRỐNG");
+            if (chkDaThue.Checked) ckbox.Add("ĐANG THUÊ");
+            if (chkBaoTri.Checked) ckbox.Add("Bảo trì");
 
             Load_GirdView(ckbox);
         }
         private void btnDangky_Click(object sender, EventArgs e)
         {
-            string ten = txtTen.Text.Trim();
-            string sdt = txtSdt.Text.Trim();
+            string ten = txtTenNguoiThue.Text.Trim();
+            string sdt = txtSDT.Text.Trim();
             string cccd = txtCCCD.Text.Trim();
             string email = txtEmail.Text.Trim();
 
@@ -154,13 +154,13 @@ namespace laptrinhNet.ControlKhachHang
                 return;
             }
 
-            if (string.IsNullOrEmpty(cbMaphong.Text))
+            if (string.IsNullOrEmpty(cboMaPhong.Text))
             {
                 MessageBox.Show("Bạn chưa chọn phòng!", "Lỗi");
                 return;
             }
 
-            if (Tungay.Value.Date >= Denngay.Value.Date)
+            if (dtpTuNgay.Value.Date >= dtpDenNgay.Value.Date)
             {
                 MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!", "Lỗi");
                 return;
@@ -305,10 +305,10 @@ namespace laptrinhNet.ControlKhachHang
         //ẩn cột gridview
         private void SetupGridColumns()
         {
-            dataGridView1.Columns.Clear();
+            dgvDanhSachPhong.Columns.Clear();
 
             
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            dgvDanhSachPhong.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 DataPropertyName = "MaPhong",
                 HeaderText = "Mã phòng",
@@ -316,7 +316,7 @@ namespace laptrinhNet.ControlKhachHang
             });
 
             
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            dgvDanhSachPhong.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 DataPropertyName = "TenPhong",
                 HeaderText = "Tên phòng",
@@ -324,7 +324,7 @@ namespace laptrinhNet.ControlKhachHang
             });
 
             //ẩn
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            dgvDanhSachPhong.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 DataPropertyName = "GhiChu",
                 HeaderText = "Ghi chú",
@@ -332,7 +332,7 @@ namespace laptrinhNet.ControlKhachHang
                 Visible = false
             });
 
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            dgvDanhSachPhong.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 DataPropertyName = "TenLoai",
                 
@@ -340,7 +340,7 @@ namespace laptrinhNet.ControlKhachHang
                 Visible = false
             });
             
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            dgvDanhSachPhong.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 DataPropertyName = "TrangThai",
                 HeaderText = "Trạng thái",
@@ -395,9 +395,9 @@ namespace laptrinhNet.ControlKhachHang
         private void cbMaphong_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (cbMaphong.SelectedIndex < 0) return;
+            if (cboMaPhong.SelectedIndex < 0) return;
 
-            string maPhong = cbMaphong.SelectedValue?.ToString();
+            string maPhong = cboMaPhong.SelectedValue?.ToString();
             if (string.IsNullOrEmpty(maPhong)) return;
 
             using (var db = new QLPhongTroDataContext())
@@ -405,8 +405,8 @@ namespace laptrinhNet.ControlKhachHang
                 var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == maPhong);
                 if (phong != null)
                 {
-                    txtSophong.Text = phong.TenPhong;
-                    txtGhiChu.Text = phong.GhiChu;
+                    txtTenPhong.Text = phong.TenPhong;
+                    txtMoTa.Text = phong.GhiChu;
                 }
             }
         }
