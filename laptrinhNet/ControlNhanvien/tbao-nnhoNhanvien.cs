@@ -16,5 +16,10 @@ namespace laptrinhNet.ControlNhanvien
         {
             InitializeComponent();
         }
+
+        private void tbao_nnhoNhanVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
