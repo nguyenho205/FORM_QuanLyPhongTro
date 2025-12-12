@@ -171,13 +171,37 @@ namespace laptrinhNet.ControlAdmin
                             LoadDataKhachHang();
                             ResetForm();
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             MessageBox.Show("Không thể xóa khách hàng này vì đang có dữ liệu liên quan (Hợp đồng/Hóa đơn). Hãy dùng chức năng 'Khóa tài khoản'.");
                         }
                     }
                 }
             }
+        }
+
+        private void btn_LamMoi_Click(object sender, EventArgs e)
+        {
+            // 1. Clear all text input fields
+            txt_TenKH.Text = "";
+            txt_SDT.Text = "";
+            txt_SoCCCD.Text = "";
+            txt_Email.Text = "";
+            txt_DiaChiThuongTru.Text = "";
+
+            // 2. Reload data from the database to ensure the grid is up-to-date
+            LoadDataKhachHang();
+
+            // 3. Generate the next auto-increment ID for a new customer
+            // This is crucial so the form is ready for a "Add New" operation
+            // instead of showing the ID of a previously selected row.
+            txt_MaNV.Text = TaoMaKhachHangTuDong(); // Note: Your text box is named txt_MaNV but holds Customer ID (MaKH)
+
+            // 4. Ensure the ID field remains read-only
+            txt_MaNV.Enabled = false;
+
+            // 5. Optional: Set focus to the first input field for better UX
+            txt_TenKH.Focus();
         }
     }
 }

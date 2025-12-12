@@ -60,6 +60,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_MaPC = new System.Windows.Forms.TextBox();
+            this.btn_LamMoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid_PhanCong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridNhanVien)).BeginInit();
             this.SuspendLayout();
@@ -416,10 +417,23 @@
             this.txt_MaPC.Size = new System.Drawing.Size(494, 26);
             this.txt_MaPC.TabIndex = 189;
             // 
+            // btn_LamMoi
+            // 
+            this.btn_LamMoi.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LamMoi.Location = new System.Drawing.Point(715, 363);
+            this.btn_LamMoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_LamMoi.Name = "btn_LamMoi";
+            this.btn_LamMoi.Size = new System.Drawing.Size(154, 72);
+            this.btn_LamMoi.TabIndex = 190;
+            this.btn_LamMoi.Text = "Làm mới";
+            this.btn_LamMoi.UseVisualStyleBackColor = true;
+            this.btn_LamMoi.Click += new System.EventHandler(this.btn_LamMoi_Click);
+            // 
             // nvienAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_LamMoi);
             this.Controls.Add(this.txt_MaPC);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txt_CCCD);
@@ -496,5 +510,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txt_MaPC;
+        private System.Windows.Forms.Button btn_LamMoi;
     }
 }

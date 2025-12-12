@@ -1,25 +1,25 @@
 ﻿using System.Data.Entity;
-using System.Windows.Forms; // Cần thiết cho Control, Form, ToolStrip, ToolStripMenuItem
-using System.Drawing; // Cần thiết cho Image
-using System.Drawing.Printing; // Cần thiết nếu có các lớp liên quan đến in ấn
-using laptrinhNet.Database.Entities; // <-- SỬA: Namespace chứa các lớp thực thể của bạn
-namespace laptrinhNet.Database // <-- SỬA: Namespace của bạn
+using System.Windows.Forms; 
+using System.Drawing; 
+using System.Drawing.Printing; 
+using laptrinhNet.Database.Entities; 
+namespace laptrinhNet.Database 
 {
     public class QLPhongTroDataContext : DbContext
     {
         public QLPhongTroDataContext()
 
             : base("Data Source=DESKTOP-IQCO6JU\\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
+// =======
+//             : base("Data Source=WIN-LML4B3VMKIT;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
+// >>>>>>> master
 
         {
         }
 
-        //  Constructor QUAN TRỌNG: Nhận chuỗi kết nối động từ Session
-        // Entity Framework sẽ dùng đúng tài khoản NV01/KH01 để truy vấn
         public QLPhongTroDataContext(string connectionString) : base(connectionString)
 
         {
-            // Tùy chọn: Tắt LazyLoading nếu muốn code chạy nhanh hơn
             this.Configuration.LazyLoadingEnabled = false;
         }
 

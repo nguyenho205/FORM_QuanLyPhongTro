@@ -493,7 +493,7 @@
             this.grid_HoaDon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grid_HoaDon.Name = "grid_HoaDon";
             this.grid_HoaDon.RowHeadersWidth = 62;
-            this.grid_HoaDon.Size = new System.Drawing.Size(980, 295);
+            this.grid_HoaDon.Size = new System.Drawing.Size(814, 295);
             this.grid_HoaDon.TabIndex = 319;
             this.grid_HoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_HoaDon_CellClick);
             // 

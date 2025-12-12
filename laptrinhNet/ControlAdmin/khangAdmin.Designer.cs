@@ -46,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_DiaChiThuongTru = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_LamMoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid_KhachHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,7 +127,7 @@
             // btn_XoaNV
             // 
             this.btn_XoaNV.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XoaNV.Location = new System.Drawing.Point(517, 422);
+            this.btn_XoaNV.Location = new System.Drawing.Point(377, 412);
             this.btn_XoaNV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_XoaNV.Name = "btn_XoaNV";
             this.btn_XoaNV.Size = new System.Drawing.Size(147, 72);
@@ -138,7 +139,7 @@
             // btn_SuaNV
             // 
             this.btn_SuaNV.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SuaNV.Location = new System.Drawing.Point(363, 422);
+            this.btn_SuaNV.Location = new System.Drawing.Point(223, 412);
             this.btn_SuaNV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SuaNV.Name = "btn_SuaNV";
             this.btn_SuaNV.Size = new System.Drawing.Size(147, 72);
@@ -150,7 +151,7 @@
             // btn_ThemNV
             // 
             this.btn_ThemNV.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ThemNV.Location = new System.Drawing.Point(207, 422);
+            this.btn_ThemNV.Location = new System.Drawing.Point(67, 412);
             this.btn_ThemNV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_ThemNV.Name = "btn_ThemNV";
             this.btn_ThemNV.Size = new System.Drawing.Size(147, 72);
@@ -246,10 +247,23 @@
             this.label1.TabIndex = 172;
             this.label1.Text = "Địa chỉ thường trú";
             // 
+            // btn_LamMoi
+            // 
+            this.btn_LamMoi.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LamMoi.Location = new System.Drawing.Point(532, 412);
+            this.btn_LamMoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_LamMoi.Name = "btn_LamMoi";
+            this.btn_LamMoi.Size = new System.Drawing.Size(147, 72);
+            this.btn_LamMoi.TabIndex = 174;
+            this.btn_LamMoi.Text = "Làm mới";
+            this.btn_LamMoi.UseVisualStyleBackColor = true;
+            this.btn_LamMoi.Click += new System.EventHandler(this.btn_LamMoi_Click);
+            // 
             // khangAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_LamMoi);
             this.Controls.Add(this.txt_DiaChiThuongTru);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_Email);
@@ -297,5 +311,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_DiaChiThuongTru;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_LamMoi;
     }
 }
