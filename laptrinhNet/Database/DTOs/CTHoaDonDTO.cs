@@ -19,6 +19,8 @@ namespace laptrinhNet.Database.DTOs // Nhớ đổi namespace theo project của
 
         public decimal TongTien { get; set; }
         public string TrangThai { get; set; }
+        public string PhuongThucTT { get; set; }
         public string GhiChu { get; set; }
+        public DateTime NgayThanhToan { get; set; }
     }
 }

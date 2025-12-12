@@ -50,7 +50,8 @@ namespace laptrinhNet.ControlAdmin
             {
 
                 cbo_TrangThai_PT.DataSource = new string[] { "ĐANG THUÊ", "TRỐNG" };
-
+                var ds = db.LoaiPhongTros.Select(t => t.MaLoai).ToList();
+                cbo_TenLoai_PT.DataSource = ds;
                 // Lọc dữ liệu
 
                 var list = db.PhongTros
@@ -84,6 +85,16 @@ namespace laptrinhNet.ControlAdmin
             if (string.IsNullOrWhiteSpace(txt_MaPhong_PT.Text))
             {
                 MessageBox.Show("Vui lòng nhập mã phòng!");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txt_SoPhong.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên phòng!");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txt_SoNGHienTai.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số người của phòng!");
                 return;
             }
 
@@ -225,6 +236,33 @@ namespace laptrinhNet.ControlAdmin
                     }
                 }
             }
+        }
+
+        private void btn_LamMoi_PT_Click(object sender, EventArgs e)
+        {
+            txt_MaPhong_PT.Text = "";
+            txt_SoPhong.Text = "";
+            txt_SoNGHienTai.Text = "";
+            txt_GhiChu_PT.Text = "";
+
+            // 2. Đưa ComboBox về trạng thái mặc định (chưa chọn gì hoặc chọn dòng đầu tiên)
+            if (cbo_TenLoai_PT.Items.Count > 0)
+                cbo_TenLoai_PT.SelectedIndex = -1; // -1 là không chọn gì cả
+
+            if (cbo_TrangThai_PT.Items.Count > 0)
+                cbo_TrangThai_PT.SelectedIndex = -1;
+
+            // 3. Mở khóa lại các điều khiển đã bị khóa ở sự kiện CellClick
+            // (Để người dùng có thể nhập Mã phòng mới khi muốn Thêm)
+            txt_MaPhong_PT.Enabled = true;
+            cbo_TenLoai_PT.Enabled = true;
+
+            // 4. Load lại dữ liệu từ CSDL lên Grid để đảm bảo dữ liệu mới nhất
+            LoadData();
+
+            // (Tùy chọn) Đặt con trỏ chuột vào ô Mã phòng để nhập liệu nhanh
+            txt_MaPhong_PT.Focus();
+       
         }
     }
 }

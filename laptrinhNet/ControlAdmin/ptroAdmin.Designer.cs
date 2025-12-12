@@ -47,6 +47,7 @@
             this.txt_SoNGHienTai = new System.Windows.Forms.TextBox();
             this.txt_MaPhong_PT = new System.Windows.Forms.TextBox();
             this.txt_GhiChu_PT = new System.Windows.Forms.TextBox();
+            this.btn_LamMoi_PT = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_PhongTro)).BeginInit();
             this.SuspendLayout();
@@ -271,10 +272,23 @@
             this.txt_GhiChu_PT.Size = new System.Drawing.Size(201, 26);
             this.txt_GhiChu_PT.TabIndex = 107;
             // 
+            // btn_LamMoi_PT
+            // 
+            this.btn_LamMoi_PT.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LamMoi_PT.Location = new System.Drawing.Point(604, 245);
+            this.btn_LamMoi_PT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_LamMoi_PT.Name = "btn_LamMoi_PT";
+            this.btn_LamMoi_PT.Size = new System.Drawing.Size(128, 41);
+            this.btn_LamMoi_PT.TabIndex = 108;
+            this.btn_LamMoi_PT.Text = "Làm mới";
+            this.btn_LamMoi_PT.UseVisualStyleBackColor = true;
+            this.btn_LamMoi_PT.Click += new System.EventHandler(this.btn_LamMoi_PT_Click);
+            // 
             // ptroAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_LamMoi_PT);
             this.Controls.Add(this.txt_GhiChu_PT);
             this.Controls.Add(this.txt_MaPhong_PT);
             this.Controls.Add(this.label1);
@@ -323,5 +337,6 @@
         private System.Windows.Forms.TextBox txt_SoNGHienTai;
         private System.Windows.Forms.TextBox txt_MaPhong_PT;
         private System.Windows.Forms.TextBox txt_GhiChu_PT;
+        private System.Windows.Forms.Button btn_LamMoi_PT;
     }
 }

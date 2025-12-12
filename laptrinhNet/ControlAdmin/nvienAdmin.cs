@@ -403,5 +403,40 @@ namespace laptrinhNet.ControlAdmin
                 cbo_TenCV.Text = row.Cells["TENCONGVIEC"].Value.ToString();
             }
         }
+
+        private void btn_LamMoi_Click(object sender, EventArgs e)
+        {
+            // 1. Reset text fields for Employee (Nhan Vien)
+            txt_TenNV.Text = "";
+            txt_DiaChi.Text = "";
+            txt_SoDT.Text = "";
+            txt_CCCD.Text = "";
+            txt_Email.Text = "";
+
+            // Reset DatePicker to current date
+            dtPick_NhanVien.Value = DateTime.Now;
+
+            // Reset Employee Gender ComboBox
+            if (cbo_GioiTinh.Items.Count > 0)
+                cbo_GioiTinh.SelectedIndex = 0; // Default to first item (e.g., "Nam")
+
+            // 2. Reset fields for Assignment (Phan Cong)
+            cbo_TenNV.SelectedIndex = -1; // Deselect Employee
+            cbo_TenCV.SelectedIndex = -1; // Deselect Job
+
+            // 3. Reload Data Grids to show latest data from DB
+            LoadDataNV();
+            LoadDataPhanCong();
+
+            // 4. GENERATE NEW AUTO-INCREMENT IDs
+            // This ensures the ID fields show the next available ID (e.g., NV06, PC06)
+            // instead of the ID of a row the user might have just clicked.
+            txt_MaNV.Text = TaoMaNhanVienTuDong();
+            txt_MaPC.Text = TaoMaPhanCongTuDong();
+
+            // 5. Ensure ID fields remain read-only (optional safety measure)
+            txt_MaNV.Enabled = false;
+            txt_MaPC.Enabled = false;
+        }
     }
 }
