@@ -404,6 +404,50 @@ namespace laptrinhNet.ControlKhachhang
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (cboMaHD.SelectedIndex == -1 || string.IsNullOrEmpty(txtTongTien.Text))
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn cần thanh toán!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                string maHD = cboMaHD.SelectedValue.ToString();
+
+            
+                System.Globalization.CultureInfo cul = new System.Globalization.CultureInfo("vi-VN");
+                decimal tongTien = decimal.Parse(txtTongTien.Text, System.Globalization.NumberStyles.Currency, cul);
+
+                if (tongTien <= 0)
+                {
+                    MessageBox.Show("Số tiền thanh toán phải lớn hơn 0!", "Thông báo");
+                    return;
+                }
+
+
+                ucQRHienThi ucQR = new ucQRHienThi(maHD, tongTien);
+
+                ucQR.Dock = DockStyle.Fill;
+
+                
+                ucQR.ButtonBackClicked += (s, args) =>
+                {
+                    this.Controls.Remove(ucQR); 
+                    ucQR.Dispose(); 
+                };
+
+             
+                this.Controls.Add(ucQR);
+                ucQR.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xử lý thanh toán: " + ex.Message);
+            }
+        }
     }
 }
 
