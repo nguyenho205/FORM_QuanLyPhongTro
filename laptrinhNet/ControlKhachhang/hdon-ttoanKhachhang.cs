@@ -404,6 +404,11 @@ namespace laptrinhNet.ControlKhachhang
             cellTien.Padding = 5;
             table.AddCell(cellTien);
         }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

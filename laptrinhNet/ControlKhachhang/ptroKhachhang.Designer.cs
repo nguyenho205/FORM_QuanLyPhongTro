@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkBaoTri = new System.Windows.Forms.CheckBox();
             this.chkChuaThue = new System.Windows.Forms.CheckBox();
@@ -59,7 +58,6 @@
             this.txtGiaPhong = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtMaPhong = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachPhong)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +68,7 @@
             this.groupBox1.Controls.Add(this.chkChuaThue);
             this.groupBox1.Controls.Add(this.chkDaThue);
             this.groupBox1.Controls.Add(this.dgvDanhSachPhong);
-            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(42, 14);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
@@ -83,11 +81,11 @@
             // chkBaoTri
             // 
             this.chkBaoTri.AutoSize = true;
-            this.chkBaoTri.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBaoTri.Location = new System.Drawing.Point(260, 45);
+            this.chkBaoTri.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBaoTri.Location = new System.Drawing.Point(295, 45);
             this.chkBaoTri.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkBaoTri.Name = "chkBaoTri";
-            this.chkBaoTri.Size = new System.Drawing.Size(92, 33);
+            this.chkBaoTri.Size = new System.Drawing.Size(104, 31);
             this.chkBaoTri.TabIndex = 3;
             this.chkBaoTri.Text = "Bảo trì";
             this.chkBaoTri.UseVisualStyleBackColor = true;
@@ -95,11 +93,11 @@
             // chkChuaThue
             // 
             this.chkChuaThue.AutoSize = true;
-            this.chkChuaThue.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkChuaThue.Location = new System.Drawing.Point(126, 45);
+            this.chkChuaThue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkChuaThue.Location = new System.Drawing.Point(140, 45);
             this.chkChuaThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkChuaThue.Name = "chkChuaThue";
-            this.chkChuaThue.Size = new System.Drawing.Size(120, 33);
+            this.chkChuaThue.Size = new System.Drawing.Size(138, 31);
             this.chkChuaThue.TabIndex = 2;
             this.chkChuaThue.Text = "Chưa thuê";
             this.chkChuaThue.UseVisualStyleBackColor = true;
@@ -107,11 +105,11 @@
             // chkDaThue
             // 
             this.chkDaThue.AutoSize = true;
-            this.chkDaThue.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDaThue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDaThue.Location = new System.Drawing.Point(14, 45);
             this.chkDaThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkDaThue.Name = "chkDaThue";
-            this.chkDaThue.Size = new System.Drawing.Size(100, 33);
+            this.chkDaThue.Size = new System.Drawing.Size(114, 31);
             this.chkDaThue.TabIndex = 1;
             this.chkDaThue.Text = "Đã thuê";
             this.chkDaThue.UseVisualStyleBackColor = true;
@@ -152,12 +150,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(665, 140);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 29);
+            this.label4.Size = new System.Drawing.Size(203, 26);
             this.label4.TabIndex = 96;
             this.label4.Text = "Tên người đăng ký";
             // 
@@ -165,12 +163,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(1081, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 29);
+            this.label3.Size = new System.Drawing.Size(106, 26);
             this.label3.TabIndex = 95;
             this.label3.Text = "Số phòng";
             // 
@@ -178,18 +176,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(665, 46);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 29);
+            this.label2.Size = new System.Drawing.Size(116, 26);
             this.label2.TabIndex = 94;
             this.label2.Text = "Mã phòng";
             // 
             // btnDangKyThue
             // 
-            this.btnDangKyThue.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangKyThue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangKyThue.Location = new System.Drawing.Point(1026, 543);
             this.btnDangKyThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDangKyThue.Name = "btnDangKyThue";
@@ -209,15 +207,16 @@
             // 
             // txtTenPhong
             // 
-            this.txtTenPhong.Location = new System.Drawing.Point(1184, 46);
+            this.txtTenPhong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenPhong.Location = new System.Drawing.Point(1211, 46);
             this.txtTenPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.Size = new System.Drawing.Size(277, 26);
+            this.txtTenPhong.Size = new System.Drawing.Size(277, 35);
             this.txtTenPhong.TabIndex = 97;
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(1194, 138);
+            this.txtSDT.Location = new System.Drawing.Point(1221, 139);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(267, 26);
@@ -227,12 +226,12 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.Location = new System.Drawing.Point(1076, 138);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 29);
+            this.label7.Size = new System.Drawing.Size(145, 26);
             this.label7.TabIndex = 177;
             this.label7.Text = "Số điện thoại";
             // 
@@ -240,12 +239,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(665, 234);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 29);
+            this.label1.Size = new System.Drawing.Size(189, 26);
             this.label1.TabIndex = 102;
             this.label1.Text = "Thời gian thuê từ";
             // 
@@ -254,7 +253,7 @@
             this.dtpNgayThue.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayThue.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayThue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayThue.Location = new System.Drawing.Point(848, 234);
+            this.dtpNgayThue.Location = new System.Drawing.Point(862, 234);
             this.dtpNgayThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpNgayThue.Name = "dtpNgayThue";
             this.dtpNgayThue.Size = new System.Drawing.Size(150, 26);
@@ -264,12 +263,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(1020, 234);
+            this.label5.Location = new System.Drawing.Point(1027, 234);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 29);
+            this.label5.Size = new System.Drawing.Size(47, 27);
             this.label5.TabIndex = 104;
             this.label5.Text = "đến";
             // 
@@ -278,7 +277,7 @@
             this.dtpNgayKetThuc.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayKetThuc.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayKetThuc.Location = new System.Drawing.Point(1066, 234);
+            this.dtpNgayKetThuc.Location = new System.Drawing.Point(1107, 235);
             this.dtpNgayKetThuc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpNgayKetThuc.Name = "dtpNgayKetThuc";
             this.dtpNgayKetThuc.Size = new System.Drawing.Size(165, 26);
@@ -286,7 +285,7 @@
             // 
             // txtMoTa
             // 
-            this.txtMoTa.Location = new System.Drawing.Point(734, 349);
+            this.txtMoTa.Location = new System.Drawing.Point(723, 371);
             this.txtMoTa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
@@ -297,31 +296,32 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(728, 315);
+            this.label6.Location = new System.Drawing.Point(673, 324);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 29);
+            this.label6.Size = new System.Drawing.Size(73, 26);
             this.label6.TabIndex = 180;
             this.label6.Text = "Mô tả";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.Location = new System.Drawing.Point(1081, 186);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 29);
+            this.label9.Size = new System.Drawing.Size(73, 26);
             this.label9.TabIndex = 190;
             this.label9.Text = "Email";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(1184, 186);
+            this.txtEmail.Location = new System.Drawing.Point(1221, 186);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(277, 26);
@@ -331,12 +331,12 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.Location = new System.Drawing.Point(665, 185);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 29);
+            this.label8.Size = new System.Drawing.Size(80, 26);
             this.label8.TabIndex = 188;
             this.label8.Text = "CCCD";
             // 
@@ -352,12 +352,12 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.Location = new System.Drawing.Point(665, 91);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 29);
+            this.label10.Size = new System.Drawing.Size(128, 26);
             this.label10.TabIndex = 192;
             this.label10.Text = "Loại phòng";
             // 
@@ -371,7 +371,7 @@
             // 
             // txtGiaPhong
             // 
-            this.txtGiaPhong.Location = new System.Drawing.Point(826, 286);
+            this.txtGiaPhong.Location = new System.Drawing.Point(862, 286);
             this.txtGiaPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGiaPhong.Name = "txtGiaPhong";
             this.txtGiaPhong.Size = new System.Drawing.Size(218, 26);
@@ -381,27 +381,22 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(668, 286);
+            this.label11.Location = new System.Drawing.Point(665, 284);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 29);
+            this.label11.Size = new System.Drawing.Size(183, 26);
             this.label11.TabIndex = 252;
             this.label11.Text = "Giá phòng/tháng";
             // 
             // txtMaPhong
             // 
-            this.txtMaPhong.Location = new System.Drawing.Point(826, 48);
+            this.txtMaPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaPhong.Location = new System.Drawing.Point(820, 38);
             this.txtMaPhong.Name = "txtMaPhong";
-            this.txtMaPhong.Size = new System.Drawing.Size(248, 26);
+            this.txtMaPhong.Size = new System.Drawing.Size(248, 39);
             this.txtMaPhong.TabIndex = 254;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // ptroKhachhang
             // 
@@ -433,7 +428,7 @@
             this.Controls.Add(this.txtTenPhong);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ptroKhachhang";
-            this.Size = new System.Drawing.Size(1522, 645);
+            this.Size = new System.Drawing.Size(1555, 645);
             this.Load += new System.EventHandler(this.ptroKhachhang_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -474,6 +469,5 @@
         private System.Windows.Forms.TextBox txtGiaPhong;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtMaPhong;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
