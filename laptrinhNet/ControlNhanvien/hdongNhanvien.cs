@@ -24,14 +24,14 @@ namespace laptrinhNet.ControlNhanvien
 
         }
 
-        private void hdongNhanvien_Load(object sender, EventArgs e)
-        {
-            // 1. Cấu hình giao diện (Khóa nhập liệu)
-            SetupGiaoDien();
+        //private void hdongNhanvien_Load(object sender, EventArgs e)
+        //{
+        //    // 1. Cấu hình giao diện (Khóa nhập liệu)
+        //    SetupGiaoDien();
 
-            // 2. Tải danh sách hợp đồng
-            LoadDanhSachHopDong();
-        }
+        //    // 2. Tải danh sách hợp đồng
+        //    LoadDanhSachHopDong();
+        //}
 
         private void SetupGiaoDien()
         {
@@ -87,7 +87,26 @@ namespace laptrinhNet.ControlNhanvien
             }
         }
 
+        public void SetDatabaseConnection(string connectionString)
+        {
+            try
+            {
+                // 1. Kiểm tra chuỗi kết nối
+                if (string.IsNullOrEmpty(connectionString)) return;
 
+                // 2. Load lại dữ liệu ngay khi nhận được chuỗi kết nối mới
+                // (Lúc này DangNhap.ConnectionStringHienTai đã có giá trị, 
+                // nhưng truyền tham số vào hàm này giúp code linh hoạt hơn)
+
+                // Gọi lại hàm Load với chuỗi kết nối mới (cần sửa hàm Load một chút để nhận tham số,
+                // hoặc cứ dùng biến global DangNhap.ConnectionStringHienTai như bạn đang làm cũng được)
+                LoadDanhSachHopDong();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối Hợp đồng: " + ex.Message);
+            }
+        }
         private void label7_Click(object sender, EventArgs e)
         {
 
@@ -151,37 +170,17 @@ namespace laptrinhNet.ControlNhanvien
             LoadDanhSachHopDong();
         }
 
-        private void dgvHopDong_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void btnGuiHopDong_Click_1(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvHopDong.Rows[e.RowIndex];
+            SetupGiaoDien();
 
-                // Lấy giá trị an toàn (tránh lỗi null)
-                txtMaHopDong.Text = row.Cells["MaHD"].Value?.ToString();
-                txtTenKhachHang.Text = row.Cells["TenKhach"].Value?.ToString();
-                txtMaPhong.Text = row.Cells["TenPhong"].Value?.ToString();
+            // 2. Tải danh sách hợp đồng
+            LoadDanhSachHopDong();
+        }
 
-                // Gán ô Trạng Thái (Hãy đảm bảo bạn có TextBox tên là txtTrangThai trên form)
-                if (txtTrangThai != null)
-                {
-                    txtTrangThai.Text = row.Cells["TrangThai"].Value?.ToString();
-                }
+        private void txtMaPhong_TextChanged(object sender, EventArgs e)
+        {
 
-                // Xử lý Ngày tháng (Cần kiểm tra null trước khi gán)
-                if (row.Cells["NgayBD"].Value != null)
-                    dtpTuNgay.Value = Convert.ToDateTime(row.Cells["NgayBD"].Value);
-
-                if (row.Cells["NgayKT"].Value != null)
-                    dtpDenNgay.Value = Convert.ToDateTime(row.Cells["NgayKT"].Value);
-
-                // Xử lý Tiền cọc (Format số đẹp)
-                if (row.Cells["TienCoc"].Value != null)
-                {
-                    decimal tien = Convert.ToDecimal(row.Cells["TienCoc"].Value);
-                    txtTienCoc.Text = tien.ToString("N0");
-                }
-            }
         }
     }
 }

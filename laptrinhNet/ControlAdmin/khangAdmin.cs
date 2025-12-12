@@ -171,7 +171,7 @@ namespace laptrinhNet.ControlAdmin
                             LoadDataKhachHang();
                             ResetForm();
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             MessageBox.Show("Không thể xóa khách hàng này vì đang có dữ liệu liên quan (Hợp đồng/Hóa đơn). Hãy dùng chức năng 'Khóa tài khoản'.");
                         }

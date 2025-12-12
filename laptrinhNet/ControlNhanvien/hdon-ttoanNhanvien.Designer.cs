@@ -78,18 +78,18 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(197, 3);
+            this.label9.Location = new System.Drawing.Point(219, 4);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 23);
+            this.label9.Size = new System.Drawing.Size(87, 23);
             this.label9.TabIndex = 159;
-            this.label9.Text = "Thanh toán";
+            this.label9.Text = "Lập hóa đơn";
             // 
             // txtTienWifi
             // 
             this.txtTienWifi.Enabled = false;
-            this.txtTienWifi.Location = new System.Drawing.Point(314, 117);
+            this.txtTienWifi.Location = new System.Drawing.Point(314, 134);
             this.txtTienWifi.Name = "txtTienWifi";
-            this.txtTienWifi.Size = new System.Drawing.Size(164, 20);
+            this.txtTienWifi.Size = new System.Drawing.Size(141, 20);
             this.txtTienWifi.TabIndex = 289;
             // 
             // label16
@@ -98,7 +98,7 @@
             this.label16.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label16.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(252, 118);
+            this.label16.Location = new System.Drawing.Point(252, 135);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(54, 19);
             this.label16.TabIndex = 288;
@@ -107,9 +107,9 @@
             // txtTienNuoc
             // 
             this.txtTienNuoc.Enabled = false;
-            this.txtTienNuoc.Location = new System.Drawing.Point(314, 177);
+            this.txtTienNuoc.Location = new System.Drawing.Point(314, 209);
             this.txtTienNuoc.Name = "txtTienNuoc";
-            this.txtTienNuoc.Size = new System.Drawing.Size(164, 20);
+            this.txtTienNuoc.Size = new System.Drawing.Size(141, 20);
             this.txtTienNuoc.TabIndex = 287;
             // 
             // label14
@@ -118,7 +118,7 @@
             this.label14.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label14.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(252, 178);
+            this.label14.Location = new System.Drawing.Point(252, 210);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 19);
             this.label14.TabIndex = 286;
@@ -126,7 +126,7 @@
             // 
             // txtNuocDaDung
             // 
-            this.txtNuocDaDung.Location = new System.Drawing.Point(111, 177);
+            this.txtNuocDaDung.Location = new System.Drawing.Point(111, 209);
             this.txtNuocDaDung.Name = "txtNuocDaDung";
             this.txtNuocDaDung.Size = new System.Drawing.Size(130, 20);
             this.txtNuocDaDung.TabIndex = 285;
@@ -137,7 +137,7 @@
             this.label15.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label15.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(31, 178);
+            this.label15.Location = new System.Drawing.Point(31, 210);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(81, 19);
             this.label15.TabIndex = 284;
@@ -146,9 +146,9 @@
             // txtTienDien
             // 
             this.txtTienDien.Enabled = false;
-            this.txtTienDien.Location = new System.Drawing.Point(314, 147);
+            this.txtTienDien.Location = new System.Drawing.Point(314, 171);
             this.txtTienDien.Name = "txtTienDien";
-            this.txtTienDien.Size = new System.Drawing.Size(164, 20);
+            this.txtTienDien.Size = new System.Drawing.Size(141, 20);
             this.txtTienDien.TabIndex = 283;
             // 
             // label13
@@ -157,7 +157,7 @@
             this.label13.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label13.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(252, 148);
+            this.label13.Location = new System.Drawing.Point(252, 172);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 19);
             this.label13.TabIndex = 282;
@@ -165,7 +165,7 @@
             // 
             // txtDienDaDung
             // 
-            this.txtDienDaDung.Location = new System.Drawing.Point(111, 147);
+            this.txtDienDaDung.Location = new System.Drawing.Point(111, 171);
             this.txtDienDaDung.Name = "txtDienDaDung";
             this.txtDienDaDung.Size = new System.Drawing.Size(130, 20);
             this.txtDienDaDung.TabIndex = 281;
@@ -176,7 +176,7 @@
             this.label12.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label12.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(31, 148);
+            this.label12.Location = new System.Drawing.Point(31, 172);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 19);
             this.label12.TabIndex = 280;
@@ -185,16 +185,16 @@
             // cbbSoPhong
             // 
             this.cbbSoPhong.FormattingEnabled = true;
-            this.cbbSoPhong.Location = new System.Drawing.Point(314, 58);
+            this.cbbSoPhong.Location = new System.Drawing.Point(314, 63);
             this.cbbSoPhong.Name = "cbbSoPhong";
-            this.cbbSoPhong.Size = new System.Drawing.Size(164, 21);
+            this.cbbSoPhong.Size = new System.Drawing.Size(141, 21);
             this.cbbSoPhong.TabIndex = 279;
             this.cbbSoPhong.SelectedIndexChanged += new System.EventHandler(this.cbbSoPhong_SelectedIndexChanged);
             // 
             // txtTienPhong
             // 
             this.txtTienPhong.Enabled = false;
-            this.txtTienPhong.Location = new System.Drawing.Point(111, 117);
+            this.txtTienPhong.Location = new System.Drawing.Point(111, 134);
             this.txtTienPhong.Name = "txtTienPhong";
             this.txtTienPhong.Size = new System.Drawing.Size(130, 20);
             this.txtTienPhong.TabIndex = 277;
@@ -205,7 +205,7 @@
             this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(31, 118);
+            this.label8.Location = new System.Drawing.Point(31, 135);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 19);
             this.label8.TabIndex = 276;
@@ -217,7 +217,7 @@
             this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(252, 59);
+            this.label7.Location = new System.Drawing.Point(252, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 19);
             this.label7.TabIndex = 275;
@@ -226,9 +226,9 @@
             // txtTenKhachHang
             // 
             this.txtTenKhachHang.Enabled = false;
-            this.txtTenKhachHang.Location = new System.Drawing.Point(128, 88);
+            this.txtTenKhachHang.Location = new System.Drawing.Point(128, 99);
             this.txtTenKhachHang.Name = "txtTenKhachHang";
-            this.txtTenKhachHang.Size = new System.Drawing.Size(350, 20);
+            this.txtTenKhachHang.Size = new System.Drawing.Size(327, 20);
             this.txtTenKhachHang.TabIndex = 274;
             // 
             // label6
@@ -237,7 +237,7 @@
             this.label6.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(31, 89);
+            this.label6.Location = new System.Drawing.Point(31, 99);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 19);
             this.label6.TabIndex = 273;
@@ -249,7 +249,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(31, 59);
+            this.label2.Location = new System.Drawing.Point(31, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 19);
             this.label2.TabIndex = 272;
@@ -261,7 +261,7 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(31, 209);
+            this.label1.Location = new System.Drawing.Point(31, 249);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 19);
             this.label1.TabIndex = 290;
@@ -271,7 +271,7 @@
             // 
             this.chkTienMat.AutoSize = true;
             this.chkTienMat.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkTienMat.Location = new System.Drawing.Point(269, 209);
+            this.chkTienMat.Location = new System.Drawing.Point(284, 249);
             this.chkTienMat.Name = "chkTienMat";
             this.chkTienMat.Size = new System.Drawing.Size(76, 23);
             this.chkTienMat.TabIndex = 292;
@@ -282,7 +282,7 @@
             // 
             this.chkChuyenKhoan.AutoSize = true;
             this.chkChuyenKhoan.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkChuyenKhoan.Location = new System.Drawing.Point(159, 209);
+            this.chkChuyenKhoan.Location = new System.Drawing.Point(172, 249);
             this.chkChuyenKhoan.Name = "chkChuyenKhoan";
             this.chkChuyenKhoan.Size = new System.Drawing.Size(106, 23);
             this.chkChuyenKhoan.TabIndex = 291;
@@ -292,7 +292,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(212, 288);
+            this.btnThem.Location = new System.Drawing.Point(213, 327);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(103, 47);
             this.btnThem.TabIndex = 293;
@@ -306,7 +306,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(534, 59);
+            this.label3.Location = new System.Drawing.Point(520, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 19);
             this.label3.TabIndex = 296;
@@ -317,7 +317,7 @@
             this.dtpNgayBaoCao.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayBaoCao.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayBaoCao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayBaoCao.Location = new System.Drawing.Point(617, 59);
+            this.dtpNgayBaoCao.Location = new System.Drawing.Point(603, 60);
             this.dtpNgayBaoCao.Name = "dtpNgayBaoCao";
             this.dtpNgayBaoCao.Size = new System.Drawing.Size(87, 20);
             this.dtpNgayBaoCao.TabIndex = 295;
@@ -328,7 +328,7 @@
             this.label4.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(33, 238);
+            this.label4.Location = new System.Drawing.Point(34, 290);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 19);
             this.label4.TabIndex = 298;
@@ -339,7 +339,7 @@
             this.dtpNgayLap.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayLap.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayLap.Location = new System.Drawing.Point(137, 238);
+            this.dtpNgayLap.Location = new System.Drawing.Point(138, 290);
             this.dtpNgayLap.Name = "dtpNgayLap";
             this.dtpNgayLap.Size = new System.Drawing.Size(87, 20);
             this.dtpNgayLap.TabIndex = 297;
@@ -347,9 +347,9 @@
             // dgvBaoCao
             // 
             this.dgvBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBaoCao.Location = new System.Drawing.Point(538, 111);
+            this.dgvBaoCao.Location = new System.Drawing.Point(524, 111);
             this.dgvBaoCao.Name = "dgvBaoCao";
-            this.dgvBaoCao.Size = new System.Drawing.Size(423, 124);
+            this.dgvBaoCao.Size = new System.Drawing.Size(437, 172);
             this.dgvBaoCao.TabIndex = 300;
             this.dgvBaoCao.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBaoCao_CellDoubleClick);
             // 
@@ -359,7 +359,7 @@
             this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(534, 89);
+            this.label5.Location = new System.Drawing.Point(520, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 19);
             this.label5.TabIndex = 299;
@@ -368,7 +368,7 @@
             // txtTongThu
             // 
             this.txtTongThu.Enabled = false;
-            this.txtTongThu.Location = new System.Drawing.Point(832, 241);
+            this.txtTongThu.Location = new System.Drawing.Point(832, 289);
             this.txtTongThu.Name = "txtTongThu";
             this.txtTongThu.Size = new System.Drawing.Size(129, 20);
             this.txtTongThu.TabIndex = 312;
@@ -379,7 +379,7 @@
             this.label21.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label21.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(769, 242);
+            this.label21.Location = new System.Drawing.Point(769, 290);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(57, 19);
             this.label21.TabIndex = 311;
@@ -388,7 +388,7 @@
             // btnBaoCao
             // 
             this.btnBaoCao.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBaoCao.Location = new System.Drawing.Point(711, 288);
+            this.btnBaoCao.Location = new System.Drawing.Point(723, 327);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.Size = new System.Drawing.Size(103, 47);
             this.btnBaoCao.TabIndex = 313;
@@ -399,9 +399,9 @@
             // txtMaHoaDon
             // 
             this.txtMaHoaDon.Enabled = false;
-            this.txtMaHoaDon.Location = new System.Drawing.Point(102, 59);
+            this.txtMaHoaDon.Location = new System.Drawing.Point(111, 64);
             this.txtMaHoaDon.Name = "txtMaHoaDon";
-            this.txtMaHoaDon.Size = new System.Drawing.Size(144, 20);
+            this.txtMaHoaDon.Size = new System.Drawing.Size(130, 20);
             this.txtMaHoaDon.TabIndex = 315;
             this.txtMaHoaDon.TextChanged += new System.EventHandler(this.txtMaHoaDon_TextChanged);
             // 

@@ -11,116 +11,169 @@ using System.Windows.Forms;
 
 namespace laptrinhNet.ControlNhanvien
 {
-    public partial class btnBaoCaoSuCo : UserControl
+    public partial class ptroNhanvien : UserControl
     {
-        public btnBaoCaoSuCo()
+        public ptroNhanvien()
         {
             InitializeComponent();
         }
 
         private void ptroNhanvien_Load(object sender, EventArgs e)
         {
-            // 1. Cấu hình giao diện
             SetupGiaoDien();
-
-            // 2. Tải danh sách phòng
             LoadDanhSachPhong();
         }
 
         private void SetupGiaoDien()
         {
             txtMaPhong.ReadOnly = true;
+            // Nếu dùng TextBox cho tình trạng thì nên cẩn thận, tốt nhất là ComboBox
+            // --- CẤU HÌNH COMBOBOX TÌNH TRẠNG ---
+            cbbTinhTrang.Items.Clear();
+            // Thêm các trạng thái chuẩn theo Database của bạn
+            cbbTinhTrang.Items.Add("TRỐNG");
+            cbbTinhTrang.Items.Add("ĐANG THUÊ");
+            cbbTinhTrang.Items.Add("ĐANG SỬA");
+
+            // Mặc định chọn cái đầu tiên để không bị trống
+            cbbTinhTrang.SelectedIndex = 0;
         }
 
-
+        // --- 1. TẢI DANH SÁCH PHÒNG ---
         private void LoadDanhSachPhong()
         {
             try
             {
                 using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
-                    // Lấy danh sách phòng
                     var listPhong = from p in db.PhongTros
+                                    join l in db.LoaiPhongTros on p.MaLoai equals l.MaLoai
                                     select new
                                     {
                                         MaPhong = p.MaPhong,
                                         TenPhong = p.TenPhong,
+                                        TenLoai = l.TenLoai,
+                                        Gia = l.GiaPhong,
                                         TrangThai = p.TrangThai,
                                         GhiChu = p.GhiChu
                                     };
 
                     dgvPhong.DataSource = listPhong.ToList();
 
-                    // Đặt tên cột tiếng Việt
+                    // Đặt tên cột
                     if (dgvPhong.Columns["MaPhong"] != null) dgvPhong.Columns["MaPhong"].HeaderText = "Mã";
-                    if (dgvPhong.Columns["TenPhong"] != null) dgvPhong.Columns["TenPhong"].HeaderText = "Tên Phòng";
-                    if (dgvPhong.Columns["TrangThai"] != null) dgvPhong.Columns["TrangThai"].HeaderText = "Tình Trạng";
-                    if (dgvPhong.Columns["GhiChu"] != null) dgvPhong.Columns["GhiChu"].Visible = false; // Ẩn ghi chú ở bảng chính cho gọn
+                    if (dgvPhong.Columns["TenPhong"] != null) dgvPhong.Columns["TenPhong"].HeaderText = "Phòng";
+                    if (dgvPhong.Columns["TenLoai"] != null) dgvPhong.Columns["TenLoai"].HeaderText = "Loại";
+                    if (dgvPhong.Columns["Gia"] != null) dgvPhong.Columns["Gia"].DefaultCellStyle.Format = "N0";
+
+                    // Ẩn cột Ghi chú dài dòng
+                    if (dgvPhong.Columns["GhiChu"] != null) dgvPhong.Columns["GhiChu"].Visible = false;
+
+                    // Tô màu trạng thái (Optional)
+                    ToMauTrangThai();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tải danh sách phòng: " + ex.Message);
+                MessageBox.Show("Lỗi tải phòng: " + ex.Message);
             }
         }
 
+        // Hàm tô màu dòng cho dễ nhìn
+        private void ToMauTrangThai()
+        {
+            foreach (DataGridViewRow row in dgvPhong.Rows)
+            {
+                string tt = row.Cells["TrangThai"].Value?.ToString();
+                if (tt == "ĐANG THUÊ") row.DefaultCellStyle.BackColor = Color.LightGreen;
+                else if (tt == "ĐANG SỬA") row.DefaultCellStyle.BackColor = Color.LightYellow;
+                else row.DefaultCellStyle.BackColor = Color.White; // TRỐNG
+            }
+        }
 
-        private void LoadLichSuBaoCao(string maPhong)
+        private void dgvPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvPhong.Rows[e.RowIndex];
+
+                string maPhong = row.Cells["MaPhong"].Value?.ToString();
+                txtMaPhong.Text = maPhong;
+                cbbTinhTrang.Text = row.Cells["TrangThai"].Value?.ToString();
+                rtbGhiChu.Text = row.Cells["GhiChu"].Value?.ToString();
+
+                // Load danh sách người đang ở bên bảng phải
+                LoadNguoiDangO(maPhong);
+            }
+        }
+
+        private void LoadNguoiDangO(string maPhong)
         {
             try
             {
                 using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
-                    // Tìm hợp đồng còn hạn của phòng này
-                    var hopDong = db.HopDongs.FirstOrDefault(hd => hd.MaPhong == maPhong && hd.TrangThai == "Còn hạn");
+                    // Truy vấn ngược từ Hợp Đồng -> Khách Hàng
+                    var listKhach = from hd in db.HopDongs
+                                    join kh in db.KhachHangs on hd.MaKH equals kh.MaKH
+                                    where hd.MaPhong == maPhong && hd.TrangThai == "Còn hạn" // Chỉ lấy hợp đồng còn hạn
+                                    select new
+                                    {
+                                        TenKH = kh.TenKH,
+                                        SDT = kh.SoDienThoai,
+                                        NgayVao = hd.NgayBD
+                                    };
 
-                    if (hopDong != null)
-                    {
-                        // Nếu có người đang thuê, tìm các yêu cầu hỗ trợ của họ
-                        var lichSu = from yc in db.YeuCauHoTros
-                                     where yc.MaKH == hopDong.MaKH
-                                     select new
-                                     {
-                                         NgayGui = yc.NgayGui,
-                                         NoiDung = yc.NoiDung,
-                                         TrangThai = yc.TrangThai
-                                     };
+                    dgvNguoiO.DataSource = listKhach.ToList();
 
-                        dgvLichSu.DataSource = lichSu.ToList();
-                    }
-                    else
-                    {
-                        dgvLichSu.DataSource = null;
-                    }
+                    if (dgvNguoiO.Columns["TenKH"] != null) dgvNguoiO.Columns["TenKH"].HeaderText = "Khách đang ở";
+                    if (dgvNguoiO.Columns["SDT"] != null) dgvNguoiO.Columns["SDT"].HeaderText = "SĐT";
+                    if (dgvNguoiO.Columns["NgayVao"] != null) dgvNguoiO.Columns["NgayVao"].HeaderText = "Ngày vào";
                 }
             }
-            catch { }
+            catch { /* Bỏ qua lỗi nhỏ nếu không có khách */ }
+        }
+
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaPhong.Text)) return;
+
+            // Dùng InputBox nhỏ hoặc chỉ đơn giản là focus vào ô Ghi chú để nhập
+            // Ở đây tôi làm cách tự động chèn template ngày tháng cho tiện
+            string tag = $"[{DateTime.Now.ToString("dd/MM")} Sự cố]: ";
+
+            // Thêm dòng mới vào ô Ghi chú
+            if (!string.IsNullOrEmpty(rtbGhiChu.Text))
+                rtbGhiChu.AppendText(Environment.NewLine); // Xuống dòng
+
+            rtbGhiChu.AppendText(tag);
+            rtbGhiChu.Focus(); // Đưa con trỏ chuột vào để nhân viên gõ tiếp nội dung
+            rtbGhiChu.SelectionStart = rtbGhiChu.Text.Length; // Nhảy xuống cuối
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaPhong.Text)) return;
+            if (string.IsNullOrEmpty(txtMaPhong.Text))
+            {
+                MessageBox.Show("Vui lòng chọn phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             try
             {
                 using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
-                    // Tìm phòng cần sửa
-                    var phong = db.PhongTros.SingleOrDefault(p => p.MaPhong == txtMaPhong.Text);
-
+                    var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == txtMaPhong.Text);
                     if (phong != null)
                     {
-                        // --- CẬP NHẬT: Lấy giá trị từ TextBox ---
-                        phong.TrangThai = txtTT.Text;
-                        phong.GhiChu = txtGhiChu.Text;
+                        // Cập nhật tình trạng và ghi chú
+                        phong.TrangThai = cbbTinhTrang.Text.Trim(); // VD: "ĐANG SỬA"
+                        phong.GhiChu = rtbGhiChu.Text;
 
-                        // Lưu xuống DB
                         db.SaveChanges();
+                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        MessageBox.Show("Cập nhật tình trạng phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Tải lại danh sách để thấy thay đổi
-                        LoadDanhSachPhong();
+                        LoadDanhSachPhong(); // Tải lại để thấy màu sắc thay đổi
                     }
                 }
             }
@@ -130,40 +183,9 @@ namespace laptrinhNet.ControlNhanvien
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-            // Nút "Báo cáo sự cố": Tự động đổi trạng thái thành "ĐANG SỬA"
-            if (string.IsNullOrEmpty(txtMaPhong.Text)) return;
 
-            // --- CẬP NHẬT: Gán giá trị vào TextBox ---
-            txtTT.Text = "ĐANG SỬA";
-
-            // Ghi thêm thời gian vào ghi chú cũ
-            string ghiChuCu = txtGhiChu.Text;
-            txtGhiChu.Text = $"[Sự cố {DateTime.Now:dd/MM}] " + ghiChuCu;
-
-            // Gọi luôn hàm cập nhật để lưu
-            btnCapNhat_Click(sender, e);
-        }
-
-        private void dgvPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvPhong.Rows[e.RowIndex];
-
-                // 1. Đổ dữ liệu lên các ô nhập
-                string maPhong = row.Cells["MaPhong"].Value?.ToString();
-                txtMaPhong.Text = maPhong;
-
-                // --- CẬP NHẬT: Dùng TextBox thay vì ComboBox ---
-                txtTT.Text = row.Cells["TrangThai"].Value?.ToString();
-
-                txtGhiChu.Text = row.Cells["GhiChu"].Value?.ToString();
-
-                // 2. Tải lịch sử báo cáo (Yêu cầu hỗ trợ) của phòng này
-                LoadLichSuBaoCao(maPhong);
-            }
         }
     }
 }
