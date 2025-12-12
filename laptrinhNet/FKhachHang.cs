@@ -45,6 +45,7 @@ namespace laptrinhNet
 
         private void KhachHang_Load(object sender, EventArgs e)
         {
+            hdongKhachhang1.Dock = DockStyle.Fill;
             // Ẩn tất cả UserControl
             hdongKhachhang1.Visible = false;
             hdon_ttoanKhachhang1.Visible = false;
@@ -103,6 +104,7 @@ namespace laptrinhNet
 
         private void btnHopDong_Click(object sender, EventArgs e)
         {
+            hdongKhachhang1.Dock = DockStyle.Fill;
             hdongKhachhang1.Visible = true;
             hdongKhachhang1.BringToFront();
         }

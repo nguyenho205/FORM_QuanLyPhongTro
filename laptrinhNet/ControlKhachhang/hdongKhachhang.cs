@@ -267,6 +267,11 @@ namespace laptrinhNet.ControlKhachhang
             string maHD = cboMaHD.SelectedValue?.ToString() ?? cboMaHD.Text;
             LoadChiTietHopDong(maHD);
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

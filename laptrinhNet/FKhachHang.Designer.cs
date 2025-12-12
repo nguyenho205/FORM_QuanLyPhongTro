@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FKhachHang));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ptroKhachhang1 = new laptrinhNet.ControlKhachhang.ptroKhachhang();
             this.khangKhachhang1 = new laptrinhNet.ControlKhachhang.khangKhachhang();
             this.phoi_htroKhachhang1 = new laptrinhNet.ControlKhachhang.phoi_htroKhachhang();
             this.hdongKhachhang1 = new laptrinhNet.ControlKhachhang.hdongKhachhang();
-            this.ptroKhachhang1 = new laptrinhNet.ControlKhachhang.ptroKhachhang();
             this.hdon_ttoanKhachhang1 = new laptrinhNet.ControlKhachhang.hdon_ttoanKhachhang();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -48,6 +48,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.ptroKhachhang1);
@@ -60,10 +63,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1500, 642);
             this.panel1.TabIndex = 24;
-
+            // 
+            // ptroKhachhang1
+            // 
+            this.ptroKhachhang1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptroKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.ptroKhachhang1.Location = new System.Drawing.Point(-3, -3);
+            this.ptroKhachhang1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ptroKhachhang1.Name = "ptroKhachhang1";
+            this.ptroKhachhang1.Size = new System.Drawing.Size(1502, 645);
+            this.ptroKhachhang1.TabIndex = 10;
+            this.ptroKhachhang1.Visible = false;
             // 
             // khangKhachhang1
             // 
+            this.khangKhachhang1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.khangKhachhang1.BackColor = System.Drawing.SystemColors.Control;
             this.khangKhachhang1.Location = new System.Drawing.Point(-3, -3);
             this.khangKhachhang1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
@@ -74,6 +92,9 @@
             // 
             // phoi_htroKhachhang1
             // 
+            this.phoi_htroKhachhang1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.phoi_htroKhachhang1.BackColor = System.Drawing.SystemColors.Control;
             this.phoi_htroKhachhang1.Location = new System.Drawing.Point(-3, -3);
             this.phoi_htroKhachhang1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
@@ -83,15 +104,20 @@
             // 
             // hdongKhachhang1
             // 
+            this.hdongKhachhang1.AutoSize = true;
             this.hdongKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.hdongKhachhang1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hdongKhachhang1.Location = new System.Drawing.Point(-3, -3);
             this.hdongKhachhang1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.hdongKhachhang1.Name = "hdongKhachhang1";
-            this.hdongKhachhang1.Size = new System.Drawing.Size(1502, 645);
+            this.hdongKhachhang1.Size = new System.Drawing.Size(2170, 904);
             this.hdongKhachhang1.TabIndex = 1;
             // 
             // hdon_ttoanKhachhang1
             // 
+            this.hdon_ttoanKhachhang1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.hdon_ttoanKhachhang1.BackColor = System.Drawing.SystemColors.Control;
             this.hdon_ttoanKhachhang1.Location = new System.Drawing.Point(-3, -3);
             this.hdon_ttoanKhachhang1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
@@ -120,6 +146,9 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.guna2Panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("guna2Panel1.BackgroundImage")));
             this.guna2Panel1.Controls.Add(this.gunabtn_PhongTro);
@@ -243,18 +272,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KhachHang_FormClosing);
             this.Load += new System.EventHandler(this.KhachHang_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            // 
-            // ptroKhachhang1
-            // 
-            this.ptroKhachhang1.BackColor = System.Drawing.SystemColors.Control;
-            this.ptroKhachhang1.Location = new System.Drawing.Point(-3, -3);
-            this.ptroKhachhang1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ptroKhachhang1.Name = "ptroKhachhang1";
-            this.ptroKhachhang1.Size = new System.Drawing.Size(1502, 645);
-            this.ptroKhachhang1.TabIndex = 10;
-            this.ptroKhachhang1.Visible = false; 
 
         }
 
