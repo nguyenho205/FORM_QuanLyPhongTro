@@ -218,6 +218,12 @@
     <Compile Include="ControlKhachhang\ptroKhachhang.Designer.cs">
       <DependentUpon>ptroKhachhang.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlKhachhang\ucQRHienThi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKhachhang\ucQRHienThi.Designer.cs">
+      <DependentUpon>ucQRHienThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlNhanvien\hdon-ttoanNhanvien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -358,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlKhachhang\ptroKhachhang.resx">
       <DependentUpon>ptroKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlKhachhang\ucQRHienThi.resx">
+      <DependentUpon>ucQRHienThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlNhanvien\hdon-ttoanNhanvien.resx">
       <DependentUpon>hdon-ttoanNhanvien.cs</DependentUpon>
