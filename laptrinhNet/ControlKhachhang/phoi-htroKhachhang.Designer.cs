@@ -33,7 +33,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtSophong = new System.Windows.Forms.TextBox();
             this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnClean = new System.Windows.Forms.Button();
             this.txtMaPhanHoi = new System.Windows.Forms.TextBox();
+            this.cboPhong = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,15 +105,6 @@
             this.label3.Size = new System.Drawing.Size(86, 29);
             this.label3.TabIndex = 245;
             this.label3.Text = "Số phòng";
-            // 
-            // txtSophong
-            // 
-            this.txtSophong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSophong.Location = new System.Drawing.Point(1233, 132);
-            this.txtSophong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSophong.Name = "txtSophong";
-            this.txtSophong.Size = new System.Drawing.Size(202, 35);
-            this.txtSophong.TabIndex = 246;
             // 
             // trangThai
             // 
@@ -254,10 +245,19 @@
             this.txtMaPhanHoi.Size = new System.Drawing.Size(238, 35);
             this.txtMaPhanHoi.TabIndex = 259;
             // 
+            // cboPhong
+            // 
+            this.cboPhong.FormattingEnabled = true;
+            this.cboPhong.Location = new System.Drawing.Point(1241, 137);
+            this.cboPhong.Name = "cboPhong";
+            this.cboPhong.Size = new System.Drawing.Size(194, 28);
+            this.cboPhong.TabIndex = 260;
+            // 
             // phoi_htroKhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboPhong);
             this.Controls.Add(this.txtMaPhanHoi);
             this.Controls.Add(this.btnClean);
             this.Controls.Add(this.btnGui);
@@ -265,7 +265,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTen);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtSophong);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -291,7 +290,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtSophong;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn soPhong;
         private System.Windows.Forms.Label label1;
@@ -304,5 +302,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnClean;
         private System.Windows.Forms.TextBox txtMaPhanHoi;
+        private System.Windows.Forms.ComboBox cboPhong;
     }
 }

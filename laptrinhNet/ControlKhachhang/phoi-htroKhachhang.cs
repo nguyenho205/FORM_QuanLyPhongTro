@@ -18,7 +18,6 @@ namespace laptrinhNet.ControlKhachhang
 
         string connectionString = DangNhap.ConnectionStringHienTai;
         string maKhachHang = DangNhap.NguoiDungHienTai;
-
         bool isLoadingCheckbox = false;
 
         public phoi_htroKhachhang()
@@ -50,15 +49,14 @@ namespace laptrinhNet.ControlKhachhang
             }
             else
             {
-                // Nếu người dùng bỏ chọn checkbox hiện tại -> Tự động quay về "Tất cả"
-                // Để tránh trường hợp không chọn cái nào cả
                 checkAll.Checked = true;
             }
 
             isLoadingCheckbox = false; // Xong việc, mở lại cờ
 
-            // Sau khi chỉnh xong checkbox, gọi hàm load dữ liệu
             LoadDanhSachPhanHoi();
+            txtMaPhanHoi.Enabled = false;
+            txtTen.Enabled = false;
         }
         private void LoadDanhSachPhanHoi()
         {
@@ -106,10 +104,19 @@ namespace laptrinhNet.ControlKhachhang
         }
         private void btnGui_Click(object sender, EventArgs e)
         {
-          if (string.IsNullOrEmpty(txtNoidung.Text))
+            if (string.IsNullOrWhiteSpace(txtNoidung.Text))
             {
-                MessageBox.Show("Vui lòng nhập nội dung cần hỗ trợ!", "Thông báo");
+                MessageBox.Show("Vui lòng nhập nội dung!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            // Kiểm tra xem khách có chọn phòng không (nếu có ComboBox)
+            string phongDuocChon = "";
+            if (cboPhong.Items.Count > 0 && cboPhong.SelectedValue != null)
+            {
+                // Lấy tên phòng từ ComboBox để lưu chú thích (hoặc lấy ValueMember là MAPHONG nếu DB có cột MAPHONG)
+                // Ở đây mình giả sử DB chưa có cột MAPHONG, nên mình sẽ nối tên phòng vào nội dung cho dễ quản lý.
+                phongDuocChon = "[" + cboPhong.Text + "] ";
             }
 
             try
@@ -117,31 +124,52 @@ namespace laptrinhNet.ControlKhachhang
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
+                    string maMoi = TaoMaYeuCauMoi(conn);
+
+                    // Ghép tên phòng vào nội dung gửi đi: "[Phòng 101] Bóng đèn bị cháy"
+                    string noiDungGui = phongDuocChon + txtNoidung.Text.Trim();
+
                     string query = @"INSERT INTO YEUCAUHOTRO (MAYEUCAU, MAKH, NGAYGUI, NOIDUNG, TRANGTHAI) 
                                      VALUES (@MaYC, @MaKH, GETDATE(), @NoiDung, N'Chưa xử lý')";
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@MaYC", txtMaPhanHoi.Text);
-                    cmd.Parameters.AddWithValue("@MaKH", maKhachHang);
-                    cmd.Parameters.AddWithValue("@NoiDung", txtNoidung.Text);
-
-                    if (cmd.ExecuteNonQuery() > 0)
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        MessageBox.Show("Đã gửi yêu cầu thành công!", "Thông báo");
-                        
-                        
-                       checkAll.Checked = true; 
+                        cmd.Parameters.AddWithValue("@MaYC", maMoi);
+                        cmd.Parameters.AddWithValue("@MaKH", maKhachHang);
+                        cmd.Parameters.AddWithValue("@NoiDung", noiDungGui);
 
-                        btnClean_Click(sender, e);
+                        if (cmd.ExecuteNonQuery() > 0)
+                        {
+                            MessageBox.Show("Gửi yêu cầu thành công!", "Thông báo");
+                            btnClean_Click(sender, e);
+                            checkAll.Checked = true;
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi gửi yêu cầu: " + ex.Message);
             }
         }
-
+        private string TaoMaYeuCauMoi(SqlConnection conn)
+        {
+            string maMoi = "YC001";
+            string query = "SELECT TOP 1 MAYEUCAU FROM YEUCAUHOTRO ORDER BY MAYEUCAU DESC";
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    string maCu = result.ToString();
+                    if (maCu.Length > 2 && int.TryParse(maCu.Substring(2), out int so))
+                    {
+                        maMoi = "YC" + (so + 1).ToString("D3");
+                    }
+                }
+            }
+            return maMoi;
+        }
         private void checkAll_CheckedChanged(object sender, EventArgs e)
         {
             XuLyCheckbox(checkAll);
@@ -167,16 +195,17 @@ namespace laptrinhNet.ControlKhachhang
 
         private void btnClean_Click(object sender, EventArgs e)
         {
-            txtMaPhanHoi.Text = TaoMaYeuCauMoi(); // Sinh mã mới
+            txtMaPhanHoi.Text = "(Tự động sinh)";
             txtNoidung.Clear();
 
-            
+            // Load lại thông tin khách và danh sách phòng vào ComboBox
             LayThongTinKhachHang();
 
             txtNoidung.ReadOnly = false;
             btnGui.Enabled = true;
-
+            cboPhong.Enabled = true; // Cho phép chọn phòng
             txtNoidung.Focus();
+            LoadDanhSachPhanHoi();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -184,60 +213,68 @@ namespace laptrinhNet.ControlKhachhang
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-                // Đổ dữ liệu từ dòng được chọn lên các ô
                 txtMaPhanHoi.Text = row.Cells["MAYEUCAU"].Value.ToString();
                 txtNoidung.Text = row.Cells["NOIDUNG"].Value.ToString();
 
-                // Hiển thị thông tin người gửi (Lấy lại thông tin của user hiện tại cho đẹp)
+           
                 LayThongTinKhachHang();
 
-         
                 txtNoidung.ReadOnly = true;
-                btnGui.Enabled = false; 
+                cboPhong.Enabled = false; 
+                btnGui.Enabled = false;
             }
         }
         private void LayThongTinKhachHang()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                conn.Open();
-                // Lấy tên KH và Phòng đang thuê (Hợp đồng còn hạn)
-                string query = @"SELECT K.TENKH, P.TENPHONG 
-                                 FROM KHACHHANG K
-                                 LEFT JOIN HOPDONG H ON K.MAKH = H.MAKH AND H.TRANGTHAI = N'Còn hạn'
-                                 LEFT JOIN PHONGTRO P ON H.MAPHONG = P.MAPHONG
-                                 WHERE K.MAKH = @MaKH";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@MaKH", maKhachHang);
-
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    txtTen.Text = dr["TENKH"].ToString();
+                    conn.Open();
 
-                    txtSophong.Text = dr["TENPHONG"] != DBNull.Value ? dr["TENPHONG"].ToString() : "Chưa thuê";
+                    // 1. Lấy Tên Khách Hàng
+                    string queryTen = "SELECT TENKH FROM KHACHHANG WHERE MAKH = @MaKH";
+                    using (SqlCommand cmd = new SqlCommand(queryTen, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaKH", maKhachHang);
+                        object tenObj = cmd.ExecuteScalar();
+                        if (tenObj != null) txtTen.Text = tenObj.ToString();
+                    }
+
+                    // 2. Lấy Danh Sách Phòng mà khách này đang thuê (Hợp đồng còn hạn)
+                    string queryPhong = @"SELECT P.MAPHONG, P.TENPHONG
+                                          FROM HOPDONG H
+                                          JOIN PHONGTRO P ON H.MAPHONG = P.MAPHONG
+                                          WHERE H.MAKH = @MaKH AND H.TRANGTHAI = N'Còn hạn'";
+
+                    using (SqlCommand cmd = new SqlCommand(queryPhong, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaKH", maKhachHang);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        // Đổ dữ liệu vào ComboBox (cboPhong)
+                        cboPhong.DataSource = dt;
+                        cboPhong.DisplayMember = "TENPHONG"; // Hiển thị tên phòng (VD: Phòng 101)
+                        cboPhong.ValueMember = "MAPHONG";    // Giá trị ẩn là Mã phòng (VD: P01)
+
+                        // Nếu không thuê phòng nào
+                        if (dt.Rows.Count == 0)
+                        {
+                            cboPhong.DataSource = null;
+                            cboPhong.Items.Clear();
+                            cboPhong.Items.Add("Chưa thuê phòng");
+                            cboPhong.SelectedIndex = 0;
+                        }
+                    }
                 }
             }
-        }
-        private string TaoMaYeuCauMoi()
-        {
-            string maMoi = "YC001";
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            catch (Exception ex)
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT TOP 1 MAYEUCAU FROM YEUCAUHOTRO ORDER BY MAYEUCAU DESC", conn);
-                object result = cmd.ExecuteScalar();
-                if (result != null)
-                {
-                    string maCu = result.ToString();
-                    // Cắt lấy số và tăng lên 1 (Ví dụ YC009 -> 9 + 1 = 10 -> YC010)
-                    int so = int.Parse(maCu.Substring(2));
-                    maMoi = "YC" + (so + 1).ToString("D3");
-                }
+                // Có thể log lỗi
             }
-            return maMoi;
         }
+      
     }
 }

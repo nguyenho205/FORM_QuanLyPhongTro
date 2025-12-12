@@ -32,7 +32,6 @@
             this.btnGiahan = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtSophong = new System.Windows.Forms.TextBox();
-            this.txtMaHD = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCoc = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.txtTenKH = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cboMaHD = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnHuy
@@ -90,14 +90,6 @@
             this.txtSophong.Name = "txtSophong";
             this.txtSophong.Size = new System.Drawing.Size(193, 26);
             this.txtSophong.TabIndex = 260;
-            // 
-            // txtMaHD
-            // 
-            this.txtMaHD.Location = new System.Drawing.Point(554, 194);
-            this.txtMaHD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(198, 26);
-            this.txtMaHD.TabIndex = 259;
             // 
             // label10
             // 
@@ -195,7 +187,7 @@
             this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(434, 418);
+            this.label8.Location = new System.Drawing.Point(421, 418);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(145, 29);
@@ -249,12 +241,21 @@
             this.label2.TabIndex = 246;
             this.label2.Text = "Mã hợp đồng";
             // 
+            // cboMaHD
+            // 
+            this.cboMaHD.FormattingEnabled = true;
+            this.cboMaHD.Location = new System.Drawing.Point(579, 194);
+            this.cboMaHD.Name = "cboMaHD";
+            this.cboMaHD.Size = new System.Drawing.Size(194, 28);
+            this.cboMaHD.TabIndex = 261;
+            this.cboMaHD.SelectedIndexChanged += new System.EventHandler(this.cboMaHD_SelectedIndexChanged);
+            // 
             // hdongKhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboMaHD);
             this.Controls.Add(this.txtSophong);
-            this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtCoc);
             this.Controls.Add(this.label11);
@@ -285,7 +286,6 @@
         private System.Windows.Forms.Button btnGiahan;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtSophong;
-        private System.Windows.Forms.TextBox txtMaHD;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCoc;
         private System.Windows.Forms.Label label11;
@@ -299,5 +299,6 @@
         private System.Windows.Forms.TextBox txtTenKH;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cboMaHD;
     }
 }

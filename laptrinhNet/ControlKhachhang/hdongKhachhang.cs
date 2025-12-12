@@ -38,57 +38,49 @@ namespace laptrinhNet.ControlKhachhang
                     }
                 }
             }
+            txtSophong.ReadOnly = true;
+            txtTenKH.ReadOnly = true;
+            txtCoc.ReadOnly = true;
+            txtTienphong.ReadOnly = true;
+
+            // DatePicker: Không có ReadOnly nên phải dùng Enabled = false
+            Tungay.Enabled = false;
+            Denngay.Enabled = false;
+            txtTenKH.Enabled = false;
+            txtCoc.Enabled = false;
+            txtSophong.Enabled = false; 
+            
+
+            // Đảm bảo ComboBox vẫn chọn được
+            cboMaHD.Enabled = true;
         }
         public void SetKhachHang(KhachHang kh) // 'kh' chỉ sống trong hàm này
         {
-            _currKhachHang = kh; // Lưu 'kh' vào biến toàn cục '_currKhachHang' để dùng sau này
+
+            _currKhachHang = kh; // Lưu biến toàn cục
 
             if (kh != null)
             {
                 using (var db = new QLPhongTroDataContext())
                 {
-                    // Lấy hợp đồng mới nhất
-                    var hopDongInfo = (from h in db.HopDongs
-                                       join p in db.PhongTros on h.MaPhong equals p.MaPhong
-                                       join l in db.LoaiPhongTros on p.MaLoai equals l.MaLoai
-                                       join k in db.KhachHangs on h.MaKH equals k.MaKH
-                                       where h.MaKH == kh.MaKH && h.TrangThai != "Hủy"
-                                       orderby h.NgayKT descending
-                                       select new
-                                       {
-                                           h.MaHopDong,
-                                           h.MaPhong,
-                                           h.NgayBD,
-                                           h.NgayKT,
-                                           h.TienCoc,
-                                           TenPhong = p.TenPhong,
-                                           TenKH = k.TenKH,
-                                           TienPhong = l.GiaPhong
-                                       }).FirstOrDefault();
+                    // Lấy danh sách TẤT CẢ mã hợp đồng của khách này
+                    var listMaHD = db.HopDongs
+                                        .Where(h => h.MaKH == kh.MaKH && h.TrangThai != "Hủy")
+                                        .OrderByDescending(h => h.NgayBD)
+                                        .Select(h => h.MaHopDong)
+                                        .ToList();
 
-                    if (hopDongInfo != null)
-                    {
-                        txtMaHD.Text = hopDongInfo.MaHopDong;
-                        txtSophong.Text = hopDongInfo.TenPhong;
-                        txtTenKH.Text = hopDongInfo.TenKH;
+                    // Đổ vào ComboBox
+                    // Khi gán DataSource, sự kiện SelectedIndexChanged sẽ tự chạy để load chi tiết HĐ đầu tiên
+                    cboMaHD.DataSource = listMaHD;
 
-                        CultureInfo cul = new CultureInfo("vi-VN");
-                        txtCoc.Text = hopDongInfo.TienCoc?.ToString("N0", cul) ?? "0";
-                        txtTienphong.Text = hopDongInfo.TienPhong?.ToString("N0", cul) ?? "0";
-
-                        Tungay.Value = hopDongInfo.NgayBD ?? DateTime.Now;
-                        Denngay.Value = hopDongInfo.NgayKT ?? DateTime.Now;
-                    }
-                    else
-                    {
-                        ClearData();
-                    }
+                    if (listMaHD.Count == 0) ClearData();
                 }
             }
         }
         private void ClearData()
         {
-            txtMaHD.Text = "";
+            cboMaHD.Text = "";
             txtSophong.Text = "";
             txtTenKH.Text = "";
             txtCoc.Text = "";
@@ -96,7 +88,45 @@ namespace laptrinhNet.ControlKhachhang
             Tungay.Value = DateTime.Now;
             Denngay.Value = DateTime.Now;
         }
-     
+        private void LoadChiTietHopDong(string maHD)
+        {
+            if (string.IsNullOrEmpty(maHD)) return;
+
+            using (var db = new QLPhongTroDataContext())
+            {
+                // Copy logic query cũ vào đây, thêm điều kiện 'where h.MaHopDong == maHD'
+                var hopDongInfo = (from h in db.HopDongs
+                                   join p in db.PhongTros on h.MaPhong equals p.MaPhong
+                                   join l in db.LoaiPhongTros on p.MaLoai equals l.MaLoai
+                                   join k in db.KhachHangs on h.MaKH equals k.MaKH
+                                   where h.MaHopDong == maHD // <--- Quan trọng: Lọc theo mã được chọn
+                                   select new
+                                   {
+                                       h.MaHopDong,
+                                       h.MaPhong,
+                                       h.NgayBD,
+                                       h.NgayKT,
+                                       h.TienCoc,
+                                       TenPhong = p.TenPhong,
+                                       TenKH = k.TenKH,
+                                       TienPhong = l.GiaPhong
+                                   }).FirstOrDefault();
+
+                if (hopDongInfo != null)
+                {
+                    txtSophong.Text = hopDongInfo.TenPhong;
+                    txtTenKH.Text = hopDongInfo.TenKH;
+
+                    CultureInfo cul = new CultureInfo("vi-VN");
+                    txtCoc.Text = hopDongInfo.TienCoc?.ToString("N0", cul) ?? "0";
+                    txtTienphong.Text = hopDongInfo.TienPhong?.ToString("N0", cul) ?? "0";
+
+                    Tungay.Value = hopDongInfo.NgayBD ?? DateTime.Now;
+                    Denngay.Value = hopDongInfo.NgayKT ?? DateTime.Now;
+                }
+            }
+        }
+
         private void GuiYeuCauHoTro(string maKH, string noiDung)
         {
             using (var db = new QLPhongTroDataContext())
@@ -153,41 +183,54 @@ namespace laptrinhNet.ControlKhachhang
 
         private void btnGiahan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaHD.Text)) return;
+            if (string.IsNullOrEmpty(cboMaHD.Text)) return;
 
+            // Tính ngày dự kiến để hiện thông báo (cộng thêm 3 tháng)
             DateTime ngayMoi = Denngay.Value.AddMonths(3);
-            Denngay.Value = ngayMoi;
 
-            var confirm = MessageBox.Show($"Gửi yêu cầu gia hạn đến {ngayMoi:dd/MM/yyyy}?", "Xác nhận", MessageBoxButtons.YesNo);
+            // Hiện hộp thoại xác nhận
+            var confirm = MessageBox.Show($"Gửi yêu cầu gia hạn HĐ {cboMaHD.Text} đến ngày {ngayMoi:dd/MM/yyyy}?",
+                                          "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (confirm == DialogResult.Yes)
             {
-                string noiDung = $"Yêu cầu gia hạn HĐ {txtMaHD.Text} thêm 3 tháng.";
+                // Tạo nội dung gửi đi (Sử dụng cboMaHD.Text)
+                string noiDung = $"Yêu cầu gia hạn HĐ {cboMaHD.Text} thêm 3 tháng.";
 
-                // Lấy mã KH an toàn
+                // Lấy mã khách hàng (Ưu tiên lấy từ biến toàn cục, nếu lỗi thì query lại từ DB)
                 string maKH = _currKhachHang?.MaKH;
+
                 if (string.IsNullOrEmpty(maKH))
                 {
                     using (var db = new QLPhongTroDataContext())
                     {
-                        var hd = db.HopDongs.FirstOrDefault(h => h.MaHopDong == txtMaHD.Text);
+                        // Tìm hợp đồng dựa trên mã trong ComboBox
+                        var hd = db.HopDongs.FirstOrDefault(h => h.MaHopDong == cboMaHD.Text);
                         maKH = hd?.MaKH;
                     }
                 }
 
-                GuiYeuCauHoTro(maKH, noiDung);
+                // Gọi hàm gửi yêu cầu nếu đã có mã KH
+                if (!string.IsNullOrEmpty(maKH))
+                {
+                    GuiYeuCauHoTro(maKH, noiDung);
+                }
             }
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaHD.Text)) return;
+            if (string.IsNullOrEmpty(cboMaHD.Text)) return;
 
             string maKH = "";
             DateTime ngayKetThuc;
 
+            // Lấy thông tin ngày kết thúc thực tế từ Database để so sánh
             using (var db = new QLPhongTroDataContext())
             {
-                var hd = db.HopDongs.FirstOrDefault(h => h.MaHopDong == txtMaHD.Text);
-                if (hd == null) return;
+                // Tìm hợp đồng dựa trên mã trong ComboBox
+                var hd = db.HopDongs.FirstOrDefault(h => h.MaHopDong == cboMaHD.Text);
+
+                if (hd == null) return; // Nếu không tìm thấy thì thoát
 
                 maKH = hd.MaKH;
                 ngayKetThuc = hd.NgayKT ?? DateTime.Now;
@@ -196,22 +239,33 @@ namespace laptrinhNet.ControlKhachhang
             DateTime today = DateTime.Now;
             string noiDung = "";
 
+            // Logic kiểm tra: Hủy trước hạn hay Thanh lý đúng hạn
             if (today < ngayKetThuc)
             {
-                if (MessageBox.Show("Hủy trước hạn sẽ bị phạt. Tiếp tục?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                // Trường hợp chưa hết hạn -> Cảnh báo phạt
+                if (MessageBox.Show("Hủy trước hạn hợp đồng sẽ bị phạt cọc.\nBạn có chắc chắn muốn tiếp tục?",
+                                    "Cảnh báo hủy trước hạn", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    noiDung = $"Yêu cầu hủy HĐ {txtMaHD.Text} TRƯỚC HẠN. Chấp nhận phạt.";
+                    noiDung = $"Yêu cầu hủy HĐ {cboMaHD.Text} TRƯỚC HẠN. Chấp nhận chịu phạt.";
                     GuiYeuCauHoTro(maKH, noiDung);
                 }
             }
             else
             {
-                if (MessageBox.Show("Gửi yêu cầu thanh lý hợp đồng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                // Trường hợp đã hết hạn -> Hỏi thanh lý
+                if (MessageBox.Show("Hợp đồng đã đáo hạn. Bạn muốn gửi yêu cầu thanh lý?",
+                                    "Xác nhận thanh lý", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    noiDung = $"Yêu cầu thanh lý HĐ {txtMaHD.Text} ĐÃ ĐÁO HẠN.";
+                    noiDung = $"Yêu cầu thanh lý HĐ {cboMaHD.Text} ĐÃ ĐÁO HẠN.";
                     GuiYeuCauHoTro(maKH, noiDung);
                 }
             }
+        }
+
+        private void cboMaHD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string maHD = cboMaHD.SelectedValue?.ToString() ?? cboMaHD.Text;
+            LoadChiTietHopDong(maHD);
         }
     }
 }

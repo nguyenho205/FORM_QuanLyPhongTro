@@ -49,7 +49,7 @@ namespace laptrinhNet
             hdongKhachhang1.Visible = false;
             hdon_ttoanKhachhang1.Visible = false;
             phoi_htroKhachhang1.Visible = false;
-
+            ptroKhachhang1.Visible = false;
             khangKhachhang1.Visible = true;
             khangKhachhang1.BringToFront();
 
@@ -123,5 +123,17 @@ namespace laptrinhNet
         {
 
         }
+
+        private void gunabtn_PhongTro_Click(object sender, EventArgs e)
+        {
+            khangKhachhang1.Visible = false;
+            hdongKhachhang1.Visible = false;
+            hdon_ttoanKhachhang1.Visible = false;
+            phoi_htroKhachhang1.Visible = false;
+
+            ptroKhachhang1.Visible = true;
+            ptroKhachhang1.BringToFront();
+        }
     }
+    
 }

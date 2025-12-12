@@ -33,9 +33,11 @@
             this.khangKhachhang1 = new laptrinhNet.ControlKhachhang.khangKhachhang();
             this.phoi_htroKhachhang1 = new laptrinhNet.ControlKhachhang.phoi_htroKhachhang();
             this.hdongKhachhang1 = new laptrinhNet.ControlKhachhang.hdongKhachhang();
+            this.ptroKhachhang1 = new laptrinhNet.ControlKhachhang.ptroKhachhang();
             this.hdon_ttoanKhachhang1 = new laptrinhNet.ControlKhachhang.hdon_ttoanKhachhang();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.gunabtn_PhongTro = new Guna.UI2.WinForms.Guna2Button();
             this.btnPhanHoi = new Guna.UI2.WinForms.Guna2Button();
             this.btnKhachHang = new Guna.UI2.WinForms.Guna2Button();
             this.btnHopDong = new Guna.UI2.WinForms.Guna2Button();
@@ -48,6 +50,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.ptroKhachhang1);
             this.panel1.Controls.Add(this.khangKhachhang1);
             this.panel1.Controls.Add(this.phoi_htroKhachhang1);
             this.panel1.Controls.Add(this.hdongKhachhang1);
@@ -57,6 +60,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1500, 642);
             this.panel1.TabIndex = 24;
+
             // 
             // khangKhachhang1
             // 
@@ -118,6 +122,7 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.guna2Panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("guna2Panel1.BackgroundImage")));
+            this.guna2Panel1.Controls.Add(this.gunabtn_PhongTro);
             this.guna2Panel1.Controls.Add(this.btnPhanHoi);
             this.guna2Panel1.Controls.Add(this.btnKhachHang);
             this.guna2Panel1.Controls.Add(this.btnHopDong);
@@ -128,6 +133,25 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1551, 734);
             this.guna2Panel1.TabIndex = 26;
+            // 
+            // gunabtn_PhongTro
+            // 
+            this.gunabtn_PhongTro.BackColor = System.Drawing.Color.Transparent;
+            this.gunabtn_PhongTro.BorderRadius = 10;
+            this.gunabtn_PhongTro.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.gunabtn_PhongTro.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.gunabtn_PhongTro.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.gunabtn_PhongTro.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.gunabtn_PhongTro.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gunabtn_PhongTro.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunabtn_PhongTro.ForeColor = System.Drawing.Color.White;
+            this.gunabtn_PhongTro.Location = new System.Drawing.Point(348, 21);
+            this.gunabtn_PhongTro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gunabtn_PhongTro.Name = "gunabtn_PhongTro";
+            this.gunabtn_PhongTro.Size = new System.Drawing.Size(142, 40);
+            this.gunabtn_PhongTro.TabIndex = 31;
+            this.gunabtn_PhongTro.Text = "Phòng trọ";
+            this.gunabtn_PhongTro.Click += new System.EventHandler(this.gunabtn_PhongTro_Click);
             // 
             // btnPhanHoi
             // 
@@ -140,7 +164,7 @@
             this.btnPhanHoi.FillColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnPhanHoi.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhanHoi.ForeColor = System.Drawing.Color.White;
-            this.btnPhanHoi.Location = new System.Drawing.Point(908, 23);
+            this.btnPhanHoi.Location = new System.Drawing.Point(949, 23);
             this.btnPhanHoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPhanHoi.Name = "btnPhanHoi";
             this.btnPhanHoi.Size = new System.Drawing.Size(218, 40);
@@ -159,7 +183,7 @@
             this.btnKhachHang.FillColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnKhachHang.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKhachHang.ForeColor = System.Drawing.Color.White;
-            this.btnKhachHang.Location = new System.Drawing.Point(378, 23);
+            this.btnKhachHang.Location = new System.Drawing.Point(167, 21);
             this.btnKhachHang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.Size = new System.Drawing.Size(142, 40);
@@ -178,7 +202,7 @@
             this.btnHopDong.FillColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnHopDong.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHopDong.ForeColor = System.Drawing.Color.White;
-            this.btnHopDong.Location = new System.Drawing.Point(530, 23);
+            this.btnHopDong.Location = new System.Drawing.Point(522, 23);
             this.btnHopDong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHopDong.Name = "btnHopDong";
             this.btnHopDong.Size = new System.Drawing.Size(142, 40);
@@ -197,7 +221,7 @@
             this.btnHoaDon.FillColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnHoaDon.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btnHoaDon.Location = new System.Drawing.Point(681, 25);
+            this.btnHoaDon.Location = new System.Drawing.Point(700, 23);
             this.btnHoaDon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.Size = new System.Drawing.Size(218, 40);
@@ -221,6 +245,16 @@
             this.panel1.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            // 
+            // ptroKhachhang1
+            // 
+            this.ptroKhachhang1.BackColor = System.Drawing.SystemColors.Control;
+            this.ptroKhachhang1.Location = new System.Drawing.Point(-3, -3);
+            this.ptroKhachhang1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ptroKhachhang1.Name = "ptroKhachhang1";
+            this.ptroKhachhang1.Size = new System.Drawing.Size(1502, 645);
+            this.ptroKhachhang1.TabIndex = 10;
+            this.ptroKhachhang1.Visible = false; 
 
         }
 
@@ -234,10 +268,12 @@
         private ControlKhachhang.hdongKhachhang hdongKhachhang1;
         private ControlKhachhang.hdon_ttoanKhachhang hdon_ttoanKhachhang1;
         private ControlKhachhang.khangKhachhang khangKhachhang1;
+        private ControlKhachhang.ptroKhachhang ptroKhachhang1;
         private Guna.UI2.WinForms.Guna2Button btnPhanHoi;
         private Guna.UI2.WinForms.Guna2Button btnKhachHang;
         private Guna.UI2.WinForms.Guna2Button btnHopDong;
         private Guna.UI2.WinForms.Guna2Button btnHoaDon;
+        private Guna.UI2.WinForms.Guna2Button gunabtn_PhongTro;
 
     }
 }
