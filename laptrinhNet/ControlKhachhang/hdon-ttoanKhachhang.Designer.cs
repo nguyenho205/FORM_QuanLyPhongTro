@@ -79,12 +79,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(410, 105);
+            this.label5.Location = new System.Drawing.Point(384, 113);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 29);
+            this.label5.Size = new System.Drawing.Size(160, 27);
             this.label5.TabIndex = 336;
             this.label5.Text = "Hạn thanh toán";
             // 
@@ -124,7 +124,7 @@
             this.label16.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(410, 244);
+            this.label16.Location = new System.Drawing.Point(384, 244);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(121, 27);
@@ -134,7 +134,7 @@
             // txtTienNuoc
             // 
             this.txtTienNuoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTienNuoc.Location = new System.Drawing.Point(130, 499);
+            this.txtTienNuoc.Location = new System.Drawing.Point(151, 499);
             this.txtTienNuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTienNuoc.Name = "txtTienNuoc";
             this.txtTienNuoc.Size = new System.Drawing.Size(252, 35);
@@ -146,12 +146,12 @@
             this.label14.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(22, 509);
+            this.label14.Location = new System.Drawing.Point(2, 507);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(109, 27);
+            this.label14.Size = new System.Drawing.Size(141, 27);
             this.label14.TabIndex = 330;
-            this.label14.Text = "Tiền nước";
+            this.label14.Text = "TIỀN NƯỚC";
             // 
             // txtNuocDaDung
             // 
@@ -192,9 +192,9 @@
             this.label13.Location = new System.Drawing.Point(411, 507);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(101, 27);
+            this.label13.Size = new System.Drawing.Size(129, 27);
             this.label13.TabIndex = 326;
-            this.label13.Text = "Tiền điện";
+            this.label13.Text = "TIỀN ĐIỆN";
             // 
             // txtDienDaDung
             // 
@@ -244,7 +244,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(853, 186);
+            this.label3.Location = new System.Drawing.Point(842, 183);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 27);
@@ -286,7 +286,7 @@
             this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(410, 170);
+            this.label8.Location = new System.Drawing.Point(384, 175);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 27);

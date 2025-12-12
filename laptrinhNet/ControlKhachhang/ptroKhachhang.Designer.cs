@@ -31,7 +31,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkBaoTri = new System.Windows.Forms.CheckBox();
             this.chkChuaThue = new System.Windows.Forms.CheckBox();
-            this.chkDaThue = new System.Windows.Forms.CheckBox();
             this.dgvDanhSachPhong = new System.Windows.Forms.DataGridView();
             this.soPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +65,6 @@
             // 
             this.groupBox1.Controls.Add(this.chkBaoTri);
             this.groupBox1.Controls.Add(this.chkChuaThue);
-            this.groupBox1.Controls.Add(this.chkDaThue);
             this.groupBox1.Controls.Add(this.dgvDanhSachPhong);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(42, 14);
@@ -82,7 +80,7 @@
             // 
             this.chkBaoTri.AutoSize = true;
             this.chkBaoTri.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBaoTri.Location = new System.Drawing.Point(295, 45);
+            this.chkBaoTri.Location = new System.Drawing.Point(190, 39);
             this.chkBaoTri.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkBaoTri.Name = "chkBaoTri";
             this.chkBaoTri.Size = new System.Drawing.Size(104, 31);
@@ -94,25 +92,13 @@
             // 
             this.chkChuaThue.AutoSize = true;
             this.chkChuaThue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkChuaThue.Location = new System.Drawing.Point(140, 45);
+            this.chkChuaThue.Location = new System.Drawing.Point(32, 39);
             this.chkChuaThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkChuaThue.Name = "chkChuaThue";
             this.chkChuaThue.Size = new System.Drawing.Size(138, 31);
             this.chkChuaThue.TabIndex = 2;
             this.chkChuaThue.Text = "Chưa thuê";
             this.chkChuaThue.UseVisualStyleBackColor = true;
-            // 
-            // chkDaThue
-            // 
-            this.chkDaThue.AutoSize = true;
-            this.chkDaThue.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkDaThue.Location = new System.Drawing.Point(14, 45);
-            this.chkDaThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chkDaThue.Name = "chkDaThue";
-            this.chkDaThue.Size = new System.Drawing.Size(114, 31);
-            this.chkDaThue.TabIndex = 1;
-            this.chkDaThue.Text = "Đã thuê";
-            this.chkDaThue.UseVisualStyleBackColor = true;
             // 
             // dgvDanhSachPhong
             // 
@@ -442,7 +428,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox chkBaoTri;
         private System.Windows.Forms.CheckBox chkChuaThue;
-        private System.Windows.Forms.CheckBox chkDaThue;
         private System.Windows.Forms.DataGridView dgvDanhSachPhong;
         private System.Windows.Forms.DataGridViewTextBoxColumn soPhong;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;

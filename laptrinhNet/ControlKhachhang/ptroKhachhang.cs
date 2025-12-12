@@ -20,7 +20,7 @@ namespace laptrinhNet.ControlKhachhang
         string connectionString = DangNhap.ConnectionStringHienTai;
         string maKH_HienTai = DangNhap.NguoiDungHienTai;
 
-        // 1. KHAI BÁO DATATABLE TOÀN CỤC ĐỂ LƯU DỮ LIỆU
+       
         DataTable dtPhong = new DataTable();
         public ptroKhachhang()
         {
@@ -31,19 +31,15 @@ namespace laptrinhNet.ControlKhachhang
             LoadThongTinCaNhan();
             LoadDanhSachPhong();
 
-            // Mặc định chọn xem phòng trống
             chkChuaThue.Checked = true;
 
-            // Đăng ký sự kiện CheckBox
             chkChuaThue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
-            chkDaThue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
+            //chkDaThue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
             chkBaoTri.CheckedChanged += FilterCheckBoxes_CheckedChanged;
 
-            // --- QUAN TRỌNG: ĐĂNG KÝ SỰ KIỆN CLICK CHO DATAGRIDVIEW ---
-            // Nếu thiếu dòng này, click vào bảng sẽ không có tác dụng gì cả
+         
             dgvDanhSachPhong.CellClick += dgvDanhSachPhong_CellClick;
 
-            // Áp dụng bộ lọc ngay khi mở
             ApplyFilter();
             btnDangKyThue.Enabled = false;
         }
@@ -70,7 +66,6 @@ namespace laptrinhNet.ControlKhachhang
                         txtSDT.Text = reader["SODIENTHOAI"].ToString();
                         txtEmail.Text = reader["EMAIL_KHACHHANG"].ToString();
 
-                        // Khóa các ô này lại để không cho sửa (nếu muốn)
                         txtTenNguoiDangKy.ReadOnly = true;
                         txtCCCD.ReadOnly = true;
                         txtSDT.ReadOnly = true;
@@ -134,11 +129,11 @@ namespace laptrinhNet.ControlKhachhang
                 filters.Add("(TRANGTHAI = 'TRỐNG' OR TRANGTHAI IS NULL)");
             }
 
-            if (chkDaThue.Checked)
-            {
+            //if (chkDaThue.Checked)
+            //{
                 
-                filters.Add("(TRANGTHAI = 'ĐANG THUÊ' OR TRANGTHAI = 'Đã thuê')");
-            }
+            //    filters.Add("(TRANGTHAI = 'ĐANG THUÊ' OR TRANGTHAI = 'Đã thuê')");
+            //}
 
             if (chkBaoTri.Checked)
             {
@@ -172,13 +167,11 @@ namespace laptrinhNet.ControlKhachhang
                 return;
             }
 
-            // 2. TẠO MÃ YÊU CẦU NGẮN (FIX LỖI "String or binary data would be truncated")
-            // Database chỉ cho 5 ký tự -> Dùng "YC" + 3 số ngẫu nhiên (Ví dụ: YC159)
+         
             Random rd = new Random();
             string maYC = "YC" + rd.Next(100, 999).ToString();
 
-            // 3. TẠO NỘI DUNG YÊU CẦU
-            // Gộp tất cả thông tin phòng vào đây vì bảng YEUCAUHOTRO không có cột Mã Phòng
+         
             string noiDungYC = string.Format(
                 "Yêu cầu thuê phòng: {0}\n" +
                 "- Loại: {1}\n" +
@@ -186,16 +179,16 @@ namespace laptrinhNet.ControlKhachhang
                 "- Thời gian thuê: {3} đến {4}\n" +
                 "- Ghi chú phòng: {5}\n" +
                 "- SĐT Liên hệ: {6}",
-                txtMaPhong.Text,                                // 0
-                txtLoaiPhong.Text,                              // 1
-                txtGiaPhong.Text,                               // 2
-                dtpNgayThue.Value.ToString("dd/MM/yyyy"),       // 3
-                dtpNgayKetThuc.Value.ToString("dd/MM/yyyy"),    // 4
-                txtMoTa.Text,                                   // 5
-                txtSDT.Text                                     // 6
+                txtMaPhong.Text,                                
+                txtLoaiPhong.Text,                              
+                txtGiaPhong.Text,                               
+                dtpNgayThue.Value.ToString("dd/MM/yyyy"),       
+                dtpNgayKetThuc.Value.ToString("dd/MM/yyyy"),    
+                txtMoTa.Text,                                   
+                txtSDT.Text                                    
             );
 
-            // 4. GỬI DỮ LIỆU XUỐNG SQL
+       
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -208,7 +201,7 @@ namespace laptrinhNet.ControlKhachhang
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaYC", maYC);
                     cmd.Parameters.AddWithValue("@MaKH", maKH_HienTai);
-                    cmd.Parameters.AddWithValue("@NoiDung", noiDungYC); // Nội dung đã gộp ở trên
+                    cmd.Parameters.AddWithValue("@NoiDung", noiDungYC); 
 
                     int result = cmd.ExecuteNonQuery();
 
@@ -216,13 +209,11 @@ namespace laptrinhNet.ControlKhachhang
                     {
                         MessageBox.Show("Gửi yêu cầu thành công!\nMã yêu cầu: " + maYC, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Reset các ô nhập liệu sau khi gửi xong
                         txtMaPhong.Text = "";
                         txtLoaiPhong.Text = "";
                         txtGiaPhong.Text = "";
                         txtMoTa.Text = "";
 
-                        // Tắt nút đăng ký để tránh bấm nhầm 2 lần
                         btnDangKyThue.Enabled = false;
                     }
                     else
@@ -232,7 +223,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (SqlException sqlEx)
                 {
-                    // Bắt riêng lỗi trùng khóa chính (nếu xui xẻo random trúng mã cũ)
                     if (sqlEx.Number == 2627)
                     {
                         MessageBox.Show("Lỗi trùng mã yêu cầu, vui lòng thử lại lần nữa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -259,63 +249,63 @@ namespace laptrinhNet.ControlKhachhang
             {
                 DataGridViewRow row = dgvDanhSachPhong.Rows[e.RowIndex];
 
-                // 2. Lấy trạng thái an toàn
                 object valTrangThai = row.Cells["TRANGTHAI"].Value;
-                string trangThai = "TRỐNG";
+                string trangThai = (valTrangThai != null && valTrangThai != DBNull.Value) ? valTrangThai.ToString() : "TRỐNG";
 
-                if (valTrangThai != null && valTrangThai != DBNull.Value)
-                {
-                    trangThai = valTrangThai.ToString();
-                }
-
-                // 3. Kiểm tra điều kiện KHÔNG CHO THUÊ
                 bool khongDuocThue = trangThai.Equals("Đã thuê", StringComparison.OrdinalIgnoreCase) ||
                                      trangThai.Equals("ĐANG THUÊ", StringComparison.OrdinalIgnoreCase) ||
                                      trangThai.Equals("Bảo trì", StringComparison.OrdinalIgnoreCase);
 
                 if (khongDuocThue)
                 {
-                    // --- TẮT NÚT ĐĂNG KÝ ---
                     btnDangKyThue.Enabled = false;
-                    // Đổi màu nút cho người dùng dễ nhận biết (tùy chọn)
-                    btnDangKyThue.BackColor = Color.Gray;
                     btnDangKyThue.Text = "Phòng bận";
-
-                    // Xóa thông tin phòng bên phải
+                    btnDangKyThue.BackColor = Color.Gray;
                     ClearInfo();
+                    return;
                 }
                 else
                 {
-                    // --- BẬT NÚT ĐĂNG KÝ (Trường hợp phòng TRỐNG) ---
                     btnDangKyThue.Enabled = true;
-                    btnDangKyThue.BackColor = Color.DodgerBlue; // Hoặc màu gốc của bạn
                     btnDangKyThue.Text = "Đăng ký thuê";
+                    btnDangKyThue.BackColor = Color.DodgerBlue;
 
-                    // Đổ dữ liệu vào textbox
-                    object valMa = row.Cells["MAPHONG"].Value;
-                    txtMaPhong.Text = (valMa != null && valMa != DBNull.Value) ? valMa.ToString() : "";
 
-                    object valLoai = row.Cells["TENLOAI"].Value;
-                    txtLoaiPhong.Text = (valLoai != null && valLoai != DBNull.Value) ? valLoai.ToString() : "";
+                    if (dgvDanhSachPhong.Columns.Contains("MAPHONG"))
+                        txtMaPhong.Text = row.Cells["MAPHONG"].Value?.ToString() ?? "";
 
-                    object valGia = row.Cells["GIAPHONG"].Value;
-                    if (valGia != null && valGia != DBNull.Value && decimal.TryParse(valGia.ToString(), out decimal gia))
+
+                    if (dgvDanhSachPhong.Columns.Contains("TENLOAI"))
+                        txtLoaiPhong.Text = row.Cells["TENLOAI"].Value?.ToString() ?? "";
+
+                    if (dgvDanhSachPhong.Columns.Contains("GIAPHONG"))
                     {
-                        txtGiaPhong.Text = gia.ToString("N0");
-                    }
-                    else
-                    {
-                        txtGiaPhong.Text = "0";
+                        object valGia = row.Cells["GIAPHONG"].Value;
+                        if (valGia != null && decimal.TryParse(valGia.ToString(), out decimal gia))
+                            txtGiaPhong.Text = gia.ToString("N0");
+                        else
+                            txtGiaPhong.Text = "0";
                     }
 
-                    object valGhiChu = row.Cells["GHICHU"].Value;
-                    txtMoTa.Text = (valGhiChu != null && valGhiChu != DBNull.Value) ? valGhiChu.ToString() : "";
+                    if (dgvDanhSachPhong.Columns.Contains("GHICHU"))
+                        txtMoTa.Text = row.Cells["GHICHU"].Value?.ToString() ?? "";
+
+
+                    if (dgvDanhSachPhong.Columns.Contains("TENPHONG"))
+                    {
+
+                        object valTenPhong = row.Cells["TENPHONG"].Value;
+
+
+                        txtTenPhong.Text = (valTenPhong != null) ? valTenPhong.ToString() : "";
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Có lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
+
         }
         private void ClearInfo()
         {
