@@ -3,7 +3,7 @@ using laptrinhNet.Database.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity; // Important for AsNoTracking
+using System.Data.Entity; 
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,7 +11,6 @@ namespace laptrinhNet.ControlAdmin
 {
     public partial class hdon_ttoanAdmin : UserControl
     {
-        // Global variables for UI display purposes only (not used for saving)
         private decimal _giaDienGiaoDien = 0;
         private decimal _giaNuocGiaoDien = 0;
 
@@ -29,30 +28,25 @@ namespace laptrinhNet.ControlAdmin
             cbo_MaDV.SelectedIndex = -1;
             ResetForm();
 
-            // Configure Status ComboBox
             cbo_TrangThaiTT.Items.Clear();
             cbo_TrangThaiTT.Items.Add("Chưa thanh toán");
             cbo_TrangThaiTT.Items.Add("Đã thanh toán");
 
-            // Configure Payment Method ComboBox
             cbo_Phuongthuc_TT.Items.Clear();
             cbo_Phuongthuc_TT.Items.Add("Tiền mặt");
             cbo_Phuongthuc_TT.Items.Add("Chuyển khoản");
 
-            // Get current prices for UI calculation
             LayDonGiaDichVuChoGiaoDien();
 
             LoadDataHoaDon();
 
-            // Lock calculated fields
             txt_TienNuoc.Enabled = false;
             txt_TienDien.Enabled = false;
             txt_TienWifi.Enabled = false;
+            txt_TienRac.Enabled = false;
             txt_TongTien.Enabled = false;
             txt_TienPhong.Enabled = false;
         }
-
-        // --- HELPER METHODS ---
 
         private void LayDonGiaDichVuChoGiaoDien()
         {
@@ -178,8 +172,6 @@ namespace laptrinhNet.ControlAdmin
             }
         }
 
-        // --- INVOICE MANAGEMENT EVENTS ---
-
         private void LoadDataHoaDon()
         {
             using (var db = new QLPhongTroDataContext())
@@ -195,13 +187,11 @@ namespace laptrinhNet.ControlAdmin
                                TenPhong = phong.TenPhong,
                                TenKhach = khach.TenKH,
                                NgayLap = hd.NgayLap ?? DateTime.Now,
-                               // Subquery using Trim() for safety
                                SoDien = (int)(db.CT_HoaDons.Where(ct => ct.MaHD == hd.MaHD && ct.MaDV.Trim() == "DV01").Select(ct => ct.SoLuong).FirstOrDefault() ?? 0),
                                SoNuoc = (int)(db.CT_HoaDons.Where(ct => ct.MaHD == hd.MaHD && ct.MaDV.Trim() == "DV02").Select(ct => ct.SoLuong).FirstOrDefault() ?? 0),
                                TongTien = hd.TongTien ?? 0,
                                TrangThai = hd.TrangThaiThanhToan,
                                GhiChu = hd.GhiChu,
-                               // Add Payment info to DTO if needed for Grid display, otherwise just for CellClick
                                PhuongThucTT = hd.PhuongThucTT,
                                NgayThanhToan = hd.NgayThanhToan ?? DateTime.Now
                            };
@@ -254,7 +244,8 @@ namespace laptrinhNet.ControlAdmin
                 // Wifi (DV03)
                 var ctWifi = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV03");
                 txt_TienWifi.Text = (ctWifi?.ThanhTien ?? 0).ToString("N0");
-
+                var ctRac = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV04");
+                txt_TienRac.Text = (ctRac?.ThanhTien ?? 0).ToString("N0");
                 // Total
                 txt_TongTien.Text = (hd.TongTien ?? 0).ToString("N0");
             }
@@ -320,14 +311,13 @@ namespace laptrinhNet.ControlAdmin
                 decimal tongTienDichVu = listChiTiet.Sum(ct => ct.ThanhTien ?? 0);
                 hd.TongTien = tienPhong + tongTienDichVu;
 
-                // 7. CẬP NHẬT TRẠNG THÁI & NGÀY THANH TOÁN (SỬA CHỖ NÀY)
+                // 7. CẬP NHẬT TRẠNG THÁI & NGÀY THANH TOÁN
                 hd.TrangThaiThanhToan = cbo_TrangThaiTT.Text;
                 hd.GhiChu = txt_GhiChu.Text;
 
                 if (cbo_TrangThaiTT.Text == "Đã thanh toán")
                 {
-                    // --- SỬA LỖI Ở ĐÂY ---
-                    // Lấy giá trị ngày từ DateTimePicker (dt_NgayTT_HD) mà người dùng chọn
+
                     hd.NgayThanhToan = dt_NgayTT_HD.Value;
                     db.SaveChanges();
 
@@ -352,7 +342,7 @@ namespace laptrinhNet.ControlAdmin
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi SQL: " + ex.Message);
+                    
                 }
             }
         }
@@ -361,12 +351,9 @@ namespace laptrinhNet.ControlAdmin
         {
             if (cbo_TrangThaiTT.Text == "Đã thanh toán")
             {
-                // Enable controls so user can edit if needed
                 dt_NgayTT_HD.Enabled = true;
                 cbo_Phuongthuc_TT.Enabled = true;
 
-                // If it was null/empty before, default to Now, otherwise keep selected
-                // (Optional: dt_NgayTT_HD.Value = DateTime.Now;)
             }
             else
             {
@@ -376,10 +363,13 @@ namespace laptrinhNet.ControlAdmin
             }
         }
 
-        // Optional: Add TextChanged events to txt_SoDien and txt_SoNuoc to calculate totals on UI in real-time
         private void txt_SoLuong_TextChanged(object sender, EventArgs e)
         {
-            // Copy logic from previous UpdateGiaoDien() here if you want real-time calculation
+        }
+
+        private void txt_TongTien_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

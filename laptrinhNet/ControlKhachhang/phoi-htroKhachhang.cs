@@ -99,7 +99,6 @@ namespace laptrinhNet.ControlKhachhang
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tải dữ liệu: " + ex.Message);
             }
         }
         private void btnGui_Click(object sender, EventArgs e)
@@ -149,7 +148,6 @@ namespace laptrinhNet.ControlKhachhang
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi gửi yêu cầu: " + ex.Message);
             }
         }
         private string TaoMaYeuCauMoi(SqlConnection conn)

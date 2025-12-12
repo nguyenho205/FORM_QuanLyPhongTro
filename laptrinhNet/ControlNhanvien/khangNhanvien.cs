@@ -65,7 +65,6 @@ namespace laptrinhNet.ControlNhanvien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tải dữ liệu: " + ex.Message);
             }
         }
 

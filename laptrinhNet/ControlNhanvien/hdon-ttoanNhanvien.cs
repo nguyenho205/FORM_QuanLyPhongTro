@@ -66,7 +66,6 @@ namespace laptrinhNet.ControlNhanvien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khởi động: " + ex.Message);
             }
         }
 
@@ -279,13 +278,7 @@ namespace laptrinhNet.ControlNhanvien
                 }
                 catch (Exception ex)
                 {
-                    transaction.Rollback();
-                    // Hiển thị lỗi chi tiết
-                    string msg = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-                    if (ex.InnerException != null && ex.InnerException.InnerException != null)
-                        msg = ex.InnerException.InnerException.Message;
-
-                    MessageBox.Show("Lỗi: " + msg);
+                    
                 }
             }
         }
@@ -330,7 +323,6 @@ namespace laptrinhNet.ControlNhanvien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hiển thị báo cáo: " + ex.Message);
             }
         }
 
@@ -431,7 +423,6 @@ namespace laptrinhNet.ControlNhanvien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi xuất Excel: " + ex.Message);
             }
         }
 

@@ -43,12 +43,16 @@ namespace laptrinhNet.ControlNhanvien
             {
                 using (var db = new QLPhongTroDataContext(DangNhap.ConnectionStringHienTai))
                 {
+                    // 1. Lấy Mã Nhân Viên đang đăng nhập
+                    string maNVHienTai = DangNhap.NguoiDungHienTai;
+
                     var list = from yc in db.YeuCauHoTros
                                join kh in db.KhachHangs on yc.MaKH equals kh.MaKH
-                               // Sắp xếp giống hệt logic trong SP của bạn:
-                               // 1. Chưa xử lý lên đầu
-                               // 2. Sau đó đến Đang xử lý
-                               // 3. Mới nhất lên trên
+                               // 2. THÊM ĐIỀU KIỆN LỌC TẠI ĐÂY:
+                               // Chỉ lấy những dòng mà cột MaNV trong bảng YeuCauHoTro trùng với MaNV đang đăng nhập
+                               where yc.MaNV_XuLy == maNVHienTai
+
+                               // Sắp xếp: Chưa xử lý -> Đang xử lý -> Đã xử lý, sau đó đến ngày mới nhất
                                orderby (yc.TrangThai == "Chưa xử lý" ? 1 :
                                        (yc.TrangThai == "Đang xử lý" ? 2 : 3)),
                                        yc.NgayGui descending
@@ -70,11 +74,13 @@ namespace laptrinhNet.ControlNhanvien
                     if (dgvYeuCau.Columns["NoiDung"] != null) dgvYeuCau.Columns["NoiDung"].HeaderText = "Nội dung";
                     if (dgvYeuCau.Columns["TrangThai"] != null) dgvYeuCau.Columns["TrangThai"].HeaderText = "Trạng thái";
                     if (dgvYeuCau.Columns["NgayGui"] != null) dgvYeuCau.Columns["NgayGui"].HeaderText = "Ngày gửi";
+
+                    // Ẩn cột Phản hồi nếu không muốn hiện trên lưới (vì đã hiện ở TextBox bên dưới)
+                    if (dgvYeuCau.Columns["PhanHoi"] != null) dgvYeuCau.Columns["PhanHoi"].Visible = false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tải danh sách: " + ex.Message);
             }
         }
 
@@ -146,14 +152,13 @@ namespace laptrinhNet.ControlNhanvien
                     LoadDanhSachYeuCau();
                 }
             }
-            catch (SqlException sqlEx)
-            {
-                // Bắt lỗi từ chính SP trả về (RAISERROR)
-                MessageBox.Show("Lỗi SQL: " + sqlEx.Message, "Lỗi Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //catch (SqlException sqlEx)
+            //{
+            //    // Bắt lỗi từ chính SP trả về (RAISERROR)
+            //    MessageBox.Show("Lỗi SQL: " + sqlEx.Message, "Lỗi Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hệ thống: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

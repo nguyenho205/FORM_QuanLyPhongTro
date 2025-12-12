@@ -176,7 +176,7 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi hệ thống: " + ex.Message);
+
                 }
             }
         }

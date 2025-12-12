@@ -50,7 +50,6 @@
             this.txt_TenKH = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label17 = new System.Windows.Forms.Label();
             this.txt_GhiChu = new System.Windows.Forms.TextBox();
             this.btn_SuaDV = new System.Windows.Forms.Button();
@@ -75,6 +74,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dt_NgayTT_HD = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
+            this.txt_TienRac = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid_DichVu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_HoaDon)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +83,7 @@
             // btn_SuaHD
             // 
             this.btn_SuaHD.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SuaHD.Location = new System.Drawing.Point(505, 370);
+            this.btn_SuaHD.Location = new System.Drawing.Point(609, 391);
             this.btn_SuaHD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SuaHD.Name = "btn_SuaHD";
             this.btn_SuaHD.Size = new System.Drawing.Size(162, 71);
@@ -94,7 +95,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(680, 370);
+            this.button3.Location = new System.Drawing.Point(784, 391);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(162, 71);
@@ -128,10 +129,10 @@
             // 
             // txt_TienWifi
             // 
-            this.txt_TienWifi.Location = new System.Drawing.Point(599, 282);
+            this.txt_TienWifi.Location = new System.Drawing.Point(637, 282);
             this.txt_TienWifi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_TienWifi.Name = "txt_TienWifi";
-            this.txt_TienWifi.Size = new System.Drawing.Size(250, 26);
+            this.txt_TienWifi.Size = new System.Drawing.Size(99, 26);
             this.txt_TienWifi.TabIndex = 271;
             // 
             // label16
@@ -149,10 +150,10 @@
             // 
             // txt_TienNuoc
             // 
-            this.txt_TienNuoc.Location = new System.Drawing.Point(601, 228);
+            this.txt_TienNuoc.Location = new System.Drawing.Point(637, 228);
             this.txt_TienNuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_TienNuoc.Name = "txt_TienNuoc";
-            this.txt_TienNuoc.Size = new System.Drawing.Size(244, 26);
+            this.txt_TienNuoc.Size = new System.Drawing.Size(348, 26);
             this.txt_TienNuoc.TabIndex = 269;
             // 
             // label14
@@ -170,10 +171,10 @@
             // 
             // txt_SoNuoc
             // 
-            this.txt_SoNuoc.Location = new System.Drawing.Point(154, 224);
+            this.txt_SoNuoc.Location = new System.Drawing.Point(182, 224);
             this.txt_SoNuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_SoNuoc.Name = "txt_SoNuoc";
-            this.txt_SoNuoc.Size = new System.Drawing.Size(188, 26);
+            this.txt_SoNuoc.Size = new System.Drawing.Size(273, 26);
             this.txt_SoNuoc.TabIndex = 267;
             // 
             // label15
@@ -191,10 +192,10 @@
             // 
             // txt_TienDien
             // 
-            this.txt_TienDien.Location = new System.Drawing.Point(594, 182);
+            this.txt_TienDien.Location = new System.Drawing.Point(637, 182);
             this.txt_TienDien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_TienDien.Name = "txt_TienDien";
-            this.txt_TienDien.Size = new System.Drawing.Size(252, 26);
+            this.txt_TienDien.Size = new System.Drawing.Size(348, 26);
             this.txt_TienDien.TabIndex = 265;
             // 
             // label13
@@ -212,10 +213,10 @@
             // 
             // txt_SoDien
             // 
-            this.txt_SoDien.Location = new System.Drawing.Point(150, 178);
+            this.txt_SoDien.Location = new System.Drawing.Point(182, 179);
             this.txt_SoDien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_SoDien.Name = "txt_SoDien";
-            this.txt_SoDien.Size = new System.Drawing.Size(193, 26);
+            this.txt_SoDien.Size = new System.Drawing.Size(273, 26);
             this.txt_SoDien.TabIndex = 263;
             // 
             // label12
@@ -233,11 +234,12 @@
             // 
             // txt_TongTien
             // 
-            this.txt_TongTien.Location = new System.Drawing.Point(157, 325);
+            this.txt_TongTien.Location = new System.Drawing.Point(182, 326);
             this.txt_TongTien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_TongTien.Name = "txt_TongTien";
-            this.txt_TongTien.Size = new System.Drawing.Size(185, 26);
+            this.txt_TongTien.Size = new System.Drawing.Size(273, 26);
             this.txt_TongTien.TabIndex = 258;
+            this.txt_TongTien.TextChanged += new System.EventHandler(this.txt_TongTien_TextChanged);
             // 
             // label3
             // 
@@ -254,10 +256,10 @@
             // 
             // txt_TienPhong
             // 
-            this.txt_TienPhong.Location = new System.Drawing.Point(613, 137);
+            this.txt_TienPhong.Location = new System.Drawing.Point(637, 137);
             this.txt_TienPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_TienPhong.Name = "txt_TienPhong";
-            this.txt_TienPhong.Size = new System.Drawing.Size(229, 26);
+            this.txt_TienPhong.Size = new System.Drawing.Size(348, 26);
             this.txt_TienPhong.TabIndex = 253;
             // 
             // label8
@@ -288,10 +290,10 @@
             // 
             // txt_TenKH
             // 
-            this.txt_TenKH.Location = new System.Drawing.Point(167, 137);
+            this.txt_TenKH.Location = new System.Drawing.Point(182, 137);
             this.txt_TenKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_TenKH.Name = "txt_TenKH";
-            this.txt_TenKH.Size = new System.Drawing.Size(176, 26);
+            this.txt_TenKH.Size = new System.Drawing.Size(273, 26);
             this.txt_TenKH.TabIndex = 250;
             // 
             // label6
@@ -320,17 +322,6 @@
             this.label2.TabIndex = 248;
             this.label2.Text = "Mã hóa đơn";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(1079, 644);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(104, 20);
-            this.linkLabel1.TabIndex = 280;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Xem hóa đơn";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -356,7 +347,7 @@
             this.btn_SuaDV.Location = new System.Drawing.Point(1175, 219);
             this.btn_SuaDV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SuaDV.Name = "btn_SuaDV";
-            this.btn_SuaDV.Size = new System.Drawing.Size(590, 35);
+            this.btn_SuaDV.Size = new System.Drawing.Size(590, 39);
             this.btn_SuaDV.TabIndex = 294;
             this.btn_SuaDV.Text = "Sửa dịch vụ";
             this.btn_SuaDV.UseVisualStyleBackColor = true;
@@ -489,28 +480,28 @@
             // grid_HoaDon
             // 
             this.grid_HoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_HoaDon.Location = new System.Drawing.Point(35, 483);
+            this.grid_HoaDon.Location = new System.Drawing.Point(35, 484);
             this.grid_HoaDon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grid_HoaDon.Name = "grid_HoaDon";
             this.grid_HoaDon.RowHeadersWidth = 62;
-            this.grid_HoaDon.Size = new System.Drawing.Size(814, 295);
+            this.grid_HoaDon.Size = new System.Drawing.Size(950, 417);
             this.grid_HoaDon.TabIndex = 319;
             this.grid_HoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_HoaDon_CellClick);
             // 
             // txtMaHD
             // 
-            this.txtMaHD.Location = new System.Drawing.Point(149, 91);
+            this.txtMaHD.Location = new System.Drawing.Point(182, 90);
             this.txtMaHD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(193, 26);
+            this.txtMaHD.Size = new System.Drawing.Size(273, 26);
             this.txtMaHD.TabIndex = 320;
             // 
             // txtSoPhong
             // 
-            this.txtSoPhong.Location = new System.Drawing.Point(613, 90);
+            this.txtSoPhong.Location = new System.Drawing.Point(637, 90);
             this.txtSoPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSoPhong.Name = "txtSoPhong";
-            this.txtSoPhong.Size = new System.Drawing.Size(229, 26);
+            this.txtSoPhong.Size = new System.Drawing.Size(348, 26);
             this.txtSoPhong.TabIndex = 321;
             // 
             // cbo_TrangThaiTT
@@ -547,10 +538,10 @@
             // 
             // txt_Ghichu_HD
             // 
-            this.txt_Ghichu_HD.Location = new System.Drawing.Point(598, 331);
+            this.txt_Ghichu_HD.Location = new System.Drawing.Point(637, 331);
             this.txt_Ghichu_HD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Ghichu_HD.Name = "txt_Ghichu_HD";
-            this.txt_Ghichu_HD.Size = new System.Drawing.Size(245, 26);
+            this.txt_Ghichu_HD.Size = new System.Drawing.Size(348, 26);
             this.txt_Ghichu_HD.TabIndex = 326;
             // 
             // label10
@@ -571,10 +562,10 @@
             this.dt_NgayTT_HD.CalendarFont = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_NgayTT_HD.CustomFormat = "dd/MM/yyyy";
             this.dt_NgayTT_HD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_NgayTT_HD.Location = new System.Drawing.Point(197, 280);
+            this.dt_NgayTT_HD.Location = new System.Drawing.Point(182, 280);
             this.dt_NgayTT_HD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dt_NgayTT_HD.Name = "dt_NgayTT_HD";
-            this.dt_NgayTT_HD.Size = new System.Drawing.Size(189, 26);
+            this.dt_NgayTT_HD.Size = new System.Drawing.Size(273, 26);
             this.dt_NgayTT_HD.TabIndex = 327;
             // 
             // label11
@@ -590,10 +581,33 @@
             this.label11.TabIndex = 328;
             this.label11.Text = "Ngày thanh toán";
             // 
+            // txt_TienRac
+            // 
+            this.txt_TienRac.Location = new System.Drawing.Point(887, 282);
+            this.txt_TienRac.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_TienRac.Name = "txt_TienRac";
+            this.txt_TienRac.Size = new System.Drawing.Size(98, 26);
+            this.txt_TienRac.TabIndex = 330;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label18.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label18.Location = new System.Drawing.Point(762, 283);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(107, 29);
+            this.label18.TabIndex = 329;
+            this.label18.Text = "Tiền vệ sinh";
+            // 
             // hdon_ttoanAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txt_TienRac);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dt_NgayTT_HD);
             this.Controls.Add(this.txt_Ghichu_HD);
@@ -618,7 +632,6 @@
             this.Controls.Add(this.txt_DonGia);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label28);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btn_SuaHD);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
@@ -676,7 +689,6 @@
         private System.Windows.Forms.TextBox txt_TenKH;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txt_GhiChu;
         private System.Windows.Forms.Button btn_SuaDV;
@@ -701,5 +713,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dt_NgayTT_HD;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txt_TienRac;
+        private System.Windows.Forms.Label label18;
     }
 }

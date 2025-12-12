@@ -74,7 +74,6 @@ namespace laptrinhNet.ControlNhanvien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 

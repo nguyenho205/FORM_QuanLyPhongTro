@@ -75,7 +75,6 @@ namespace laptrinhNet.ControlNhanvien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tải phòng: " + ex.Message);
             }
         }
 
@@ -179,7 +178,6 @@ namespace laptrinhNet.ControlNhanvien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi cập nhật: " + ex.Message);
             }
         }
 

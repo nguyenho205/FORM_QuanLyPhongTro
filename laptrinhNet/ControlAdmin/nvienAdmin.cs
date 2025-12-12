@@ -341,7 +341,7 @@ namespace laptrinhNet.ControlAdmin
                     }
                     else
                     {
-                        MessageBox.Show("Lỗi: Không tìm thấy dữ liệu (có thể đã bị xóa trước đó).");
+                        MessageBox.Show("Lỗi: Không tìm thấy dữ liệu.");
                         LoadDataPhanCong(); // Load lại để đồng bộ dữ liệu
                     }
                 }

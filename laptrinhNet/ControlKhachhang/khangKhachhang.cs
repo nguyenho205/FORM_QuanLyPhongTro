@@ -109,7 +109,6 @@ namespace laptrinhNet.ControlKhachhang
                 catch (Exception ex)
                 {
                     lblChiTietHopDong.Text = "Lỗi tải hợp đồng.";
-                    MessageBox.Show("Lỗi: " + ex.Message);
                 }
             }
         }
@@ -174,7 +173,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi tải thông tin cá nhân: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -262,8 +260,7 @@ namespace laptrinhNet.ControlKhachhang
                     }
                 }
                 catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi hệ thống: " + ex.Message);
+                { 
                 }
             }
         }

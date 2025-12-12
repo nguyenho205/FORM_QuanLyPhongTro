@@ -138,9 +138,7 @@ namespace laptrinhNet
             //labelError.Visible = false;
             txtDangNhap.Clear();
             txtMatKhau.Clear();
-            rdAdmin.Checked = false;
-            rdNhanVien.Checked = false;
-            rdNguoiThue.Checked = false;
+
         }
 
         private void txtMatKhau_TextChanged(object sender, EventArgs e)

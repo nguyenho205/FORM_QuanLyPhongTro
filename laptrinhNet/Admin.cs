@@ -39,7 +39,6 @@ namespace laptrinhNet
             hdongAdmin1.Visible = false;
             hdon_ttoanAdmin1.Visible = false;
             tke_bcaoAdmin1.Visible = false;
-            tbao_nnhoAdmin1.Visible = false;
             phoi_htroAdmin1.Visible = false;
 
             btnPhongTro.PerformClick();
@@ -81,11 +80,6 @@ namespace laptrinhNet
             tke_bcaoAdmin1.BringToFront();
         }
 
-        private void btnThongBao_Click(object sender, EventArgs e)
-        {
-            tbao_nnhoAdmin1.Visible = true;
-            tbao_nnhoAdmin1.BringToFront();
-        }
 
         private void btnPhanHoi_Click(object sender, EventArgs e)
         {

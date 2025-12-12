@@ -176,12 +176,6 @@
     <Compile Include="ControlAdmin\ptroAdmin.Designer.cs">
       <DependentUpon>ptroAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlAdmin\tbao-nnhoAdmin.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlAdmin\tbao-nnhoAdmin.Designer.cs">
-      <DependentUpon>tbao-nnhoAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="ControlAdmin\tke-bcaoAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,18 +248,6 @@
     <Compile Include="ControlNhanvien\ptroNhanvien.Designer.cs">
       <DependentUpon>ptroNhanvien.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlNhanvien\tbao-nnhoNhanvien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlNhanvien\tbao-nnhoNhanvien.Designer.cs">
-      <DependentUpon>tbao-nnhoNhanvien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ControlNhanvien\tke-bcaoNhanvien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlNhanvien\tke-bcaoNhanvien.Designer.cs">
-      <DependentUpon>tke-bcaoNhanvien.cs</DependentUpon>
-    </Compile>
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +261,7 @@
     <Compile Include="Database\DTOs\KhachHangDTO.cs" />
     <Compile Include="Database\DTOs\NhanVienDTO.cs" />
     <Compile Include="Database\DTOs\PhanCongDTO.cs" />
+    <Compile Include="Database\DTOs\PhanHoiDTO.cs" />
     <Compile Include="Database\DTOs\PhongTroDTO.cs" />
     <Compile Include="Database\DTOs\TaiKhoanDTO.cs" />
     <Compile Include="Database\DTOs\ThongKeDoanhThuDTO.cs" />
@@ -338,9 +321,6 @@
     <EmbeddedResource Include="ControlAdmin\ptroAdmin.resx">
       <DependentUpon>ptroAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlAdmin\tbao-nnhoAdmin.resx">
-      <DependentUpon>tbao-nnhoAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ControlAdmin\tke-bcaoAdmin.resx">
       <DependentUpon>tke-bcaoAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,12 +356,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlNhanvien\ptroNhanvien.resx">
       <DependentUpon>ptroNhanvien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ControlNhanvien\tbao-nnhoNhanvien.resx">
-      <DependentUpon>tbao-nnhoNhanvien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ControlNhanvien\tke-bcaoNhanvien.resx">
-      <DependentUpon>tke-bcaoNhanvien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>

@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using laptrinhNet.Database;
+
 
 namespace laptrinhNet.ControlKhachhang
 {
@@ -79,7 +79,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi lấy thông tin cá nhân: " + ex.Message);
                 }
             }
         }
@@ -107,7 +106,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi load danh sách phòng: " + ex.Message);
                 }
             }
         }
@@ -155,7 +153,6 @@ namespace laptrinhNet.ControlKhachhang
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
             }
         }
         private void btnDangky_Click(object sender, EventArgs e)
@@ -201,7 +198,7 @@ namespace laptrinhNet.ControlKhachhang
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@MaYC", maYC);
                     cmd.Parameters.AddWithValue("@MaKH", maKH_HienTai);
-                    cmd.Parameters.AddWithValue("@NoiDung", noiDungYC); 
+                    cmd.Parameters.AddWithValue("@NoiDung", noiDungYC);
 
                     int result = cmd.ExecuteNonQuery();
 
@@ -221,20 +218,9 @@ namespace laptrinhNet.ControlKhachhang
                         MessageBox.Show("Không thể gửi yêu cầu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (SqlException sqlEx)
-                {
-                    if (sqlEx.Number == 2627)
-                    {
-                        MessageBox.Show("Lỗi trùng mã yêu cầu, vui lòng thử lại lần nữa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lỗi SQL: " + sqlEx.Message);
-                    }
-                }
+
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi hệ thống: " + ex.Message);
                 }
             }
         }
@@ -303,7 +289,6 @@ namespace laptrinhNet.ControlKhachhang
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
             }
 
         }
@@ -316,6 +301,11 @@ namespace laptrinhNet.ControlKhachhang
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

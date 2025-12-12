@@ -58,7 +58,7 @@
             this.label6.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(444, 118);
+            this.label6.Location = new System.Drawing.Point(601, 43);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 29);
@@ -74,7 +74,7 @@
             this.groupBox1.Controls.Add(this.chk_DaThue);
             this.groupBox1.Controls.Add(this.grid_PhongTro);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(23, 296);
+            this.groupBox1.Location = new System.Drawing.Point(19, 226);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -117,7 +117,7 @@
             this.grid_PhongTro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grid_PhongTro.Name = "grid_PhongTro";
             this.grid_PhongTro.RowHeadersWidth = 62;
-            this.grid_PhongTro.Size = new System.Drawing.Size(1172, 798);
+            this.grid_PhongTro.Size = new System.Drawing.Size(1432, 798);
             this.grid_PhongTro.TabIndex = 0;
             this.grid_PhongTro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_PhongTro_CellClick_1);
             // 
@@ -127,7 +127,7 @@
             this.label4.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(848, 166);
+            this.label4.Location = new System.Drawing.Point(1005, 91);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 29);
@@ -140,7 +140,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(61, 161);
+            this.label3.Location = new System.Drawing.Point(218, 86);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 29);
@@ -153,7 +153,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(57, 112);
+            this.label2.Location = new System.Drawing.Point(214, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 29);
@@ -163,7 +163,7 @@
             // cbo_TrangThai_PT
             // 
             this.cbo_TrangThai_PT.FormattingEnabled = true;
-            this.cbo_TrangThai_PT.Location = new System.Drawing.Point(586, 123);
+            this.cbo_TrangThai_PT.Location = new System.Drawing.Point(743, 48);
             this.cbo_TrangThai_PT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbo_TrangThai_PT.Name = "cbo_TrangThai_PT";
             this.cbo_TrangThai_PT.Size = new System.Drawing.Size(201, 28);
@@ -172,7 +172,7 @@
             // btn_XoaPhong
             // 
             this.btn_XoaPhong.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XoaPhong.Location = new System.Drawing.Point(468, 245);
+            this.btn_XoaPhong.Location = new System.Drawing.Point(625, 170);
             this.btn_XoaPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_XoaPhong.Name = "btn_XoaPhong";
             this.btn_XoaPhong.Size = new System.Drawing.Size(128, 41);
@@ -184,7 +184,7 @@
             // btn_SuaPhong
             // 
             this.btn_SuaPhong.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SuaPhong.Location = new System.Drawing.Point(332, 245);
+            this.btn_SuaPhong.Location = new System.Drawing.Point(489, 170);
             this.btn_SuaPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_SuaPhong.Name = "btn_SuaPhong";
             this.btn_SuaPhong.Size = new System.Drawing.Size(128, 41);
@@ -196,7 +196,7 @@
             // btn_ThemPhong
             // 
             this.btn_ThemPhong.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ThemPhong.Location = new System.Drawing.Point(190, 245);
+            this.btn_ThemPhong.Location = new System.Drawing.Point(347, 170);
             this.btn_ThemPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_ThemPhong.Name = "btn_ThemPhong";
             this.btn_ThemPhong.Size = new System.Drawing.Size(134, 41);
@@ -207,7 +207,7 @@
             // 
             // txt_SoPhong
             // 
-            this.txt_SoPhong.Location = new System.Drawing.Point(199, 164);
+            this.txt_SoPhong.Location = new System.Drawing.Point(356, 89);
             this.txt_SoPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_SoPhong.Name = "txt_SoPhong";
             this.txt_SoPhong.Size = new System.Drawing.Size(198, 26);
@@ -219,7 +219,7 @@
             this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(444, 161);
+            this.label8.Location = new System.Drawing.Point(601, 86);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 29);
@@ -229,7 +229,7 @@
             // cbo_TenLoai_PT
             // 
             this.cbo_TenLoai_PT.FormattingEnabled = true;
-            this.cbo_TenLoai_PT.Location = new System.Drawing.Point(586, 166);
+            this.cbo_TenLoai_PT.Location = new System.Drawing.Point(743, 91);
             this.cbo_TenLoai_PT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbo_TenLoai_PT.Name = "cbo_TenLoai_PT";
             this.cbo_TenLoai_PT.Size = new System.Drawing.Size(198, 28);
@@ -241,7 +241,7 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(848, 112);
+            this.label1.Location = new System.Drawing.Point(1005, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 29);
@@ -250,7 +250,7 @@
             // 
             // txt_SoNGHienTai
             // 
-            this.txt_SoNGHienTai.Location = new System.Drawing.Point(990, 112);
+            this.txt_SoNGHienTai.Location = new System.Drawing.Point(1147, 37);
             this.txt_SoNGHienTai.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_SoNGHienTai.Name = "txt_SoNGHienTai";
             this.txt_SoNGHienTai.Size = new System.Drawing.Size(201, 26);
@@ -258,7 +258,7 @@
             // 
             // txt_MaPhong_PT
             // 
-            this.txt_MaPhong_PT.Location = new System.Drawing.Point(199, 118);
+            this.txt_MaPhong_PT.Location = new System.Drawing.Point(356, 43);
             this.txt_MaPhong_PT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_MaPhong_PT.Name = "txt_MaPhong_PT";
             this.txt_MaPhong_PT.Size = new System.Drawing.Size(198, 26);
@@ -266,7 +266,7 @@
             // 
             // txt_GhiChu_PT
             // 
-            this.txt_GhiChu_PT.Location = new System.Drawing.Point(990, 164);
+            this.txt_GhiChu_PT.Location = new System.Drawing.Point(1147, 89);
             this.txt_GhiChu_PT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_GhiChu_PT.Name = "txt_GhiChu_PT";
             this.txt_GhiChu_PT.Size = new System.Drawing.Size(201, 26);
@@ -275,7 +275,7 @@
             // btn_LamMoi_PT
             // 
             this.btn_LamMoi_PT.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LamMoi_PT.Location = new System.Drawing.Point(604, 245);
+            this.btn_LamMoi_PT.Location = new System.Drawing.Point(761, 170);
             this.btn_LamMoi_PT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_LamMoi_PT.Name = "btn_LamMoi_PT";
             this.btn_LamMoi_PT.Size = new System.Drawing.Size(128, 41);

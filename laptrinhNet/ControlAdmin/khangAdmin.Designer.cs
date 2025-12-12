@@ -57,7 +57,7 @@
             this.grid_KhachHang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grid_KhachHang.Name = "grid_KhachHang";
             this.grid_KhachHang.RowHeadersWidth = 62;
-            this.grid_KhachHang.Size = new System.Drawing.Size(969, 475);
+            this.grid_KhachHang.Size = new System.Drawing.Size(1259, 475);
             this.grid_KhachHang.TabIndex = 163;
             this.grid_KhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_KhachHang_CellContentClick);
             // 
@@ -284,7 +284,7 @@
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "khangAdmin";
-            this.Size = new System.Drawing.Size(1690, 645);
+            this.Size = new System.Drawing.Size(2000, 645);
             this.Load += new System.EventHandler(this.khangAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_KhachHang)).EndInit();
             this.ResumeLayout(false);

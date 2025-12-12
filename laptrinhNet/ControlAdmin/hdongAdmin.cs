@@ -23,18 +23,15 @@ namespace laptrinhNet.ControlAdmin
         {
             using (var db = new QLPhongTroDataContext())
             {
-                // Sử dụng LINQ để lấy dữ liệu và map sang DTO
                 var list = db.HopDongs.Select(hd => new HopDongDTO
                 {
                     MAHOPDONG = hd.MaHopDong,
-                    TENKH = hd.KhachHangData.TenKH, // Lấy tên khách thay vì MaKhach
-                    TENPHONG = hd.PhongTroData.TenPhong,  // Lấy tên phòng thay vì MaPhong
+                    TENKH = hd.KhachHangData.TenKH, 
+                    TENPHONG = hd.PhongTroData.TenPhong, 
 
-                    // Lấy các thông tin còn lại
                     NGAYBD = hd.NgayBD.HasValue ? hd.NgayBD.Value : DateTime.Now,
                     NGAYKT = hd.NgayKT.HasValue ? hd.NgayKT.Value : DateTime.Now,
 
-                    // Xử lý tiền cọc (nếu null thì cho bằng 0)
                     TIENCOC = hd.TienCoc.HasValue ? hd.TienCoc.Value : 0,
 
                     TRANGTHAI = hd.TrangThai
@@ -60,12 +57,10 @@ namespace laptrinhNet.ControlAdmin
                 return "HDNew";
             }
         }
-        // Load danh sách khách hàng CHƯA CÓ HỢP ĐỒNG (hoặc hợp đồng đã kết thúc)
         private void LoadCboKhachHang()
         {
             using (var db = new QLPhongTroDataContext())
             {
-                // Logic: Lấy tất cả khách hàng TRỪ ĐI những người đang có hợp đồng "Còn hạn"
                 var khachDangThue = db.HopDongs
                                       .Where(hd => hd.TrangThai == "Còn hạn")
                                       .Select(hd => hd.MaKH).ToList();
@@ -88,7 +83,7 @@ namespace laptrinhNet.ControlAdmin
                 var phongTrong = db.PhongTros.Where(p => p.TrangThai == "TRỐNG").ToList();
 
                 cbo_TenPhong_HD.DataSource = phongTrong;
-                cbo_TenPhong_HD.DisplayMember = "TenPhong"; // Hoặc SoPhong
+                cbo_TenPhong_HD.DisplayMember = "TenPhong";
                 cbo_TenPhong_HD.ValueMember = "MAPHONG";
             }
         }
@@ -110,7 +105,6 @@ namespace laptrinhNet.ControlAdmin
             txt_MaHD.Text = TaoMaHopDongTuDong();
             txt_MaHD.Enabled = false;
 
-            // Mặc định ngày bắt đầu là hôm nay
             dt_NgayBD_HD.Value = DateTime.Now;
             dt_NgayKT_HD.Value = DateTime.Now.AddMonths(6); // Mặc định thuê 6 tháng
 
@@ -118,7 +112,6 @@ namespace laptrinhNet.ControlAdmin
             txt_TrangThai_HD.Text = "Còn hạn";
             txt_TrangThai_HD.Enabled = false; // Trạng thái tự động, không cho sửa tay
 
-            // Mở lại các combo box (trong trường hợp vừa bấm Gia hạn xong)
             cbo_TenKH.Enabled = true;
             cbo_TenPhong_HD.Enabled = true;
             dt_NgayBD_HD.Enabled = true;

@@ -173,7 +173,7 @@ namespace laptrinhNet.ControlAdmin
                         }
                         catch (Exception)
                         {
-                            MessageBox.Show("Không thể xóa khách hàng này vì đang có dữ liệu liên quan (Hợp đồng/Hóa đơn). Hãy dùng chức năng 'Khóa tài khoản'.");
+                            MessageBox.Show("Không thể xóa khách hàng này vì đang có dữ liệu liên quan (Hợp đồng/Hóa đơn).");
                         }
                     }
                 }
@@ -200,7 +200,6 @@ namespace laptrinhNet.ControlAdmin
             // 4. Ensure the ID field remains read-only
             txt_MaNV.Enabled = false;
 
-            // 5. Optional: Set focus to the first input field for better UX
             txt_TenKH.Focus();
         }
     }

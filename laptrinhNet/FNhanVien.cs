@@ -42,8 +42,6 @@ namespace laptrinhNet
             khangNhanvien1.Visible = false;
             hdongNhanvien1.Visible = false;
             hdon_ttoanNhanvien1.Visible = false;
-            tke_bcaoNhanvien1.Visible = false;
-            tbao_nnhoNhanVien1.Visible = false;
             phoi_htroNhanvien1.Visible = false;
 
             btnPhongTro.PerformClick();
@@ -79,17 +77,7 @@ namespace laptrinhNet
             hdon_ttoanNhanvien1.BringToFront();
         }
 
-        private void btnThongKe_Click(object sender, EventArgs e)
-        {
-            tke_bcaoNhanvien1.Visible = true;
-            tke_bcaoNhanvien1.BringToFront();
-        }
 
-        private void btnThongBao_Click(object sender, EventArgs e)
-        {
-            tbao_nnhoNhanVien1.Visible = true;
-            tbao_nnhoNhanVien1.BringToFront();
-        }
 
         private void btnPhanHoi_Click(object sender, EventArgs e)
         {

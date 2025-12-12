@@ -17,26 +17,7 @@ namespace laptrinhNet.ControlAdmin
 
         private void ptroAdmin_Load(object sender, EventArgs e)
         {
-            //using (var db = new QLPhongTroDataContext())
-            //{
-            //    var ds = db.LoaiPhongTros.Select(t => t.MaLoai).ToList();
-            //    cbo_MaLoai_PT.DataSource = ds;
-            //    var data = db.PhongTros.ToList()
-            //        .Select(sv => new PhongTro
-            //        {
-            //            MaPhong = sv.MaPhong,
-            //            TenPhong = sv.TenPhong,
-            //            TenLoai = sv.TenLoai,
-            //            TrangThai = sv.TrangThai,
-            //            SoNguoiHienTai = sv.SoNguoiHienTai,
-            //            GhiChu = sv.GhiChu,
 
-
-            //        })
-            //        .ToList();
-            //    grid_PhongTro.DataSource = data;
-
-            //}
             LoadData();
 
         }
@@ -231,7 +212,7 @@ namespace laptrinhNet.ControlAdmin
                     }
                     else
                     {
-                        MessageBox.Show("Không tìm thấy phòng này trong CSDL (có thể đã bị xóa bởi người khác).");
+                        MessageBox.Show("Không tìm thấy phòng này trong CSDL.");
                         LoadData(); // Load lại để cập nhật danh sách mới nhất
                     }
                 }

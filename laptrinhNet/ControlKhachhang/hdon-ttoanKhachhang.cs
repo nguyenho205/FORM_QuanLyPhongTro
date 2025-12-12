@@ -73,7 +73,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi tải danh sách hóa đơn: " + ex.Message);
                 }
             }
         }
@@ -102,7 +101,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi tính số phòng: " + ex.Message);
                 }
             }
         }
@@ -164,7 +162,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi hiển thị chi tiết: " + ex.Message);
                 }
             }
 
@@ -201,7 +198,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi tính tổng tiền: " + ex.Message);
                 }
             }
         }
@@ -253,7 +249,6 @@ namespace laptrinhNet.ControlKhachhang
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void XuatHoaDonPDF(string path)

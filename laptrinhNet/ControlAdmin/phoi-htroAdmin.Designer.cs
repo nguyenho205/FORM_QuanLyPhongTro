@@ -29,119 +29,125 @@
         private void InitializeComponent()
         {
             this.label9 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.chk_DangXuLy = new System.Windows.Forms.CheckBox();
+            this.chk_ChuaXuLy = new System.Windows.Forms.CheckBox();
+            this.chkTatCa = new System.Windows.Forms.CheckBox();
+            this.chk_DaXuLy = new System.Windows.Forms.CheckBox();
+            this.grid_PhanHoi = new System.Windows.Forms.DataGridView();
             this.soPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_SoPhong = new System.Windows.Forms.TextBox();
+            this.txt_TenNguoiGui = new System.Windows.Forms.TextBox();
+            this.txt_NoiDung = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbo_NhanVienXuLy = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbo_TrangThai = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_PhanHoi = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.txt_MaPhanHoi = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_PhanHoi)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(153, 4);
+            this.label9.Location = new System.Drawing.Point(230, 6);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 23);
+            this.label9.Size = new System.Drawing.Size(204, 35);
             this.label9.TabIndex = 168;
             this.label9.Text = "Danh sách phản hồi";
             // 
-            // checkBox3
+            // chk_DangXuLy
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(204, 52);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(84, 23);
-            this.checkBox3.TabIndex = 171;
-            this.checkBox3.Text = "Đang xử lý";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chk_DangXuLy.AutoSize = true;
+            this.chk_DangXuLy.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_DangXuLy.Location = new System.Drawing.Point(306, 80);
+            this.chk_DangXuLy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chk_DangXuLy.Name = "chk_DangXuLy";
+            this.chk_DangXuLy.Size = new System.Drawing.Size(125, 33);
+            this.chk_DangXuLy.TabIndex = 171;
+            this.chk_DangXuLy.Text = "Đang xử lý";
+            this.chk_DangXuLy.UseVisualStyleBackColor = true;
+            this.chk_DangXuLy.CheckedChanged += new System.EventHandler(this.chk_DangXuLy_CheckedChanged);
             // 
-            // checkBox2
+            // chk_ChuaXuLy
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(109, 52);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(85, 23);
-            this.checkBox2.TabIndex = 170;
-            this.checkBox2.Text = "Chưa xử lý";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chk_ChuaXuLy.AutoSize = true;
+            this.chk_ChuaXuLy.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_ChuaXuLy.Location = new System.Drawing.Point(164, 80);
+            this.chk_ChuaXuLy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chk_ChuaXuLy.Name = "chk_ChuaXuLy";
+            this.chk_ChuaXuLy.Size = new System.Drawing.Size(125, 33);
+            this.chk_ChuaXuLy.TabIndex = 170;
+            this.chk_ChuaXuLy.Text = "Chưa xử lý";
+            this.chk_ChuaXuLy.UseVisualStyleBackColor = true;
+            this.chk_ChuaXuLy.CheckedChanged += new System.EventHandler(this.chk_ChuaXuLy_CheckedChanged);
             // 
-            // checkBox1
+            // chkTatCa
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(41, 52);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 23);
-            this.checkBox1.TabIndex = 169;
-            this.checkBox1.Text = "Tất cả";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkTatCa.AutoSize = true;
+            this.chkTatCa.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkTatCa.Location = new System.Drawing.Point(62, 80);
+            this.chkTatCa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkTatCa.Name = "chkTatCa";
+            this.chkTatCa.Size = new System.Drawing.Size(86, 33);
+            this.chkTatCa.TabIndex = 169;
+            this.chkTatCa.Text = "Tất cả";
+            this.chkTatCa.UseVisualStyleBackColor = true;
+            this.chkTatCa.CheckedChanged += new System.EventHandler(this.chkTatCa_CheckedChanged);
             // 
-            // checkBox4
+            // chk_DaXuLy
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(300, 52);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(71, 23);
-            this.checkBox4.TabIndex = 172;
-            this.checkBox4.Text = "Đã xử lý";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chk_DaXuLy.AutoSize = true;
+            this.chk_DaXuLy.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_DaXuLy.Location = new System.Drawing.Point(450, 80);
+            this.chk_DaXuLy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chk_DaXuLy.Name = "chk_DaXuLy";
+            this.chk_DaXuLy.Size = new System.Drawing.Size(105, 33);
+            this.chk_DaXuLy.TabIndex = 172;
+            this.chk_DaXuLy.Text = "Đã xử lý";
+            this.chk_DaXuLy.UseVisualStyleBackColor = true;
+            this.chk_DaXuLy.CheckedChanged += new System.EventHandler(this.chk_DaXuLy_CheckedChanged);
             // 
-            // dataGridView1
+            // grid_PhanHoi
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grid_PhanHoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_PhanHoi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.soPhong,
             this.trangThai});
-            this.dataGridView1.Location = new System.Drawing.Point(41, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(388, 298);
-            this.dataGridView1.TabIndex = 173;
+            this.grid_PhanHoi.Location = new System.Drawing.Point(62, 125);
+            this.grid_PhanHoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grid_PhanHoi.Name = "grid_PhanHoi";
+            this.grid_PhanHoi.RowHeadersWidth = 62;
+            this.grid_PhanHoi.Size = new System.Drawing.Size(799, 458);
+            this.grid_PhanHoi.TabIndex = 173;
+            this.grid_PhanHoi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_PhanHoi_CellClick);
             // 
             // soPhong
             // 
             this.soPhong.HeaderText = "Số phòng";
+            this.soPhong.MinimumWidth = 8;
             this.soPhong.Name = "soPhong";
             this.soPhong.ReadOnly = true;
             this.soPhong.Visible = false;
+            this.soPhong.Width = 150;
             // 
             // trangThai
             // 
             this.trangThai.HeaderText = "Trạng thái";
+            this.trangThai.MinimumWidth = 8;
             this.trangThai.Name = "trangThai";
             this.trangThai.ReadOnly = true;
             this.trangThai.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(574, 53);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(168, 21);
-            this.comboBox2.TabIndex = 175;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.trangThai.Width = 150;
             // 
             // label2
             // 
@@ -149,9 +155,10 @@
             this.label2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(497, 54);
+            this.label2.Location = new System.Drawing.Point(1042, 121);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 19);
+            this.label2.Size = new System.Drawing.Size(110, 29);
             this.label2.TabIndex = 174;
             this.label2.Text = "Mã phản hồi";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -162,9 +169,10 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(497, 79);
+            this.label1.Location = new System.Drawing.Point(1042, 160);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 19);
+            this.label1.Size = new System.Drawing.Size(121, 29);
             this.label1.TabIndex = 176;
             this.label1.Text = "Tên người gửi";
             // 
@@ -174,33 +182,37 @@
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(760, 54);
+            this.label3.Location = new System.Drawing.Point(1454, 121);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 19);
+            this.label3.Size = new System.Drawing.Size(86, 29);
             this.label3.TabIndex = 177;
             this.label3.Text = "Số phòng";
             // 
-            // textBox1
+            // txt_SoPhong
             // 
-            this.textBox1.Location = new System.Drawing.Point(820, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 20);
-            this.textBox1.TabIndex = 178;
+            this.txt_SoPhong.Location = new System.Drawing.Point(1544, 121);
+            this.txt_SoPhong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_SoPhong.Name = "txt_SoPhong";
+            this.txt_SoPhong.Size = new System.Drawing.Size(202, 26);
+            this.txt_SoPhong.TabIndex = 178;
             // 
-            // textBox2
+            // txt_TenNguoiGui
             // 
-            this.textBox2.Location = new System.Drawing.Point(582, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(374, 20);
-            this.textBox2.TabIndex = 179;
+            this.txt_TenNguoiGui.Location = new System.Drawing.Point(1187, 163);
+            this.txt_TenNguoiGui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_TenNguoiGui.Name = "txt_TenNguoiGui";
+            this.txt_TenNguoiGui.Size = new System.Drawing.Size(559, 26);
+            this.txt_TenNguoiGui.TabIndex = 179;
             // 
-            // textBox3
+            // txt_NoiDung
             // 
-            this.textBox3.Location = new System.Drawing.Point(557, 108);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(399, 49);
-            this.textBox3.TabIndex = 181;
+            this.txt_NoiDung.Location = new System.Drawing.Point(1187, 204);
+            this.txt_NoiDung.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_NoiDung.Multiline = true;
+            this.txt_NoiDung.Name = "txt_NoiDung";
+            this.txt_NoiDung.Size = new System.Drawing.Size(559, 73);
+            this.txt_NoiDung.TabIndex = 181;
             // 
             // label4
             // 
@@ -208,19 +220,21 @@
             this.label4.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(497, 106);
+            this.label4.Location = new System.Drawing.Point(1042, 201);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 19);
+            this.label4.Size = new System.Drawing.Size(83, 29);
             this.label4.TabIndex = 180;
             this.label4.Text = "Nội dung";
             // 
-            // comboBox1
+            // cbo_NhanVienXuLy
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(594, 182);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(148, 21);
-            this.comboBox1.TabIndex = 183;
+            this.cbo_NhanVienXuLy.FormattingEnabled = true;
+            this.cbo_NhanVienXuLy.Location = new System.Drawing.Point(1187, 321);
+            this.cbo_NhanVienXuLy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbo_NhanVienXuLy.Name = "cbo_NhanVienXuLy";
+            this.cbo_NhanVienXuLy.Size = new System.Drawing.Size(220, 28);
+            this.cbo_NhanVienXuLy.TabIndex = 183;
             // 
             // label5
             // 
@@ -228,19 +242,21 @@
             this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(497, 183);
+            this.label5.Location = new System.Drawing.Point(1042, 320);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 19);
+            this.label5.Size = new System.Drawing.Size(137, 29);
             this.label5.TabIndex = 182;
             this.label5.Text = "Nhân viên xử lý";
             // 
-            // comboBox3
+            // cbo_TrangThai
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(825, 182);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(131, 21);
-            this.comboBox3.TabIndex = 185;
+            this.cbo_TrangThai.FormattingEnabled = true;
+            this.cbo_TrangThai.Location = new System.Drawing.Point(1552, 321);
+            this.cbo_TrangThai.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbo_TrangThai.Name = "cbo_TrangThai";
+            this.cbo_TrangThai.Size = new System.Drawing.Size(194, 28);
+            this.cbo_TrangThai.TabIndex = 185;
             // 
             // label6
             // 
@@ -248,19 +264,21 @@
             this.label6.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(760, 183);
+            this.label6.Location = new System.Drawing.Point(1454, 320);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 19);
+            this.label6.Size = new System.Drawing.Size(94, 29);
             this.label6.TabIndex = 184;
             this.label6.Text = "Trạng thái";
             // 
-            // textBox4
+            // txt_PhanHoi
             // 
-            this.textBox4.Location = new System.Drawing.Point(552, 211);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(404, 98);
-            this.textBox4.TabIndex = 187;
+            this.txt_PhanHoi.Location = new System.Drawing.Point(1187, 363);
+            this.txt_PhanHoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_PhanHoi.Multiline = true;
+            this.txt_PhanHoi.Name = "txt_PhanHoi";
+            this.txt_PhanHoi.Size = new System.Drawing.Size(559, 149);
+            this.txt_PhanHoi.TabIndex = 187;
             // 
             // label7
             // 
@@ -268,61 +286,63 @@
             this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(497, 209);
+            this.label7.Location = new System.Drawing.Point(1042, 360);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 19);
+            this.label7.Size = new System.Drawing.Size(73, 29);
             this.label7.TabIndex = 186;
             this.label7.Text = "Ghi chú";
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(754, 338);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 32);
-            this.button3.TabIndex = 235;
-            this.button3.Text = "Thông báo khách hàng";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(582, 338);
+            this.button2.Location = new System.Drawing.Point(1189, 534);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 32);
+            this.button2.Size = new System.Drawing.Size(200, 49);
             this.button2.TabIndex = 234;
             this.button2.Text = "Thông báo nhân viên";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txt_MaPhanHoi
+            // 
+            this.txt_MaPhanHoi.Location = new System.Drawing.Point(1187, 124);
+            this.txt_MaPhanHoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_MaPhanHoi.Name = "txt_MaPhanHoi";
+            this.txt_MaPhanHoi.Size = new System.Drawing.Size(202, 26);
+            this.txt_MaPhanHoi.TabIndex = 236;
             // 
             // phoi_htroAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.txt_MaPhanHoi);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_PhanHoi);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cbo_TrangThai);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbo_NhanVienXuLy);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_NoiDung);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_TenNguoiGui);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_SoPhong);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.grid_PhanHoi);
+            this.Controls.Add(this.chk_DaXuLy);
+            this.Controls.Add(this.chk_DangXuLy);
+            this.Controls.Add(this.chk_ChuaXuLy);
+            this.Controls.Add(this.chkTatCa);
             this.Controls.Add(this.label9);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "phoi_htroAdmin";
-            this.Size = new System.Drawing.Size(1001, 419);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Size = new System.Drawing.Size(1850, 645);
+            this.Load += new System.EventHandler(this.phoi_htroAdmin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_PhanHoi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,28 +351,27 @@
         #endregion
 
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox chk_DangXuLy;
+        private System.Windows.Forms.CheckBox chk_ChuaXuLy;
+        private System.Windows.Forms.CheckBox chkTatCa;
+        private System.Windows.Forms.CheckBox chk_DaXuLy;
+        private System.Windows.Forms.DataGridView grid_PhanHoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn soPhong;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_SoPhong;
+        private System.Windows.Forms.TextBox txt_TenNguoiGui;
+        private System.Windows.Forms.TextBox txt_NoiDung;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbo_NhanVienXuLy;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbo_TrangThai;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_PhanHoi;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txt_MaPhanHoi;
     }
 }

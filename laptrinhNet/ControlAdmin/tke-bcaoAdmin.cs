@@ -128,7 +128,7 @@ namespace laptrinhNet.ControlAdmin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tạo báo cáo: " + ex.Message);
+
             }
             finally
             {
