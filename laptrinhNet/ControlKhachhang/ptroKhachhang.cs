@@ -11,404 +11,313 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using laptrinhNet.Database;
 
-namespace laptrinhNet.ControlKhachHang
+namespace laptrinhNet.ControlKhachhang
 {
     public partial class ptroKhachhang : UserControl
     {
+        string connectionString = DangNhap.ConnectionStringHienTai;
+        string maKH_HienTai = DangNhap.NguoiDungHienTai;
+
+       
+        DataTable dtPhong = new DataTable();
         public ptroKhachhang()
         {
             InitializeComponent();
         }
-        private void Load_GirdView(List<string> trangThaickBox = null)
-        {
-            using (var db = new QLPhongTroDataContext())
-            {
-                var query = db.PhongTros.Include("LoaiPTDaTa").AsQueryable();
-
-                if (trangThaickBox != null && trangThaickBox.Count > 0)
-                {
-                    query = query.Where(p => trangThaickBox.Contains(p.TrangThai));
-                }
-
-                var data = query
-                    .Select(p => new
-                    {
-                        p.MaPhong,
-                        p.TenPhong,
-                        TenLoai = p.LoaiPTDaTa.TenLoai, // lấy tên loại từ navigation property
-                        p.TrangThai,
-                        p.GhiChu
-                    })
-                    .ToList();
-
-
-                SetupGridColumns();
-                dataGridView1.DataSource = data;
-            }
-        }
-
-
-
-
         private void ptroKhachhang_Load(object sender, EventArgs e)
         {
-            Load_GirdView();
-            LoadComboBoxPhong();
+            LoadThongTinCaNhan();
+            LoadDanhSachPhong();
 
+            chkChuaThue.Checked = true;
 
-            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 12);///dulieu
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);//tên cột
+            chkChuaThue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
+            //chkDaThue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
+            chkBaoTri.CheckedChanged += FilterCheckBoxes_CheckedChanged;
 
-            dataGridView1.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns["TrangThai"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+         
+            dgvDanhSachPhong.CellClick += dgvDanhSachPhong_CellClick;
 
-            dataGridView1.CellClick += dataGridView1_CellClick;
-
-            cbMaphong.SelectedIndexChanged += cbMaphong_SelectedIndexChanged;
-
-            checkChuathue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
-            checkDathue.CheckedChanged += FilterCheckBoxes_CheckedChanged;
-            checkBaotri.CheckedChanged += FilterCheckBoxes_CheckedChanged;
-
+            ApplyFilter();
+            btnDangKyThue.Enabled = false;
         }
 
-        //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex >= 0)
-        //    {
-        //        
-        //        DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-        //        
-        //        cbMaphong.Text = row.Cells["MAPHONG"].Value.ToString();
-        //        txtSophong.Text = row.Cells["TENPHONG"].Value.ToString();
-        //        txtGhiChu.Text = row.Cells["GHICHU"].Value.ToString();
-        //    }
-        //}
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void LoadThongTinCaNhan()
         {
-            if (e.RowIndex < 0) return;
+            if (string.IsNullOrEmpty(maKH_HienTai)) return;
 
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-            string maPhong = row.Cells["MaPhong"].Value.ToString();
-            cbMaphong.SelectedValue = maPhong;
-
-            txtSophong.Text = row.Cells["TenPhong"].Value.ToString();
-
-            using (var db = new QLPhongTroDataContext())
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                var phong = db.PhongTros.Include("LoaiPTDaTa").FirstOrDefault(p => p.MaPhong == maPhong);
-
-                if (phong != null)
+                try
                 {
-                    txtSophong.Text = phong.TenPhong;
-                    txtGhiChu.Text = phong.GhiChu;
-                    txtTenLoai.Text = phong.LoaiPTDaTa?.TenLoai ?? "";
-                    var culture = new CultureInfo("vi-VN");
-                    txtGiaPhong.Text = phong.LoaiPTDaTa != null && phong.LoaiPTDaTa.GiaPhong.HasValue? phong.LoaiPTDaTa.GiaPhong.Value.ToString("N0", culture): "";
+                    conn.Open();
+                    string query = "SELECT TENKH, SOCMND, SODIENTHOAI, EMAIL_KHACHHANG FROM KHACHHANG WHERE MAKH = @MaKH";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaKH", maKH_HienTai);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        txtTenNguoiDangKy.Text = reader["TENKH"].ToString();
+                        txtCCCD.Text = reader["SOCMND"].ToString();
+                        txtSDT.Text = reader["SODIENTHOAI"].ToString();
+                        txtEmail.Text = reader["EMAIL_KHACHHANG"].ToString();
+
+                        txtTenNguoiDangKy.ReadOnly = true;
+                        txtCCCD.ReadOnly = true;
+                        txtSDT.ReadOnly = true;
+                        txtEmail.ReadOnly = true;
+                        txtTenNguoiDangKy.Enabled = false;
+                        txtCCCD.Enabled = false;
+                        txtSDT.Enabled = false;
+                        txtEmail.Enabled = false;
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi lấy thông tin cá nhân: " + ex.Message);
                 }
             }
         }
 
-
-
-        //hien thi all phong tro len combobox
-        private void LoadComboBoxPhong()
+ 
+        private void LoadDanhSachPhong()
         {
-            using (var db = new QLPhongTroDataContext())
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                var listPhong = db.PhongTros.Select(p => new { p.MaPhong, p.TenPhong }).ToList();
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                        SELECT P.MAPHONG, P.TENPHONG, L.TENLOAI, L.GIAPHONG, P.TRANGTHAI, P.GHICHU 
+                        FROM PHONGTRO P 
+                        JOIN LOAI_PHONGTRO L ON P.MALOAI = L.MALOAI";
 
-                cbMaphong.DataSource = listPhong;
-                cbMaphong.DisplayMember = "MaPhong";
-                cbMaphong.ValueMember = "MaPhong";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
 
-                cbMaphong.SelectedIndex = -1;
+                    
+                    dtPhong.Clear();
+                    da.Fill(dtPhong);
+
+                    dgvDanhSachPhong.DataSource = dtPhong;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi load danh sách phòng: " + ex.Message);
+                }
             }
         }
 
         private void FilterCheckBoxes_CheckedChanged(object sender, EventArgs e)
         {
-            List<string> ckbox = new List<string>();
+            ApplyFilter();
+        }
+        private void ApplyFilter()
+        {
+            if (dtPhong == null || dtPhong.Rows.Count == 0) return;
 
-            if (checkChuathue.Checked) ckbox.Add("TRỐNG");
-            if (checkDathue.Checked) ckbox.Add("ĐANG THUÊ");
-            if (checkBaotri.Checked) ckbox.Add("Bảo trì");
+            List<string> filters = new List<string>();
 
-            Load_GirdView(ckbox);
+    
+
+            if (chkChuaThue.Checked)
+            {
+                filters.Add("(TRANGTHAI = 'TRỐNG' OR TRANGTHAI IS NULL)");
+            }
+
+            //if (chkDaThue.Checked)
+            //{
+                
+            //    filters.Add("(TRANGTHAI = 'ĐANG THUÊ' OR TRANGTHAI = 'Đã thuê')");
+            //}
+
+            if (chkBaoTri.Checked)
+            {
+                filters.Add("TRANGTHAI = 'Bảo trì'");
+            }
+
+            try
+            {
+                if (filters.Count > 0)
+                {
+                    string filterExpression = string.Join(" OR ", filters);
+                    dtPhong.DefaultView.RowFilter = filterExpression;
+                }
+                else
+                {
+                    
+                    dtPhong.DefaultView.RowFilter = "1 = 0";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         private void btnDangky_Click(object sender, EventArgs e)
         {
-            string ten = txtTen.Text.Trim();
-            string sdt = txtSdt.Text.Trim();
-            string cccd = txtCCCD.Text.Trim();
-            string email = txtEmail.Text.Trim();
 
-            if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(sdt))
+            if (string.IsNullOrEmpty(txtMaPhong.Text))
             {
-                MessageBox.Show("Vui lòng nhập Tên và Số điện thoại!", "Lỗi");
+                MessageBox.Show("Vui lòng chọn một phòng Trống từ danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (string.IsNullOrEmpty(cbMaphong.Text))
+         
+            Random rd = new Random();
+            string maYC = "YC" + rd.Next(100, 999).ToString();
+
+         
+            string noiDungYC = string.Format(
+                "Yêu cầu thuê phòng: {0}\n" +
+                "- Loại: {1}\n" +
+                "- Giá: {2} VNĐ\n" +
+                "- Thời gian thuê: {3} đến {4}\n" +
+                "- Ghi chú phòng: {5}\n" +
+                "- SĐT Liên hệ: {6}",
+                txtMaPhong.Text,                                
+                txtLoaiPhong.Text,                              
+                txtGiaPhong.Text,                               
+                dtpNgayThue.Value.ToString("dd/MM/yyyy"),       
+                dtpNgayKetThuc.Value.ToString("dd/MM/yyyy"),    
+                txtMoTa.Text,                                   
+                txtSDT.Text                                    
+            );
+
+       
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                MessageBox.Show("Bạn chưa chọn phòng!", "Lỗi");
-                return;
-            }
-
-            if (Tungay.Value.Date >= Denngay.Value.Date)
-            {
-                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!", "Lỗi");
-                return;
-            }
-
-            // Xác thực OTP
-        //    OTP maxacthuc = new OTP();
-        //    maxacthuc.EmailKhachHang = txtEmail.Text.Trim();
-        //    this.Hide();
-        //    var result = maxacthuc.ShowDialog();
-        //    this.Show();
-
-        //    if (result != DialogResult.OK)
-        //    {
-        //        MessageBox.Show("Bạn chưa xác thực OTP!");
-        //        return;
-        //    }
-
-        //    try
-        //    {
-        //        using (var db = new QLPhongTroDataContext())
-        //        {
-        //            // 1. Lấy phòng và loại phòng
-        //            var phong = db.PhongTros.Include("LoaiPTDaTa")
-        //                                     .FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
-        //            if (phong == null)
-        //            {
-        //                MessageBox.Show("Không tìm thấy phòng đã chọn!", "Lỗi");
-        //                return;
-        //            }
-        //            var loaiPhong = phong.LoaiPTDaTa;
-
-        //            // 2. Tạo khách hàng mới
-        //            string newMaKH = TaoMaKH(db);
-        //            KhachHang kh = new KhachHang
-        //            {
-        //                MaKH = newMaKH,
-        //                TenKH = ten,
-        //                SoDienThoai = sdt,
-        //                SoCMND = cccd,
-        //                EmailKhachHang = email,
-        //                DiaChiThuongTru = "Chưa cập nhật"
-        //            };
-        //            db.KhachHangs.Add(kh);
-
-        //            // **Bắt buộc save khách hàng trước để tránh lỗi FK**
-        //            db.SaveChanges();
-
-        //            // 3. Tạo hợp đồng mới
-        //            string newMaHD = TaoMaHD(db);
-        //            HopDong hd = new HopDong
-        //            {
-        //                MaHopDong = newMaHD,
-        //                NgayBD = Tungay.Value.Date,
-        //                NgayKT = Denngay.Value.Date,
-        //                TrangThai = "ĐANG THUÊ",
-        //                MaKH = kh.MaKH, // chắc chắn khách hàng đã có trong DB
-        //                MaPhong = cbMaphong.Text,
-        //                TienCoc = loaiPhong?.GiaPhong ?? 0
-        //            };
-        //            db.HopDongs.Add(hd);
-
-        //            // 4. Cập nhật trạng thái phòng
-        //            phong.TrangThai = "ĐANG THUÊ";
-
-        //            // Lưu tất cả thay đổi
-        //            db.SaveChanges();
-        //        }
-
-        //        // Refresh GridView
-        //        Load_GirdView();
-        //        MessageBox.Show("Đăng ký thuê thành công!", "Thành công");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        while (ex.InnerException != null)
-        //            ex = ex.InnerException;
-
-        //        MessageBox.Show("Lỗi thực tế:\n" + ex.Message);
-        //    }
-        }
-
-
-
-        //try
-        //{
-        //    using (var db = new QLPhongTroDataContext())
-        //    {
-        //        //tạo kh mới dky
-        //        string newMaKH = TaoMaKH(db);
-
-        //        KhachHang kh = new KhachHang
-        //        {
-        //            MaKH = newMaKH,
-        //            TenKH = ten,
-        //            SoDienThoai = sdt,
-        //            SoCMND = cccd,
-        //            EmailKhachHang = email,
-        //            DiaChiThuongTru = "Chưa cập nhật"
-        //        };
-
-        //        db.KhachHangs.Add(kh);
-        //        db.SaveChanges();
-
-
-        //        //tao5hop75 đồng
-        //        string newMaHD = TaoMaHD(db);
-
-        //        HopDong hd = new HopDong
-        //        {
-        //            MaHopDong = newMaHD,
-        //            NgayBD = Tungay.Value.Date,
-        //            NgayKT = Denngay.Value.Date,
-        //            TrangThai = "ĐANG THUÊ",
-        //            MaKH = newMaKH,
-        //            MaPhong = cbMaphong.Text,
-        //            TienCoc = 1
-        //        };
-
-        //        db.HopDongs.Add(hd);
-
-        //        //update trạng thái phòng
-        //        var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == cbMaphong.Text);
-        //        if (phong != null)
-        //            phong.TrangThai = "ĐANG THUÊ";
-
-        //        db.SaveChanges();
-        //    }
-
-        //    MessageBox.Show("Đăng ký thuê thành công", "Thành công");
-        //}
-
-        ////báo lỗi
-        //catch (Exception ex)
-        //{
-        //    Exception realError = ex;
-        //    while (realError.InnerException != null)
-        //        realError = realError.InnerException;
-
-        //    MessageBox.Show("Lỗi thực tế:\n" + realError.Message);
-
-        //ẩn cột gridview
-        private void SetupGridColumns()
-        {
-            dataGridView1.Columns.Clear();
-
-            
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "MaPhong",
-                HeaderText = "Mã phòng",
-                Name = "MaPhong"
-            });
-
-            
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "TenPhong",
-                HeaderText = "Tên phòng",
-                Name = "TenPhong"
-            });
-
-            //ẩn
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "GhiChu",
-                HeaderText = "Ghi chú",
-                Name = "GhiChu",
-                Visible = false
-            });
-
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "TenLoai",
-                
-                Name = "TenLoai",
-                Visible = false
-            });
-            
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "TrangThai",
-                HeaderText = "Trạng thái",
-                Name = "TrangThai",
-            });
-        }
-
-
-
-
-        private string TaoMaKH(QLPhongTroDataContext db)
-        {
-            var last = db.KhachHangs
-                         .OrderByDescending(x => x.MaKH)
-                         .Select(x => x.MaKH)
-                         .FirstOrDefault();
-
-            int number = 0;
-
-            if (!string.IsNullOrEmpty(last) && last.Length >= 4)
-            {
-                number = int.Parse(last.Substring(2));
-            }
-
-            number++;
-
-            return "KH" + number.ToString("00");
-        }
-
-        private string TaoMaHD(QLPhongTroDataContext db)
-        {
-            var last = db.HopDongs
-                         .OrderByDescending(x => x.MaHopDong)
-                         .Select(x => x.MaHopDong)
-                         .FirstOrDefault();
-
-            int number = 0;
-
-            if (!string.IsNullOrEmpty(last) && last.Length >= 4)
-            {
-                number = int.Parse(last.Substring(2));
-            }
-
-            number++;
-
-            return "HD" + number.ToString("00");
-        }
-
-
-
-
-        private void cbMaphong_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (cbMaphong.SelectedIndex < 0) return;
-
-            string maPhong = cbMaphong.SelectedValue?.ToString();
-            if (string.IsNullOrEmpty(maPhong)) return;
-
-            using (var db = new QLPhongTroDataContext())
-            {
-                var phong = db.PhongTros.FirstOrDefault(p => p.MaPhong == maPhong);
-                if (phong != null)
+                try
                 {
-                    txtSophong.Text = phong.TenPhong;
-                    txtGhiChu.Text = phong.GhiChu;
+                    conn.Open();
+                    string query = @"
+                INSERT INTO YEUCAUHOTRO (MAYEUCAU, MAKH, NGAYGUI, NOIDUNG, TRANGTHAI, PHANHOI) 
+                VALUES (@MaYC, @MaKH, GETDATE(), @NoiDung, N'Chưa xử lý', N'Chờ nhân viên xác nhận')";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaYC", maYC);
+                    cmd.Parameters.AddWithValue("@MaKH", maKH_HienTai);
+                    cmd.Parameters.AddWithValue("@NoiDung", noiDungYC); 
+
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Gửi yêu cầu thành công!\nMã yêu cầu: " + maYC, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        txtMaPhong.Text = "";
+                        txtLoaiPhong.Text = "";
+                        txtGiaPhong.Text = "";
+                        txtMoTa.Text = "";
+
+                        btnDangKyThue.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể gửi yêu cầu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    if (sqlEx.Number == 2627)
+                    {
+                        MessageBox.Show("Lỗi trùng mã yêu cầu, vui lòng thử lại lần nữa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi SQL: " + sqlEx.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi hệ thống: " + ex.Message);
                 }
             }
+        }
+
+        
+
+        private void dgvDanhSachPhong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.RowIndex >= dgvDanhSachPhong.Rows.Count) return;
+
+            try
+            {
+                DataGridViewRow row = dgvDanhSachPhong.Rows[e.RowIndex];
+
+                object valTrangThai = row.Cells["TRANGTHAI"].Value;
+                string trangThai = (valTrangThai != null && valTrangThai != DBNull.Value) ? valTrangThai.ToString() : "TRỐNG";
+
+                bool khongDuocThue = trangThai.Equals("Đã thuê", StringComparison.OrdinalIgnoreCase) ||
+                                     trangThai.Equals("ĐANG THUÊ", StringComparison.OrdinalIgnoreCase) ||
+                                     trangThai.Equals("Bảo trì", StringComparison.OrdinalIgnoreCase);
+
+                if (khongDuocThue)
+                {
+                    btnDangKyThue.Enabled = false;
+                    btnDangKyThue.Text = "Phòng bận";
+                    btnDangKyThue.BackColor = Color.Gray;
+                    ClearInfo();
+                    return;
+                }
+                else
+                {
+                    btnDangKyThue.Enabled = true;
+                    btnDangKyThue.Text = "Đăng ký thuê";
+                    btnDangKyThue.BackColor = Color.DodgerBlue;
+
+
+                    if (dgvDanhSachPhong.Columns.Contains("MAPHONG"))
+                        txtMaPhong.Text = row.Cells["MAPHONG"].Value?.ToString() ?? "";
+
+
+                    if (dgvDanhSachPhong.Columns.Contains("TENLOAI"))
+                        txtLoaiPhong.Text = row.Cells["TENLOAI"].Value?.ToString() ?? "";
+
+                    if (dgvDanhSachPhong.Columns.Contains("GIAPHONG"))
+                    {
+                        object valGia = row.Cells["GIAPHONG"].Value;
+                        if (valGia != null && decimal.TryParse(valGia.ToString(), out decimal gia))
+                            txtGiaPhong.Text = gia.ToString("N0");
+                        else
+                            txtGiaPhong.Text = "0";
+                    }
+
+                    if (dgvDanhSachPhong.Columns.Contains("GHICHU"))
+                        txtMoTa.Text = row.Cells["GHICHU"].Value?.ToString() ?? "";
+
+
+                    if (dgvDanhSachPhong.Columns.Contains("TENPHONG"))
+                    {
+
+                        object valTenPhong = row.Cells["TENPHONG"].Value;
+
+
+                        txtTenPhong.Text = (valTenPhong != null) ? valTenPhong.ToString() : "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+
+        }
+        private void ClearInfo()
+        {
+            txtMaPhong.Text = "";
+            txtLoaiPhong.Text = "";
+            txtGiaPhong.Text = "";
+            txtMoTa.Text = "";
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

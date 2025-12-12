@@ -43,91 +43,94 @@ namespace laptrinhNet.ControlKhachhang
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblChiTietHopDong = new System.Windows.Forms.Label();
             this.txtMaKh = new System.Windows.Forms.TextBox();
             this.txtQueQuan = new System.Windows.Forms.TextBox();
-            this.lblChiTietHopDong = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(639, 34);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(223, 35);
+            this.label9.Size = new System.Drawing.Size(456, 41);
             this.label9.TabIndex = 183;
-            this.label9.Text = "Thông tin khách hàng";
+            this.label9.Text = "THÔNG TIN KHÁCH HÀNG";
             // 
             // txtCCCD
             // 
-            this.txtCCCD.Location = new System.Drawing.Point(126, 274);
+            this.txtCCCD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCCCD.Location = new System.Drawing.Point(193, 382);
             this.txtCCCD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCCCD.Name = "txtCCCD";
-            this.txtCCCD.Size = new System.Drawing.Size(218, 26);
+            this.txtCCCD.Size = new System.Drawing.Size(218, 35);
             this.txtCCCD.TabIndex = 178;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(62, 274);
+            this.label8.Location = new System.Drawing.Point(4, 375);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 29);
+            this.label8.Size = new System.Drawing.Size(77, 27);
             this.label8.TabIndex = 177;
             this.label8.Text = "CCCD";
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(192, 228);
+            this.txtSDT.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDT.Location = new System.Drawing.Point(193, 317);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(196, 26);
+            this.txtSDT.Size = new System.Drawing.Size(218, 40);
             this.txtSDT.TabIndex = 176;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(62, 228);
+            this.label7.Location = new System.Drawing.Point(4, 317);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 29);
+            this.label7.Size = new System.Drawing.Size(137, 27);
             this.label7.TabIndex = 175;
             this.label7.Text = "Số điện thoại";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtTenKh
             // 
-            this.txtTenKh.Location = new System.Drawing.Point(207, 182);
+            this.txtTenKh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenKh.Location = new System.Drawing.Point(193, 246);
             this.txtTenKh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenKh.Name = "txtTenKh";
-            this.txtTenKh.Size = new System.Drawing.Size(469, 26);
+            this.txtTenKh.Size = new System.Drawing.Size(469, 39);
             this.txtTenKh.TabIndex = 174;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(62, 182);
+            this.label6.Location = new System.Drawing.Point(4, 246);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 29);
+            this.label6.Size = new System.Drawing.Size(190, 33);
             this.label6.TabIndex = 173;
             this.label6.Text = "Tên khách hàng";
             // 
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(308, 538);
+            this.btnSua.Location = new System.Drawing.Point(305, 499);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(147, 72);
@@ -140,12 +143,12 @@ namespace laptrinhNet.ControlKhachhang
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(798, 102);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 29);
+            this.label4.Size = new System.Drawing.Size(155, 27);
             this.label4.TabIndex = 169;
             this.label4.Text = "Hợp đồng thuê";
             // 
@@ -153,21 +156,22 @@ namespace laptrinhNet.ControlKhachhang
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(62, 135);
+            this.label2.Location = new System.Drawing.Point(7, 179);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 29);
+            this.label2.Size = new System.Drawing.Size(185, 33);
             this.label2.TabIndex = 168;
             this.label2.Text = "Mã khách hàng";
             // 
             // txtSoNguoiO
             // 
-            this.txtSoNguoiO.Location = new System.Drawing.Point(506, 226);
+            this.txtSoNguoiO.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoNguoiO.Location = new System.Drawing.Point(583, 317);
             this.txtSoNguoiO.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSoNguoiO.Name = "txtSoNguoiO";
-            this.txtSoNguoiO.Size = new System.Drawing.Size(170, 26);
+            this.txtSoNguoiO.Size = new System.Drawing.Size(170, 35);
             this.txtSoNguoiO.TabIndex = 185;
             this.txtSoNguoiO.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -175,12 +179,12 @@ namespace laptrinhNet.ControlKhachhang
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(399, 228);
+            this.label1.Location = new System.Drawing.Point(411, 313);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 29);
+            this.label1.Size = new System.Drawing.Size(139, 33);
             this.label1.TabIndex = 184;
             this.label1.Text = "Số người ở";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -189,12 +193,12 @@ namespace laptrinhNet.ControlKhachhang
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(374, 274);
+            this.label3.Location = new System.Drawing.Point(412, 380);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 29);
+            this.label3.Size = new System.Drawing.Size(105, 27);
             this.label3.TabIndex = 186;
             this.label3.Text = "Quê quán";
             // 
@@ -203,34 +207,37 @@ namespace laptrinhNet.ControlKhachhang
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.lblChiTietHopDong);
+            this.panel1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(804, 138);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(614, 470);
             this.panel1.TabIndex = 189;
             // 
-            // txtMaKh
-            // 
-            this.txtMaKh.Location = new System.Drawing.Point(207, 135);
-            this.txtMaKh.Name = "txtMaKh";
-            this.txtMaKh.Size = new System.Drawing.Size(469, 26);
-            this.txtMaKh.TabIndex = 190;
-            // 
-            // txtQueQuan
-            // 
-            this.txtQueQuan.Location = new System.Drawing.Point(506, 276);
-            this.txtQueQuan.Name = "txtQueQuan";
-            this.txtQueQuan.Size = new System.Drawing.Size(170, 26);
-            this.txtQueQuan.TabIndex = 191;
-            // 
             // lblChiTietHopDong
             // 
             this.lblChiTietHopDong.AutoSize = true;
             this.lblChiTietHopDong.Location = new System.Drawing.Point(18, 4);
             this.lblChiTietHopDong.Name = "lblChiTietHopDong";
-            this.lblChiTietHopDong.Size = new System.Drawing.Size(51, 20);
+            this.lblChiTietHopDong.Size = new System.Drawing.Size(86, 32);
             this.lblChiTietHopDong.TabIndex = 0;
             this.lblChiTietHopDong.Text = "label5";
+            // 
+            // txtMaKh
+            // 
+            this.txtMaKh.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaKh.Location = new System.Drawing.Point(193, 179);
+            this.txtMaKh.Name = "txtMaKh";
+            this.txtMaKh.Size = new System.Drawing.Size(469, 40);
+            this.txtMaKh.TabIndex = 190;
+            // 
+            // txtQueQuan
+            // 
+            this.txtQueQuan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQueQuan.Location = new System.Drawing.Point(583, 383);
+            this.txtQueQuan.Name = "txtQueQuan";
+            this.txtQueQuan.Size = new System.Drawing.Size(170, 35);
+            this.txtQueQuan.TabIndex = 191;
             // 
             // khangKhachhang
             // 

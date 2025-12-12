@@ -9,7 +9,10 @@ namespace laptrinhNet.Database
     {
         public QLPhongTroDataContext()
 
-            : base("Data Source=WIN-LML4B3VMKIT;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
+            : base("Data Source=DESKTOP-IQCO6JU\\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
+// =======
+//             : base("Data Source=WIN-LML4B3VMKIT;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True")
+// >>>>>>> master
 
         {
         }
