@@ -55,7 +55,7 @@ namespace laptrinhNet
 
             // 1. Tạo chuỗi kết nối động dựa trên User nhập vào
             // Thay "TEN_MAY_TINH" bằng tên Server của bạn (ví dụ: .\SQLEXPRESS hoặc tên máy)
-            string serverName = @"LAPTOP-1NE8K1LH\SQLEXPRESS"; // <--- SỬA TÊN SERVER CỦA BẠN Ở ĐÂY
+            string serverName = @"DESKTOP-IQCO6JU\SQLEXPRESS"; // <--- SỬA TÊN SERVER CỦA BẠN Ở ĐÂY
 
             string databaseName = "QUANLY_PHONGTRO";
 
