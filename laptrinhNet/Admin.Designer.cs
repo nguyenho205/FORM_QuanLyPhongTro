@@ -30,15 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnPhanHoi = new Guna.UI2.WinForms.Guna2Button();
-            this.btnNhanVien = new Guna.UI2.WinForms.Guna2Button();
-            this.btnKhachHang = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHopDong = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHoaDon = new Guna.UI2.WinForms.Guna2Button();
-            this.btnThongKe = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPhongTro = new Guna.UI2.WinForms.Guna2Button();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
+            this.Employee = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.phoi_htroAdmin1 = new laptrinhNet.ControlAdmin.phoi_htroAdmin();
             this.tke_bcaoAdmin1 = new laptrinhNet.ControlAdmin.tke_bcaoAdmin();
             this.hdon_ttoanAdmin1 = new laptrinhNet.ControlAdmin.hdon_ttoanAdmin();
@@ -46,7 +40,13 @@
             this.khangAdmin1 = new laptrinhNet.ControlAdmin.khangAdmin();
             this.nvienAdmin1 = new laptrinhNet.ControlAdmin.nvienAdmin();
             this.ptroAdmin1 = new laptrinhNet.ControlAdmin.ptroAdmin();
-            this.Employee = new System.Windows.Forms.Label();
+            this.btnPhanHoi = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNhanVien = new Guna.UI2.WinForms.Guna2Button();
+            this.btnKhachHang = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHopDong = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHoaDon = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThongKe = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPhongTro = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,37 @@
             this.guna2Panel1.TabIndex = 6;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BorderRadius = 10;
+            this.btnDangXuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangXuat.FillColor = System.Drawing.Color.Brown;
+            this.btnDangXuat.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
+            this.btnDangXuat.Location = new System.Drawing.Point(1670, 20);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(142, 40);
+            this.btnDangXuat.TabIndex = 25;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // Employee
+            // 
+            this.Employee.AutoSize = true;
+            this.Employee.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Employee.Font = new System.Drawing.Font("Ravie", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Employee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Employee.Location = new System.Drawing.Point(35, 17);
+            this.Employee.Name = "Employee";
+            this.Employee.Size = new System.Drawing.Size(275, 43);
+            this.Employee.TabIndex = 33;
+            this.Employee.Text = "Phongtrovn";
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -94,6 +125,91 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1786, 642);
             this.panel1.TabIndex = 24;
+            // 
+            // phoi_htroAdmin1
+            // 
+            this.phoi_htroAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.phoi_htroAdmin1.BackColor = System.Drawing.SystemColors.Control;
+            this.phoi_htroAdmin1.Location = new System.Drawing.Point(-2, -2);
+            this.phoi_htroAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.phoi_htroAdmin1.Name = "phoi_htroAdmin1";
+            this.phoi_htroAdmin1.Size = new System.Drawing.Size(1788, 645);
+            this.phoi_htroAdmin1.TabIndex = 7;
+            this.phoi_htroAdmin1.Load += new System.EventHandler(this.phoi_htroAdmin1_Load);
+            // 
+            // tke_bcaoAdmin1
+            // 
+            this.tke_bcaoAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tke_bcaoAdmin1.BackColor = System.Drawing.SystemColors.Control;
+            this.tke_bcaoAdmin1.Location = new System.Drawing.Point(-3, -3);
+            this.tke_bcaoAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.tke_bcaoAdmin1.Name = "tke_bcaoAdmin1";
+            this.tke_bcaoAdmin1.Size = new System.Drawing.Size(1788, 645);
+            this.tke_bcaoAdmin1.TabIndex = 5;
+            // 
+            // hdon_ttoanAdmin1
+            // 
+            this.hdon_ttoanAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.hdon_ttoanAdmin1.BackColor = System.Drawing.SystemColors.Control;
+            this.hdon_ttoanAdmin1.Location = new System.Drawing.Point(-3, -3);
+            this.hdon_ttoanAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.hdon_ttoanAdmin1.Name = "hdon_ttoanAdmin1";
+            this.hdon_ttoanAdmin1.Size = new System.Drawing.Size(1788, 645);
+            this.hdon_ttoanAdmin1.TabIndex = 4;
+            // 
+            // hdongAdmin1
+            // 
+            this.hdongAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.hdongAdmin1.BackColor = System.Drawing.SystemColors.Control;
+            this.hdongAdmin1.Location = new System.Drawing.Point(-3, -3);
+            this.hdongAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.hdongAdmin1.Name = "hdongAdmin1";
+            this.hdongAdmin1.Size = new System.Drawing.Size(1788, 645);
+            this.hdongAdmin1.TabIndex = 3;
+            // 
+            // khangAdmin1
+            // 
+            this.khangAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.khangAdmin1.BackColor = System.Drawing.SystemColors.Control;
+            this.khangAdmin1.Location = new System.Drawing.Point(-3, -3);
+            this.khangAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.khangAdmin1.Name = "khangAdmin1";
+            this.khangAdmin1.Size = new System.Drawing.Size(1788, 645);
+            this.khangAdmin1.TabIndex = 2;
+            // 
+            // nvienAdmin1
+            // 
+            this.nvienAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nvienAdmin1.BackColor = System.Drawing.SystemColors.Control;
+            this.nvienAdmin1.Location = new System.Drawing.Point(-3, -3);
+            this.nvienAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.nvienAdmin1.Name = "nvienAdmin1";
+            this.nvienAdmin1.Size = new System.Drawing.Size(1788, 645);
+            this.nvienAdmin1.TabIndex = 1;
+            // 
+            // ptroAdmin1
+            // 
+            this.ptroAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptroAdmin1.BackColor = System.Drawing.SystemColors.Control;
+            this.ptroAdmin1.Location = new System.Drawing.Point(-3, -3);
+            this.ptroAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ptroAdmin1.Name = "ptroAdmin1";
+            this.ptroAdmin1.Size = new System.Drawing.Size(1788, 645);
+            this.ptroAdmin1.TabIndex = 0;
             // 
             // btnPhanHoi
             // 
@@ -227,124 +343,6 @@
             this.btnPhongTro.TabIndex = 1;
             this.btnPhongTro.Text = "Phòng trọ";
             this.btnPhongTro.Click += new System.EventHandler(this.btnPhongTro_Click);
-            // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
-            this.btnDangXuat.BorderRadius = 10;
-            this.btnDangXuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDangXuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDangXuat.FillColor = System.Drawing.Color.Brown;
-            this.btnDangXuat.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(1670, 20);
-            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(142, 40);
-            this.btnDangXuat.TabIndex = 25;
-            this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
-            // 
-            // phoi_htroAdmin1
-            // 
-            this.phoi_htroAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.phoi_htroAdmin1.BackColor = System.Drawing.SystemColors.Control;
-            this.phoi_htroAdmin1.Location = new System.Drawing.Point(-2, -2);
-            this.phoi_htroAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.phoi_htroAdmin1.Name = "phoi_htroAdmin1";
-            this.phoi_htroAdmin1.Size = new System.Drawing.Size(1788, 645);
-            this.phoi_htroAdmin1.TabIndex = 7;
-            this.phoi_htroAdmin1.Load += new System.EventHandler(this.phoi_htroAdmin1_Load);
-            // 
-            // tbao_nnhoAdmin1
-
-            // tke_bcaoAdmin1
-            // 
-            this.tke_bcaoAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tke_bcaoAdmin1.BackColor = System.Drawing.SystemColors.Control;
-            this.tke_bcaoAdmin1.Location = new System.Drawing.Point(-3, -3);
-            this.tke_bcaoAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.tke_bcaoAdmin1.Name = "tke_bcaoAdmin1";
-            this.tke_bcaoAdmin1.Size = new System.Drawing.Size(1788, 645);
-            this.tke_bcaoAdmin1.TabIndex = 5;
-            // 
-            // hdon_ttoanAdmin1
-            // 
-            this.hdon_ttoanAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hdon_ttoanAdmin1.BackColor = System.Drawing.SystemColors.Control;
-            this.hdon_ttoanAdmin1.Location = new System.Drawing.Point(-3, -3);
-            this.hdon_ttoanAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.hdon_ttoanAdmin1.Name = "hdon_ttoanAdmin1";
-            this.hdon_ttoanAdmin1.Size = new System.Drawing.Size(1788, 645);
-            this.hdon_ttoanAdmin1.TabIndex = 4;
-            // 
-            // hdongAdmin1
-            // 
-            this.hdongAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hdongAdmin1.BackColor = System.Drawing.SystemColors.Control;
-            this.hdongAdmin1.Location = new System.Drawing.Point(-3, -3);
-            this.hdongAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.hdongAdmin1.Name = "hdongAdmin1";
-            this.hdongAdmin1.Size = new System.Drawing.Size(1788, 645);
-            this.hdongAdmin1.TabIndex = 3;
-            // 
-            // khangAdmin1
-            // 
-            this.khangAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.khangAdmin1.BackColor = System.Drawing.SystemColors.Control;
-            this.khangAdmin1.Location = new System.Drawing.Point(-3, -3);
-            this.khangAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.khangAdmin1.Name = "khangAdmin1";
-            this.khangAdmin1.Size = new System.Drawing.Size(1788, 645);
-            this.khangAdmin1.TabIndex = 2;
-            // 
-            // nvienAdmin1
-            // 
-            this.nvienAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.nvienAdmin1.BackColor = System.Drawing.SystemColors.Control;
-            this.nvienAdmin1.Location = new System.Drawing.Point(-3, -3);
-            this.nvienAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.nvienAdmin1.Name = "nvienAdmin1";
-            this.nvienAdmin1.Size = new System.Drawing.Size(1788, 645);
-            this.nvienAdmin1.TabIndex = 1;
-            // 
-            // ptroAdmin1
-            // 
-            this.ptroAdmin1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptroAdmin1.BackColor = System.Drawing.SystemColors.Control;
-            this.ptroAdmin1.Location = new System.Drawing.Point(-3, -3);
-            this.ptroAdmin1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ptroAdmin1.Name = "ptroAdmin1";
-            this.ptroAdmin1.Size = new System.Drawing.Size(1788, 645);
-            this.ptroAdmin1.TabIndex = 0;
-            // 
-            // Employee
-            // 
-            this.Employee.AutoSize = true;
-            this.Employee.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Employee.Font = new System.Drawing.Font("Ravie", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Employee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Employee.Location = new System.Drawing.Point(35, 17);
-            this.Employee.Name = "Employee";
-            this.Employee.Size = new System.Drawing.Size(275, 43);
-            this.Employee.TabIndex = 33;
-            this.Employee.Text = "Phongtrovn";
             // 
             // Admin
             // 

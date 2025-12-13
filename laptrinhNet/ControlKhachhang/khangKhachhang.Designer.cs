@@ -75,7 +75,7 @@ namespace laptrinhNet.ControlKhachhang
             this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(4, 375);
+            this.label8.Location = new System.Drawing.Point(8, 382);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 27);
@@ -97,7 +97,7 @@ namespace laptrinhNet.ControlKhachhang
             this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(4, 317);
+            this.label7.Location = new System.Drawing.Point(8, 317);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(137, 27);
@@ -111,7 +111,7 @@ namespace laptrinhNet.ControlKhachhang
             this.txtTenKh.Location = new System.Drawing.Point(193, 246);
             this.txtTenKh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenKh.Name = "txtTenKh";
-            this.txtTenKh.Size = new System.Drawing.Size(469, 39);
+            this.txtTenKh.Size = new System.Drawing.Size(560, 39);
             this.txtTenKh.TabIndex = 174;
             // 
             // label6
@@ -195,7 +195,7 @@ namespace laptrinhNet.ControlKhachhang
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(412, 380);
+            this.label3.Location = new System.Drawing.Point(8, 441);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 27);
@@ -228,15 +228,15 @@ namespace laptrinhNet.ControlKhachhang
             this.txtMaKh.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaKh.Location = new System.Drawing.Point(193, 179);
             this.txtMaKh.Name = "txtMaKh";
-            this.txtMaKh.Size = new System.Drawing.Size(469, 40);
+            this.txtMaKh.Size = new System.Drawing.Size(560, 40);
             this.txtMaKh.TabIndex = 190;
             // 
             // txtQueQuan
             // 
             this.txtQueQuan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQueQuan.Location = new System.Drawing.Point(583, 383);
+            this.txtQueQuan.Location = new System.Drawing.Point(193, 441);
             this.txtQueQuan.Name = "txtQueQuan";
-            this.txtQueQuan.Size = new System.Drawing.Size(170, 35);
+            this.txtQueQuan.Size = new System.Drawing.Size(560, 35);
             this.txtQueQuan.TabIndex = 191;
             // 
             // khangKhachhang

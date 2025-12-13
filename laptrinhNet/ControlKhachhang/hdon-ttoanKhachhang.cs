@@ -20,7 +20,7 @@ namespace laptrinhNet.ControlKhachhang
 {
     public partial class hdon_ttoanKhachhang : UserControl
     {
-        string connectionString = @"Data Source=DESKTOP-IQCO6JU\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;User ID = sa;Password=123";
+        string connectionString = @"Data Source=LAPTOP-1NE8K1LH\SQLEXPRESS;Initial Catalog=QUANLY_PHONGTRO;Integrated Security=True";
         public hdon_ttoanKhachhang()
         {
             InitializeComponent();
@@ -442,10 +442,10 @@ namespace laptrinhNet.ControlKhachhang
              
                 this.Controls.Add(ucQR);
                 ucQR.BringToFront();
+              
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi xử lý thanh toán: " + ex.Message);
             }
         }
     }

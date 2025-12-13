@@ -88,7 +88,7 @@
             this.crystalViewTKDT.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalViewTKDT.Location = new System.Drawing.Point(3, 74);
             this.crystalViewTKDT.Name = "crystalViewTKDT";
-            this.crystalViewTKDT.Size = new System.Drawing.Size(1364, 431);
+            this.crystalViewTKDT.Size = new System.Drawing.Size(1622, 431);
             this.crystalViewTKDT.TabIndex = 231;
             // 
             // btn_XemThongKe

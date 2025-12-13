@@ -245,15 +245,14 @@
             // 
             // grid_HopDong
             // 
-            this.grid_HopDong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grid_HopDong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.grid_HopDong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_HopDong.Location = new System.Drawing.Point(719, 119);
             this.grid_HopDong.Name = "grid_HopDong";
             this.grid_HopDong.RowHeadersWidth = 62;
             this.grid_HopDong.RowTemplate.Height = 28;
-            this.grid_HopDong.Size = new System.Drawing.Size(758, 470);
+            this.grid_HopDong.Size = new System.Drawing.Size(1080, 429);
             this.grid_HopDong.TabIndex = 202;
             this.grid_HopDong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_HopDong_CellClick);
             // 
@@ -321,7 +320,7 @@
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "hdongAdmin";
-            this.Size = new System.Drawing.Size(1502, 645);
+            this.Size = new System.Drawing.Size(1831, 645);
             this.Load += new System.EventHandler(this.hdongAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_HopDong)).EndInit();
             this.ResumeLayout(false);

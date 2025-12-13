@@ -30,8 +30,6 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chk_ChuaThue = new System.Windows.Forms.CheckBox();
-            this.chk_DaThue = new System.Windows.Forms.CheckBox();
             this.grid_PhongTro = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +46,8 @@
             this.txt_MaPhong_PT = new System.Windows.Forms.TextBox();
             this.txt_GhiChu_PT = new System.Windows.Forms.TextBox();
             this.btn_LamMoi_PT = new System.Windows.Forms.Button();
+            this.chk_DaThue = new System.Windows.Forms.CheckBox();
+            this.chk_ChuaThue = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_PhongTro)).BeginInit();
             this.SuspendLayout();
@@ -82,32 +82,6 @@
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách phòng trọ";
-            // 
-            // chk_ChuaThue
-            // 
-            this.chk_ChuaThue.AutoSize = true;
-            this.chk_ChuaThue.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_ChuaThue.Location = new System.Drawing.Point(126, 45);
-            this.chk_ChuaThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chk_ChuaThue.Name = "chk_ChuaThue";
-            this.chk_ChuaThue.Size = new System.Drawing.Size(120, 33);
-            this.chk_ChuaThue.TabIndex = 2;
-            this.chk_ChuaThue.Text = "Chưa thuê";
-            this.chk_ChuaThue.UseVisualStyleBackColor = true;
-            this.chk_ChuaThue.CheckedChanged += new System.EventHandler(this.chk_ChuaThue_CheckedChanged);
-            // 
-            // chk_DaThue
-            // 
-            this.chk_DaThue.AutoSize = true;
-            this.chk_DaThue.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_DaThue.Location = new System.Drawing.Point(14, 45);
-            this.chk_DaThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chk_DaThue.Name = "chk_DaThue";
-            this.chk_DaThue.Size = new System.Drawing.Size(100, 33);
-            this.chk_DaThue.TabIndex = 1;
-            this.chk_DaThue.Text = "Đã thuê";
-            this.chk_DaThue.UseVisualStyleBackColor = true;
-            this.chk_DaThue.CheckedChanged += new System.EventHandler(this.chk_DaThue_CheckedChanged);
             // 
             // grid_PhongTro
             // 
@@ -284,6 +258,32 @@
             this.btn_LamMoi_PT.UseVisualStyleBackColor = true;
             this.btn_LamMoi_PT.Click += new System.EventHandler(this.btn_LamMoi_PT_Click);
             // 
+            // chk_DaThue
+            // 
+            this.chk_DaThue.AutoSize = true;
+            this.chk_DaThue.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_DaThue.Location = new System.Drawing.Point(14, 45);
+            this.chk_DaThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chk_DaThue.Name = "chk_DaThue";
+            this.chk_DaThue.Size = new System.Drawing.Size(100, 33);
+            this.chk_DaThue.TabIndex = 1;
+            this.chk_DaThue.Text = "Đã thuê";
+            this.chk_DaThue.UseVisualStyleBackColor = true;
+            this.chk_DaThue.CheckedChanged += new System.EventHandler(this.chk_DaThue_CheckedChanged);
+            // 
+            // chk_ChuaThue
+            // 
+            this.chk_ChuaThue.AutoSize = true;
+            this.chk_ChuaThue.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_ChuaThue.Location = new System.Drawing.Point(126, 45);
+            this.chk_ChuaThue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chk_ChuaThue.Name = "chk_ChuaThue";
+            this.chk_ChuaThue.Size = new System.Drawing.Size(120, 33);
+            this.chk_ChuaThue.TabIndex = 2;
+            this.chk_ChuaThue.Text = "Chưa thuê";
+            this.chk_ChuaThue.UseVisualStyleBackColor = true;
+            this.chk_ChuaThue.CheckedChanged += new System.EventHandler(this.chk_ChuaThue_CheckedChanged);
+            // 
             // ptroAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -320,8 +320,6 @@
         #endregion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox chk_ChuaThue;
-        private System.Windows.Forms.CheckBox chk_DaThue;
         private System.Windows.Forms.DataGridView grid_PhongTro;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -338,5 +336,7 @@
         private System.Windows.Forms.TextBox txt_MaPhong_PT;
         private System.Windows.Forms.TextBox txt_GhiChu_PT;
         private System.Windows.Forms.Button btn_LamMoi_PT;
+        private System.Windows.Forms.CheckBox chk_ChuaThue;
+        private System.Windows.Forms.CheckBox chk_DaThue;
     }
 }

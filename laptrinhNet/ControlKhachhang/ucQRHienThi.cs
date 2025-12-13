@@ -15,8 +15,8 @@ namespace laptrinhNet.ControlKhachhang
     {
         public event EventHandler ButtonBackClicked;
         string NganHang_ID = "MB";
-        string SoTaiKhoan = "0909123456";    // có thể thay bằng số thiệt 
-        string TenChuTaiKhoan = "NGUYEN VAN A";
+        string SoTaiKhoan = "0375157947";   
+        string TenChuTaiKhoan = "NGUYEN PHI HO";
         public ucQRHienThi(string maHD, decimal soTien)
         {
             InitializeComponent();
@@ -42,7 +42,6 @@ namespace laptrinhNet.ControlKhachhang
             catch (Exception ex)
             {
                 lblThongTin.Text = "Lỗi tải mã QR. Vui lòng kiểm tra kết nối mạng!";
-                MessageBox.Show("Không thể tải mã QR: " + ex.Message);
             }
         }
         private void btnQuayLai_Click(object sender, EventArgs e)
@@ -51,6 +50,12 @@ namespace laptrinhNet.ControlKhachhang
             {
                 ButtonBackClicked(this, EventArgs.Empty);
             }
+
+        }
+
+        private void picQR_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
