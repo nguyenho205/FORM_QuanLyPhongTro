@@ -25,6 +25,7 @@ namespace laptrinhNet.ControlNhanvien
 
             // 2. Tải danh sách công việc của riêng nhân viên này
             LoadDanhSachCongViec();
+            GiaoDien.ApplyTheme(this);
         }
 
         private void SetupGiaoDien()
@@ -108,5 +109,7 @@ namespace laptrinhNet.ControlNhanvien
                 return;
             }
         }
+
+
     }
 }

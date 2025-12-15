@@ -182,7 +182,7 @@ namespace laptrinhNet.ControlKhachhang
             }
         }
 
-        private void btnGiahan_Click_1(object sender, EventArgs e)
+        private void btnGiahan_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cboMaHD.Text)) return;
 
@@ -218,7 +218,7 @@ namespace laptrinhNet.ControlKhachhang
                 }
             }
         }
-        private void btnHuy_Click_1(object sender, EventArgs e)
+        private void btnHuy_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cboMaHD.Text)) return;
 
@@ -263,7 +263,7 @@ namespace laptrinhNet.ControlKhachhang
             }
         }
 
-        private void cboMaHD_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cboMaHD_SelectedIndexChanged(object sender, EventArgs e)
         {
             string maHD = cboMaHD.SelectedValue?.ToString() ?? cboMaHD.Text;
             LoadChiTietHopDong(maHD);
@@ -284,10 +284,7 @@ namespace laptrinhNet.ControlKhachhang
 
         }
 
-        private void btnGiahan_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
 

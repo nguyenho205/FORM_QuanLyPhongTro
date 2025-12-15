@@ -38,10 +38,11 @@ namespace laptrinhNet.ControlKhachhang
             chkBaoTri.CheckedChanged += FilterCheckBoxes_CheckedChanged;
 
          
-            dgvDanhSachPhong.CellClick += dgvDanhSachPhong_CellClick;
+            dgvDanhSachPhong.CellClick += dgvDanhSachPhong_CellClick_1;
 
             ApplyFilter();
             btnDangKyThue.Enabled = false;
+            GiaoDien.ApplyTheme(this);
         }
 
 
@@ -158,76 +159,12 @@ namespace laptrinhNet.ControlKhachhang
         private void btnDangky_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(txtMaPhong.Text))
-            {
-                MessageBox.Show("Vui lòng chọn một phòng Trống từ danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-         
-            Random rd = new Random();
-            string maYC = "YC" + rd.Next(100, 999).ToString();
-
-         
-            string noiDungYC = string.Format(
-                "Yêu cầu thuê phòng: {0}\n" +
-                "- Loại: {1}\n" +
-                "- Giá: {2} VNĐ\n" +
-                "- Thời gian thuê: {3} đến {4}\n" +
-                "- Ghi chú phòng: {5}\n" +
-                "- SĐT Liên hệ: {6}",
-                txtMaPhong.Text,                                
-                txtLoaiPhong.Text,                              
-                txtGiaPhong.Text,                               
-                dtpNgayThue.Value.ToString("dd/MM/yyyy"),       
-                dtpNgayKetThuc.Value.ToString("dd/MM/yyyy"),    
-                txtMoTa.Text,                                   
-                txtSDT.Text                                    
-            );
-
-       
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = @"
-                INSERT INTO YEUCAUHOTRO (MAYEUCAU, MAKH, NGAYGUI, NOIDUNG, TRANGTHAI, PHANHOI) 
-                VALUES (@MaYC, @MaKH, GETDATE(), @NoiDung, N'Chưa xử lý', N'Chờ nhân viên xác nhận')";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@MaYC", maYC);
-                    cmd.Parameters.AddWithValue("@MaKH", maKH_HienTai);
-                    cmd.Parameters.AddWithValue("@NoiDung", noiDungYC);
-
-                    int result = cmd.ExecuteNonQuery();
-
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Gửi yêu cầu thành công!\nMã yêu cầu: " + maYC, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        txtMaPhong.Text = "";
-                        txtLoaiPhong.Text = "";
-                        txtGiaPhong.Text = "";
-                        txtMoTa.Text = "";
-
-                        btnDangKyThue.Enabled = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không thể gửi yêu cầu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                }
-            }
+            
         }
 
         
 
-        private void dgvDanhSachPhong_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDanhSachPhong_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex >= dgvDanhSachPhong.Rows.Count) return;
 
@@ -309,6 +246,81 @@ namespace laptrinhNet.ControlKhachhang
         {
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnDangKyThue_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaPhong.Text))
+            {
+                MessageBox.Show("Vui lòng chọn một phòng Trống từ danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            Random rd = new Random();
+            string maYC = "YC" + rd.Next(100, 999).ToString();
+
+
+            string noiDungYC = string.Format(
+                "Yêu cầu thuê phòng: {0}\n" +
+                "- Loại: {1}\n" +
+                "- Giá: {2} VNĐ\n" +
+                "- Thời gian thuê: {3} đến {4}\n" +
+                "- Ghi chú phòng: {5}\n" +
+                "- SĐT Liên hệ: {6}",
+                txtMaPhong.Text,
+                txtLoaiPhong.Text,
+                txtGiaPhong.Text,
+                dtpNgayThue.Value.ToString("dd/MM/yyyy"),
+                dtpNgayKetThuc.Value.ToString("dd/MM/yyyy"),
+                txtMoTa.Text,
+                txtSDT.Text
+            );
+
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                INSERT INTO YEUCAUHOTRO (MAYEUCAU, MAKH, NGAYGUI, NOIDUNG, TRANGTHAI, PHANHOI) 
+                VALUES (@MaYC, @MaKH, GETDATE(), @NoiDung, N'Chưa xử lý', N'Chờ nhân viên xác nhận')";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MaYC", maYC);
+                    cmd.Parameters.AddWithValue("@MaKH", maKH_HienTai);
+                    cmd.Parameters.AddWithValue("@NoiDung", noiDungYC);
+
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Gửi yêu cầu thành công!\nMã yêu cầu: " + maYC, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        txtMaPhong.Text = "";
+                        txtLoaiPhong.Text = "";
+                        txtGiaPhong.Text = "";
+                        txtMoTa.Text = "";
+
+                        btnDangKyThue.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể gửi yêu cầu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
     }
 }
 
