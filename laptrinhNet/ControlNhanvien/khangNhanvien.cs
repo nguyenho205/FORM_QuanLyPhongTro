@@ -25,6 +25,7 @@ namespace laptrinhNet.ControlNhanvien
 
             // 2. Tải danh sách khách hàng
             LoadDanhSachKhachHang();
+            GiaoDien.ApplyTheme(this);
         }
 
         private void SetupGiaoDien()
@@ -61,6 +62,9 @@ namespace laptrinhNet.ControlNhanvien
                     if (dgvKhachHang.Columns["SDT"] != null) dgvKhachHang.Columns["SDT"].HeaderText = "SĐT";
                     if (dgvKhachHang.Columns["Email"] != null) dgvKhachHang.Columns["Email"].HeaderText = "Email";
                     if (dgvKhachHang.Columns["DiaChi"] != null) dgvKhachHang.Columns["DiaChi"].HeaderText = "Địa Chỉ Thường Trú";
+                    dgvKhachHang.Columns["DiaChi"].Width = 250;
+                    dgvKhachHang.Columns["TenKH"].Width = 150;
+                    dgvKhachHang.Columns["CCCD"].Width = 150;
                 }
             }
             catch (Exception ex)
@@ -68,7 +72,7 @@ namespace laptrinhNet.ControlNhanvien
             }
         }
 
-        private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvKhachHang_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -135,5 +139,7 @@ namespace laptrinhNet.ControlNhanvien
                 MessageBox.Show("Lỗi khi lưu: " + ex.Message, "Lỗi Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+       
     }
 }

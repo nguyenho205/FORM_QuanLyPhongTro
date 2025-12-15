@@ -285,6 +285,7 @@
     <Compile Include="Database\Entities\TAIKHOAN.cs" />
     <Compile Include="Database\Entities\THANNHAN_THUETRO.cs" />
     <Compile Include="Database\Entities\YEUCAUHOTRO.cs" />
+    <Compile Include="Database\GiaoDien.cs" />
     <Compile Include="Database\QLPhongTroDataContext.cs" />
     <Compile Include="FKhachHang.cs">
       <SubType>Form</SubType>

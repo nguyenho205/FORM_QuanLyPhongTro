@@ -22,6 +22,12 @@ namespace laptrinhNet.ControlNhanvien
         {
             SetupGiaoDien();
             LoadDanhSachPhong();
+            GiaoDien.ApplyTheme(this);
+
+            dgvNguoiO.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+
+ 
         }
 
         private void SetupGiaoDien()
@@ -90,7 +96,7 @@ namespace laptrinhNet.ControlNhanvien
             }
         }
 
-        private void dgvPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -125,9 +131,11 @@ namespace laptrinhNet.ControlNhanvien
 
                     dgvNguoiO.DataSource = listKhach.ToList();
 
-                    if (dgvNguoiO.Columns["TenKH"] != null) dgvNguoiO.Columns["TenKH"].HeaderText = "Khách đang ở";
+                    if (dgvNguoiO.Columns["TenKH"] != null) dgvNguoiO.Columns["TenKH"].HeaderText = "Tên khách hàng";
                     if (dgvNguoiO.Columns["SDT"] != null) dgvNguoiO.Columns["SDT"].HeaderText = "SĐT";
-                    if (dgvNguoiO.Columns["NgayVao"] != null) dgvNguoiO.Columns["NgayVao"].HeaderText = "Ngày vào";
+                    if (dgvNguoiO.Columns["NgayVao"] != null) dgvNguoiO.Columns["NgayVao"].HeaderText = "Ngày vào ở";
+                    dgvNguoiO.Columns["TenKH"].Width = 200;
+                    dgvNguoiO.Columns["NgayVao"].Width = 130;
                 }
             }
             catch { /* Bỏ qua lỗi nhỏ nếu không có khách */ }
@@ -150,7 +158,7 @@ namespace laptrinhNet.ControlNhanvien
             rtbGhiChu.SelectionStart = rtbGhiChu.Text.Length; // Nhảy xuống cuối
         }
 
-        private void btnCapNhat_Click(object sender, EventArgs e)
+        private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtMaPhong.Text))
             {
@@ -185,5 +193,6 @@ namespace laptrinhNet.ControlNhanvien
         {
 
         }
+
     }
 }

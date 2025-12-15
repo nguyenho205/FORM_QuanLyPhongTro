@@ -31,7 +31,19 @@ namespace laptrinhNet.ControlKhachhang
 
             checkAll.Checked = true;
 
-            btnClean_Click(sender, e);
+            btnClean_Click_1(sender, e);
+            GiaoDien.ApplyTheme(this);
+            txtMaPhanHoi.Enabled = false;
+            // 1. Bật tính năng tự động chỉnh chiều cao của dòng (Row)
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // 2. Chọn cột cần xuống dòng (Ví dụ cột "NoiDung" hoặc index cột)
+            // Lưu ý: Thay "NoiDung" bằng tên thật (Name) của cột trong code bạn
+            dataGridView1.Columns["NOIDUNG"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            // (Tùy chọn) Đặt chiều rộng cố định cho cột đó để nó không bị co giãn lung tung
+            dataGridView1.Columns["NOIDUNG"].Width = 300;
+
         }
         private void XuLyCheckbox(CheckBox chkDuocChon)
         {
@@ -101,7 +113,7 @@ namespace laptrinhNet.ControlKhachhang
             {
             }
         }
-        private void btnGui_Click(object sender, EventArgs e)
+        private void btnGui_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNoidung.Text))
             {
@@ -140,7 +152,7 @@ namespace laptrinhNet.ControlKhachhang
                         if (cmd.ExecuteNonQuery() > 0)
                         {
                             MessageBox.Show("Gửi yêu cầu thành công!", "Thông báo");
-                            btnClean_Click(sender, e);
+                            btnClean_Click_1(sender, e);
                             checkAll.Checked = true;
                         }
                     }
@@ -168,30 +180,42 @@ namespace laptrinhNet.ControlKhachhang
             }
             return maMoi;
         }
-        private void checkAll_CheckedChanged(object sender, EventArgs e)
+        private void checkAll_CheckedChanged_1(object sender, EventArgs e)
         {
             XuLyCheckbox(checkAll);
+            checkChuaXL.Checked = false;
+            checkDangXL.Checked = false;
+            checkDaXL.Checked = false;
         }
 
-        private void checkChuaXL_CheckedChanged(object sender, EventArgs e)
+        private void checkChuaXL_CheckedChanged_1(object sender, EventArgs e)
         {
             XuLyCheckbox(checkChuaXL);
+            checkAll.Checked = false;
+            checkDangXL.Checked = false;
+            checkDaXL.Checked = false;
         }
 
-        private void checkDangXL_CheckedChanged(object sender, EventArgs e)
+        private void checkDangXL_CheckedChanged_1(object sender, EventArgs e)
         {
             XuLyCheckbox(checkDangXL);
+            checkAll.Checked = false;
+            checkChuaXL.Checked = false;
+            checkDaXL.Checked = false;
         }
 
-        private void checkDaXL_CheckedChanged(object sender, EventArgs e)
+        private void checkDaXL_CheckedChanged_1(object sender, EventArgs e)
         {
             XuLyCheckbox(checkDaXL);
+            checkAll.Checked = false;
+            checkChuaXL.Checked = false;
+            checkDangXL.Checked = false;
         }
        
         
        
 
-        private void btnClean_Click(object sender, EventArgs e)
+        private void btnClean_Click_1(object sender, EventArgs e)
         {
             txtMaPhanHoi.Text = "(Tự động sinh)";
             txtNoidung.Clear();
@@ -206,7 +230,7 @@ namespace laptrinhNet.ControlKhachhang
             LoadDanhSachPhanHoi();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -273,6 +297,7 @@ namespace laptrinhNet.ControlKhachhang
                 // Có thể log lỗi
             }
         }
-      
+
+
     }
 }

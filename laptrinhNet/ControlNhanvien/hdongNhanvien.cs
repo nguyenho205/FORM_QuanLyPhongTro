@@ -24,14 +24,10 @@ namespace laptrinhNet.ControlNhanvien
 
         }
 
-        //private void hdongNhanvien_Load(object sender, EventArgs e)
-        //{
-        //    // 1. Cấu hình giao diện (Khóa nhập liệu)
-        //    SetupGiaoDien();
+        private void hdongNhanvien_Load(object sender, EventArgs e)
+        {
 
-        //    // 2. Tải danh sách hợp đồng
-        //    LoadDanhSachHopDong();
-        //}
+        }
 
         private void SetupGiaoDien()
         {
@@ -79,6 +75,7 @@ namespace laptrinhNet.ControlNhanvien
                     if (dgvHopDong.Columns["TenPhong"] != null) dgvHopDong.Columns["TenPhong"].HeaderText = "Phòng";
                     if (dgvHopDong.Columns["TenKhach"] != null) dgvHopDong.Columns["TenKhach"].HeaderText = "Khách Hàng";
                     if (dgvHopDong.Columns["TienCoc"] != null) dgvHopDong.Columns["TienCoc"].DefaultCellStyle.Format = "N0";
+                    dgvHopDong.Columns["TenKhach"].Width = 200;
                 }
             }
             catch (Exception ex)
@@ -110,7 +107,7 @@ namespace laptrinhNet.ControlNhanvien
 
         }
 
-        private void dgvHopDong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvHopDong_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -166,6 +163,7 @@ namespace laptrinhNet.ControlNhanvien
 
             // 2. Tải danh sách hợp đồng
             LoadDanhSachHopDong();
+            GiaoDien.ApplyTheme(this);
         }
 
         private void btnGuiHopDong_Click_1(object sender, EventArgs e)
@@ -180,5 +178,7 @@ namespace laptrinhNet.ControlNhanvien
         {
 
         }
+
+
     }
 }

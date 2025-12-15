@@ -25,9 +25,10 @@ namespace laptrinhNet.ControlAdmin
             // Optional: Configure DateTimePicker format if not set in Designer
             dtpThang.Format = DateTimePickerFormat.Custom;
             dtpThang.CustomFormat = "MM/yyyy";
+            GiaoDien.ApplyTheme(this);
         }
 
-        private void btn_XemThongKe_Click(object sender, EventArgs e)
+        private void btn_XemThongKe_Click_1(object sender, EventArgs e)
         {
             // 1. Get Month and Year from DateTimePicker
             DateTime ngayChon = dtpThang.Value;
@@ -136,5 +137,7 @@ namespace laptrinhNet.ControlAdmin
                 Cursor.Current = Cursors.Default;
             }
         }
+
+
     }
 }

@@ -52,6 +52,7 @@ namespace laptrinhNet.ControlAdmin
 
         private void nvienAdmin_Load(object sender, EventArgs e)
         {       
+            GiaoDien.ApplyTheme(this); // Áp dụng giao diện đẹp
             // 1. Cấu hình ComboBox Giới tính (Chỉ có Nam/Nữ)
             cbo_GioiTinh.Items.Clear();
             cbo_GioiTinh.Items.Add("Nam");
@@ -102,7 +103,7 @@ namespace laptrinhNet.ControlAdmin
                     NGAYPHANCONG = pc.NgayPhanCong ?? DateTime.Now
                 }).ToList();
 
-                grid_PhanCong.DataSource = list;
+                dataGridView1.DataSource = list;
             }
         }
         private void LoadDataNV()
@@ -250,33 +251,6 @@ namespace laptrinhNet.ControlAdmin
             }
         }
  
-
-        private void gridNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Kiểm tra dòng hợp lệ (tránh click vào tiêu đề)
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = gridNhanVien.Rows[e.RowIndex];
-
-                // 1. Đổ Mã NV lên ô textbox (Dù bị khóa nhưng code vẫn gán giá trị được!)
-                // Đây là bước quan trọng để nút Sửa biết đang sửa ai
-                txt_MaNV.Text = row.Cells["MaNV"].Value?.ToString();
-
-                // 2. Đổ các thông tin còn lại cho người dùng sửa
-                txt_TenNV.Text = row.Cells["TENNHANVIEN"].Value?.ToString();
-                txt_DiaChi.Text = row.Cells["DIACHI"].Value?.ToString();
-                txt_SoDT.Text = row.Cells["SODT_NV"].Value?.ToString();
-                txt_CCCD.Text = row.Cells["SOCMND_NHANVIEN"].Value?.ToString();
-                txt_Email.Text = row.Cells["EMAIL"].Value?.ToString();
-
-                // Xử lý ComboBox và DatePicker
-                cbo_GioiTinh.Text = row.Cells["GIOITINH"].Value?.ToString();
-                if (row.Cells["NGAYSINH"].Value != null)
-                {
-                    dtPick_NhanVien.Value = Convert.ToDateTime(row.Cells["NGAYSINH"].Value);
-                }
-            }
-        }
         //cÁC CHỨC NĂNG CỦA PHÂN CÔNG
         private string TaoMaPhanCongTuDong()
         {
@@ -299,7 +273,7 @@ namespace laptrinhNet.ControlAdmin
         private void btn_xoapc_Click(object sender, EventArgs e)
         {
             // 1. Kiểm tra xem có dòng nào đang được chọn không
-            if (grid_PhanCong.CurrentRow == null || grid_PhanCong.CurrentRow.Index < 0)
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
             {
                 MessageBox.Show("Vui lòng click chọn dòng phân công cần xóa trên bảng!", "Thông báo");
                 return;
@@ -307,7 +281,7 @@ namespace laptrinhNet.ControlAdmin
 
             // 2. Lấy Mã Phân Công từ dòng đang chọn trên Grid
             // Lưu ý: Tên cột "MaPhanCong" phải trùng với tên thuộc tính trong Class DTO hoặc tên cột DB
-            string maPCCanXoa = grid_PhanCong.CurrentRow.Cells["MAPC"].Value.ToString();
+            string maPCCanXoa = dataGridView1.CurrentRow.Cells["MAPC"].Value.ToString();
 
             // 3. Hỏi xác nhận trước khi xóa (Rất quan trọng để tránh xóa nhầm)
             DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phân công mã {maPCCanXoa} không?",
@@ -393,7 +367,7 @@ namespace laptrinhNet.ControlAdmin
         {
             if (e.RowIndex >= 0)
             {
-                var row = grid_PhanCong.Rows[e.RowIndex];
+                var row = dataGridView1.Rows[e.RowIndex];
 
                 txt_MaPC.Text = row.Cells["MAPC"].Value.ToString();
 
@@ -437,6 +411,32 @@ namespace laptrinhNet.ControlAdmin
             // 5. Ensure ID fields remain read-only (optional safety measure)
             txt_MaNV.Enabled = false;
             txt_MaPC.Enabled = false;
+        }
+
+        private void gridNhanVien_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = gridNhanVien.Rows[e.RowIndex];
+
+                // 1. Đổ Mã NV lên ô textbox (Dù bị khóa nhưng code vẫn gán giá trị được!)
+                // Đây là bước quan trọng để nút Sửa biết đang sửa ai
+                txt_MaNV.Text = row.Cells["MaNV"].Value?.ToString();
+
+                // 2. Đổ các thông tin còn lại cho người dùng sửa
+                txt_TenNV.Text = row.Cells["TENNHANVIEN"].Value?.ToString();
+                txt_DiaChi.Text = row.Cells["DIACHI"].Value?.ToString();
+                txt_SoDT.Text = row.Cells["SODT_NV"].Value?.ToString();
+                txt_CCCD.Text = row.Cells["SOCMND_NHANVIEN"].Value?.ToString();
+                txt_Email.Text = row.Cells["EMAIL"].Value?.ToString();
+
+                // Xử lý ComboBox và DatePicker
+                cbo_GioiTinh.Text = row.Cells["GIOITINH"].Value?.ToString();
+                if (row.Cells["NGAYSINH"].Value != null)
+                {
+                    dtPick_NhanVien.Value = Convert.ToDateTime(row.Cells["NGAYSINH"].Value);
+                }
+            }
         }
     }
 }

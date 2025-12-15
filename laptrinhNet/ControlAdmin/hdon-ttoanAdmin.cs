@@ -1,5 +1,6 @@
 ﻿using laptrinhNet.Database;
 using laptrinhNet.Database.DTOs;
+using laptrinhNet.Database.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -40,6 +41,7 @@ namespace laptrinhNet.ControlAdmin
 
             LoadDataHoaDon();
 
+            GiaoDien.ApplyTheme(this);
             txt_TienNuoc.Enabled = false;
             txt_TienDien.Enabled = false;
             txt_TienWifi.Enabled = false;
@@ -81,9 +83,15 @@ namespace laptrinhNet.ControlAdmin
         {
             using (var db = new QLPhongTroDataContext())
             {
-                cbo_MaDV.DataSource = db.DichVus.ToList();
+                var listDV = db.DichVus.ToList();
+
                 cbo_MaDV.DisplayMember = "MaDV";
                 cbo_MaDV.ValueMember = "MaDV";
+
+                cbo_MaDV.DataSource = listDV;
+
+
+                cbo_MaDV.SelectedIndex = -1;
             }
         }
 
@@ -99,16 +107,30 @@ namespace laptrinhNet.ControlAdmin
         {
             txt_TenDV.Text = "";
             txt_DonGia.Text = "";
-            txt_GhiChu.Text = "";
+            txt_GhiChu_DV.Text = "";
             cbo_LoaiDV.SelectedIndex = -1;
         }
 
         // --- SERVICE MANAGEMENT EVENTS ---
 
-        private void cbo_MaDV_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbo_MaDV_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (cbo_MaDV.SelectedValue == null) return;
-            string maDVChon = cbo_MaDV.SelectedValue.ToString();
+            if (cbo_MaDV.SelectedIndex == -1 || cbo_MaDV.SelectedValue == null)
+            {
+                ResetForm(); // Xóa trắng các ô nhập liệu nếu không chọn mã nào
+                return;
+            }
+
+
+            string maDVChon = "";
+            if (cbo_MaDV.SelectedValue is DichVu dvObj)
+            {
+                maDVChon = dvObj.MaDV; // Trường hợp nó trả về Object
+            }
+            else
+            {
+                maDVChon = cbo_MaDV.SelectedValue.ToString(); // Trường hợp nó trả về String (ValueMember)
+            }
 
             using (var db = new QLPhongTroDataContext())
             {
@@ -116,9 +138,11 @@ namespace laptrinhNet.ControlAdmin
                 if (dv != null)
                 {
                     txt_TenDV.Text = dv.TenDV;
-                    txt_DonGia.Text = dv.DonGia.ToString();
+
+                    txt_DonGia.Text = (dv.DonGia ?? 0).ToString("N0").Replace(",", ""); // Hoặc để nguyên .ToString()
+
                     cbo_LoaiDV.Text = dv.LoaiDichVu;
-                    txt_GhiChu.Text = dv.GhiChu;
+                    txt_GhiChu_DV.Text = dv.GhiChu;
                 }
             }
         }
@@ -132,7 +156,7 @@ namespace laptrinhNet.ControlAdmin
             }
         }
 
-        private void btn_SuaDV_Click(object sender, EventArgs e)
+        private void btn_SuaDV_Click_1(object sender, EventArgs e)
         {
             if (cbo_MaDV.SelectedValue == null || string.IsNullOrEmpty(cbo_MaDV.Text))
             {
@@ -157,7 +181,7 @@ namespace laptrinhNet.ControlAdmin
                     decimal.TryParse(txt_DonGia.Text, out decimal donGia);
                     dv.DonGia = donGia;
                     dv.LoaiDichVu = cbo_LoaiDV.Text;
-                    dv.GhiChu = txt_GhiChu.Text;
+                    dv.GhiChu = txt_GhiChu_DV.Text;
 
                     db.SaveChanges();
                     MessageBox.Show("Cập nhật dịch vụ thành công!");
@@ -202,56 +226,10 @@ namespace laptrinhNet.ControlAdmin
 
         private void grid_HoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-
-            string maHD = grid_HoaDon.Rows[e.RowIndex].Cells["MaHD"].Value?.ToString();
-            txtMaHD.Text = maHD;
-            txtMaHD.Enabled = false;
-
-            // Use AsNoTracking() to ignore cache and fetch fresh data
-            using (var db = new QLPhongTroDataContext())
-            {
-                var hd = db.HoaDons.AsNoTracking().FirstOrDefault(x => x.MaHD == maHD);
-                if (hd == null) return;
-                var hopDong = db.HopDongs.AsNoTracking().FirstOrDefault(h => h.MaHopDong == hd.MaHopDong);
-
-                // Basic Info
-                txtSoPhong.Text = hopDong?.PhongTroData?.TenPhong;
-                txt_TenKH.Text = hopDong?.KhachHangData?.TenKH;
-                cbo_TrangThaiTT.Text = hd.TrangThaiThanhToan;
-                txt_GhiChu.Text = hd.GhiChu;
-                cbo_Phuongthuc_TT.Text = hd.PhuongThucTT;
-                dt_NgayTT_HD.Value = hd.NgayThanhToan ?? DateTime.Now;
-                // Room Price
-                decimal tienPhong = 0;
-                if (hopDong?.PhongTroData?.LoaiPTDaTa != null)
-                    tienPhong = hopDong.PhongTroData.LoaiPTDaTa.GiaPhong ?? 0;
-                txt_TienPhong.Text = tienPhong.ToString("N0");
-
-                // Detail Services (Using AsNoTracking + Trim + ToUpper)
-                var listChiTiet = db.CT_HoaDons.AsNoTracking().Where(ct => ct.MaHD == maHD).ToList();
-
-                // Electricity (DV01)
-                var ctDien = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV01");
-                txt_SoDien.Text = (ctDien?.SoLuong ?? 0).ToString();
-                txt_TienDien.Text = (ctDien?.ThanhTien ?? 0).ToString("N0");
-
-                // Water (DV02)
-                var ctNuoc = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV02");
-                txt_SoNuoc.Text = (ctNuoc?.SoLuong ?? 0).ToString();
-                txt_TienNuoc.Text = (ctNuoc?.ThanhTien ?? 0).ToString("N0");
-
-                // Wifi (DV03)
-                var ctWifi = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV03");
-                txt_TienWifi.Text = (ctWifi?.ThanhTien ?? 0).ToString("N0");
-                var ctRac = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV04");
-                txt_TienRac.Text = (ctRac?.ThanhTien ?? 0).ToString("N0");
-                // Total
-                txt_TongTien.Text = (hd.TongTien ?? 0).ToString("N0");
-            }
+          
         }
 
-        private void btn_SuaHD_Click_1(object sender, EventArgs e)
+        private void btn_SuaHD_Click(object sender, EventArgs e)
         {
             // 1. Kiểm tra đầu vào
             if (string.IsNullOrEmpty(txtMaHD.Text))
@@ -313,7 +291,7 @@ namespace laptrinhNet.ControlAdmin
 
                 // 7. CẬP NHẬT TRẠNG THÁI & NGÀY THANH TOÁN
                 hd.TrangThaiThanhToan = cbo_TrangThaiTT.Text;
-                hd.GhiChu = txt_GhiChu.Text;
+                hd.GhiChu = txt_GhiChu_DV.Text;
 
                 if (cbo_TrangThaiTT.Text == "Đã thanh toán")
                 {
@@ -363,11 +341,146 @@ namespace laptrinhNet.ControlAdmin
             }
         }
 
-        private void txt_SoLuong_TextChanged(object sender, EventArgs e)
+        private void grid_HoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+
+            string maHD = grid_HoaDon.Rows[e.RowIndex].Cells["MaHD"].Value?.ToString();
+            txtMaHD.Text = maHD;
+            txtMaHD.Enabled = false;
+
+            // Use AsNoTracking() to ignore cache and fetch fresh data
+            using (var db = new QLPhongTroDataContext())
+            {
+                var hd = db.HoaDons.AsNoTracking().FirstOrDefault(x => x.MaHD == maHD);
+                if (hd == null) return;
+                var hopDong = db.HopDongs.AsNoTracking().FirstOrDefault(h => h.MaHopDong == hd.MaHopDong);
+
+                // Basic Info
+                txtSoPhong.Text = hopDong?.PhongTroData?.TenPhong;
+                txt_TenKH.Text = hopDong?.KhachHangData?.TenKH;
+                cbo_TrangThaiTT.Text = hd.TrangThaiThanhToan;
+                txt_GhiChu_HD.Text = hd.GhiChu;
+                cbo_Phuongthuc_TT.Text = hd.PhuongThucTT;
+                dt_NgayTT_HD.Value = hd.NgayThanhToan ?? DateTime.Now;
+                // Room Price
+                decimal tienPhong = 0;
+                if (hopDong?.PhongTroData?.LoaiPTDaTa != null)
+                    tienPhong = hopDong.PhongTroData.LoaiPTDaTa.GiaPhong ?? 0;
+                txt_TienPhong.Text = tienPhong.ToString("N0");
+
+                // Detail Services (Using AsNoTracking + Trim + ToUpper)
+                var listChiTiet = db.CT_HoaDons.AsNoTracking().Where(ct => ct.MaHD == maHD).ToList();
+
+                // Electricity (DV01)
+                var ctDien = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV01");
+                txt_SoDien.Text = (ctDien?.SoLuong ?? 0).ToString();
+                txt_TienDien.Text = (ctDien?.ThanhTien ?? 0).ToString("N0");
+
+                // Water (DV02)
+                var ctNuoc = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV02");
+                txt_SoNuoc.Text = (ctNuoc?.SoLuong ?? 0).ToString();
+                txt_TienNuoc.Text = (ctNuoc?.ThanhTien ?? 0).ToString("N0");
+
+                // Wifi (DV03)
+                var ctWifi = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV03");
+                txt_TienWifi.Text = (ctWifi?.ThanhTien ?? 0).ToString("N0");
+                var ctRac = listChiTiet.FirstOrDefault(ct => ct.MaDV != null && ct.MaDV.Trim().ToUpper() == "DV04");
+                txt_TienRac.Text = (ctRac?.ThanhTien ?? 0).ToString("N0");
+                // Total
+                txt_TongTien.Text = (hd.TongTien ?? 0).ToString("N0");
+            }
         }
 
-        private void txt_TongTien_TextChanged(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra đầu vào
+            if (string.IsNullOrEmpty(txtMaHD.Text))
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn cần xóa từ danh sách!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Hỏi xác nhận (Quan trọng)
+            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa hóa đơn [{txtMaHD.Text}] không?\n\nLưu ý: Dữ liệu chi tiết điện/nước của hóa đơn này cũng sẽ bị xóa.",
+                                                  "Xác nhận xóa",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                using (var db = new QLPhongTroDataContext())
+                {
+                    try
+                    {
+                        // Tìm hóa đơn
+                        var hd = db.HoaDons.FirstOrDefault(x => x.MaHD == txtMaHD.Text);
+
+                        if (hd != null)
+                        {
+  
+                            var listChiTiet = db.CT_HoaDons.Where(ct => ct.MaHD == hd.MaHD).ToList();
+
+                            // Xóa danh sách chi tiết
+                            if (listChiTiet.Count > 0)
+                            {
+                                db.CT_HoaDons.RemoveRange(listChiTiet);
+                            }
+
+                            // --- SAU ĐÓ XÓA HÓA ĐƠN CHÍNH ---
+                            db.HoaDons.Remove(hd);
+
+                            // Lưu thay đổi xuống CSDL
+                            db.SaveChanges();
+
+                            MessageBox.Show("Xóa hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Cập nhật lại giao diện
+                            LoadDataHoaDon();
+                            ClearInputHoaDon(); // Hàm xóa trắng ô nhập (xem bên dưới)
+                        }
+                        else
+                        {
+                            MessageBox.Show("Hóa đơn không tồn tại hoặc đã bị xóa bởi người khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Bắt lỗi nếu có (ví dụ lỗi ràng buộc dữ liệu khác)
+                    }
+                }
+            }
+        }
+
+        // Hàm phụ để xóa trắng các ô nhập liệu sau khi xóa xong
+        private void ClearInputHoaDon()
+        {
+            txtMaHD.Text = "";
+            txtSoPhong.Text = "";
+            txt_TenKH.Text = "";
+            txt_SoDien.Text = "0";
+            txt_TienDien.Text = "0";
+            txt_SoNuoc.Text = "0";
+            txt_TienNuoc.Text = "0";
+            txt_TienWifi.Text = "0";
+            txt_TienRac.Text = "0";
+            txt_TienPhong.Text = "0";
+            txt_TongTien.Text = "0";
+            txt_GhiChu_HD.Text = "";
+            cbo_TrangThaiTT.SelectedIndex = -1;
+            cbo_Phuongthuc_TT.SelectedIndex = -1;
+            dt_NgayTT_HD.Value = DateTime.Now;
+
+            // Mở lại textbox Mã HD (nếu cần nhập mới)
+            txtMaHD.Enabled = true;
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

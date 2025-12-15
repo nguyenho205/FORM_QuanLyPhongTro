@@ -31,7 +31,7 @@ namespace laptrinhNet.ControlAdmin
             LoadComboBoxNhanVien();
             LoadComboBoxTrangThai();
             LoadDataPhanHoi(); // Mặc định load tất cả
-
+            GiaoDien.ApplyTheme(this);
             // Mặc định chọn radio "Tất cả"
             chk_DaXuLy.Checked = true;
         }
@@ -98,7 +98,7 @@ namespace laptrinhNet.ControlAdmin
             }
         }
 
-        private void grid_PhanHoi_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void grid_PhanHoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
@@ -210,5 +210,7 @@ namespace laptrinhNet.ControlAdmin
             chk_DangXuLy.Checked = false;
             chk_DaXuLy.Checked = false;
         }
+
+
     }
 }

@@ -46,6 +46,8 @@ namespace laptrinhNet.ControlKhachhang
             txtTienPhong.ReadOnly = true;
             txtTongTien.ReadOnly = true;
             txtSoPhongDangThue.ReadOnly = true;
+            GiaoDien.ApplyTheme(this);
+            label6.Size = new Size(200, 40);
         }
 
 
@@ -104,7 +106,7 @@ namespace laptrinhNet.ControlKhachhang
                 }
             }
         }
-        private void cboMaHD_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboMaHD_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (cboMaHD.SelectedValue == null) return;
 
@@ -202,7 +204,7 @@ namespace laptrinhNet.ControlKhachhang
             }
         }
 
-        private void btnXuat_Click(object sender, EventArgs e)
+        private void btnXuat_Click_1(object sender, EventArgs e)
         {
             if (cboMaHD.SelectedIndex == -1 || string.IsNullOrEmpty(txtTongTien.Text))
             {
@@ -405,7 +407,7 @@ namespace laptrinhNet.ControlKhachhang
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             if (cboMaHD.SelectedIndex == -1 || string.IsNullOrEmpty(txtTongTien.Text))
             {
@@ -448,6 +450,7 @@ namespace laptrinhNet.ControlKhachhang
             {
             }
         }
+
     }
 }
 

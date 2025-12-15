@@ -48,10 +48,10 @@
             // 
             // btnQuayLai
             // 
-            this.btnQuayLai.Location = new System.Drawing.Point(936, 585);
+            this.btnQuayLai.Location = new System.Drawing.Point(515, 673);
             this.btnQuayLai.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(264, 68);
+            this.btnQuayLai.Size = new System.Drawing.Size(209, 73);
             this.btnQuayLai.TabIndex = 1;
             this.btnQuayLai.Text = "Quay lại ";
             this.btnQuayLai.UseVisualStyleBackColor = true;
@@ -71,7 +71,7 @@
             // 
             this.lblThongTin.AutoSize = true;
             this.lblThongTin.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongTin.Location = new System.Drawing.Point(36, 25);
+            this.lblThongTin.Location = new System.Drawing.Point(290, 76);
             this.lblThongTin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblThongTin.Name = "lblThongTin";
             this.lblThongTin.Size = new System.Drawing.Size(84, 33);
@@ -88,7 +88,7 @@
             this.Controls.Add(this.picQR);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucQRHienThi";
-            this.Size = new System.Drawing.Size(1342, 751);
+            this.Size = new System.Drawing.Size(1342, 836);
             ((System.ComponentModel.ISupportInitialize)(this.picQR)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

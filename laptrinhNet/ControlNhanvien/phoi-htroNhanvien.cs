@@ -24,6 +24,18 @@ namespace laptrinhNet.ControlNhanvien
         {
             SetupGiaoDien();
             LoadDanhSachYeuCau();
+            GiaoDien.ApplyTheme(this);
+
+            // 1. Bật tính năng tự động chỉnh chiều cao của dòng (Row)
+            dgvYeuCau.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // 2. Chọn cột cần xuống dòng (Ví dụ cột "NoiDung" hoặc index cột)
+            // Lưu ý: Thay "NoiDung" bằng tên thật (Name) của cột trong code bạn
+            dgvYeuCau.Columns["NOIDUNG"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            // (Tùy chọn) Đặt chiều rộng cố định cho cột đó để nó không bị co giãn lung tung
+            dgvYeuCau.Columns["NOIDUNG"].Width = 300;
+            dgvYeuCau.Columns["TenKhach"].Width = 150;
         }
 
 
@@ -104,7 +116,7 @@ namespace laptrinhNet.ControlNhanvien
 
         }
 
-        private void btnGuiPhanHoi_Click(object sender, EventArgs e)
+        private void btnGuiPhanHoi_Click_1(object sender, EventArgs e)
         {
             // 1. Kiểm tra đầu vào
             if (string.IsNullOrEmpty(txtMaYeuCau.Text))
@@ -161,6 +173,8 @@ namespace laptrinhNet.ControlNhanvien
             {
             }
         }
+
+
     }
 
 }

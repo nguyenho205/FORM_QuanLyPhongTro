@@ -98,6 +98,24 @@ namespace laptrinhNet.ControlAdmin
             LoadCboKhachHang();
             LoadCboPhongTro();
             ResetForm();
+            GiaoDien.ApplyTheme(this);
+
+            grid_HopDong.Columns["TIENCOC"].DefaultCellStyle.Format = "N0";
+            grid_HopDong.Columns["TIENCOC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            grid_HopDong.Columns["MAHOPDONG"].Width = 120;
+            grid_HopDong.Columns["NGAYBD"].Width = 100;
+            grid_HopDong.Columns["NGAYKT"].Width = 100;
+            grid_HopDong.Columns["TIENCOC"].Width = 120;
+            grid_HopDong.Columns["TRANGTHAI"].Width = 100;
+
+            grid_HopDong.Columns["TENKH"].Width = 200;
+
+            grid_HopDong.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            grid_HopDong.Columns["NGAYBD"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grid_HopDong.Columns["NGAYKT"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grid_HopDong.Columns["MAHOPDONG"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void ResetForm()
@@ -211,34 +229,7 @@ namespace laptrinhNet.ControlAdmin
 
         private void grid_HopDong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                var row = grid_HopDong.Rows[e.RowIndex];
 
-                // 1. Đổ dữ liệu lên các Control
-                txt_MaHD.Text = row.Cells["MAHOPDONG"].Value.ToString();
-                txt_TrangThai_HD.Text = row.Cells["TRANGTHAI"].Value.ToString();
-                cbo_TenKH.Text = row.Cells["TENKH"].Value.ToString();
-                cbo_TenPhong_HD.Text = row.Cells["TENPHONG"].Value.ToString();
-
-                dt_NgayBD_HD.Value = Convert.ToDateTime(row.Cells["NGAYBD"].Value);
-                dt_NgayKT_HD.Value = Convert.ToDateTime(row.Cells["NGAYKT"].Value);
-
-                if (row.Cells["TIENCOC"].Value != null)
-                {
-                    txt_TienCoc_HD.Text = row.Cells["TIENCOC"].Value.ToString();
-                }
-
-                // 2. LOGIC GIA HẠN: Khóa các thông tin cố định
-                txt_MaHD.Enabled = false;
-                cbo_TenKH.Enabled = false;      
-                cbo_TenPhong_HD.Enabled = false; 
-                dt_NgayBD_HD.Enabled = false;    
-
-                // 3. Mở các thông tin được phép sửa
-                dt_NgayKT_HD.Enabled = true;    
-                txt_TienCoc_HD.Enabled = true; 
-            }
         }
 
         private void btn_HuyHopDong_Click(object sender, EventArgs e)
@@ -284,6 +275,47 @@ namespace laptrinhNet.ControlAdmin
         private void button1_Click(object sender, EventArgs e)
         {
             ResetForm();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void grid_HopDong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var row = grid_HopDong.Rows[e.RowIndex];
+
+                // 1. Đổ dữ liệu lên các Control
+                txt_MaHD.Text = row.Cells["MAHOPDONG"].Value.ToString();
+                txt_TrangThai_HD.Text = row.Cells["TRANGTHAI"].Value.ToString();
+                cbo_TenKH.Text = row.Cells["TENKH"].Value.ToString();
+                cbo_TenPhong_HD.Text = row.Cells["TENPHONG"].Value.ToString();
+
+                dt_NgayBD_HD.Value = Convert.ToDateTime(row.Cells["NGAYBD"].Value);
+                dt_NgayKT_HD.Value = Convert.ToDateTime(row.Cells["NGAYKT"].Value);
+
+                if (row.Cells["TIENCOC"].Value != DBNull.Value) // Kiểm tra dữ liệu null
+                {
+                    decimal tienCoc = Convert.ToDecimal(row.Cells["TIENCOC"].Value);
+
+                    txt_TienCoc_HD.Text = tienCoc.ToString("N0");
+                }
+                else
+                {
+                    txt_TienCoc_HD.Text = "0";
+                }
+
+                txt_MaHD.Enabled = false;
+                cbo_TenKH.Enabled = false;
+                cbo_TenPhong_HD.Enabled = false;
+                dt_NgayBD_HD.Enabled = false;
+
+                dt_NgayKT_HD.Enabled = true;
+                txt_TienCoc_HD.Enabled = true;
+            }
         }
     }
  }

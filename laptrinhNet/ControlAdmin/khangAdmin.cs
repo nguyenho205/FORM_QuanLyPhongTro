@@ -44,6 +44,9 @@ namespace laptrinhNet.ControlAdmin
         {
             LoadDataKhachHang();
             ResetForm(); // Để sinh mã tự động ban đầu
+            GiaoDien.ApplyTheme(this);
+            grid_KhachHang.Columns["EMAIL_KHACHHANG"].Width = 200; // Cột Tên Phòng rộng 200
+            grid_KhachHang.Columns["DIACHITHUONGTRU"].Width = 300;
         }
 
         private void LoadDataKhachHang()
@@ -79,17 +82,7 @@ namespace laptrinhNet.ControlAdmin
 
         private void grid_KhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                var row = grid_KhachHang.Rows[e.RowIndex];
-
-                txt_MaNV.Text = row.Cells["MAKH"].Value?.ToString();
-                txt_TenKH.Text = row.Cells["TENKH"].Value?.ToString();
-                txt_SDT.Text = row.Cells["SODIENTHOAI"].Value?.ToString();
-                txt_SoCCCD.Text = row.Cells["SOCMND"].Value?.ToString();
-                txt_Email.Text = row.Cells["EMAIL_KHACHHANG"].Value?.ToString();
-                txt_DiaChiThuongTru.Text = row.Cells["DIACHITHUONGTRU"].Value?.ToString();
-            }
+            
         }     
         private void btn_ThemNV_Click(object sender, EventArgs e)
         {
@@ -201,6 +194,26 @@ namespace laptrinhNet.ControlAdmin
             txt_MaNV.Enabled = false;
 
             txt_TenKH.Focus();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grid_KhachHang_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var row = grid_KhachHang.Rows[e.RowIndex];
+
+                txt_MaNV.Text = row.Cells["MAKH"].Value?.ToString();
+                txt_TenKH.Text = row.Cells["TENKH"].Value?.ToString();
+                txt_SDT.Text = row.Cells["SODIENTHOAI"].Value?.ToString();
+                txt_SoCCCD.Text = row.Cells["SOCMND"].Value?.ToString();
+                txt_Email.Text = row.Cells["EMAIL_KHACHHANG"].Value?.ToString();
+                txt_DiaChiThuongTru.Text = row.Cells["DIACHITHUONGTRU"].Value?.ToString();
+            }
         }
     }
 }

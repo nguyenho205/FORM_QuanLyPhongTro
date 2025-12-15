@@ -40,6 +40,7 @@ namespace laptrinhNet.ControlKhachhang
             LoadThongTinHopDong();
             txtMaKh.Enabled = false;
             txtSoNguoiO.Enabled = false;
+            GiaoDien.ApplyTheme(this);
         }
         public void LoadThongTinHopDong()
         {
@@ -178,7 +179,7 @@ namespace laptrinhNet.ControlKhachhang
 
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnSua_Click_1(object sender, EventArgs e)
         {
             string connectionString = DangNhap.ConnectionStringHienTai;
             string maKH = DangNhap.NguoiDungHienTai; // Lấy mã KH từ biến toàn cục (KH01)
@@ -264,5 +265,6 @@ namespace laptrinhNet.ControlKhachhang
                 }
             }
         }
+
     }
 }

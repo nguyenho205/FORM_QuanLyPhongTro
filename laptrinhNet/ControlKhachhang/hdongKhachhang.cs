@@ -53,6 +53,7 @@ namespace laptrinhNet.ControlKhachhang
 
             // Đảm bảo ComboBox vẫn chọn được
             cboMaHD.Enabled = true;
+            GiaoDien.ApplyTheme(this);
         }
         public void SetKhachHang(KhachHang kh) // 'kh' chỉ sống trong hàm này
         {
@@ -181,7 +182,7 @@ namespace laptrinhNet.ControlKhachhang
             }
         }
 
-        private void btnGiahan_Click(object sender, EventArgs e)
+        private void btnGiahan_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cboMaHD.Text)) return;
 
@@ -217,7 +218,7 @@ namespace laptrinhNet.ControlKhachhang
                 }
             }
         }
-        private void btnHuy_Click(object sender, EventArgs e)
+        private void btnHuy_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cboMaHD.Text)) return;
 
@@ -262,7 +263,7 @@ namespace laptrinhNet.ControlKhachhang
             }
         }
 
-        private void cboMaHD_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboMaHD_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string maHD = cboMaHD.SelectedValue?.ToString() ?? cboMaHD.Text;
             LoadChiTietHopDong(maHD);
@@ -274,6 +275,16 @@ namespace laptrinhNet.ControlKhachhang
         }
 
         private void txtCoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnGiahan_Click(object sender, EventArgs e)
         {
 
         }

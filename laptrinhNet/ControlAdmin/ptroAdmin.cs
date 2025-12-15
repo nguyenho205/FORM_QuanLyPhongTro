@@ -17,7 +17,7 @@ namespace laptrinhNet.ControlAdmin
 
         private void ptroAdmin_Load(object sender, EventArgs e)
         {
-
+            GiaoDien.ApplyTheme(this);
             LoadData();
 
         }
@@ -61,7 +61,7 @@ namespace laptrinhNet.ControlAdmin
 
         }
 
-        private void btn_ThemPhong_Click(object sender, EventArgs e)
+        private void btn_ThemPhong_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_MaPhong_PT.Text))
             {
@@ -169,7 +169,7 @@ namespace laptrinhNet.ControlAdmin
             // 1. Kiểm tra xem người dùng có đang chọn dòng nào trên Grid không
             if (grid_PhongTro.CurrentRow == null || grid_PhongTro.CurrentRow.Index < 0)
             {
-                MessageBox.Show("Vui lòng click chọn phòng cần xóa trên bảng!", "Thông báo");
+                MessageBox.Show("Vui lòng Click chọn phòng cần xóa trên bảng!", "Thông báo");
                 return;
             }
 
@@ -233,7 +233,7 @@ namespace laptrinhNet.ControlAdmin
             if (cbo_TrangThai_PT.Items.Count > 0)
                 cbo_TrangThai_PT.SelectedIndex = -1;
 
-            // 3. Mở khóa lại các điều khiển đã bị khóa ở sự kiện CellClick
+            // 3. Mở khóa lại các điều khiển đã bị khóa ở sự kiện CellClick_1
             // (Để người dùng có thể nhập Mã phòng mới khi muốn Thêm)
             txt_MaPhong_PT.Enabled = true;
             cbo_TenLoai_PT.Enabled = true;
@@ -244,6 +244,11 @@ namespace laptrinhNet.ControlAdmin
             // (Tùy chọn) Đặt con trỏ chuột vào ô Mã phòng để nhập liệu nhanh
             txt_MaPhong_PT.Focus();
        
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

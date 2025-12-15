@@ -60,7 +60,7 @@ namespace laptrinhNet.ControlNhanvien
                 txtTienWifi.TextChanged += TinhTongTien;
                 txtTienDien.TextChanged += TinhTongTien;
                 txtTienNuoc.TextChanged += TinhTongTien;
-
+                GiaoDien.ApplyTheme(this);
                 // Tự động sinh mã hóa đơn ngay khi mở form
                 TaoMaHoaDonTuDong();
             }
@@ -144,7 +144,7 @@ namespace laptrinhNet.ControlNhanvien
         }
 
         // --- 2. XỬ LÝ KHI CHỌN PHÒNG ---
-        private void cbbSoPhong_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbbSoPhong_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (cbbSoPhong.SelectedIndex == -1 || cbbSoPhong.SelectedValue == null) return;
 
@@ -195,7 +195,7 @@ namespace laptrinhNet.ControlNhanvien
             // Logic tính tổng (nếu muốn hiển thị realtime)
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThem_Click_1(object sender, EventArgs e)
         {
             if (txtTenKhachHang.Tag == null)
             {
@@ -283,7 +283,7 @@ namespace laptrinhNet.ControlNhanvien
             }
         }
 
-        private void btnBaoCao_Click_1(object sender, EventArgs e)
+        private void btnBaoCao_Click(object sender, EventArgs e)
         {
             try
             {
@@ -431,7 +431,7 @@ namespace laptrinhNet.ControlNhanvien
 
         }
 
-        private void dgvBaoCao_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvBaoCao_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra xem có click vào dòng dữ liệu không (tránh click vào tiêu đề)
             if (e.RowIndex >= 0)
@@ -448,5 +448,6 @@ namespace laptrinhNet.ControlNhanvien
                 }
             }
         }
+
     }
 }

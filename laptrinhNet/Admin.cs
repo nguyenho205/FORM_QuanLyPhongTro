@@ -96,5 +96,10 @@ namespace laptrinhNet
         {
 
         }
+
+        private void tke_bcaoAdmin1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
